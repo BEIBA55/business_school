@@ -10,7 +10,8 @@ import PagerIndicator from '../../components/ui/PagerIndicator';
 const Homepage = () => {
   const [formData, setFormData] = useState({
     name: '',
-    phone: ''
+    phone: '',
+    email: ''
   });
 
   const [currentAccreditationPage, setCurrentAccreditationPage] = useState(0);
@@ -44,7 +45,7 @@ const Homepage = () => {
 
   const handleConsultationSubmit = () => {
     alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-    setFormData({ name: '', phone: '' });
+    setFormData({ name: '', phone: '', email: '' });
   };
 
   const handleContactSubmit = () => {
@@ -152,7 +153,7 @@ const Homepage = () => {
   ];
 
   const programs = [
-    // MBA программы
+    // MBA блок
     {
       title: 'MBA',
       description: 'Полноценная программа MBA для формирования лидеров нового поколения. Стратегическое управление, финансы, маркетинг. 2 года обучения.',
@@ -161,14 +162,42 @@ const Homepage = () => {
       price: '3 000 000 тенге'
     },
     {
-      title: 'MBA Active (1 год)',
-      description: 'Ускоренная программа MBA для быстрого карьерного роста. Стратегическое управление и корпоративное управление за 1 год.',
+      title: 'MBA Программа Прикладных Финансов',
+      description: 'Специализированная программа MBA с углубленным изучением финансов, финансового анализа и корпоративных финансов.',
       type: 'MBA',
-      duration: '1 год',
-      price: '2 500 000 тенге'
+      duration: '2 года',
+      price: '3 200 000 тенге'
+    },
+    {
+      title: 'MBA "Устойчивое предпринимательство"',
+      description: 'Программа MBA с фокусом на устойчивое развитие бизнеса, экологически ответственное предпринимательство и социальное воздействие.',
+      type: 'MBA',
+      duration: '2 года',
+      price: '3 100 000 тенге'
+    },
+    {
+      title: 'MBA "ИИ в бизнесе"',
+      description: 'Инновационная программа MBA, посвященная применению искусственного интеллекта в современном бизнесе и цифровой трансформации.',
+      type: 'MBA',
+      duration: '2 года',
+      price: '3 300 000 тенге'
+    },
+    {
+      title: 'MBA "Креативная экономика"',
+      description: 'Программа MBA для развития навыков управления в креативных индустриях, медиа, искусстве и инновационной экономике.',
+      type: 'MBA',
+      duration: '2 года',
+      price: '3 000 000 тенге'
+    },
+    {
+      title: 'MBA "Финансовые технологии (FinTech)"',
+      description: 'Специализированная программа MBA для изучения финансовых технологий, блокчейна, цифровых платежей и инновационных финансовых услуг.',
+      type: 'MBA',
+      duration: '2 года',
+      price: '3 400 000 тенге'
     },
     
-    // Executive MBA программы
+    // Executive MBA блок
     {
       title: 'Executive MBA',
       description: 'Программа для топ-менеджеров. Стратегическое управление и бизнес-моделирование. Модульный формат для работающих руководителей.',
@@ -177,61 +206,36 @@ const Homepage = () => {
       price: '2 625 000 тенге'
     },
     {
-      title: 'Executive MBA (1 год)',
-      description: 'Ускоренная программа Executive MBA для опытных руководителей. Интенсивное обучение с фокусом на практические навыки.',
+      title: 'Executive MBA для руководителей НПО/НКО',
+      description: 'Специализированная программа Executive MBA для руководителей некоммерческих организаций и социальных предприятий.',
       type: 'Executive MBA',
       duration: '1 год',
       price: '2 400 000 тенге'
     },
-    
-    // DBA программы
     {
-      title: 'DBA',
-      description: 'Доктор делового администрирования. Высший уровень бизнес-образования для топ-руководителей и владельцев бизнеса.',
+      title: 'Executive MBA для CIO',
+      description: 'Программа Executive MBA для директоров по информационным технологиям и руководителей IT-подразделений.',
+      type: 'Executive MBA',
+      duration: '1 год',
+      price: '2 500 000 тенге'
+    },
+    
+    // DBA блок
+    {
+      title: 'DBA (Доктор делового администрирования)',
+      description: 'Высший уровень бизнес-образования для топ-руководителей и владельцев бизнеса. Программа для практикующих профессионалов.',
       type: 'DBA',
       duration: '3 года',
       price: '4 500 000 тенге'
     },
     
-    // Специализированные программы
-    {
-      title: 'MBA "Прикладные финансы"',
-      description: 'Специализированная программа MBA с углубленным изучением финансов, финансового анализа и корпоративных финансов.',
-      type: 'MBA',
-      duration: '2 года',
-      price: '3 200 000 тенге'
-    },
+    // Магистратура
     {
       title: 'MSc in Finance',
       description: 'Магистр наук в области финансов. Программа для специалистов, желающих углубить знания в финансовой сфере.',
       type: 'Магистратура',
       duration: '1.5 года',
       price: '2 800 000 тенге'
-    },
-    
-    // Executive Education
-    {
-      title: 'Executive Education',
-      description: 'Краткосрочные программы для руководителей. Тренинги, семинары и корпоративные программы повышения квалификации.',
-      type: 'Executive Education',
-      duration: 'От 1 дня до 3 месяцев',
-      price: 'От 150 000 тенге'
-    },
-    {
-      title: 'Корпоративные программы',
-      description: 'Индивидуальные программы обучения для компаний. Разработка под специфические потребности организации.',
-      type: 'Executive Education',
-      duration: 'По запросу',
-      price: 'По запросу'
-    },
-    
-    // Международные программы
-    {
-      title: 'Двойной диплом MBA',
-      description: 'Программа двойного диплома с международными партнерами. Возможность получить степень MBA двух университетов.',
-      type: 'MBA',
-      duration: '2 года',
-      price: '4 000 000 тенге'
     }
   ];
 
@@ -310,9 +314,6 @@ const Homepage = () => {
     if (activeProgram === 'Все программы') {
       return true;
     }
-    if (activeProgram === 'Executive Education' && (program.type === 'Executive Education')) {
-      return true;
-    }
     return program.type === activeProgram;
   });
 
@@ -321,28 +322,54 @@ const Homepage = () => {
       <Header />
       
       {/* Hero Section */}
-      <div 
-        className="relative h-screen min-h-[600px] bg-cover bg-center"
-        style={{ backgroundImage: `url('/images/img_.png')` }}
-      >
+      <div className="relative h-screen min-h-[600px] overflow-hidden">
+        {/* Background Video */}
+        <video 
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          autoPlay 
+          muted 
+          loop
+          playsInline
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          <source src="/videos/hero-bg.webm" type="video/webm" />
+          {/* Fallback image if video doesn't load */}
+          <img src="/images/img_.png" alt="Background" className="w-full h-full object-cover" />
+        </video>
+        
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="absolute bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-8">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-10 drop-shadow-lg text-center">
-            Learning today, leading tomorrow
+        
+        {/* Title Section - Centered */}
+        <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 flex flex-col items-center px-4 sm:px-8">
+          <h1 className="text-white text-5xl sm:text-6xl md:text-7xl font-bold leading-tight drop-shadow-lg text-center">
+            Narxoz Business School
           </h1>
-          {/* Contact Form */}
+        </div>
+
+        {/* Contact Form - Bottom */}
+        <div className="absolute bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-8">
+          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-medium leading-tight mb-6 drop-shadow-lg text-center">
+            Leading today, changing the world tomorrow
+          </h2>
           <form
-            className="flex flex-col sm:flex-row gap-2 w-full max-w-xl mx-auto"
+            className="flex flex-col sm:flex-row gap-2 w-full max-w-4xl mx-auto"
             onSubmit={e => { e.preventDefault(); handleConsultationSubmit(); }}
           >
             <EditText
-              placeholder="Имя"
+              placeholder="ФИО"
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
             />
             <EditText
-              placeholder="Номер"
+              placeholder="Email"
+              type="email"
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
+            />
+            <EditText
+              placeholder="Номер телефона"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
               className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
@@ -359,30 +386,18 @@ const Homepage = () => {
       </div>
 
       {/* About Section */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="slide-in-left">
-            <img 
-              src="/images/img_rectangle_1156.png" 
-              alt="Business School Building" 
-              className="w-full h-auto rounded-lg hover-scale"
-            />
-          </div>
-          <div className="slide-in-right">
-            <h2 className="text-dark text-4xl font-bold leading-tight mb-6">
-              О бизнес школе
-            </h2>
-            <p className="text-muted text-lg leading-relaxed">
-              Narxoz Business School – бизнес-образование мирового уровня в сердце Центральной Азии. 
-              Narxoz Business School – это ведущая бизнес-школа Центральной Азии, предлагающая 
-              высококачественные программы MBA, Executive MBA, DBA и корпоративные тренинги. 
-              Мы готовим лидеров, способных трансформировать бизнес, создавать инновации и принимать 
-              стратегические решения в условиях глобальной конкуренции и быстро меняющегося мира. 
-              Наша школа – это пространство, где знания сочетаются с практикой, а учебный процесс 
-              строится вокруг потребностей современных руководителей, предпринимателей и специалистов, 
-              стремящихся к карьерному росту, международной интеграции и устойчивому развитию
-            </p>
-          </div>
+      <div className="py-20 px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-dark text-4xl font-bold leading-tight mb-12 slide-in-up">
+            О бизнес школе
+          </h2>
+          <p className="text-gray-600 text-xl leading-relaxed slide-in-up">
+            Narxoz Business School готовит новое поколение лидеров, способных формировать устойчивое 
+            будущее в Центральной Азии и за её пределами. Наши программы MBA, Executive MBA, DBA и 
+            корпоративного обучения сочетают передовые исследования с практикой, помогая руководителям 
+            и предпринимателям развивать видение, навыки и смелость для внедрения инноваций и лидерства 
+            в быстро меняющемся мире. Вместе мы поднимаем стандарты бизнес-образования в регионе.
+          </p>
         </div>
       </div>
 
@@ -432,12 +447,6 @@ const Homepage = () => {
             onClick={() => handleProgramSelect('Магистратура')}
           >
             Магистратура
-          </Button>
-          <Button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[160px] text-center ${activeProgram === 'Executive Education' ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect('Executive Education')}
-          >
-            Executive Education
           </Button>
         </div>
 
