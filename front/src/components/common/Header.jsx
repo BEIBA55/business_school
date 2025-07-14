@@ -74,9 +74,10 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Navigation Menu */}
-        <div className="hidden lg:flex items-center space-x-6">
-          <div className="flex items-center space-x-6">
+        {/* Контейнер для меню, поиска и иконок */}
+        <div className="flex items-center flex-1 justify-between min-w-0 ml-6">
+          {/* Navigation Menu */}
+          <div className="hidden lg:flex items-center space-x-6 flex-shrink-0">
             {/* Programs Dropdown */}
             <div 
               className="relative"
@@ -122,12 +123,7 @@ const Header = () => {
                     >
                       Магистратура
             </Link>
-            <Link 
-                      to="/programs/executive-education"
-                      className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
-                    >
-                      Executive Education
-                    </Link>
+            
                   </div>
                 </div>
               )}
@@ -188,6 +184,12 @@ const Header = () => {
             >
               Расписание
             </Link>
+            <Link 
+              to="/programs/executive-education" 
+              className="text-gray-700 text-sm font-medium hover:text-black transition-colors"
+            >
+              Executive Education
+            </Link>
             <div className="text-gray-700 text-sm font-medium hover:text-black transition-colors cursor-pointer">
               Корпоративным клиентам
             </div>
@@ -196,77 +198,80 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Search */}
-          <div className="flex items-center ml-4">
-            {!isSearchOpen ? (
-              <div 
-                className="bg-gray-100 flex items-center px-3 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition-colors"
-                onClick={toggleSearch}
-              >
-                <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 mr-1" />
-                <span className="text-gray-500 text-sm">Поиск</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSearchSubmit} className="flex items-center">
-                <div className="bg-gray-100 flex items-center px-3 py-2 rounded-full">
-                  <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 mr-2" />
-                  <input
-                    id="search-input"
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Введите запрос..."
-                    className="bg-transparent outline-none text-sm text-gray-700 placeholder-gray-500 w-48"
-                    onBlur={() => {
-                      // Закрываем поиск если поле пустое и потеряло фокус
-                      if (!searchQuery.trim()) {
-                        setTimeout(() => setIsSearchOpen(false), 150);
-                      }
-                    }}
-                  />
-                  <button 
-                    type="button"
-                    onClick={toggleSearch}
-                    className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
+          {/* Search + Social */}
+          <div className="flex items-center min-w-0 ml-auto">
+            {/* Search */}
+            <div className="flex items-center min-w-0">
+              {!isSearchOpen ? (
+                <div 
+                  className="bg-gray-100 flex items-center px-3 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition-colors min-w-[140px] max-w-[180px]"
+                  onClick={toggleSearch}
+                  style={{ minWidth: 140 }}
+                >
+                  <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 mr-1" />
+                  <span className="text-gray-500 text-sm">Поиск</span>
                 </div>
-              </form>
-            )}
-          </div>
+              ) : (
+                <form onSubmit={handleSearchSubmit} className="flex items-center min-w-[140px] max-w-[180px]" style={{ minWidth: 140 }}>
+                  <div className="bg-gray-100 flex items-center px-3 py-2 rounded-full w-full">
+                    <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 mr-2" />
+                    <input
+                      id="search-input"
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Введите запрос..."
+                      className="bg-transparent outline-none text-sm text-gray-700 placeholder-gray-500 w-20 lg:w-32 min-w-0"
+                      onBlur={() => {
+                        if (!searchQuery.trim()) {
+                          setTimeout(() => setIsSearchOpen(false), 150);
+                        }
+                      }}
+                    />
+                    <button 
+                      type="button"
+                      onClick={toggleSearch}
+                      className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
 
-          {/* Social Icons */}
-          <div className="flex items-center space-x-3 ml-4">
-            <a 
-              href="https://wa.me/77272704314" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:opacity-70 transition-opacity"
-              title="WhatsApp"
-            >
-              <img src="/images/img_vector.svg" alt="WhatsApp" className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://t.me/narxoz_business_school" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:opacity-70 transition-opacity"
-              title="Telegram"
-            >
-              <img src="/images/img_vector_gray_600.svg" alt="Telegram" className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://instagram.com/narxoz_business_school" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:opacity-70 transition-opacity"
-              title="Instagram"
-            >
-              <img src="/images/img_vector_gray_600_25x25.svg" alt="Instagram" className="w-5 h-5" />
-            </a>
+            {/* Social Icons */}
+            <div className="flex items-center space-x-3 ml-2 sm:ml-4 flex-shrink-0">
+              <a 
+                href="https://wa.me/77272704314" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:opacity-70 transition-opacity"
+                title="WhatsApp"
+              >
+                <img src="/images/img_vector.svg" alt="WhatsApp" className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://t.me/narxoz_business_school" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:opacity-70 transition-opacity"
+                title="Telegram"
+              >
+                <img src="/images/img_vector_gray_600.svg" alt="Telegram" className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://instagram.com/narxoz_business_school" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:opacity-70 transition-opacity"
+                title="Instagram"
+              >
+                <img src="/images/img_vector_gray_600_25x25.svg" alt="Instagram" className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 

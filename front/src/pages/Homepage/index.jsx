@@ -6,6 +6,8 @@ import Button from '../../components/ui/Button';
 import EditText from '../../components/ui/EditText';
 import Slider from '../../components/ui/Slider';
 import PagerIndicator from '../../components/ui/PagerIndicator';
+import BusinessSchoolGrid from './BusinessSchoolGrid';
+import NbsStatsSection from './NbsStatsSection';
 
 const Homepage = () => {
   const [formData, setFormData] = useState({
@@ -389,7 +391,7 @@ const Homepage = () => {
       <div className="py-20 px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-dark text-4xl font-bold leading-tight mb-12 slide-in-up">
-            О бизнес школе
+            Narxoz Business School
           </h2>
           <p className="text-gray-600 text-xl leading-relaxed slide-in-up">
             Narxoz Business School готовит новое поколение лидеров, способных формировать устойчивое 
@@ -401,19 +403,22 @@ const Homepage = () => {
         </div>
       </div>
 
+      {/* Business School Grid Section */}
+      <BusinessSchoolGrid />
+
       {/* MBA Programs Image */}
-      <div className="px-8 max-w-7xl mx-auto mb-16">
+      {/* <div className="px-8 max-w-7xl mx-auto mb-16">
         <img 
           src="/images/img_image_13.png" 
           alt="MBA Programs Overview" 
           className="w-full h-auto rounded-lg fade-in hover-scale"
         />
-      </div>
+      </div> */}
 
       {/* Programs Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 slide-in-up">
-          <h2 className="text-dark text-4xl font-bold">Программы</h2>
+          <h2 className="text-dark text-4xl font-bold">Дипломные Программы</h2>
         </div>
 
         {/* Program Filter Buttons */}
@@ -461,7 +466,7 @@ const Homepage = () => {
               <CardWrapper 
                 key={index} 
                 {...cardProps}
-                className={`bg-gray-100 p-6 rounded-lg hover:shadow-xl hover:bg-white hover:scale-105 transition-all duration-300 cursor-pointer transform group ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} ${isExecutiveMBA ? 'ring-2 ring-red-200' : ''}`}
+                className={`bg-gray-100 p-6 rounded-lg hover:shadow-xl hover:bg-white hover:scale-105 transition-all duration-300 cursor-pointer transform group ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} border border-gray-200`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
               <div className="flex justify-between items-start mb-3">
@@ -502,6 +507,9 @@ const Homepage = () => {
           })}
         </div>
       </div>
+
+      {/* NBS Stats Section */}
+      <NbsStatsSection />
 
       {/* Accreditations Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">

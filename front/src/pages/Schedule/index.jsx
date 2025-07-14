@@ -3,290 +3,487 @@ import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 
 const Schedule = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(new Date(2025, 6, 1)); // Июль 2025
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [viewMode, setViewMode] = useState('month'); // month, week, day
+  const [viewMode, setViewMode] = useState('calendar'); // calendar | list
 
-  // Примерные мероприятия и лекции
+  // Мероприятия июля-августа 2025
   const events = [
-    // Январь 2024
+    // Июль 2025
     {
       id: 1,
-      title: 'Лекция: Стратегическое планирование',
-      date: '2024-01-15',
-      time: '10:00-12:00',
-      type: 'lecture',
-      speaker: 'Проф. Алматов А.К.',
-      location: 'Аудитория 101',
-      description: 'Основы стратегического планирования в современном бизнесе'
+      title: 'Группы ЕМВА занятия - экскурсия по новому зданию и welcome break',
+      date: '2025-07-11',
+      time: '10:00-14:00',
+      type: 'emba',
+      speaker: 'Администрация ЕМВА',
+      location: 'Новое здание NBS',
+      description: 'Экскурсия по новому зданию и welcome break. Розыгрыш мерча за посты в соц сетях и больше всего лайков.',
+      cost: 'в бюджете программ ЕМВА'
     },
     {
       id: 2,
-      title: 'MBA Open Day',
-      date: '2024-01-18',
+      title: 'Курс-подарок компаниям: Инвестиционный анализ проектов',
+      date: '2025-07-15',
       time: '14:00-17:00',
-      type: 'event',
-      speaker: 'Администрация',
-      location: 'Главный зал',
-      description: 'Презентация программы MBA, встреча с преподавателями'
+      type: 'course',
+      speaker: 'Елжас Аубакиров, CFA',
+      location: 'Аудитория NBS',
+      description: 'Инвестиционный анализ проектов - курс-подарок для компаний',
+      cost: '0 тенге'
     },
     {
       id: 3,
-      title: 'Семинар: Digital Marketing',
-      date: '2024-01-20',
-      time: '09:00-11:00',
-      type: 'seminar',
-      speaker: 'Смирнова Е.В.',
-      location: 'Онлайн',
-      description: 'Современные тренды в цифровом маркетинге'
+      title: 'Мастер-класс: The AI Matrix: AI and You',
+      date: '2025-07-16',
+      time: '10:00-12:00',
+      type: 'masterclass',
+      speaker: 'Ewan Simpson, профессор NBS',
+      location: 'Аудитория NBS',
+      description: 'The AI Matrix: AI and You - мастер-класс по искусственному интеллекту',
+      cost: '0 тенге'
     },
     {
       id: 4,
-      title: 'Мастер-класс: Финансовый анализ',
-      date: '2024-01-22',
-      time: '15:00-18:00',
-      type: 'masterclass',
-      speaker: 'Казбеков М.Н.',
-      location: 'Аудитория 205',
-      description: 'Практические навыки финансового анализа предприятий'
+      title: 'Коллаборация постов в соц сетях с narxoz.kz',
+      date: '2025-07-16',
+      time: '15:00-17:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с официальным аккаунтом narxoz.kz',
+      cost: '0 тенге'
     },
     {
       id: 5,
-      title: 'Конференция: Будущее бизнеса',
-      date: '2024-01-25',
-      time: '09:00-16:00',
-      type: 'conference',
-      speaker: 'Различные спикеры',
-      location: 'Конференц-зал',
-      description: 'Международная конференция о трендах в бизнесе'
+      title: 'Мастер-класс "7 ошибок руководителя"',
+      date: '2025-07-16',
+      time: '18:00-20:00',
+      type: 'masterclass',
+      speaker: 'Олег Алферов, эксперт NBS',
+      location: 'Аудитория NBS',
+      description: 'Мастер-класс "7 ошибок руководителя" от эксперта NBS',
+      cost: '0 тенге'
     },
     {
       id: 6,
-      title: 'Лекция: Управление проектами',
-      date: '2024-01-28',
-      time: '11:00-13:00',
-      type: 'lecture',
-      speaker: 'Иванов С.П.',
-      location: 'Аудитория 102',
-      description: 'Методологии управления проектами: Agile, Scrum'
+      title: 'Встреча выпускников программ Мини-МВА',
+      date: '2025-07-17',
+      time: '14:00-17:00',
+      type: 'alumni',
+      speaker: 'Олег Алферов, эксперт NBS',
+      location: 'Главный зал NBS',
+      description: 'Встреча выпускников программ Мини-МВА - Форте, Халык, Алагуем. Мастер-класс от эксперта NBS',
+      cost: '0 тенге'
     },
     {
       id: 7,
-      title: 'Networking Event',
-      date: '2024-01-30',
-      time: '18:00-21:00',
-      type: 'networking',
-      speaker: 'Alumni Association',
-      location: 'Лобби',
-      description: 'Неформальное общение студентов и выпускников'
+      title: 'Мастер-класс для закрытого бизнес-клуба Титаны',
+      date: '2025-07-17',
+      time: '19:00-21:00',
+      type: 'masterclass',
+      speaker: 'Эксперты NBS',
+      location: 'Закрытый клуб',
+      description: 'Эксклюзивный мастер-класс для закрытого бизнес-клуба Титаны',
+      cost: '0 тенге'
     },
-    
-    // Февраль 2024
     {
       id: 8,
-      title: 'Воркшоп: Leadership Skills',
-      date: '2024-02-02',
-      time: '10:00-14:00',
-      type: 'workshop',
-      speaker: 'Петрова А.М.',
-      location: 'Аудитория 301',
-      description: 'Развитие лидерских качеств для руководителей'
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-07-18',
+      time: '10:00-12:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
     },
     {
       id: 9,
-      title: 'Executive MBA Graduation',
-      date: '2024-02-05',
-      time: '16:00-19:00',
+      title: 'Graduation программ МВА "Прикладные финансы"',
+      date: '2025-07-18',
+      time: '15:00-18:00',
       type: 'graduation',
-      speaker: 'Ректорат',
-      location: 'Актовый зал',
-      description: 'Торжественная церемония вручения дипломов'
+      speaker: 'НБРК, АРРФР и ФГСВ',
+      location: 'Актовый зал NBS',
+      description: 'Graduation программ МВА "Прикладные финансы" с НБРК, АРРФР и ФГСВ - встреча выпускников ППФ',
+      cost: 'в бюджете программ'
     },
     {
       id: 10,
-      title: 'Лекция: Инновации в бизнесе',
-      date: '2024-02-08',
-      time: '14:00-16:00',
-      type: 'lecture',
-      speaker: 'Доц. Нурланов Б.К.',
-      location: 'Аудитория 103',
-      description: 'Как внедрять инновации в традиционный бизнес'
+      title: 'Группы ЕМВА занятия - экскурсия по новому зданию',
+      date: '2025-07-18',
+      time: '19:00-21:00',
+      type: 'emba',
+      speaker: 'Администрация ЕМВА',
+      location: 'Новое здание NBS',
+      description: 'Группы ЕМВА занятия - экскурсия по новому зданию и welcome break',
+      cost: 'в бюджете программ ЕМВА'
     },
     {
       id: 11,
-      title: 'Семинар: ESG в бизнесе',
-      date: '2024-02-12',
-      time: '13:00-15:00',
-      type: 'seminar',
-      speaker: 'Жанаев К.А.',
-      location: 'Аудитория 201',
-      description: 'Экологические, социальные и управленческие аспекты бизнеса'
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-07-19',
+      time: '14:00-16:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
     },
     {
       id: 12,
-      title: 'DBA Open Day',
-      date: '2024-02-15',
+      title: 'Курс-подарок компаниям: Инвестиционный анализ проектов',
+      date: '2025-07-21',
       time: '10:00-13:00',
-      type: 'event',
-      speaker: 'Академический отдел',
-      location: 'Главный зал',
-      description: 'Презентация программы Doctor of Business Administration'
+      type: 'course',
+      speaker: 'Елжас Аубакиров, профессор NBS, CFA',
+      location: 'Аудитория NBS',
+      description: 'Инвестиционный анализ проектов - курс-подарок для компаний',
+      cost: '0 тенге'
     },
     {
       id: 13,
-      title: 'Мастер-класс: Переговоры',
-      date: '2024-02-18',
-      time: '16:00-19:00',
-      type: 'masterclass',
-      speaker: 'Сидоров В.М.',
-      location: 'Аудитория 305',
-      description: 'Искусство ведения деловых переговоров'
+      title: 'Курс-подарок: Сложности оценки стоимости компании в Казахстане',
+      date: '2025-07-22',
+      time: '10:00-12:00',
+      type: 'course',
+      speaker: 'Елжас Аубакиров, CFA',
+      location: 'Аудитория NBS',
+      description: 'Сложности оценки стоимости компании в Казахстане (CFA, Private equity)',
+      cost: '0 тенге'
     },
     {
       id: 14,
-      title: 'Воркшоп: Data Analytics',
-      date: '2024-02-22',
-      time: '09:00-12:00',
-      type: 'workshop',
-      speaker: 'Ким А.С.',
-      location: 'Компьютерный класс',
-      description: 'Анализ данных для принятия бизнес-решений'
+      title: 'Мастер-класс: HR Brand: Инсайты на миллион',
+      date: '2025-07-22',
+      time: '15:00-17:00',
+      type: 'masterclass',
+      speaker: 'Данияр Косназаров, советник президента Narxoz',
+      location: 'Аудитория NBS',
+      description: 'HR Brand: Инсайты на миллион - мастер-класс от советника президента Narxoz',
+      cost: '0 тенге'
     },
     {
       id: 15,
-      title: 'Лекция: Международный бизнес',
-      date: '2024-02-25',
-      time: '11:00-13:00',
-      type: 'lecture',
-      speaker: 'Проф. Браун Дж.',
-      location: 'Аудитория 104',
-      description: 'Стратегии выхода на международные рынки'
+      title: 'Мастер-класс: The AI Matrix: AI and Organizations',
+      date: '2025-07-24',
+      time: '14:00-16:00',
+      type: 'masterclass',
+      speaker: 'Ewan Simpson, профессор NBS',
+      location: 'Аудитория NBS',
+      description: 'The AI Matrix: AI and Organizations - мастер-класс по ИИ в организациях',
+      cost: '0 тенге'
     },
     {
       id: 16,
-      title: 'Alumni Networking',
-      date: '2024-02-28',
-      time: '19:00-22:00',
-      type: 'networking',
-      speaker: 'Alumni Club',
-      location: 'Ресторан "Казахстан"',
-      description: 'Ежемесячная встреча выпускников бизнес-школы'
+      title: 'NBS Open Day - день открытых дверей программ NBS',
+      date: '2025-07-25',
+      time: '10:00-17:00',
+      type: 'openday',
+      speaker: 'Администрация NBS',
+      location: 'Главный зал NBS',
+      description: 'День открытых дверей программ NBS - презентация всех программ бизнес-школы',
+      cost: '0 тенге'
     },
-
-    // Март 2024
     {
       id: 17,
-      title: 'Конференция: Women in Business',
-      date: '2024-03-08',
-      time: '10:00-17:00',
-      type: 'conference',
-      speaker: 'Женский бизнес-клуб',
-      location: 'Конференц-зал',
-      description: 'Международная конференция к 8 марта'
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-07-26',
+      time: '14:00-16:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
     },
     {
       id: 18,
-      title: 'Семинар: Blockchain в бизнесе',
-      date: '2024-03-12',
-      time: '14:00-16:00',
-      type: 'seminar',
-      speaker: 'Токаев Р.Б.',
-      location: 'Онлайн',
-      description: 'Применение блокчейн технологий в бизнес-процессах'
+      title: 'Курс-подарок: Стратегический Контроль Затрат',
+      date: '2025-07-28',
+      time: '10:00-13:00',
+      type: 'course',
+      speaker: 'Елжас Аубакиров, CFA',
+      location: 'Аудитория NBS',
+      description: 'Стратегический Контроль Затрат: Основа Эффективных Решений - курс-подарок для компаний',
+      cost: '0 тенге'
     },
+
+    // Август 2025
     {
       id: 19,
-      title: 'Мастер-класс: Public Speaking',
-      date: '2024-03-15',
-      time: '10:00-13:00',
-      type: 'masterclass',
-      speaker: 'Орлова М.П.',
-      location: 'Актовый зал',
-      description: 'Навыки публичных выступлений для руководителей'
+      title: 'NBS Alumni Day - встреча выпускников NBS',
+      date: '2025-08-01',
+      time: '15:00-19:00',
+      type: 'alumni',
+      speaker: 'Alumni Association',
+      location: 'Главный зал NBS',
+      description: 'NBS Alumni Day - встреча выпускников NBS - New Big Step - новые возможности',
+      cost: 'в рамках бюджета маркетинга'
     },
     {
       id: 20,
-      title: 'Лекция: Корпоративные финансы',
-      date: '2024-03-18',
-      time: '15:00-17:00',
-      type: 'lecture',
-      speaker: 'Доц. Мамедов Э.К.',
-      location: 'Аудитория 202',
-      description: 'Управление финансами крупных корпораций'
+      title: 'Курс-подарок: Инвестиционный анализ проектов',
+      date: '2025-08-04',
+      time: '14:00-17:00',
+      type: 'course',
+      speaker: 'Елжас Аубакиров, CFA',
+      location: 'Аудитория NBS',
+      description: 'Инвестиционный анализ проектов с розыгрышем мерча за посты в соц сетях и больше всего лайков',
+      cost: '0 тенге'
     },
     {
       id: 21,
-      title: 'Startup Pitch Day',
-      date: '2024-03-22',
-      time: '13:00-18:00',
-      type: 'event',
-      speaker: 'Инкубатор стартапов',
-      location: 'Главный зал',
-      description: 'Презентация стартап-проектов студентов'
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-08-05',
+      time: '10:00-12:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
     },
     {
       id: 22,
-      title: 'Воркшоп: Crisis Management',
-      date: '2024-03-25',
-      time: '09:00-12:00',
-      type: 'workshop',
-      speaker: 'Волков А.И.',
-      location: 'Аудитория 302',
-      description: 'Управление компанией в кризисных ситуациях'
+      title: 'Мастер-класс: The AI Matrix: AI and Organizations',
+      date: '2025-08-05',
+      time: '15:00-17:00',
+      type: 'masterclass',
+      speaker: 'Ewan Simpson, профессор NBS',
+      location: 'Аудитория NBS',
+      description: 'The AI Matrix: AI and Organizations - мастер-класс по ИИ в организациях',
+      cost: '0 тенге'
     },
     {
       id: 23,
-      title: 'Семинар: HR Analytics',
-      date: '2024-03-28',
-      time: '11:00-13:00',
-      type: 'seminar',
-      speaker: 'Петрова Н.В.',
-      location: 'Аудитория 203',
-      description: 'Аналитика в управлении человеческими ресурсами'
+      title: 'Мастер-класс: HR тема (уточняется)',
+      date: '2025-08-06',
+      time: '14:00-16:00',
+      type: 'masterclass',
+      speaker: 'Елена Сокол HRD',
+      location: 'Аудитория NBS',
+      description: 'Мастер-класс от Елены Сокол HRD, тема уточняется',
+      cost: '0 тенге'
     },
-
-    // Добавим несколько событий в один день для демонстрации
     {
       id: 24,
-      title: 'Утренняя лекция: Маркетинг',
-      date: '2024-01-15',
-      time: '08:00-09:30',
-      type: 'lecture',
-      speaker: 'Доц. Кузнецов П.А.',
-      location: 'Аудитория 105',
-      description: 'Основы современного маркетинга'
+      title: 'Курс-подарок: Сложности оценки стоимости компании',
+      date: '2025-08-07',
+      time: '10:00-13:00',
+      type: 'course',
+      speaker: 'Елжас Аубакиров, CFA',
+      location: 'Аудитория NBS',
+      description: 'Сложности оценки стоимости компании в Казахстане (CFA, Private equity)',
+      cost: '0 тенге'
     },
     {
       id: 25,
-      title: 'Вечерний семинар: E-commerce',
-      date: '2024-01-15',
-      time: '18:00-20:00',
-      type: 'seminar',
-      speaker: 'Байжанов А.М.',
-      location: 'Онлайн',
-      description: 'Развитие электронной коммерции в Казахстане'
+      title: 'Мастер-класс: The AI Matrix: AI and You',
+      date: '2025-08-08',
+      time: '14:00-16:00',
+      type: 'masterclass',
+      speaker: 'Ewan Simpson, профессор NBS',
+      location: 'Аудитория NBS',
+      description: 'The AI Matrix: AI and You - мастер-класс по искусственному интеллекту',
+      cost: '0 тенге'
     },
-    
-    // Текущие события (декабрь 2024)
+    {
+      id: 43,
+      title: 'Розыгрыш гранта на МВА',
+      date: '2025-08-01',
+      time: '10:00-18:00',
+      type: 'event',
+      speaker: 'Администрация NBS',
+      location: 'Онлайн',
+      description: 'Розыгрыш гранта на МВА на англоязычную программу и на русскоязычную',
+      cost: '300 000 тенге на таргет'
+    },
     {
       id: 26,
-      title: 'Зимняя конференция MBA',
-      date: '2024-12-15',
-      time: '10:00-16:00',
-      type: 'conference',
-      speaker: 'Международные эксперты',
-      location: 'Конференц-зал',
-      description: 'Итоги года и планы на будущее'
+      title: 'Мастер-класс: Маркетинг в кризис',
+      date: '2025-08-11',
+      time: '15:00-17:00',
+      type: 'masterclass',
+      speaker: 'Данияр Косназаров, NBS Marketing Lab',
+      location: 'Аудитория NBS',
+      description: 'Маркетинг в кризис: Как пересобрать ваш оффер клиенту?',
+      cost: '0 тенге'
     },
     {
       id: 27,
-      title: 'Новогодний Networking',
-      date: '2024-12-28',
-      time: '18:00-23:00',
-      type: 'networking',
-      speaker: 'Студенческий совет',
-      location: 'Банкетный зал',
-      description: 'Новогодняя встреча студентов и преподавателей'
+      title: 'Мастер-класс: Зумеры и Альфа: Как они меняют бизнес',
+      date: '2025-08-12',
+      time: '14:00-16:00',
+      type: 'masterclass',
+      speaker: 'Данияр Косназаров, NBS Marketing Lab',
+      location: 'Аудитория NBS',
+      description: 'Зумеры и Альфа: Как они меняют бизнес, труд и менеджмент?',
+      cost: '0 тенге'
+    },
+    {
+      id: 28,
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-08-13',
+      time: '10:00-12:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
+    },
+    {
+      id: 29,
+      title: 'Курс-подарок: Стратегический Контроль Затрат',
+      date: '2025-08-14',
+      time: '10:00-13:00',
+      type: 'course',
+      speaker: 'Елжас Аубакиров, CFA',
+      location: 'Аудитория NBS',
+      description: 'Стратегический Контроль Затрат: Основа Эффективных Решений с розыгрышем мерча за посты в соц сетях',
+      cost: '0 тенге'
+    },
+    {
+      id: 30,
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-08-15',
+      time: '14:00-16:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
+    },
+    {
+      id: 31,
+      title: 'Курс-подарок: Инвестиционный анализ проектов',
+      date: '2025-08-18',
+      time: '10:00-13:00',
+      type: 'course',
+      speaker: 'Елжас Аубакиров, профессор NBS, CFA',
+      location: 'Аудитория NBS',
+      description: 'Инвестиционный анализ проектов - курс-подарок для компаний',
+      cost: '0 тенге'
+    },
+    {
+      id: 32,
+      title: 'Kazakhstan Insurance Forum',
+      date: '2025-08-18',
+      time: '15:00-18:00',
+      type: 'forum',
+      speaker: 'ФГСВ',
+      location: 'Конференц-зал NBS',
+      description: 'Kazakhstan Insurance Forum - партнерский форум ФГСВ',
+      cost: '0 тенге'
+    },
+    {
+      id: 33,
+      title: 'Курс-подарок для компаний',
+      date: '2025-08-19',
+      time: '14:00-17:00',
+      type: 'course',
+      speaker: 'Эксперты NBS',
+      location: 'Аудитория NBS',
+      description: 'Курс-подарок для компаний - тема уточняется',
+      cost: '0 тенге'
+    },
+    {
+      id: 34,
+      title: 'NBS Open Day - день открытых дверей программ NBS',
+      date: '2025-08-20',
+      time: '10:00-17:00',
+      type: 'openday',
+      speaker: 'Администрация NBS',
+      location: 'Главный зал NBS',
+      description: 'День открытых дверей программ NBS - презентация всех программ бизнес-школы',
+      cost: '0 тенге'
+    },
+    {
+      id: 35,
+      title: 'Курс-подарок для компаний',
+      date: '2025-08-21',
+      time: '14:00-17:00',
+      type: 'course',
+      speaker: 'Эксперты NBS',
+      location: 'Аудитория NBS',
+      description: 'Курс-подарок для компаний - тема уточняется',
+      cost: '0 тенге'
+    },
+    {
+      id: 36,
+      title: 'HR Human Capital Forum',
+      date: '2025-08-22',
+      time: '09:00-18:00',
+      type: 'forum',
+      speaker: 'HR Association',
+      location: 'Конференц-зал NBS',
+      description: 'HR Human Capital - NBS партнер форума, PR новой NBS и программы EMBA для HRD. Участие принимают порядка 200 HRD',
+      cost: '0 тенге'
+    },
+    {
+      id: 37,
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-08-25',
+      time: '14:00-16:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
+    },
+    {
+      id: 38,
+      title: 'Курс-подарок для компаний',
+      date: '2025-08-26',
+      time: '14:00-17:00',
+      type: 'course',
+      speaker: 'Эксперты NBS',
+      location: 'Аудитория NBS',
+      description: 'Курс-подарок для компаний - тема уточняется',
+      cost: '0 тенге'
+    },
+    {
+      id: 39,
+      title: 'Курс-подарок для компаний',
+      date: '2025-08-27',
+      time: '14:00-17:00',
+      type: 'course',
+      speaker: 'Эксперты NBS',
+      location: 'Аудитория NBS',
+      description: 'Курс-подарок для компаний - тема уточняется',
+      cost: '0 тенге'
+    },
+    {
+      id: 40,
+      title: 'NBS Alumni Day',
+      date: '2025-08-28',
+      time: '15:00-19:00',
+      type: 'alumni',
+      speaker: 'Alumni Association',
+      location: 'Главный зал NBS',
+      description: 'NBS Alumni Day - встреча выпускников бизнес-школы',
+      cost: '0 тенге'
+    },
+    {
+      id: 41,
+      title: 'Коллаборация постов в соц сетях с партнерами',
+      date: '2025-08-29',
+      time: '10:00-12:00',
+      type: 'collaboration',
+      speaker: 'Маркетинг команда',
+      location: 'Онлайн',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      cost: '0 тенге'
+    },
+    {
+      id: 42,
+      title: 'Мероприятие для Грантодателей - pre-Opening',
+      date: '2025-08-29',
+      time: '18:00-21:00',
+      type: 'event',
+      speaker: 'Администрация NBS',
+      location: 'Главный зал NBS',
+      description: 'Мероприятие для Грантодателей - pre-Opening',
+      cost: '0 тенге'
     }
   ];
 
@@ -298,7 +495,13 @@ const Schedule = () => {
     conference: { color: 'bg-orange-500', name: 'Конференция' },
     networking: { color: 'bg-pink-500', name: 'Нетворкинг' },
     workshop: { color: 'bg-indigo-500', name: 'Воркшоп' },
-    graduation: { color: 'bg-yellow-500', name: 'Выпуск' }
+    graduation: { color: 'bg-yellow-500', name: 'Выпуск' },
+    course: { color: 'bg-teal-500', name: 'Курс-подарок' },
+    collaboration: { color: 'bg-cyan-500', name: 'Коллаборация' },
+    alumni: { color: 'bg-amber-500', name: 'Встреча выпускников' },
+    emba: { color: 'bg-emerald-500', name: 'ЕМВА' },
+    openday: { color: 'bg-rose-500', name: 'День открытых дверей' },
+    forum: { color: 'bg-violet-500', name: 'Форум' }
   };
 
   // Функции для работы с календарем
@@ -331,6 +534,15 @@ const Schedule = () => {
   ];
 
   const weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+
+  // Функция для группировки событий по дате
+  const groupedEvents = events.reduce((acc, event) => {
+    if (!acc[event.date]) acc[event.date] = [];
+    acc[event.date].push(event);
+    return acc;
+  }, {});
+
+  const sortedDates = Object.keys(groupedEvents).sort();
 
   const renderCalendar = () => {
     const daysInMonth = getDaysInMonth(currentDate);
@@ -398,62 +610,111 @@ const Schedule = () => {
         </div>
       </div>
 
-      {/* Calendar Section */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          {/* Calendar Header */}
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => changeMonth(-1)}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </button>
-              <h2 className="text-2xl font-bold text-gray-900">
-                {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
-              </h2>
-              <button
-                onClick={() => changeMonth(1)}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                </svg>
-              </button>
+      {/* Переключатель режимов */}
+      <div className="flex justify-center items-center gap-4 mt-8 mb-4">
+        <button
+          className={`px-6 py-2 rounded-lg font-semibold border transition-colors ${viewMode === 'calendar' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
+          onClick={() => setViewMode('calendar')}
+        >
+          Календарь
+        </button>
+        <button
+          className={`px-6 py-2 rounded-lg font-semibold border transition-colors ${viewMode === 'list' ? 'bg-red-600 text-white border-red-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
+          onClick={() => setViewMode('list')}
+        >
+          Список
+        </button>
+      </div>
+
+      {/* Calendar/List Section */}
+      <div className="py-8 px-8 max-w-7xl mx-auto">
+        {viewMode === 'calendar' ? (
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            {/* Calendar Header */}
+            <div className="flex justify-between items-center mb-6">
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => changeMonth(-1)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+                </h2>
+                <button
+                  onClick={() => changeMonth(1)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setCurrentDate(new Date())}
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  Сегодня
+                </button>
+              </div>
             </div>
-            
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setCurrentDate(new Date())}
-                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-              >
-                Сегодня
-              </button>
+
+            {/* Week Days Header */}
+            <div className="grid grid-cols-7 gap-0 mb-2">
+              {weekDays.map(day => (
+                <div key={day} className="p-3 text-center font-medium text-gray-600 bg-gray-100 border border-gray-200">
+                  {day}
+                </div>
+              ))}
+            </div>
+
+            {/* Calendar Grid */}
+            <div className="grid grid-cols-7 gap-0">
+              {renderCalendar()}
             </div>
           </div>
-
-          {/* Week Days Header */}
-          <div className="grid grid-cols-7 gap-0 mb-2">
-            {weekDays.map(day => (
-              <div key={day} className="p-3 text-center font-medium text-gray-600 bg-gray-100 border border-gray-200">
-                {day}
+        ) : (
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            {sortedDates.map(date => (
+              <div key={date} className="mb-8">
+                <div className="text-lg font-bold text-gray-700 mb-2 flex items-center gap-2">
+                  <span className="uppercase text-gray-400 text-base font-semibold">{new Date(date).toLocaleDateString('ru-RU', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
+                </div>
+                <div className="space-y-6">
+                  {groupedEvents[date].map(event => (
+                    <div key={event.id} className="flex flex-col md:flex-row gap-4 border-b pb-6">
+                      {/* Картинка (если будет) */}
+                      {/* <img src={event.image} alt="" className="w-56 h-36 object-cover rounded-lg" /> */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className={`text-xs font-bold uppercase tracking-wider ${eventTypes[event.type]?.color || 'bg-gray-300'} text-white px-2 py-1 rounded`}>{eventTypes[event.type]?.name || event.type}</span>
+                          <span className="text-xs text-gray-500">{event.time}</span>
+                        </div>
+                        <div className="text-xl font-bold text-gray-900 mb-1">{event.title}</div>
+                        <div className="text-gray-700 mb-1">{event.description}</div>
+                        <div className="flex flex-wrap gap-4 text-sm text-gray-500 mt-2">
+                          <span><b>Спикер:</b> {event.speaker}</span>
+                          <span><b>Локация:</b> {event.location}</span>
+                          <span><b>Стоимость:</b> {event.cost}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
-
-          {/* Calendar Grid */}
-          <div className="grid grid-cols-7 gap-0">
-            {renderCalendar()}
-          </div>
-        </div>
+        )}
 
         {/* Event Types Legend */}
         <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
           <h3 className="text-lg font-bold text-gray-900 mb-4">Типы мероприятий</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {Object.entries(eventTypes).map(([type, config]) => (
               <div key={type} className="flex items-center space-x-2">
                 <div className={`w-4 h-4 rounded ${config.color}`}></div>
@@ -511,6 +772,13 @@ const Schedule = () => {
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
                 <span>{selectedEvent.speaker}</span>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                <span className="font-medium">{selectedEvent.cost}</span>
               </div>
             </div>
             

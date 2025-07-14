@@ -115,7 +115,7 @@ const MainPage = () => {
       <div className="py-20 px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-dark text-4xl font-bold leading-tight mb-12 slide-in-up">
-            О бизнес школе
+            Narxoz Business School
           </h2>
           <p className="text-gray-600 text-xl leading-relaxed slide-in-up">
             Narxoz Business School готовит новое поколение лидеров, способных формировать устойчивое 
