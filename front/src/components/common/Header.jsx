@@ -145,7 +145,7 @@ const Header = () => {
               {/* About Dropdown Menu */}
               {isAboutDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-4 px-0"
+                  className="absolute top-full left-0 mt-1 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-4 px-0"
                   onMouseEnter={handleAboutMouseEnter}
                   onMouseLeave={handleAboutMouseLeave}
                 >
@@ -154,14 +154,14 @@ const Header = () => {
               to="/about" 
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
             >
-              О нас
+              Кто мы
             </Link>
-                    <Link 
+                    {/* <Link 
                       to="/events"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
                       Ивенты
-                    </Link>
+                    </Link> */}
                     <Link 
                       to="/news"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
@@ -173,6 +173,36 @@ const Header = () => {
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
                       Контакты
+                    </Link>
+                    <Link 
+                      to="/accreditations"
+                      className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
+                    >
+                      Аккредитации
+                    </Link>
+                    <Link 
+                      to="/partners"
+                      className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
+                    >
+                      Партнеры
+                    </Link>
+                    <Link 
+                      to="/faculty"
+                      className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
+                    >
+                      Факультет
+                    </Link>
+                    <Link 
+                      to="/administration"
+                      className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
+                    >
+                      Администрация школы
+                    </Link>
+                    <Link 
+                      to="/support"
+                      className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
+                    >
+                      Поддержать NBS
                     </Link>
                   </div>
                 </div>

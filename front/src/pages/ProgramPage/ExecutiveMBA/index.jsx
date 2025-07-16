@@ -9,9 +9,7 @@ const ExecutiveMBA = () => {
     name: '',
     email: '',
     phone: '',
-    company: '',
-    position: '',
-    experience: ''
+    company: ''
   });
 
   const handleInputChange = (field, value) => {
@@ -31,10 +29,15 @@ const ExecutiveMBA = () => {
       <Header />
       
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-red-900 text-white py-24 px-8">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative text-white py-16 px-8 pt-24" style={{
+        backgroundImage: 'url(/images/EMBA_fon.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative max-w-7xl mx-auto w-full">
+          <div className="max-w-3xl">
             <div className="slide-in-left">
               <div className="mb-6">
                 <span className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium">
@@ -73,21 +76,6 @@ const ExecutiveMBA = () => {
               >
                 Подать заявку
               </Button>
-            </div>
-            
-            <div className="slide-in-right">
-              <div className="relative">
-                <img 
-                  src="/images/img_image_25.png" 
-                  alt="Executive MBA студенты" 
-                  className="w-full h-96 object-cover rounded-2xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <div className="text-3xl font-bold">95%</div>
-                  <div className="text-sm">выпускников получают повышение</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -490,18 +478,6 @@ const ExecutiveMBA = () => {
                 onChange={(e) => handleInputChange('company', e.target.value)}
                 className="h-12"
               />
-              <EditText
-                placeholder="Должность"
-                value={formData.position}
-                onChange={(e) => handleInputChange('position', e.target.value)}
-                className="h-12"
-              />
-              <EditText
-                placeholder="Опыт управления (лет)"
-                value={formData.experience}
-                onChange={(e) => handleInputChange('experience', e.target.value)}
-                className="h-12"
-              />
             </div>
             
             <div className="mt-8 text-center">
@@ -520,7 +496,7 @@ const ExecutiveMBA = () => {
       </div>
 
       {/* Contact Information */}
-      <div className="py-16 px-8 bg-gray-900 text-white">
+      <div className="py-16 px-8 bg-primary text-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="slide-in-up">
