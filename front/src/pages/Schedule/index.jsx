@@ -45,13 +45,13 @@ const Schedule = () => {
     },
     {
       id: 4,
-      title: 'Коллаборация постов в соц сетях с narxoz.kz',
+      title: 'Коллаборация постов в соц сетях с narxoz.edu.kz',
       date: '2025-07-16',
       time: '15:00-17:00',
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description: 'Коллаборация постов в социальных сетях с официальным аккаунтом narxoz.kz',
+      description: 'Коллаборация постов в социальных сетях с официальным аккаунтом narxoz.edu.kz',
       cost: '0 тенге'
     },
     {

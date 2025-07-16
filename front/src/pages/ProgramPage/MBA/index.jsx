@@ -934,7 +934,7 @@ const MBA = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Телефон</h3>
               <p className="text-gray-300">
-                +7 727 270 43 14
+                +8 776 708 36 36
               </p>
             </div>
             
@@ -947,7 +947,7 @@ const MBA = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <p className="text-gray-300">
-                info@narxoz.kz
+                gsb@narxoz.kz
               </p>
             </div>
           </div>

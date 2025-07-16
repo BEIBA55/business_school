@@ -168,12 +168,7 @@ const Header = () => {
                     >
                       Новости
                     </Link>
-                    <Link 
-                      to="/contacts"
-                      className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
-                    >
-                      Контакты
-                    </Link>
+                    
                     <Link 
                       to="/accreditations"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
@@ -229,12 +224,12 @@ const Header = () => {
           </div>
 
           {/* Search + Social */}
-          <div className="flex items-center min-w-0 ml-auto">
+          <div className="flex items-center min-w-0 ml-4 lg:ml-6">
             {/* Search */}
             <div className="flex items-center min-w-0">
               {!isSearchOpen ? (
                 <div 
-                  className="bg-gray-100 flex items-center px-3 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition-colors min-w-[140px] max-w-[180px]"
+                  className="bg-gray-100 flex items-center px-3 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition-colors min-w-[140px] max-w-[200px]"
                   onClick={toggleSearch}
                   style={{ minWidth: 140 }}
                 >
@@ -242,7 +237,7 @@ const Header = () => {
                   <span className="text-gray-500 text-sm">Поиск</span>
                 </div>
               ) : (
-                <form onSubmit={handleSearchSubmit} className="flex items-center min-w-[140px] max-w-[180px]" style={{ minWidth: 140 }}>
+                <form onSubmit={handleSearchSubmit} className="flex items-center min-w-[140px] max-w-[220px]" style={{ minWidth: 140 }}>
                   <div className="bg-gray-100 flex items-center px-3 py-2 rounded-full w-full">
                     <img src="/images/img_search.svg" alt="Search" className="w-4 h-4 mr-2" />
                     <input
@@ -251,7 +246,7 @@ const Header = () => {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Введите запрос..."
-                      className="bg-transparent outline-none text-sm text-gray-700 placeholder-gray-500 w-20 lg:w-32 min-w-0"
+                      className="bg-transparent outline-none text-sm text-gray-700 placeholder-gray-500 w-24 lg:w-40 min-w-0"
                       onBlur={() => {
                         if (!searchQuery.trim()) {
                           setTimeout(() => setIsSearchOpen(false), 150);
@@ -275,7 +270,7 @@ const Header = () => {
             {/* Social Icons */}
             <div className="flex items-center space-x-3 ml-2 sm:ml-4 flex-shrink-0">
               <a 
-                href="https://wa.me/77272704314" 
+                href="https://wa.me/87767083636" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="hover:opacity-70 transition-opacity"
@@ -300,6 +295,15 @@ const Header = () => {
                 title="Instagram"
               >
                 <img src="/images/img_vector_gray_600_25x25.svg" alt="Instagram" className="w-5 h-5" />
+              </a>
+              <a 
+                href="tel:+87767083636" 
+                className="hover:opacity-70 transition-opacity"
+                title="+8 776 708 36 36"
+              >
+                <svg className="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
               </a>
             </div>
           </div>
