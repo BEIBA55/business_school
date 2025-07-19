@@ -8,8 +8,14 @@ import MainPage from './pages/MainPage';
 import Schedule from './pages/Schedule';
 import ExecutiveMBA from './pages/ProgramPage/ExecutiveMBA';
 import MBA from './pages/ProgramPage/MBA';
+import DBA from './pages/ProgramPage/DBA';
+import Magistracy from './pages/ProgramPage/Magistracy';
 import Accreditations from './pages/Accreditations';
 import Partners from './pages/Partners';
+import Faculty from './pages/Faculty';
+import Administration from './pages/Administration';
+import SupportNBS from './pages/SupportNBS';
+import News from './pages/News';
 
 const AppRoutes = () => {
   return (
@@ -21,8 +27,14 @@ const AppRoutes = () => {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/programs/executive-mba" element={<ExecutiveMBA />} />
         <Route path="/programs/mba" element={<MBA />} />
+        <Route path="/programs/dba" element={<DBA />} />
+        <Route path="/programs/magistracy" element={<Magistracy />} />
         <Route path="/accreditations" element={<Accreditations />} />
         <Route path="/partners" element={<Partners />} />
+        <Route path="/faculty" element={<Faculty />} />
+        <Route path="/administration" element={<Administration />} />
+        <Route path="/support" element={<SupportNBS />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </Router>
   );

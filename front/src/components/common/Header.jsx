@@ -118,7 +118,7 @@ const Header = () => {
                       DBA
                     </Link>
                     <Link 
-                      to="/programs/magistratura"
+                      to="/programs/Magistracy"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
                       Магистратура

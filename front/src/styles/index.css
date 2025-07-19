@@ -165,6 +165,48 @@ html {
   animation: fade-scale 0.4s ease-out forwards;
 }
 
+/* Анимация для fade-in */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+/* Анимация для карточек новостей */
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.news-card-animate {
+  animation: slide-in-up 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.news-card-animate:nth-child(1) { animation-delay: 0.1s; }
+.news-card-animate:nth-child(2) { animation-delay: 0.2s; }
+.news-card-animate:nth-child(3) { animation-delay: 0.3s; }
+.news-card-animate:nth-child(4) { animation-delay: 0.4s; }
+.news-card-animate:nth-child(5) { animation-delay: 0.5s; }
+.news-card-animate:nth-child(6) { animation-delay: 0.6s; }
+.news-card-animate:nth-child(7) { animation-delay: 0.7s; }
+.news-card-animate:nth-child(8) { animation-delay: 0.8s; }
+
 /* Плавный переход для карточек */
 .faculty-transition {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -176,6 +218,13 @@ html {
 }
 
 /* Ограничение текста для карточек */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;

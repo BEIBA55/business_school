@@ -1037,9 +1037,11 @@ const Homepage = () => {
               стипендиальную поддержку нашим слушателям. Присоединяйтесь, будем вместе менять 
               себя, бизнес и мир к лучшему!
             </p>
-            <Button className="bg-[#991E1E] text-white px-6 py-0 rounded-md hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center">
-              Поддержать
-            </Button>
+            <Link to="/support">
+              <Button className="bg-[#991E1E] text-white px-6 py-0 rounded-md hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center">
+                Поддержать
+              </Button>
+            </Link>
           </div>
           
           <div className="slide-in-right">
@@ -1065,7 +1067,7 @@ const Homepage = () => {
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
-            <h2 className="text-dark text-4xl font-bold">Faculty</h2>
+            <h2 className="text-dark text-4xl font-bold">Факультет</h2>
             <div className="flex items-center space-x-4">
               <img 
                 src="/images/img_group_21.svg" 
