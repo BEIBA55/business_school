@@ -1,31 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const stats = [
-  {
-    value: '16',
-    label: 'лет',
-    description: 'Narxoz Business School с 2008 на рынке',
-    prefix: 'Более',
-  },
-  {
-    value: '2500',
-    label: 'корпоративных клиентов',
-    description: '',
-    prefix: 'Более',
-  },
-  {
-    value: '3500',
-    label: 'выпускников программ MBA, Executive MBA, DBA',
-    description: '',
-    prefix: 'Более',
-  },
-  {
-    value: '140000',
-    label: 'выпускников Narxoz, большинство занимают руководящие позиции в крупнейших компаниях Казахстана и за его пределами.',
-    description: '',
-    prefix: 'Более',
-  },
-];
+// Статистика будет загружаться из переводов
 
 // Компонент для анимированного счетчика
 const AnimatedCounter = ({ value, duration = 2000 }) => {
@@ -81,8 +57,12 @@ const AnimatedCounter = ({ value, duration = 2000 }) => {
 };
 
 const NbsStatsSection = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  
+  // Получаем статистику из переводов
+  const stats = t('homepage.statsSection.stats', { returnObjects: true });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -112,7 +92,7 @@ const NbsStatsSection = () => {
       <div className="px-6 md:px-12 pt-8 md:pt-12">
         <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <h2 className="text-dark text-4xl md:text-5xl font-bold mb-4 text-left">
-            Статистика
+            {t('homepage.statsSection.title')}
           </h2>
         </div>
       </div>
@@ -121,7 +101,7 @@ const NbsStatsSection = () => {
         {/* Подзаголовок */}
         <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <h3 className="text-gray-900 text-2xl md:text-3xl font-semibold mb-12 md:mb-16 text-center">
-            Narxoz Business School – это новые возможности для Вас:
+            {t('homepage.statsSection.subtitle')}
           </h3>
         </div>
 
@@ -164,7 +144,7 @@ const NbsStatsSection = () => {
           <div className="bg-gray-50 rounded-3xl p-8 md:p-12">
             <div className="text-center mb-8">
               <h4 className="text-[#991E1E] text-2xl md:text-3xl font-bold mb-4">
-                Программа MBA Бизнес-школы Университета Нархоз признана №1 в Центральной Азии
+                {t('homepage.statsSection.ranking.title')}
               </h4>
               <div className="w-24 h-1 bg-[#991E1E] mx-auto rounded-full"></div>
             </div>
@@ -181,10 +161,10 @@ const NbsStatsSection = () => {
               <div className="flex-1 max-w-2xl text-center flex flex-col items-center justify-center px-2">
                 <div className="space-y-4">
                   <p className="text-gray-900 text-base leading-relaxed text-center max-w-xl">
-                    В опубликованном рейтинге QS Global MBA отмечены сильные стороны программы. 25 сентября 2024 года опубликован рейтинг QS Global MBA 2025. Программа MBA Бизнес-школы Университета Нархоз с первого раза вошла в топ-50 лучших в Азии (QS Global MBA 2025 Asia: #42) и на основе открытых данных и методологии QS для расчета общих баллов стала № 1 в Центрально-Азиатском регионе.
+                    {t('homepage.statsSection.ranking.description1')}
                   </p>
                   <p className="text-gray-900 text-base leading-relaxed text-center max-w-xl">
-                    На основе обнародованных агентством QS данных, программа MBA также входит в топ-50 лучших мира по критерию предпринимательства и востребованности выпускников. По этому показателю Бизнес-школа Университета Нархоз набрала высокие баллы и опередила другие всемирно признанные школы, такие как Carnegie Mellon и Dartmouth (США), Shanghai University of Finance and Economics и Tsinghua (Китай), Edinburgh и Manchester (Великобритания).
+                    {t('homepage.statsSection.ranking.description2')}
                   </p>
                 </div>
               </div>

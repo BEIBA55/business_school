@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import Button from '../../components/ui/Button';
@@ -10,6 +11,7 @@ import BusinessSchoolGrid from './BusinessSchoolGrid';
 import NbsStatsSection from './NbsStatsSection';
 
 const Homepage = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,7 +24,7 @@ const Homepage = () => {
   const [currentAdminIndex, setCurrentAdminIndex] = useState(0);
   const [currentNewsPage, setCurrentNewsPage] = useState(0);
   const [expandedFacultyCards, setExpandedFacultyCards] = useState({});
-  const [activeProgram, setActiveProgram] = useState('Все программы');
+  const [activeProgram, setActiveProgram] = useState(t('homepage.programs.allPrograms'));
   const [animatePrograms, setAnimatePrograms] = useState(false);
   const [expandedMBA, setExpandedMBA] = useState(false);
   const [contactFormData, setContactFormData] = useState({
@@ -46,12 +48,12 @@ const Homepage = () => {
   };
 
   const handleConsultationSubmit = () => {
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+    alert(t('homepage.alerts.applicationSuccess'));
     setFormData({ name: '', phone: '', email: '' });
   };
 
   const handleContactSubmit = () => {
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+    alert(t('homepage.alerts.applicationSuccess'));
     setContactFormData({ name: '', email: '', phone: '' });
   };
 
@@ -101,6 +103,11 @@ const Homepage = () => {
       setAnimatePrograms(true);
     }, 500);
   }, []);
+
+  // Сброс активной программы на "Все программы" при смене языка
+  useEffect(() => {
+    setActiveProgram(t('homepage.programs.allPrograms'));
+  }, [t]);
 
   const trustPartners = [
     { src: '/images/RG_gold.png', name: 'RG Gold', url: 'https://rg-gold.com' },
@@ -195,19 +202,19 @@ const Homepage = () => {
   // Основные программы MBA (отображаются в фильтре)
   const mainMBAPrograms = [
     {
-      title: 'MBA',
-      description: 'Полноценная программа MBA для формирования лидеров нового поколения. Стратегическое управление, финансы, маркетинг. 2 года обучения.',
+      title: t('homepage.programs.mbaTitle'),
+      description: t('homepage.programs.mbaDescription'),
       type: 'MBA',
-      duration: '2 года',
-      price: '3 000 000 тенге',
+      duration: t('homepage.programs.mbaDuration'),
+      price: t('homepage.programs.mbaPrice'),
       isMain: true
     },
     {
-      title: 'MBA Программа Прикладных Финансов',
-      description: 'Специализированная программа MBA с углубленным изучением финансов, финансового анализа и корпоративных финансов.',
+      title: t('homepage.programs.mbaFinanceTitle'),
+      description: t('homepage.programs.mbaFinanceDescription'),
       type: 'MBA',
-      duration: '2 года',
-      price: '3 200 000 тенге',
+      duration: t('homepage.programs.mbaFinanceDuration'),
+      price: t('homepage.programs.mbaFinancePrice'),
       isMain: true
     }
   ];
@@ -215,35 +222,35 @@ const Homepage = () => {
   // Дополнительные программы MBA (скрыты из основного отображения)
   const additionalMBAPrograms = [
     {
-      title: 'MBA "Устойчивое предпринимательство"',
-      description: 'Программа MBA с фокусом на устойчивое развитие бизнеса, экологически ответственное предпринимательство и социальное воздействие.',
+      title: t('homepage.programs.mbaSustainabilityTitle'),
+      description: t('homepage.programs.mbaSustainabilityDescription'),
       type: 'MBA',
-      duration: '2 года',
-      price: '3 100 000 тенге',
+      duration: t('homepage.programs.mbaSustainabilityDuration'),
+      price: t('homepage.programs.mbaSustainabilityPrice'),
       isMain: false
     },
     {
-      title: 'MBA "ИИ в бизнесе"',
-      description: 'Инновационная программа MBA, посвященная применению искусственного интеллекта в современном бизнесе и цифровой трансформации.',
+      title: t('homepage.programs.mbaAITitle'),
+      description: t('homepage.programs.mbaAIDescription'),
       type: 'MBA',
-      duration: '2 года',
-      price: '3 300 000 тенге',
+      duration: t('homepage.programs.mbaAIDuration'),
+      price: t('homepage.programs.mbaAIPrice'),
       isMain: false
     },
     {
-      title: 'MBA "Креативная экономика"',
-      description: 'Программа MBA для развития навыков управления в креативных индустриях, медиа, искусстве и инновационной экономике.',
+      title: t('homepage.programs.mbaCreativeTitle'),
+      description: t('homepage.programs.mbaCreativeDescription'),
       type: 'MBA',
-      duration: '2 года',
-      price: '3 000 000 тенге',
+      duration: t('homepage.programs.mbaCreativeDuration'),
+      price: t('homepage.programs.mbaCreativePrice'),
       isMain: false
     },
     {
-      title: 'MBA "Финансовые технологии (FinTech)"',
-      description: 'Специализированная программа MBA для изучения финансовых технологий, блокчейна, цифровых платежей и инновационных финансовых услуг.',
+      title: t('homepage.programs.mbaFinTechTitle'),
+      description: t('homepage.programs.mbaFinTechDescription'),
       type: 'MBA',
-      duration: '2 года',
-      price: '3 400 000 тенге',
+      duration: t('homepage.programs.mbaFinTechDuration'),
+      price: t('homepage.programs.mbaFinTechPrice'),
       isMain: false
     }
   ];
@@ -256,43 +263,43 @@ const Homepage = () => {
     
     // Executive MBA блок
     {
-      title: 'Executive MBA',
-      description: 'Программа для топ-менеджеров. Стратегическое управление и бизнес-моделирование. Модульный формат для работающих руководителей.',
+      title: t('homepage.programs.executiveMbaTitle'),
+      description: t('homepage.programs.executiveMbaDescription'),
       type: 'Executive MBA',
-      duration: '1 год',
-      price: '2 625 000 тенге'
+      duration: t('homepage.programs.executiveMbaDuration'),
+      price: t('homepage.programs.executiveMbaPrice')
     },
     {
-      title: 'Executive MBA для руководителей НПО/НКО',
-      description: 'Специализированная программа Executive MBA для руководителей некоммерческих организаций и социальных предприятий.',
+      title: t('homepage.programs.executiveMbaNGOTitle'),
+      description: t('homepage.programs.executiveMbaNGODescription'),
       type: 'Executive MBA',
-      duration: '1 год',
-      price: '2 400 000 тенге'
+      duration: t('homepage.programs.executiveMbaNGODuration'),
+      price: t('homepage.programs.executiveMbaNGOPrice')
     },
     {
-      title: 'Executive MBA для CIO',
-      description: 'Программа Executive MBA для директоров по информационным технологиям и руководителей IT-подразделений.',
+      title: t('homepage.programs.executiveMbaCIOTitle'),
+      description: t('homepage.programs.executiveMbaCIODescription'),
       type: 'Executive MBA',
-      duration: '1 год',
-      price: '2 500 000 тенге'
+      duration: t('homepage.programs.executiveMbaCIODuration'),
+      price: t('homepage.programs.executiveMbaCIOPrice')
     },
     
     // DBA блок
     {
-      title: 'DBA (Доктор делового администрирования)',
-      description: 'Высший уровень бизнес-образования для топ-руководителей и владельцев бизнеса. Программа для практикующих профессионалов.',
+      title: t('homepage.programs.dbaTitle'),
+      description: t('homepage.programs.dbaDescription'),
       type: 'DBA',
-      duration: '3 года',
-      price: '4 500 000 тенге'
+      duration: t('homepage.programs.dbaDuration'),
+      price: t('homepage.programs.dbaPrice')
     },
     
     // Магистратура
     {
-      title: 'MSc in Finance',
-      description: 'Магистр наук в области финансов. Программа для специалистов, желающих углубить знания в финансовой сфере.',
-      type: 'Магистратура',
-      duration: '1.5 года',
-      price: '2 800 000 тенге'
+      title: t('homepage.programs.mscFinanceTitle'),
+      description: t('homepage.programs.mscFinanceDescription'),
+      type: t('homepage.programs.magistracy'),
+      duration: t('homepage.programs.mscFinanceDuration'),
+      price: t('homepage.programs.mscFinancePrice')
     }
   ];
 
@@ -306,87 +313,87 @@ const Homepage = () => {
   const faculty = [
     { 
       image: '/images/Yelzhas.png',
-      name: 'Елжас Аубакиров', 
-      description: 'MBA, MSF, CFA, CMA – эксперт с 20-летним опытом в финансах, прямых инвестициях, венчурном капитале и консалтинге. Специализируется на сделках, due diligence, оценке компаний и стратегическом инвестировании. Консультирует стартапы и крупный бизнес в разных отраслях.' 
+      name: t('homepage.faculty.0.name'), 
+      description: t('homepage.faculty.0.description') 
     },
     { 
       image: '/images/Oleg.png',
-      name: 'Олег Алфёров', 
-      description: 'Консультант по развитию бизнеса. Опыт управления проектами - более 25 лет, в т. ч. опыт работы в международных проектах: Польша, Словакия, Нидерланды, Швеция, Дания. Стажировки в Нидерландах и Швеции. Обучался в бизнес-школах: NTU (Сингапур), HKUST (Гонконг), SDA Bocconi (Милан, Италия), Darden School of Business (США). Бизнес-тренер.' 
+      name: t('homepage.faculty.1.name'), 
+      description: t('homepage.faculty.1.description') 
     },
     { 
       image: '/images/Ulia.png',
-      name: 'Юлия Дмитриева', 
-      description: 'Руководитель агентства JD Expert. Консультант по развитию бизнеса, аналитика и стратегии. 20 лет в маркетинге и продажах, 120+ отраслевых исследований, из них 40+ реализованы в действующий бизнес, 10 закрытых или переориентированных бизнес-идей, более 30 лет суммарный срок партнёрского сопровождения.' 
+      name: t('homepage.faculty.2.name'), 
+      description: t('homepage.faculty.2.description') 
     },
     { 
       image: '/images/Irina.png',
-      name: 'Виговская Ирина', 
-      description: 'Международно аккредитованный бизнес-тренер по медиации, ТРИЗ-фасилитации и корпоративному управлению. Партнер UN Women в Казахстане и Центральной Азии, с более чем 20-летним опытом преподавания и медиативной практики. Работала на управленческих позициях, включая руководящие должности.' 
+      name: t('homepage.faculty.3.name'), 
+      description: t('homepage.faculty.3.description') 
     },
     { 
       image: '/images/Lilya.png',
-      name: 'Лилия Бисенгали', 
-      description: 'PhD в области права, комплаенс-менеджер, Senior Legal Consultant (KPMG), эксперт по корпоративному праву и управлению рисками. Более 15 лет опыта в юридическом консалтинге и корпоративном управлении. Специализируется на международном праве и корпоративном управлении.' 
+      name: t('homepage.faculty.4.name'), 
+      description: t('homepage.faculty.4.description') 
     },
     { 
       image: '/images/Zevira.png',
-      name: 'Зевира Толеутаева', 
-      description: 'К.эн, АССА, член Консультативного органа Министерства финансов РК, эксперт по международным стандартам финансовой отчетности. Более 20 лет опыта в аудите и консалтинге. Специализируется на МСФО, аудите и корпоративном управлении.' 
+      name: t('homepage.faculty.5.name'), 
+      description: t('homepage.faculty.5.description') 
     },
     { 
       image: '/images/Kaisar.png',
-      name: 'Кайсар Макан', 
-      description: 'MBA, Сертифицированный бизнес-тренер, Фасилитатор, Профессиональный международный коуч Erickson International Coach ICF. Более 15 лет опыта в корпоративном обучении и развитии лидерства. Специализируется на стратегическом планировании и развитии управленческих компетенций.' 
+      name: t('homepage.faculty.6.name'), 
+      description: t('homepage.faculty.6.description') 
     },
     { 
       image: '/images/Marina.png',
-      name: 'Марина Новоточина', 
-      description: 'Executive коуч, бизнес тренер, HR-консультант, Доктор бизнес администрирования (DBA). Более 25 лет опыта в HR-менеджменте и организационном развитии. Специализируется на развитии лидерства, управлении изменениями и корпоративной культуре.' 
+      name: t('homepage.faculty.7.name'), 
+      description: t('homepage.faculty.7.description') 
     }
   ];
 
   const administration = [
     {
       image: '/images/img_rectangle_1178.png',
-      name: 'Марина Образцова',
-      position: 'Директор Narxoz Business School',
+      name: t('homepage.administration.0.name'),
+      position: t('homepage.administration.0.position'),
       email: 'marina.obraztsova@narxoz.kz'
     },
     {
       image: '/images/img_rectangle_1205.png',
-      name: 'Юан Симпсон',
-      position: 'Доктор, PhD, директор по международному развитию Narxoz Business School',
+      name: t('homepage.administration.1.name'),
+      position: t('homepage.administration.1.position'),
       email: 'ewan.simpson@narxoz.kz'
     },
     {
       image: '/images/img_rectangle_1206.png',
-      name: 'Айкерим Мырзатаева',
-      position: 'Заместитель директора Narxoz Business School',
+      name: t('homepage.administration.2.name'),
+      position: t('homepage.administration.2.position'),
       email: 'aikerim.myrzatayeva@narxoz.kz'
     },
     {
       image: '/images/img_rectangle_1207.png',
-      name: 'Агипа Монобаева',
-      position: 'Академический директор Narxoz Business School, руководитель DBA, доктор философии (PhD)',
+      name: t('homepage.administration.3.name'),
+      position: t('homepage.administration.3.position'),
       email: 'agipa.monobaeva@narxoz.kz'
     },
     {
       image: '/images/Anna.png',
-      name: 'Анна Анисимова',
-      position: 'Операционный директор Narxoz Business School по программам MBA, EMBA',
+      name: t('homepage.administration.4.name'),
+      position: t('homepage.administration.4.position'),
       email: 'anna.anissimova@narxoz.kz'
     },
     {
       image: '/images/Gulnar.png',
-      name: 'Гульнар Жуманова',
-      position: 'Директор Центра дополнительного и профессионального образования (ЦДПО) Narxoz Business School',
+      name: t('homepage.administration.5.name'),
+      position: t('homepage.administration.5.position'),
       email: 'gulnar.zhumanova@narxoz.kz'
     },
     {
       image: '/images/Saltanat.png',
-      name: 'Салтанат Абдельдинова',
-      position: 'Руководитель Центра прикладных финансов (ЦПФ) Narxoz Business School',
+      name: t('homepage.administration.6.name'),
+      position: t('homepage.administration.6.position'),
       email: 'saltanat.abdelinova@narxoz.kz'
     }
   ];
@@ -394,33 +401,33 @@ const Homepage = () => {
   const newsItems = [
     {
       date: '15.01.2025',
-      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
-      description: 'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.'
+      title: t('homepage.news.0.title'),
+      description: t('homepage.news.0.description')
     },
     {
       date: '10.01.2025',
-      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
-      description: 'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.'
+      title: t('homepage.news.1.title'),
+      description: t('homepage.news.1.description')
     },
     {
       date: '05.01.2025',
-      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
-      description: 'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.'
+      title: t('homepage.news.2.title'),
+      description: t('homepage.news.2.description')
     },
     {
       date: '01.01.2025',
-      title: 'Открыт новый корпоративный центр для Executive Education программ',
-      description: 'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.'
+      title: t('homepage.news.3.title'),
+      description: t('homepage.news.3.description')
     }
   ];
 
   // Фильтрация программ по выбранному типу
   const filteredPrograms = programs.filter(program => {
-    if (activeProgram === 'Все программы') {
+    if (activeProgram === t('homepage.programs.allPrograms')) {
       // Исключаем программу MSc in Finance из общего отображения
       return program.title !== 'MSc in Finance';
     }
-    if (activeProgram === 'MBA') {
+    if (activeProgram === t('homepage.programs.mba')) {
       // Показываем только основные программы MBA
       return program.type === 'MBA' && program.isMain;
     }
@@ -432,7 +439,7 @@ const Homepage = () => {
     'MBA': programs.filter(program => program.type === 'MBA' && program.isMain),
     'Executive MBA': programs.filter(program => program.type === 'Executive MBA'),
     'DBA': programs.filter(program => program.type === 'DBA'),
-    'Магистратура': programs.filter(program => program.type === 'Магистратура')
+    [t('homepage.programs.magistracy')]: programs.filter(program => program.type === t('homepage.programs.magistracy'))
   };
 
   // Создаем отдельную группировку для отображения "Все программы" без MSc in Finance
@@ -449,47 +456,47 @@ const Homepage = () => {
   const graduateVideos = [
     {
       url: 'https://www.youtube.com/embed/p3vTgMVvWdk',
-      description: 'История успеха: путь к бизнес-образованию'
+      description: t('homepage.graduates.videos.0.description')
     },
     {
       url: 'https://www.youtube.com/embed/U6mHH-kGQfU',
-      description: 'Выпускник о новых возможностях после обучения'
+      description: t('homepage.graduates.videos.1.description')
     },
     {
       url: 'https://www.youtube.com/embed/WS3lCOtGg4s',
-      description: 'Мотивация и развитие: личный опыт выпускника'
+      description: t('homepage.graduates.videos.2.description')
     },
     {
       url: 'https://www.youtube.com/embed/FL0H0I3rgcI',
-      description: 'Как обучение изменило мою карьеру'
+      description: t('homepage.graduates.videos.3.description')
     },
     {
       url: 'https://www.youtube.com/embed/1XPx8iKbS-Y',
-      description: 'Советы будущим студентам от выпускника'
+      description: t('homepage.graduates.videos.4.description')
     },
     {
       url: 'https://www.youtube.com/embed/UizMWwVKLOw',
-      description: 'Преодоление трудностей и успех в бизнесе'
+      description: t('homepage.graduates.videos.5.description')
     },
     {
       url: 'https://www.youtube.com/embed/l4IePhpXz8Y',
-      description: 'Почему я выбрал Narxoz Business School'
+      description: t('homepage.graduates.videos.6.description')
     },
     {
       url: 'https://www.youtube.com/embed/MPXMNiH6j5o',
-      description: 'Вдохновляющая история выпускника MBA'
+      description: t('homepage.graduates.videos.7.description')
     },
     {
       url: 'https://www.youtube.com/embed/m9--bfum4CU',
-      description: 'Личный рост и новые горизонты'
+      description: t('homepage.graduates.videos.8.description')
     },
     {
       url: 'https://www.youtube.com/embed/r5SVVe8ZOFo',
-      description: 'Как программа помогла реализовать мечты'
+      description: t('homepage.graduates.videos.9.description')
     },
     {
       url: 'https://www.youtube.com/embed/mv8ghkwGsUg',
-      description: 'Выпускник о поддержке и сообществе школы'
+      description: t('homepage.graduates.videos.10.description')
     }
   ];
 
@@ -527,45 +534,44 @@ const Homepage = () => {
         {/* Title Section - Centered */}
         <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 flex flex-col items-center px-4 sm:px-8">
           <h1 className="text-white text-5xl sm:text-6xl md:text-7xl font-bold leading-tight drop-shadow-lg text-center">
-            Narxoz Business School
+            {t('homepage.hero.title')}
           </h1>
         </div>
 
         {/* Contact Form - Bottom */}
         <div className="absolute bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-8">
           <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-medium leading-tight mb-6 drop-shadow-lg text-center">
-            Leading today, changing the world tomorrow
+            {t('homepage.hero.subtitle')}
           </h2>
           <form
             className="flex flex-col sm:flex-row gap-2 w-full max-w-4xl mx-auto"
             onSubmit={e => { e.preventDefault(); handleConsultationSubmit(); }}
           >
             <EditText
-              placeholder="ФИО"
+              placeholder={t('forms.namePlaceholder')}
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
+              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
             />
             <EditText
-              placeholder="Email"
+              placeholder={t('forms.emailPlaceholder')}
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
+              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
             />
             <EditText
-              placeholder="Номер телефона"
+              placeholder={t('forms.phonePlaceholder')}
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
+              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
             />
-            <Button
+            <button
               type="submit"
-              className="flex-1.5 min-w-[180px] bg-[#991E1E] text-white px-4 py-0 font-medium rounded-md shadow-sm hover:bg-[#7a1818] transition-colors flex items-center justify-center"
-              style={{ height: '38px' }}
+              className="flex-1 min-w-[120px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] transition-colors flex items-center justify-center h-[42px]"
             >
-              Получить консультацию
-            </Button>
+              {t('homepage.hero.consultationTitle')}
+            </button>
           </form>
         </div>
       </div>
@@ -574,14 +580,10 @@ const Homepage = () => {
       <div className="py-20 px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-dark text-4xl font-bold leading-tight mb-12 slide-in-up">
-            Narxoz Business School
+            {t('homepage.about.title')}
           </h2>
           <p className="text-gray-600 text-xl leading-relaxed slide-in-up">
-            Narxoz Business School готовит новое поколение лидеров, способных формировать устойчивое 
-            будущее в Центральной Азии и за её пределами. Наши программы MBA, Executive MBA, DBA и 
-            корпоративного обучения сочетают передовые исследования с практикой, помогая руководителям 
-            и предпринимателям развивать видение, навыки и смелость для внедрения инноваций и лидерства 
-            в быстро меняющемся мире. Вместе мы поднимаем стандарты бизнес-образования в регионе.
+            {t('homepage.about.description')}
           </p>
         </div>
       </div>
@@ -601,45 +603,45 @@ const Homepage = () => {
       {/* Programs Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 slide-in-up">
-          <h2 className="text-dark text-4xl font-bold">Дипломные Программы</h2>
+          <h2 className="text-dark text-4xl font-bold">{t('homepage.programs.title')}</h2>
         </div>
 
         {/* Program Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 p-6 border border-gray-300 rounded-full slide-in-up">
-          <Button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center ${activeProgram === 'Все программы' ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect('Все программы')}
+          <button 
+            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
+            onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
           >
-            Все программы
-          </Button>
-          <Button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center ${activeProgram === 'MBA' ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect('MBA')}
+            {t('homepage.programs.allPrograms')}
+          </button>
+          <button 
+            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.mba') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
+            onClick={() => handleProgramSelect(t('homepage.programs.mba'))}
           >
-            MBA
-          </Button>
-          <Button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[140px] text-center ${activeProgram === 'Executive MBA' ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect('Executive MBA')}
+            {t('homepage.programs.mba')}
+          </button>
+          <button 
+            className={`px-6 py-2 rounded-full transition-all min-w-[140px] text-center font-medium ${activeProgram === t('homepage.programs.executiveMba') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
+            onClick={() => handleProgramSelect(t('homepage.programs.executiveMba'))}
           >
-            Executive MBA
-          </Button>
-          <Button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center ${activeProgram === 'DBA' ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect('DBA')}
+            {t('homepage.programs.executiveMba')}
+          </button>
+          <button 
+            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.dba') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
+            onClick={() => handleProgramSelect(t('homepage.programs.dba'))}
           >
-            DBA
-          </Button>
-          <Button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center ${activeProgram === 'Магистратура' ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect('Магистратура')}
+            {t('homepage.programs.dba')}
+          </button>
+          <button 
+            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.magistracy') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
+            onClick={() => handleProgramSelect(t('homepage.programs.magistracy'))}
           >
-            Магистратура
-          </Button>
+            {t('homepage.programs.magistracy')}
+          </button>
         </div>
 
         {/* Programs Grid */}
-        {activeProgram === 'Все программы' ? (
+        {activeProgram === t('homepage.programs.allPrograms') ? (
           // Вертикальные колонки для "Все программы"
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
             {Object.keys(allProgramsGrouped).map((programType, columnIndex) => {
@@ -690,7 +692,7 @@ const Homepage = () => {
                         
                         <div className="flex justify-between items-center mt-4">
                           <div className="text-xs text-gray-500">
-                            {isMainMBA ? (expandedMBA ? 'Свернуть' : 'Развернуть') : 'Подробнее'}
+                            {isMainMBA ? (expandedMBA ? t('homepage.programs.collapse') : t('homepage.programs.expand')) : t('homepage.programs.more')}
                           </div>
                           {isMainMBA ? (
                             <button
@@ -795,7 +797,7 @@ const Homepage = () => {
                   
                   <div className="flex justify-between items-center mt-4">
                     <div className="text-xs text-gray-500">
-                      {isMainMBA ? (expandedMBA ? 'Свернуть' : 'Развернуть') : 'Подробнее'}
+                      {isMainMBA ? (expandedMBA ? t('homepage.programCards.collapse') : t('homepage.programCards.expand')) : t('homepage.programCards.more')}
                     </div>
                     {isMainMBA ? (
                       <button
@@ -876,7 +878,7 @@ const Homepage = () => {
       {/* Accreditations Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 slide-in-up">
-          <h2 className="text-dark text-4xl font-bold">Аккредитации</h2>
+          <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.accreditations')}</h2>
           <div className="flex items-center space-x-4">
             <img 
               src="/images/img_group_21.svg" 
@@ -926,7 +928,7 @@ const Homepage = () => {
       {/* Graduate Stories Section */}
       <div className="py-10 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6 slide-in-up">
-          <h2 className="text-dark text-4xl font-bold">Истории выпускников</h2>
+          <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.graduates')}</h2>
           <div className="flex items-center space-x-4">
             <img 
               src="/images/img_group_21.svg" 
@@ -958,7 +960,7 @@ const Homepage = () => {
                   width="100%"
                   height="220"
                   src={video.url}
-                  title={`История выпускника ${graduateVideoPage * videosPerPage + idx + 1}`}
+                  title={`${t('homepage.sections.graduates')} ${graduateVideoPage * videosPerPage + idx + 1}`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -992,7 +994,7 @@ const Homepage = () => {
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
-            <h2 className="text-dark text-4xl font-bold">Нам доверяют</h2>
+            <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.partners')}</h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -1027,19 +1029,14 @@ const Homepage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="slide-in-left">
             <h2 className="text-dark text-4xl font-bold mb-6">
-              Поддержать бизнес-школу
+              {t('homepage.support.title')}
             </h2>
             <p className="text-muted text-lg leading-relaxed mb-8">
-              Narxoz Business School– это программы развития профессионалов и руководителей 
-              и самое сильное бизнес сообщество. Наши корпоративные связи, партнерство – 
-              это действительно среда для развития, появления новых знаний и ваших будущих успехов. 
-              Вы можете стать партнером любой программы, выделить собственные гранты или 
-              стипендиальную поддержку нашим слушателям. Присоединяйтесь, будем вместе менять 
-              себя, бизнес и мир к лучшему!
+              {t('homepage.support.description')}
             </p>
             <Link to="/support">
             <Button className="bg-[#991E1E] text-white px-6 py-0 rounded-md hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center">
-              Поддержать
+              {t('homepage.support.button')}
             </Button>
             </Link>
           </div>
@@ -1047,7 +1044,7 @@ const Homepage = () => {
           <div className="slide-in-right">
             <img 
               src="/images/support_section_image.png" 
-              alt="Поддержать бизнес-школу" 
+              alt={t('homepage.support.title')} 
               className="w-full h-auto"
             />
           </div>
@@ -1067,7 +1064,7 @@ const Homepage = () => {
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
-            <h2 className="text-dark text-4xl font-bold">Факультет</h2>
+            <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.faculty')}</h2>
             <div className="flex items-center space-x-4">
               <img 
                 src="/images/img_group_21.svg" 
@@ -1127,7 +1124,7 @@ const Homepage = () => {
                         onClick={() => toggleFacultyCard(globalIndex)}
                         className="mt-4 text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-300 flex items-center space-x-1 group/btn"
                       >
-                        <span>{isExpanded ? 'Свернуть' : 'Читать дальше'}</span>
+                        <span>{isExpanded ? t('homepage.programCards.collapse') : t('homepage.programCards.more')}</span>
                         <svg 
                           className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
                           fill="none" 
@@ -1154,9 +1151,9 @@ const Homepage = () => {
       {/* News Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 slide-in-up">
-          <h2 className="text-dark text-4xl font-bold">Новости</h2>
+          <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.news')}</h2>
           <Link to="/news" className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer">
-            <span className="text-muted text-lg">Смотреть все новости</span>
+            <span className="text-muted text-lg">{t('homepage.sections.viewAllNews')}</span>
             <img src="/images/img_group_21_blue_gray_100.svg" alt="Arrow" className="w-7 h-7" />
           </Link>
         </div>
@@ -1196,7 +1193,7 @@ const Homepage = () => {
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
-            <h2 className="text-dark text-4xl font-bold">Администрация школы</h2>
+            <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.administration')}</h2>
             <div className="flex items-center space-x-4">
               <img 
                 src="/images/img_group_21.svg" 

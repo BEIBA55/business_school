@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import EditText from '../../components/ui/EditText';
@@ -7,6 +8,7 @@ import Button from '../../components/ui/Button';
 import NbsStatsSection from '../Homepage/NbsStatsSection';
 
 const MainPage = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -110,28 +112,27 @@ const MainPage = () => {
               placeholder="ФИО"
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
+              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
             />
             <EditText
               placeholder="Email"
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
+              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
             />
             <EditText
               placeholder="Номер телефона"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px]"
+              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
             />
-            <Button
+            <button
               type="submit"
-              className="flex-1.5 min-w-[180px] bg-[#991E1E] text-white px-4 py-0 font-medium rounded-md shadow-sm hover:bg-[#7a1818] transition-colors flex items-center justify-center"
-              style={{ height: '38px' }}
+              className="flex-1 min-w-[120px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] transition-colors flex items-center justify-center h-[42px]"
             >
               Получить консультацию
-            </Button>
+            </button>
           </form>
         </div>
       </div>

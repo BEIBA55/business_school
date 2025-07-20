@@ -1,0 +1,422 @@
+{
+  "navigation": {
+    "programs": "Programs",
+    "about": "About",
+    "schedule": "Schedule",
+    "executiveEducation": "Executive Education",
+    "corporateClients": "Corporate Clients",
+    "graduates": "Graduates",
+    "search": "Search",
+    "searchPlaceholder": "Enter your query..."
+  },
+  "programs": {
+    "mba": "MBA",
+    "executiveMba": "Executive MBA",
+    "dba": "DBA",
+    "magistracy": "Master's Degree"
+  },
+  "about": {
+    "whoWeAre": "Who We Are",
+    "news": "News",
+    "accreditations": "Accreditations",
+    "partners": "Partners",
+    "faculty": "Faculty",
+    "administration": "School Administration",
+    "supportNBS": "Support NBS"
+  },
+  "common": {
+    "loading": "Loading...",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "more": "More",
+    "readMore": "Read More",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "forms": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "message": "Message",
+    "namePlaceholder": "Enter your name",
+    "emailPlaceholder": "Enter your email",
+    "phonePlaceholder": "Enter your phone number",
+    "companyPlaceholder": "Enter company name",
+    "messagePlaceholder": "Enter your message"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Narxoz Business School",
+      "subtitle": "Leading today, changing the world tomorrow",
+      "consultationTitle": "Get Consultation",
+      "consultationSubtitle": "Leave a request and we will contact you"
+    },
+    "about": {
+      "title": "Narxoz Business School",
+      "description": "Narxoz Business School prepares a new generation of leaders capable of shaping a sustainable future in Central Asia and beyond. Our MBA, Executive MBA, DBA and corporate training programs combine cutting-edge research with practice, helping managers and entrepreneurs develop vision, skills and courage to implement innovations and leadership in a rapidly changing world. Together we raise the standards of business education in the region."
+    },
+    "programs": {
+      "title": "Degree Programs",
+      "allPrograms": "All Programs",
+      "mba": "MBA",
+      "executiveMba": "Executive MBA",
+      "dba": "DBA",
+      "magistracy": "Master's Degree",
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "more": "More"
+    },
+    "stats": {
+      "graduates": "graduates",
+      "languages": "languages: Kazakh, English, Russian",
+      "countries": "countries: Kazakhstan, Uzbekistan"
+    },
+    "businessGrid": {
+      "mba": {
+        "rank": "#1",
+        "program": "MBA",
+        "region": "in Central Asia",
+        "description": "Best MBA program in the region for future leaders"
+      },
+      "dba": {
+        "program": "DBA",
+        "description": "Highest level of management business education",
+        "subtitle": "For top managers and business owners"
+      },
+      "executiveMba": {
+        "program": "Executive MBA",
+        "description": "In 1 year we prepare for constant market changes",
+        "subtitle": "Modular format for working managers"
+      },
+      "brand": {
+        "title": "Narxoz Business School",
+        "subtitle": "Next generation business school"
+      }
+    },
+    "statsSection": {
+      "title": "Statistics",
+      "subtitle": "Narxoz Business School – new opportunities for you:",
+      "stats": [
+        {
+          "value": "16",
+          "label": "years",
+          "description": "Narxoz Business School on the market since 2008",
+          "prefix": "More than"
+        },
+        {
+          "value": "2500",
+          "label": "corporate clients",
+          "description": "",
+          "prefix": "More than"
+        },
+        {
+          "value": "3500",
+          "label": "graduates of MBA, Executive MBA, DBA programs",
+          "description": "",
+          "prefix": "More than"
+        },
+        {
+          "value": "140000",
+          "label": "Narxoz graduates, most hold leadership positions in the largest companies in Kazakhstan and beyond.",
+          "description": "",
+          "prefix": "More than"
+        }
+      ],
+      "ranking": {
+        "title": "Narxoz University Business School MBA program recognized as #1 in Central Asia",
+        "description1": "The published QS Global MBA ranking highlights the program's strengths. On September 25, 2024, the QS Global MBA 2025 ranking was published. The Narxoz University Business School MBA program entered the top 50 best in Asia for the first time (QS Global MBA 2025 Asia: #42) and based on open data and QS methodology for calculating overall scores became #1 in the Central Asian region.",
+        "description2": "Based on data published by QS agency, the MBA program also ranks in the top 50 best in the world by entrepreneurship and graduate employability criteria. By this indicator, Narxoz University Business School scored high points and outperformed other world-renowned schools such as Carnegie Mellon and Dartmouth (USA), Shanghai University of Finance and Economics and Tsinghua (China), Edinburgh and Manchester (UK)."
+      }
+    },
+    "sections": {
+      "accreditations": "Accreditations",
+      "graduates": "Graduate Stories",
+      "partners": "Our Partners",
+      "faculty": "Faculty",
+      "news": "News",
+      "viewAllNews": "View all news",
+      "administration": "School Administration"
+    },
+    "alerts": {
+      "applicationSuccess": "Thank you for your application! We will contact you soon."
+    },
+    "programCards": {
+      "expand": "Expand",
+      "more": "More",
+      "collapse": "Collapse"
+    },
+    "graduates": {
+      "videos": [
+        {
+          "title": "...I recommend to everyone, who...",
+          "description": "Success story: path to business education"
+        },
+        {
+          "title": "...Opportunity to communicate...",
+          "description": "Graduate about new opportunities after training"
+        },
+        {
+          "title": "Asylbek Adilbekov pr...",
+          "description": "Motivation and development: personal experience of a graduate"
+        },
+        {
+          "title": "How education changed my career",
+          "description": "How education changed my career"
+        },
+        {
+          "title": "Advice for future students from a graduate",
+          "description": "Advice for future students from a graduate"
+        },
+        {
+          "title": "Overcoming difficulties and success in business",
+          "description": "Overcoming difficulties and success in business"
+        },
+        {
+          "title": "Why I chose Narxoz Business School",
+          "description": "Why I chose Narxoz Business School"
+        },
+        {
+          "title": "Inspiring story of an MBA graduate",
+          "description": "Inspiring story of an MBA graduate"
+        },
+        {
+          "title": "Personal growth and new horizons",
+          "description": "Personal growth and new horizons"
+        },
+        {
+          "title": "How the program helped realize dreams",
+          "description": "How the program helped realize dreams"
+        },
+        {
+          "title": "Graduate about school support and community",
+          "description": "Graduate about school support and community"
+        }
+      ]
+    },
+    "news": [
+      {
+        "title": "Narxoz Business School entered the top 50 best business schools in Asia according to QS",
+        "description": "The MBA program of Narxoz University Business School took 42nd place in the QS Global MBA 2025 Asia ranking and became #1 in the Central Asian region."
+      },
+      {
+        "title": "A new Executive MBA program focused on digital transformation has been launched",
+        "description": "Narxoz Business School presented an updated Executive MBA program, which includes modules on artificial intelligence and digital technologies."
+      },
+      {
+        "title": "MBA students participated in an international hackathon in Singapore",
+        "description": "The Narxoz Business School team took second place at an international hackathon on sustainable development, organized by partner universities."
+      },
+      {
+        "title": "A new corporate center for Executive Education programs has been opened",
+        "description": "A modern corporate center with innovative auditoriums and spaces for teamwork has opened on the Narxoz campus."
+      }
+    ],
+    "faculty": [
+      {
+        "name": "Yelzhas Aubakirov",
+        "description": "MBA, MSF, CFA, CMA – expert with 20 years of experience in finance, direct investments, venture capital, and consulting. Specializes in deals, due diligence, company valuation, and strategic investment. Consults startups and large businesses in various industries."
+      },
+      {
+        "name": "Oleg Alfyorov",
+        "description": "Business development consultant. Project management experience - over 25 years, including work in international projects: Poland, Slovakia, Netherlands, Sweden, Denmark. Internships in the Netherlands and Sweden. Studied at business schools: NTU (Singapore), HKUST (Hong Kong), SDA Bocconi (Milan, Italy), Darden School of Business (USA). Business coach."
+      },
+      {
+        "name": "Yulia Dmitrieva",
+        "description": "Head of JD Expert agency. Business development consultant, analytics and strategy. 20 years in marketing and sales, 120+ industry studies, of which 40+ have been implemented in existing businesses, 10 closed or reoriented business ideas, over 30 years of total partner support."
+      },
+      {
+        "name": "Irina Vigovskaya",
+        "description": "Internationally accredited business coach in mediation, TRIZ-facilitation, and corporate governance. Partner of UN Women in Kazakhstan and Central Asia, with over 20 years of experience in teaching and mediation practice. Worked in managerial positions, including leadership roles."
+      },
+      {
+        "name": "Liliya Bisengali",
+        "description": "PhD in law, compliance manager, Senior Legal Consultant (KPMG), expert in corporate law and risk management. Over 15 years of experience in legal consulting and corporate governance. Specializes in corporate law, compliance, and risk management."
+      },
+      {
+        "name": "Zevira Toleutaeva",
+        "description": "K.эн, ACCA, member of the Advisory Body of the Ministry of Finance of the Republic of Kazakhstan, expert in international financial reporting standards. Over 20 years of experience in auditing and consulting. Specializes in IFRS, auditing, and financial consulting."
+      },
+      {
+        "name": "Kaisar Makan",
+        "description": "MBA, Certified Business Trainer, Facilitator, Professional International Coach Erickson International Coach ICF. Over 15 years of experience in corporate training and leadership development. Specializes in developing leadership competencies and teamwork."
+      },
+      {
+        "name": "Marina Novotochina",
+        "description": "Executive coach, business trainer, HR consultant, Doctor of Business Administration (DBA). Over 25 years of experience in HR management and organizational development. Specializes in leadership development, change management, and organizational development."
+      }
+    ],
+    "administration": [
+      {
+        "name": "Marina Obraztsova",
+        "position": "Director Narxoz Business School"
+      },
+      {
+        "name": "Ewan Simpson",
+        "position": "Doctor, PhD, Director for International Development Narxoz Business School"
+      },
+      {
+        "name": "Aikerim Myrzatayeva",
+        "position": "Deputy Director Narxoz Business School"
+      },
+      {
+        "name": "Agipa Monobayeva",
+        "position": "Academic Director Narxoz Business School, Head of DBA, Doctor of Philosophy (PhD)"
+      },
+      {
+        "name": "Anna Anisimova",
+        "position": "Operational Director Narxoz Business School for MBA, EMBA programs"
+      },
+      {
+        "name": "Gulnar Zhumanova",
+        "position": "Director of the Center for Additional and Professional Education (CDPO) Narxoz Business School"
+      },
+      {
+        "name": "Saltanat Abdeldinova",
+        "position": "Head of the Center for Applied Finance (CPF) Narxoz Business School"
+      }
+    ],
+    "support": {
+      "title": "Support the business school",
+      "description": "Narxoz Business School - these are programs for the development of professionals and leaders and the strongest business community. Our corporate connections, partnership - this is truly an environment for development, the emergence of new knowledge and your future successes. You can become a partner of any program, allocate your own grants or scholarship support to our students. Join us, together we will change ourselves, business and the world for the better!",
+      "button": "Support"
+    },
+    "programs": {
+      "title": "Programs",
+      "allPrograms": "All Programs",
+      "mba": "MBA",
+      "executiveMba": "Executive MBA",
+      "dba": "DBA",
+      "magistracy": "Master's Degree",
+      "mbaTitle": "MBA",
+      "mbaDescription": "Comprehensive MBA program for developing the next generation of leaders. Strategic management, finance, marketing. 2 years of study.",
+      "mbaDuration": "2 years",
+      "mbaPrice": "3,000,000 tenge",
+      "mbaFinanceTitle": "MBA Applied Finance Program",
+      "mbaFinanceDescription": "Specialized MBA program with in-depth study of finance, financial analysis, and corporate finance.",
+      "mbaFinanceDuration": "2 years",
+      "mbaFinancePrice": "3,200,000 tenge",
+      "mbaSustainabilityTitle": "MBA \"Sustainable Entrepreneurship\"",
+      "mbaSustainabilityDescription": "MBA program focused on sustainable business development, environmentally responsible entrepreneurship, and social impact.",
+      "mbaSustainabilityDuration": "2 years",
+      "mbaSustainabilityPrice": "3,100,000 tenge",
+      "mbaAITitle": "MBA \"AI in Business\"",
+      "mbaAIDescription": "Innovative MBA program dedicated to applying artificial intelligence in modern business and digital transformation.",
+      "mbaAIDuration": "2 years",
+      "mbaAIPrice": "3,300,000 tenge",
+      "mbaCreativeTitle": "MBA \"Creative Economy\"",
+      "mbaCreativeDescription": "MBA program for developing management skills in creative industries, media, arts, and innovative economy.",
+      "mbaCreativeDuration": "2 years",
+      "mbaCreativePrice": "3,000,000 tenge",
+      "mbaFinTechTitle": "MBA \"Financial Technologies (FinTech)\"",
+      "mbaFinTechDescription": "Specialized MBA program for studying financial technologies, blockchain, digital payments, and innovative financial services.",
+      "mbaFinTechDuration": "2 years",
+      "mbaFinTechPrice": "3,400,000 tenge",
+      "executiveMbaTitle": "Executive MBA",
+      "executiveMbaDescription": "Program for top managers. Strategic management and business modeling. Modular format for working executives.",
+      "executiveMbaDuration": "1 year",
+      "executiveMbaPrice": "2,625,000 tenge",
+      "executiveMbaNGOTitle": "Executive MBA for NGO/NPO Leaders",
+      "executiveMbaNGODescription": "Specialized Executive MBA program for leaders of non-profit organizations and social enterprises.",
+      "executiveMbaNGODuration": "1 year",
+      "executiveMbaNGOPrice": "2,400,000 tenge",
+      "executiveMbaCIOTitle": "Executive MBA for CIO",
+      "executiveMbaCIODescription": "Executive MBA program for Chief Information Officers and IT department leaders.",
+      "executiveMbaCIODuration": "1 year",
+      "executiveMbaCIOPrice": "2,500,000 tenge",
+      "dbaTitle": "DBA (Doctor of Business Administration)",
+      "dbaDescription": "The highest level of business education for top executives and business owners. Program for practicing professionals.",
+      "dbaDuration": "3 years",
+      "dbaPrice": "4,500,000 tenge",
+      "mscFinanceTitle": "MSc in Finance",
+      "mscFinanceDescription": "Master of Science in Finance. Program for specialists who want to deepen their knowledge in the financial sphere.",
+      "mscFinanceDuration": "1.5 years",
+      "mscFinancePrice": "2,800,000 tenge"
+    },
+    "footer": {
+      "programs": "Programs",
+      "aboutSchool": "About School",
+      "students": "Students",
+      "contacts": "Contacts",
+      "socialMedia": "Social Media",
+      "copyright": "© 2024 Narxoz Business School. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "links": {
+        "mba": "MBA",
+        "executiveMba": "Executive MBA",
+        "dba": "DBA",
+        "executiveEducation": "Executive Education",
+        "corporatePrograms": "Corporate Programs",
+        "trainings": "Trainings",
+        "about": "About Us",
+        "faculty": "Faculty",
+        "accreditations": "Accreditations",
+        "partners": "Partners",
+        "careerCenter": "Career Center",
+        "graduates": "Graduates",
+        "schedule": "Schedule",
+        "events": "Events",
+        "news": "News",
+        "library": "Library",
+        "studentLife": "Student Life",
+        "support": "Support"
+      }
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Narxoz Business School",
+      "subtitle": "Leading today, changing the world tomorrow",
+      "consultationTitle": "Get Consultation"
+    },
+    "mainTitle": "Narxoz Business School: where leaders create the future",
+    "mission": {
+      "title": "Mission and Vision",
+      "description": "Narxoz Business School forms a new generation of leaders ready to transform business, society and economy in Central Asia and beyond. We combine cutting-edge research with practice and global business education standards so that managers, entrepreneurs and ambitious professionals develop strategic vision, skills and courage to implement innovations in a rapidly changing world."
+    },
+    "programs": {
+      "title": "Programs and Partnerships",
+      "description": "We offer MBA, Executive MBA, DBA, Mini MBA programs, open trainings and exclusive solutions for companies. Our partners are leading world universities including ESMT Berlin, Penn State, University of Monaco, and visiting professors from Harvard, Columbia, Yale and world bestseller authors regularly conduct classes for our students."
+    },
+    "achievements": {
+      "title": "Achievements and Recognition",
+      "description": "We are proud that our MBA programs are recognized as #1 in Central Asia in the world ranking. This confirms that we create education that meets and exceeds world standards."
+    },
+    "stats": {
+      "rank": "#1",
+      "region": "in Central Asia",
+      "rating": "by MBA ranking",
+      "programs": "Programs",
+      "partners": "Partners",
+      "languages": "Languages"
+    },
+    "trust": {
+      "title": "Trusted by"
+    },
+    "languages": {
+      "title": "Education in 3 languages",
+      "russian": "Russian",
+      "english": "English",
+      "kazakh": "Kazakh"
+    },
+    "quote": "At Narxoz Business School, we create a space where knowledge meets practice and learning becomes an investment in tomorrow's career and leadership.",
+    "whyChooseUs": {
+      "title": "Why choose us?",
+      "international": {
+        "title": "International Recognition",
+        "description": "Our programs are accredited by leading organizations (FIBAA, IQAA) and meet world quality standards."
+      }
+    }
+  },
+  "languages": {
+    "ru": "Русский",
+    "en": "English",
+    "kk": "Қазақша"
+  }
+} 

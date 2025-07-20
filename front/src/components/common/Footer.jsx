@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+  
   return (
     <footer className="bg-light py-16">
       <div className="max-w-7xl mx-auto px-8">
@@ -23,37 +26,37 @@ const Footer = () => {
             {/* Программы */}
             <div>
               <h3 className="text-muted font-bold text-xl mb-4 cursor-pointer hover:text-gray-700 transition-colors">
-              Программы
+              {t('homepage.footer.programs')}
               </h3>
               <ul className="space-y-3">
                 <li>
                   <Link to="/programs/mba" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    MBA
+                    {t('homepage.footer.links.mba')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/programs/executive-mba" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Executive MBA
+                    {t('homepage.footer.links.executiveMba')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/programs/dba" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    DBA
+                    {t('homepage.footer.links.dba')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/programs/exec" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Executive Education
+                    {t('homepage.footer.links.executiveEducation')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/programs/corporate" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Корпоративные программы
+                    {t('homepage.footer.links.corporatePrograms')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/programs/trainings" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Тренинги
+                    {t('homepage.footer.links.trainings')}
                   </Link>
                 </li>
               </ul>
@@ -62,37 +65,37 @@ const Footer = () => {
             {/* О школе */}
             <div>
               <h3 className="text-muted font-bold text-xl mb-4 cursor-pointer hover:text-gray-700 transition-colors">
-                О школе
+                {t('homepage.footer.aboutSchool')}
               </h3>
               <ul className="space-y-3">
                 <li>
                   <Link to="/about" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    О нас
+                    {t('homepage.footer.links.about')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/faculty" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Преподаватели
+                    {t('homepage.footer.links.faculty')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/accreditations" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Аккредитации
+                    {t('homepage.footer.links.accreditations')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/partners" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Партнеры
+                    {t('homepage.footer.links.partners')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/careers" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Карьерный центр
+                    {t('homepage.footer.links.careerCenter')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/alumni" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Выпускники
+                    {t('homepage.footer.links.graduates')}
                   </Link>
                 </li>
               </ul>
@@ -101,37 +104,37 @@ const Footer = () => {
             {/* Студентам */}
             <div>
               <h3 className="text-muted font-bold text-xl mb-4 cursor-pointer hover:text-gray-700 transition-colors">
-                Студентам
+                {t('homepage.footer.students')}
               </h3>
               <ul className="space-y-3">
                 <li>
                   <Link to="/schedule" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Расписание
+                    {t('homepage.footer.links.schedule')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/events" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Мероприятия
+                    {t('homepage.footer.links.events')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/news" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Новости
+                    {t('homepage.footer.links.news')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/library" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Библиотека
+                    {t('homepage.footer.links.library')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/student-life" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Студенческая жизнь
+                    {t('homepage.footer.links.studentLife')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/support" className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer">
-                    Поддержка
+                    {t('homepage.footer.links.support')}
                   </Link>
                 </li>
               </ul>
@@ -140,7 +143,7 @@ const Footer = () => {
             {/* Контакты */}
             <div>
               <h3 className="text-muted font-bold text-xl mb-4 cursor-pointer hover:text-gray-700 transition-colors">
-                Контакты
+                {t('homepage.footer.contacts')}
               </h3>
               <ul className="space-y-3 text-gray-600">
                 <li>
@@ -187,7 +190,7 @@ const Footer = () => {
           <div className="border-t border-gray-300 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
               <div>
-                <h3 className="text-muted font-bold text-lg mb-3">Социальные сети</h3>
+                <h3 className="text-muted font-bold text-lg mb-3">{t('homepage.footer.socialMedia')}</h3>
           <div className="flex items-center space-x-4">
                   <a href="https://wa.me/87767083636" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
                     <img src="/images/img_vector.svg" alt="WhatsApp" className="w-6 h-6" />
@@ -212,13 +215,13 @@ const Footer = () => {
               </div>
               
               <div className="text-sm text-gray-500">
-                <p>&copy; 2024 Narxoz Business School. Все права защищены.</p>
+                <p>{t('homepage.footer.copyright')}</p>
                 <div className="flex space-x-4 mt-2">
                   <Link to="/privacy" className="hover:text-red-600 transition-colors cursor-pointer">
-                    Политика конфиденциальности
+                    {t('homepage.footer.privacy')}
                   </Link>
                   <Link to="/terms" className="hover:text-red-600 transition-colors cursor-pointer">
-                    Условия использования
+                    {t('homepage.footer.terms')}
                   </Link>
                 </div>
               </div>

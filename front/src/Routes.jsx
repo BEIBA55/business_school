@@ -17,6 +17,7 @@ import Faculty from './pages/Faculty';
 import Administration from './pages/Administration';
 import SupportNBS from './pages/SupportNBS';
 import News from './pages/News';
+import Graduates from './pages/Graduates';
 
 const AppRoutes = () => {
   return (
@@ -37,6 +38,7 @@ const AppRoutes = () => {
         <Route path="/administration" element={<Administration />} />
         <Route path="/support" element={<SupportNBS />} />
         <Route path="/news" element={<News />} />
+        <Route path="/graduates" element={<Graduates />} />
       </Routes>
     </Router>
   );
