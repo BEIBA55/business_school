@@ -1038,9 +1038,9 @@ const Homepage = () => {
               себя, бизнес и мир к лучшему!
             </p>
             <Link to="/support">
-              <Button className="bg-[#991E1E] text-white px-6 py-0 rounded-md hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center">
-                Поддержать
-              </Button>
+            <Button className="bg-[#991E1E] text-white px-6 py-0 rounded-md hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center">
+              Поддержать
+            </Button>
             </Link>
           </div>
           

@@ -10,6 +10,7 @@ import ExecutiveMBA from './pages/ProgramPage/ExecutiveMBA';
 import MBA from './pages/ProgramPage/MBA';
 import DBA from './pages/ProgramPage/DBA';
 import Magistracy from './pages/ProgramPage/Magistracy';
+import ExecutiveEducation from './pages/ProgramPage/ExecutiveEducation';
 import Accreditations from './pages/Accreditations';
 import Partners from './pages/Partners';
 import Faculty from './pages/Faculty';
@@ -29,6 +30,7 @@ const AppRoutes = () => {
         <Route path="/programs/mba" element={<MBA />} />
         <Route path="/programs/dba" element={<DBA />} />
         <Route path="/programs/magistracy" element={<Magistracy />} />
+        <Route path="/programs/executive-education" element={<ExecutiveEducation />} />
         <Route path="/accreditations" element={<Accreditations />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/faculty" element={<Faculty />} />
