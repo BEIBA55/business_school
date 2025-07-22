@@ -63,17 +63,22 @@ const Header = () => {
     }
   };
 
+  const getAboutLabel = (key, fallback) => {
+    const label = t(key);
+    return label === key ? fallback : label;
+  };
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white">
       <div className="flex items-center justify-between px-8 py-3 max-w-7xl mx-auto">
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link to="/">
-            <img 
-              src="/images/img_x00201.svg" 
-              alt="NARKOZ Business School Logo" 
-              className="h-8 w-auto"
-            />
+          <img 
+            src="/images/img_x00201.svg" 
+            alt="NARKOZ Business School Logo" 
+            className="h-8 w-auto"
+          />
           </Link>
         </div>
 
@@ -158,7 +163,7 @@ const Header = () => {
               to="/about" 
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
             >
-              {t('about.whoWeAre')}
+              {getAboutLabel('about.whoWeAre', 'Кто мы')}
             </Link>
                     {/* <Link 
                       to="/events"
@@ -170,38 +175,38 @@ const Header = () => {
                       to="/news"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
-                      {t('about.news')}
+                      {getAboutLabel('about.news', 'Новости')}
                     </Link>
                     
                     <Link 
                       to="/accreditations"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
-                      {t('about.accreditations')}
+                      {getAboutLabel('about.accreditations', 'Аккредитации')}
                     </Link>
                     <Link 
                       to="/partners"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
-                      {t('about.partners')}
+                      {getAboutLabel('about.partners', 'Партнеры')}
                     </Link>
                     <Link 
                       to="/faculty"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
-                      {t('about.faculty')}
+                      {getAboutLabel('about.faculty', 'Факультет')}
                     </Link>
                     <Link 
                       to="/administration"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
-                      {t('about.administration')}
+                      {getAboutLabel('about.administration', 'Администрация школы')}
                     </Link>
                     <Link 
                       to="/support"
                       className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                     >
-                      {t('about.supportNBS')}
+                      {getAboutLabel('about.supportNBS', 'Поддержать NBS')}
                     </Link>
                   </div>
                 </div>
