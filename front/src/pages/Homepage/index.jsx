@@ -508,12 +508,12 @@ const Homepage = () => {
       <Header />
 
       {/* Hero Section - Mobile Optimized */}
-      <div className="relative h-screen min-h-[600px] lg:min-h-[700px] overflow-hidden">
+      <div className="relative min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] xl:h-screen overflow-hidden">
         {/* Background Video */}
-        <video
+        <video 
           className="absolute top-0 left-0 w-full h-full object-cover"
-          autoPlay
-          muted
+          autoPlay 
+          muted 
           loop
           playsInline
         >
@@ -522,50 +522,47 @@ const Homepage = () => {
           {/* Fallback image if video doesn't load */}
           <img src="/images/img_.png" alt="Background" className="w-full h-full object-cover" />
         </video>
-
+        
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
+        
         {/* Title Section - Mobile Optimized */}
         <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg text-center animate-fade-in-up">
+          <h1 className="text-white text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight drop-shadow-lg text-center animate-fade-in-up">
             {t('homepage.hero.title')}
           </h1>
         </div>
 
         {/* Contact Form - Mobile Optimized */}
-        <div className="absolute bottom-4 sm:bottom-8 lg:bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
-          <h2 className="text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-4 sm:mb-6 drop-shadow-lg text-center animate-fade-in-up">
+        <div className="absolute bottom-4 sm:bottom-6 lg:bottom-12 xl:bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
+          <h2 className="text-white text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium leading-tight mb-3 sm:mb-4 lg:mb-6 drop-shadow-lg text-center animate-fade-in-up">
             {t('homepage.hero.subtitle')}
           </h2>
           <form
-            className="flex flex-col gap-3 sm:gap-2 w-full max-w-4xl mx-auto lg:flex-row"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleConsultationSubmit();
-            }}
+            className="flex flex-col gap-2 sm:gap-3 w-full max-w-4xl mx-auto lg:flex-row lg:gap-2"
+            onSubmit={e => { e.preventDefault(); handleConsultationSubmit(); }}
           >
             <EditText
               placeholder={t('forms.namePlaceholder')}
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
-              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[40px] sm:h-[44px] mb-0 [&>input]:px-3 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.emailPlaceholder')}
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[40px] sm:h-[44px] mb-0 [&>input]:px-3 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.phonePlaceholder')}
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[40px] sm:h-[44px] mb-0 [&>input]:px-3 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <button
               type="submit"
-              className="flex-1 lg:flex-none lg:min-w-[200px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] active:bg-[#660c0c] transition-colors flex items-center justify-center h-[44px] sm:h-[42px] text-sm sm:text-base touch-manipulation"
+              className="flex-1 lg:flex-none lg:min-w-[180px] xl:min-w-[200px] bg-[#991E1E] text-white px-3 sm:px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] active:bg-[#660c0c] transition-colors flex items-center justify-center h-[40px] sm:h-[44px] text-xs sm:text-sm lg:text-base touch-manipulation"
             >
               {t('homepage.hero.consultationTitle')}
             </button>
@@ -591,9 +588,7 @@ const Homepage = () => {
       {/* Programs Section - Mobile Optimized */}
       <div className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 animate-fade-in-up">
-          <h2 className="text-dark text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-0">
-            {t('homepage.programs.title')}
-          </h2>
+          <h2 className="text-dark text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-0">{t('homepage.programs.title')}</h2>
         </div>
 
         {/* Program Filter Buttons - Mobile Scrollable */}
@@ -601,14 +596,14 @@ const Homepage = () => {
           <div className="block sm:hidden">
             {/* Mobile: Horizontal scrollable filters */}
             <div className="flex gap-3 overflow-x-auto pb-4 px-2 scrollbar-hide">
-              <button
+              <button 
                 className={`px-4 py-2 rounded-full transition-all whitespace-nowrap font-medium text-sm ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 active:bg-red-800 active:text-white'}`}
                 onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
               >
                 {t('homepage.programs.allPrograms')}
               </button>
               {programTypes.map((type) => (
-                <button
+                <button 
                   key={type}
                   className={`px-4 py-2 rounded-full transition-all whitespace-nowrap font-medium text-sm ${activeProgram === type ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 active:bg-red-800 active:text-white'}`}
                   onClick={() => handleProgramSelect(type)}
@@ -618,17 +613,17 @@ const Homepage = () => {
               ))}
             </div>
           </div>
-
+          
           {/* Desktop: Original centered layout */}
           <div className="hidden sm:flex flex-wrap justify-center gap-4 p-6 border border-gray-300 rounded-full">
-            <button
+            <button 
               className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
               onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
             >
               {t('homepage.programs.allPrograms')}
             </button>
             {programTypes.map((type) => (
-              <button
+              <button 
                 key={type}
                 className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === type ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
                 onClick={() => handleProgramSelect(type)}
@@ -639,260 +634,76 @@ const Homepage = () => {
           </div>
         </div>
 
-        {/* Programs Grid */}
-        {activeProgram === t('homepage.programs.allPrograms') ? (
-          // Вертикальные колонки для "Все программы"
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}
-          >
-            {Object.keys(allProgramsGrouped).map((programType, columnIndex) => {
-              const programsInColumn = allProgramsGrouped[programType];
+        {/* Programs Grid - Simplified for Mobile */}
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
+          {(activeProgram === t('homepage.programs.allPrograms') 
+            ? [...allProgramsGrouped.MBA, ...allProgramsGrouped['Executive MBA'], ...allProgramsGrouped.DBA]
+            : filteredPrograms
+          ).map((program, index) => {
+            const isExecutiveMBA = program.title === 'Executive MBA';
+            const isMainMBA = program.title === 'MBA';
+            const CardWrapper = isExecutiveMBA || isMainMBA ? Link : 'div';
+            const cardProps = isExecutiveMBA
+              ? { to: '/programs/executive-mba' }
+              : isMainMBA
+                ? { to: '/programs/mba' }
+                : {};
 
-              return (
-                <div
-                  key={programType}
-                  className="flex flex-col space-y-6"
-                  style={{ transitionDelay: `${columnIndex * 0.1}s` }}
-                >
-                  {/* Программы в колонке */}
-                  {programsInColumn.map((program, index) => {
-                    const isExecutiveMBA = program.title === 'Executive MBA';
-                    const isMainMBA = program.title === 'MBA';
-                    const isMBAFinance = program.title === 'MBA Программа Прикладных Финансов';
-                    const CardWrapper = isExecutiveMBA || isMainMBA ? Link : 'div';
-                    const cardProps = isExecutiveMBA
-                      ? { to: '/programs/executive-mba' }
-                      : isMainMBA
-                        ? { to: '/programs/mba' }
-                        : {};
+            return (
+              <CardWrapper
+                key={`${program.type}-${index}`}
+                {...cardProps}
+                className={`bg-gray-50 hover:bg-white p-4 sm:p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer group ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+                style={{ transitionDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex flex-col h-full">
+                  {/* Program Type Badge */}
+                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                    <span className="bg-red-100 text-red-800 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                      {program.type}
+                    </span>
+                    {(isExecutiveMBA || isMainMBA) && (
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-red-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    )}
+                  </div>
 
-                    return (
-                      <CardWrapper
-                        key={`${programType}-${index}`}
-                        {...cardProps}
-                        className={`bg-gray-100 p-6 rounded-lg hover:shadow-xl hover:bg-white hover:scale-105 transition-all duration-300 cursor-pointer transform group border border-gray-200 h-80 flex flex-col justify-between ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                        style={{ transitionDelay: `${columnIndex * 0.1 + index * 0.05}s` }}
-                      >
-                        <div>
-                          <div className="flex justify-between items-start mb-3">
-                            <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
-                              {program.type}
-                            </span>
-                            {program.duration && (
-                              <span className="text-xs text-gray-500">{program.duration}</span>
-                            )}
-                          </div>
+                  {/* Program Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-red-600 transition-colors line-clamp-2">
+                    {program.title}
+                  </h3>
 
-                          <h3 className="text-xl font-bold mb-4 leading-tight transition-colors duration-300 text-gray-800 group-hover:text-red-800">
-                            {program.title}
-                          </h3>
+                  {/* Program Description */}
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 flex-1 line-clamp-3">
+                    {program.description}
+                  </p>
 
-                          <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                            {program.description}
-                          </p>
-                        </div>
+                  {/* Program Details */}
+                  <div className="mt-auto space-y-2 sm:space-y-3">
+                    <div className="flex justify-between items-center text-xs sm:text-sm">
+                      <span className="text-gray-500">Длительность:</span>
+                      <span className="font-medium text-gray-900">{program.duration}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-xs sm:text-sm">
+                      <span className="text-gray-500">Стоимость:</span>
+                      <span className="font-bold text-red-600">{program.price}</span>
+                    </div>
+                  </div>
 
-                        <div className="flex justify-between items-center mt-4">
-                          <div className="text-xs text-gray-500">
-                            {isMainMBA
-                              ? expandedMBA
-                                ? t('homepage.programs.collapse')
-                                : t('homepage.programs.expand')
-                              : t('homepage.programs.more')}
-                          </div>
-                          {isMainMBA ? (
-                            <button
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                handleMBAExpand();
-                              }}
-                              className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 hover:bg-red-800 transition-all duration-300 hover:shadow-lg"
-                            >
-                              <svg
-                                className={`w-4 h-4 text-red-800 hover:text-white transition-all duration-300 ${expandedMBA ? 'rotate-180' : ''}`}
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                            </button>
-                          ) : (
-                            <div className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 group-hover:bg-red-800 group-hover:border-red-800 transition-all duration-300 group-hover:shadow-lg">
-                              <svg
-                                className="w-4 h-4 text-red-800 group-hover:text-white transition-colors duration-300"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                      </CardWrapper>
-                    );
-                  })}
-
-                  {/* Дополнительные программы MBA (показываются при развертывании) */}
-                  {programType === 'MBA' && expandedMBA && (
-                    <div className="space-y-4 mt-4">
-                      {additionalMBAPrograms.map((program, index) => (
-                        <div
-                          key={`additional-mba-${index}`}
-                          className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between"
-                        >
-                          <div>
-                            <div className="flex justify-between items-start mb-2">
-                              <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
-                                {program.type}
-                              </span>
-                              <span className="text-xs text-gray-500">{program.duration}</span>
-                            </div>
-
-                            <h4 className="text-lg font-bold mb-2 text-gray-800">
-                              {program.title}
-                            </h4>
-
-                            <p className="text-gray-600 text-sm leading-relaxed">
-                              {program.description}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
+                  {/* Call to Action */}
+                  {(isExecutiveMBA || isMainMBA) && (
+                    <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100">
+                      <span className="text-red-600 font-medium text-sm group-hover:text-red-700 transition-colors">
+                        Подробнее →
+                      </span>
                     </div>
                   )}
                 </div>
-              );
-            })}
-          </div>
-        ) : (
-          // Горизонтальная сетка для остальных фильтров
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}
-          >
-            {filteredPrograms.map((program, index) => {
-              const isExecutiveMBA = program.title === 'Executive MBA';
-              const isMainMBA = program.title === 'MBA';
-              const CardWrapper = isExecutiveMBA || isMainMBA ? Link : 'div';
-              const cardProps = isExecutiveMBA
-                ? { to: '/programs/executive-mba' }
-                : isMainMBA
-                  ? { to: '/programs/mba' }
-                  : {};
-
-              return (
-                <CardWrapper
-                  key={`${program.type}-${index}`}
-                  {...cardProps}
-                  className={`bg-gray-100 p-6 rounded-lg hover:shadow-xl hover:bg-white hover:scale-105 transition-all duration-300 cursor-pointer transform group border border-gray-200 h-80 flex flex-col justify-between ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                  style={{ transitionDelay: `${index * 0.1}s` }}
-                >
-                  <div>
-                    <div className="flex justify-between items-start mb-3">
-                      <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
-                        {program.type}
-                      </span>
-                      {program.duration && (
-                        <span className="text-xs text-gray-500">{program.duration}</span>
-                      )}
-                    </div>
-
-                    <h3 className="text-xl font-bold mb-4 leading-tight transition-colors duration-300 text-gray-800 group-hover:text-red-800">
-                      {program.title}
-                    </h3>
-
-                    <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                      {program.description}
-                    </p>
-                  </div>
-
-                  <div className="flex justify-between items-center mt-4">
-                    <div className="text-xs text-gray-500">
-                      {isMainMBA
-                        ? expandedMBA
-                          ? t('homepage.programCards.collapse')
-                          : t('homepage.programCards.expand')
-                        : t('homepage.programCards.more')}
-                    </div>
-                    {isMainMBA ? (
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          handleMBAExpand();
-                        }}
-                        className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 hover:bg-red-800 transition-all duration-300 hover:shadow-lg"
-                      >
-                        <svg
-                          className={`w-4 h-4 text-red-800 hover:text-white transition-all duration-300 ${expandedMBA ? 'rotate-180' : ''}`}
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                    ) : (
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 group-hover:bg-red-800 group-hover:border-red-800 transition-all duration-300 group-hover:shadow-lg">
-                        <svg
-                          className="w-4 h-4 text-red-800 group-hover:text-white transition-colors duration-300"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                </CardWrapper>
-              );
-            })}
-
-            {/* Дополнительные программы MBA (показываются при развертывании) */}
-            {expandedMBA && activeProgram === 'MBA' && (
-              <div className="col-span-full">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-                  {additionalMBAPrograms.map((program, index) => (
-                    <div
-                      key={`additional-mba-${index}`}
-                      className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex justify-between items-start mb-2">
-                          <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
-                            {program.type}
-                          </span>
-                          <span className="text-xs text-gray-500">{program.duration}</span>
-                        </div>
-
-                        <h4 className="text-lg font-bold mb-2 text-gray-800">{program.title}</h4>
-
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {program.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+              </CardWrapper>
+            );
+          })}
+        </div>
       </div>
 
       {/* Разделитель */}
