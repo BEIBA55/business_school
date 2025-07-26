@@ -36,10 +36,7 @@ const features = [
     number: '04',
     title: 'Научная деятельность',
     stats: 'Подготовка магистерской диссертации',
-    points: [
-      'Проведение собственного исследования',
-      'Публикации в научных журналах',
-    ],
+    points: ['Проведение собственного исследования', 'Публикации в научных журналах'],
   },
 ];
 
@@ -53,9 +50,9 @@ const specializations = [
       'Финансовые рынки и институты',
       'Международные финансы',
       'Управление рисками',
-      'Финансовое моделирование'
+      'Финансовое моделирование',
     ],
-    career: 'Финансовые аналитики, инвестиционные менеджеры, риск-менеджеры'
+    career: 'Финансовые аналитики, инвестиционные менеджеры, риск-менеджеры',
   },
   {
     title: 'Маркетинг',
@@ -66,9 +63,9 @@ const specializations = [
       'Поведение потребителей',
       'Бренд-менеджмент',
       'Маркетинговые исследования',
-      'Маркетинг услуг'
+      'Маркетинг услуг',
     ],
-    career: 'Маркетинг-менеджеры, бренд-менеджеры, digital-маркетологи'
+    career: 'Маркетинг-менеджеры, бренд-менеджеры, digital-маркетологи',
   },
   {
     title: 'Управление персоналом',
@@ -79,9 +76,9 @@ const specializations = [
       'Развитие и обучение персонала',
       'Компенсации и льготы',
       'Организационная психология',
-      'Управление изменениями'
+      'Управление изменениями',
     ],
-    career: 'HR-директора, менеджеры по персоналу, консультанты по развитию'
+    career: 'HR-директора, менеджеры по персоналу, консультанты по развитию',
   },
   {
     title: 'Логистика и управление цепями поставок',
@@ -92,9 +89,9 @@ const specializations = [
       'Управление запасами',
       'Транспортная логистика',
       'Складское хозяйство',
-      'Логистические технологии'
+      'Логистические технологии',
     ],
-    career: 'Логисты, менеджеры по закупкам, специалисты по SCM'
+    career: 'Логисты, менеджеры по закупкам, специалисты по SCM',
   },
   {
     title: 'Предпринимательство и инновации',
@@ -105,9 +102,9 @@ const specializations = [
       'Бизнес-планирование',
       'Венчурное финансирование',
       'Технологическое предпринимательство',
-      'Социальное предпринимательство'
+      'Социальное предпринимательство',
     ],
-    career: 'Предприниматели, инновационные менеджеры, консультанты'
+    career: 'Предприниматели, инновационные менеджеры, консультанты',
   },
   {
     title: 'Международный бизнес',
@@ -118,10 +115,10 @@ const specializations = [
       'Международные финансы',
       'Кросс-культурный менеджмент',
       'Международный маркетинг',
-      'Глобальные цепочки создания стоимости'
+      'Глобальные цепочки создания стоимости',
     ],
-    career: 'Международные менеджеры, экспортные специалисты, глобальные стратеги'
-  }
+    career: 'Международные менеджеры, экспортные специалисты, глобальные стратеги',
+  },
 ];
 
 const Magistracy = () => {
@@ -130,13 +127,13 @@ const Magistracy = () => {
     email: '',
     phone: '',
     specialization: '',
-    education: ''
+    education: '',
   });
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -148,26 +145,20 @@ const Magistracy = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       {/* Hero Section */}
-      <div className="relative bg-cover bg-center bg-no-repeat text-white py-48 px-8" 
-           style={{ backgroundImage: 'url(/images/Fon.png)' }}>
+      <div
+        className="relative bg-cover bg-center bg-no-repeat text-white py-48 px-8"
+        style={{ backgroundImage: 'url(/images/Fon.png)' }}
+      >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="text-7xl lg:text-8xl font-bold mb-8 leading-tight">
-            МАГИСТРАТУРА
-          </h1>
-          <p className="text-3xl lg:text-4xl mb-6 font-medium">
-            (MASTER'S DEGREE PROGRAMS)
-          </p>
-          <p className="text-2xl mb-3">
-            Углубленное образование для карьерного роста
-          </p>
-          <p className="text-xl mb-16 opacity-90">
-            Специализация в выбранной области бизнеса
-          </p>
+          <h1 className="text-7xl lg:text-8xl font-bold mb-8 leading-tight">МАГИСТРАТУРА</h1>
+          <p className="text-3xl lg:text-4xl mb-6 font-medium">(MASTER'S DEGREE PROGRAMS)</p>
+          <p className="text-2xl mb-3">Углубленное образование для карьерного роста</p>
+          <p className="text-xl mb-16 opacity-90">Специализация в выбранной области бизнеса</p>
         </div>
-        
+
         <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
           <div className="flex flex-wrap justify-center gap-6">
             <div className="bg-red-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg">
@@ -189,27 +180,24 @@ const Magistracy = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="flex justify-center">
               <div className="relative">
-                <img 
-                  src="/images/Krug.png" 
-                  alt="Магистранты" 
-                  className="w-96 h-96"
-                />
+                <img src="/images/Krug.png" alt="Магистранты" className="w-96 h-96" />
               </div>
             </div>
-            
+
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-8 leading-tight">
                 Магистратура в Нархоз Business School
               </h2>
               <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
                 <p>
-                  Программы магистратуры в Нархоз Business School предоставляют углубленное образование 
-                  в различных областях бизнеса и менеджмента. Это идеальный выбор для тех, кто хочет 
-                  специализироваться в конкретной области и получить конкурентные преимущества на рынке труда.
+                  Программы магистратуры в Нархоз Business School предоставляют углубленное
+                  образование в различных областях бизнеса и менеджмента. Это идеальный выбор для
+                  тех, кто хочет специализироваться в конкретной области и получить конкурентные
+                  преимущества на рынке труда.
                 </p>
                 <p>
-                  Наши программы сочетают академическую строгость с практической направленностью, 
-                  позволяя студентам развивать как теоретические знания, так и практические навыки, 
+                  Наши программы сочетают академическую строгость с практической направленностью,
+                  позволяя студентам развивать как теоретические знания, так и практические навыки,
                   необходимые для успешной карьеры в современном бизнесе.
                 </p>
               </div>
@@ -222,9 +210,7 @@ const Magistracy = () => {
       <div className="py-24 px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Ключевые особенности программ
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Ключевые особенности программ</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Что делает магистратуру в Нархоз Business School привлекательной
             </p>
@@ -238,12 +224,8 @@ const Magistracy = () => {
                     {feature.number}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {feature.title}
-                    </h3>
-                    <div className="text-red-800 font-bold text-lg mb-4">
-                      {feature.stats}
-                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                    <div className="text-red-800 font-bold text-lg mb-4">{feature.stats}</div>
                     <ul className="space-y-2">
                       {feature.points.map((point, idx) => (
                         <li key={idx} className="text-gray-600 flex items-start gap-2">
@@ -264,9 +246,7 @@ const Magistracy = () => {
       <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Специализации магистратуры
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Специализации магистратуры</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Выберите направление, которое соответствует вашим карьерным целям
             </p>
@@ -275,17 +255,11 @@ const Magistracy = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {specializations.map((spec, index) => (
               <div key={index} className="bg-white p-8 rounded-3xl shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {spec.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {spec.description}
-                </p>
-                
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{spec.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{spec.description}</p>
+
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                    Основные курсы:
-                  </h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">Основные курсы:</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {spec.courses.map((course, idx) => (
                       <div key={idx} className="text-gray-600 flex items-start gap-2">
@@ -300,9 +274,7 @@ const Magistracy = () => {
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">
                     Карьерные возможности:
                   </h4>
-                  <p className="text-gray-600 text-sm">
-                    {spec.career}
-                  </p>
+                  <p className="text-gray-600 text-sm">{spec.career}</p>
                 </div>
               </div>
             ))}
@@ -317,9 +289,15 @@ const Magistracy = () => {
             <div className="bg-red-800 text-white p-8 rounded-3xl h-80 relative">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-normal">Очная форма</h3>
-                <img src="/images/vrema.png" alt="Время" className="w-40 h-40 object-cover rounded-2xl" />
+                <img
+                  src="/images/vrema.png"
+                  alt="Время"
+                  className="w-40 h-40 object-cover rounded-2xl"
+                />
               </div>
-              <div className="text-2xl font-black tracking-wider mb-2 drop-shadow-lg">5 ДНЕЙ В НЕДЕЛЮ</div>
+              <div className="text-2xl font-black tracking-wider mb-2 drop-shadow-lg">
+                5 ДНЕЙ В НЕДЕЛЮ
+              </div>
               <p className="text-sm opacity-90 leading-relaxed">
                 Полноценное погружение в образовательный процесс
               </p>
@@ -334,16 +312,26 @@ const Magistracy = () => {
               </p>
               <div className="absolute bottom-6 left-8 text-xs opacity-75">Качество</div>
               <div className="absolute bottom-6 right-8">
-                <img src="/images/gruppa.png" alt="Группа" className="w-40 h-40 object-cover rounded-2xl" />
+                <img
+                  src="/images/gruppa.png"
+                  alt="Группа"
+                  className="w-40 h-40 object-cover rounded-2xl"
+                />
               </div>
             </div>
 
             <div className="bg-red-800 text-white p-8 rounded-3xl h-80 relative">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-normal">Преподаватели</h3>
-                <img src="/images/experty.png" alt="Эксперты" className="w-40 h-40 object-cover rounded-2xl" />
+                <img
+                  src="/images/experty.png"
+                  alt="Эксперты"
+                  className="w-40 h-40 object-cover rounded-2xl"
+                />
               </div>
-              <div className="text-3xl font-black tracking-wider mb-3 drop-shadow-lg">PhD степени</div>
+              <div className="text-3xl font-black tracking-wider mb-3 drop-shadow-lg">
+                PhD степени
+              </div>
               <p className="text-sm opacity-90 leading-relaxed">
                 Преподаватели с международным опытом и научными степенями
               </p>
@@ -356,9 +344,7 @@ const Magistracy = () => {
       <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Подать заявку на магистратуру
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Подать заявку на магистратуру</h2>
             <p className="text-xl text-gray-600">
               Оставьте заявку, и мы свяжемся с вами для консультации
             </p>
@@ -398,7 +384,10 @@ const Magistracy = () => {
               />
             </div>
             <div className="text-center">
-              <Button onClick={handleSubmit} className="bg-red-800 text-white px-12 py-4 rounded-2xl text-lg font-semibold hover:bg-red-900 transition-colors">
+              <Button
+                onClick={handleSubmit}
+                className="bg-red-800 text-white px-12 py-4 rounded-2xl text-lg font-semibold hover:bg-red-900 transition-colors"
+              >
                 Отправить заявку
               </Button>
             </div>
@@ -411,4 +400,4 @@ const Magistracy = () => {
   );
 };
 
-export default Magistracy; 
+export default Magistracy;

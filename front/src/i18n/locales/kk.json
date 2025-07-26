@@ -20,7 +20,7 @@
     "news": "Жаңалықтар",
     "accreditations": "Аккредитациялар",
     "partners": "Серіктестер",
-    "faculty": "Факультет",
+    "faculty": "Преподаватели",
     "administration": "Мектеп әкімшілігі",
     "supportNBS": "NBS-ті қолдау"
   },
@@ -100,7 +100,7 @@
       }
     },
     "statsSection": {
-      "title": "Статистика",
+      "title": "",
       "subtitle": "Narxoz Business School – сізге арналған жаңа мүмкіндіктер:",
       "stats": [
         {
@@ -138,7 +138,7 @@
       "accreditations": "Аккредитациялар",
       "graduates": "Түлектер тарихы",
       "partners": "Бізге сенеді",
-      "faculty": "Факультет",
+      "faculty": "Преподаватели",
       "news": "Жаңалықтар",
       "viewAllNews": "Барлық жаңалықтарды көру",
       "administration": "Мектеп әкімшілігі"
@@ -419,4 +419,4 @@
     "en": "English",
     "kk": "Қазақша"
   }
-} 
+}

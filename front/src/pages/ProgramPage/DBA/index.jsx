@@ -117,13 +117,13 @@ const DBA = () => {
     name: '',
     email: '',
     phone: '',
-    company: ''
+    company: '',
   });
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -135,26 +135,22 @@ const DBA = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       {/* Hero Section */}
-      <div className="relative bg-cover bg-center bg-no-repeat text-white py-48 px-8" 
-           style={{ backgroundImage: 'url(/images/Fon.png)' }}>
+      <div
+        className="relative bg-cover bg-center bg-no-repeat text-white py-48 px-8"
+        style={{ backgroundImage: 'url(/images/Fon.png)' }}
+      >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="text-7xl lg:text-8xl font-bold mb-8 leading-tight">
-            ПРОГРАММА DBA
-          </h1>
+          <h1 className="text-7xl lg:text-8xl font-bold mb-8 leading-tight">ПРОГРАММА DBA</h1>
           <p className="text-3xl lg:text-4xl mb-6 font-medium">
             (DOCTOR OF BUSINESS ADMINISTRATION)
           </p>
-          <p className="text-2xl mb-3">
-            Докторская программа в области бизнес-администрирования
-          </p>
-          <p className="text-xl mb-16 opacity-90">
-            Высший уровень бизнес-образования
-          </p>
+          <p className="text-2xl mb-3">Докторская программа в области бизнес-администрирования</p>
+          <p className="text-xl mb-16 opacity-90">Высший уровень бизнес-образования</p>
         </div>
-        
+
         <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
           <div className="flex flex-wrap justify-center gap-6">
             <div className="bg-red-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg">
@@ -176,28 +172,24 @@ const DBA = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="flex justify-center">
               <div className="relative">
-                <img 
-                  src="/images/Krug.png" 
-                  alt="DBA студенты" 
-                  className="w-96 h-96"
-                />
+                <img src="/images/Krug.png" alt="DBA студенты" className="w-96 h-96" />
               </div>
             </div>
-            
+
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-8 leading-tight">
                 DBA (Doctor of Business Administration)
               </h2>
               <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
                 <p>
-                  Программа DBA в Нархоз Business School — это высший уровень бизнес-образования, 
-                  предназначенный для опытных профессионалов, стремящихся к академической карьере 
+                  Программа DBA в Нархоз Business School — это высший уровень бизнес-образования,
+                  предназначенный для опытных профессионалов, стремящихся к академической карьере
                   или желающих внести вклад в развитие бизнес-теории и практики.
                 </p>
                 <p>
-                  Программа сочетает в себе глубокие теоретические знания с практическими исследованиями, 
-                  позволяя слушателям разрабатывать инновационные решения для современных бизнес-вызовов 
-                  и вносить вклад в научное сообщество.
+                  Программа сочетает в себе глубокие теоретические знания с практическими
+                  исследованиями, позволяя слушателям разрабатывать инновационные решения для
+                  современных бизнес-вызовов и вносить вклад в научное сообщество.
                 </p>
               </div>
             </div>
@@ -225,12 +217,8 @@ const DBA = () => {
                     {feature.number}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {feature.title}
-                    </h3>
-                    <div className="text-red-800 font-bold text-lg mb-4">
-                      {feature.stats}
-                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                    <div className="text-red-800 font-bold text-lg mb-4">{feature.stats}</div>
                     <ul className="space-y-2">
                       {feature.points.map((point, idx) => (
                         <li key={idx} className="text-gray-600 flex items-start gap-2">
@@ -251,9 +239,7 @@ const DBA = () => {
       <div className="py-24 px-8" style={{ backgroundColor: '#F9FAFB' }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Структура программы
-            </h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Структура программы</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Основные модули и направления исследований
             </p>
@@ -263,16 +249,10 @@ const DBA = () => {
             {modules.map((module, index) => (
               <div key={index} className="bg-white p-8 rounded-3xl shadow-lg">
                 <div className="mb-4">
-                  <span className="text-red-800 text-sm font-semibold">
-                    {module.subtitle}
-                  </span>
+                  <span className="text-red-800 text-sm font-semibold">{module.subtitle}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {module.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {module.description}
-                </p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{module.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{module.description}</p>
                 <ul className="space-y-2">
                   {module.topics.map((topic, idx) => (
                     <li key={idx} className="text-gray-600 flex items-start gap-2">
@@ -327,7 +307,10 @@ const DBA = () => {
               />
             </div>
             <div className="text-center">
-              <Button onClick={handleSubmit} className="bg-red-800 text-white px-12 py-4 rounded-2xl text-lg font-semibold hover:bg-red-900 transition-colors">
+              <Button
+                onClick={handleSubmit}
+                className="bg-red-800 text-white px-12 py-4 rounded-2xl text-lg font-semibold hover:bg-red-900 transition-colors"
+              >
                 Отправить заявку
               </Button>
             </div>
@@ -340,4 +323,4 @@ const DBA = () => {
   );
 };
 
-export default DBA; 
+export default DBA;

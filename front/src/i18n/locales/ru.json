@@ -1,11 +1,11 @@
 {
   "navigation": {
+    "about": "О школе",
     "programs": "Программы",
-    "about": "О нас",
     "schedule": "Расписание",
     "executiveEducation": "Executive Education",
-    "corporateClients": "Корпоративным клиентам",
-    "graduates": "Выпускникам",
+    "corporateClients": "Корпоративные клиенты",
+    "graduates": "Выпускники",
     "search": "Поиск",
     "searchPlaceholder": "Введите запрос..."
   },
@@ -20,7 +20,7 @@
     "news": "Новости",
     "accreditations": "Аккредитации",
     "partners": "Партнеры",
-    "faculty": "Факультет",
+    "faculty": "Преподаватели",
     "administration": "Администрация школы",
     "supportNBS": "Поддержать NBS"
   },
@@ -44,25 +44,24 @@
     "phone": "Телефон",
     "company": "Компания",
     "message": "Сообщение",
-    "namePlaceholder": "Введите ваше имя",
-    "emailPlaceholder": "Введите ваш email",
-    "phonePlaceholder": "Введите ваш телефон",
+    "namePlaceholder": "ФИО",
+    "emailPlaceholder": "Email",
+    "phonePlaceholder": "Номер телефона",
     "companyPlaceholder": "Введите название компании",
     "messagePlaceholder": "Введите ваше сообщение"
   },
   "homepage": {
     "hero": {
-      "title": "Narxoz Business School",
-      "subtitle": "Leading today, changing the world tomorrow",
-      "consultationTitle": "Получить консультацию",
-      "consultationSubtitle": "Оставьте заявку и мы свяжемся с вами"
+      "title": "NARKOZ Business School",
+      "subtitle": "Ведущая бизнес-школа Центральной Азии",
+      "consultationTitle": "Получить консультацию"
     },
     "about": {
-      "title": "Narxoz Business School",
-      "description": "Narxoz Business School готовит новое поколение лидеров, способных формировать устойчивое будущее в Центральной Азии и за её пределами. Наши программы MBA, Executive MBA, DBA и корпоративного обучения сочетают передовые исследования с практикой, помогая руководителям и предпринимателям развивать видение, навыки и смелость для внедрения инноваций и лидерства в быстро меняющемся мире. Вместе мы поднимаем стандарты бизнес-образования в регионе."
+      "title": "О школе",
+      "description": "NARKOZ Business School - ведущая бизнес-школа Центральной Азии, предлагающая программы MBA, Executive MBA, DBA и корпоративное обучение."
     },
     "programs": {
-      "title": "Дипломные Программы",
+      "title": "Наши программы",
       "allPrograms": "Все программы",
       "mba": "MBA",
       "executiveMba": "Executive MBA",
@@ -100,7 +99,7 @@
       }
     },
     "statsSection": {
-      "title": "Статистика",
+      "title": "",
       "subtitle": "Narxoz Business School – это новые возможности для Вас:",
       "stats": [
         {
@@ -138,13 +137,13 @@
       "accreditations": "Аккредитации",
       "graduates": "Истории выпускников",
       "partners": "Нам доверяют",
-      "faculty": "Факультет",
+      "faculty": "Преподаватели",
       "news": "Новости",
       "viewAllNews": "Смотреть все новости",
       "administration": "Администрация школы"
     },
     "alerts": {
-      "applicationSuccess": "Спасибо за заявку! Мы свяжемся с вами в ближайшее время."
+      "applicationSuccess": "Заявка успешно отправлена!"
     },
     "programCards": {
       "expand": "Развернуть",
@@ -344,7 +343,7 @@
       "students": "Студентам",
       "contacts": "Контакты",
       "socialMedia": "Социальные сети",
-      "copyright": "© 2024 Narxoz Business School. Все права защищены.",
+      "copyright": "© 2024 NARKOZ Business School. Все права защищены.",
       "privacy": "Политика конфиденциальности",
       "terms": "Условия использования",
       "links": {
@@ -361,7 +360,7 @@
         "careerCenter": "Карьерный центр",
         "graduates": "Выпускники",
         "schedule": "Расписание",
-        "events": "Мероприятия",
+        "events": "События",
         "news": "Новости",
         "library": "Библиотека",
         "studentLife": "Студенческая жизнь",
@@ -419,4 +418,4 @@
     "en": "English",
     "kk": "Қазақша"
   }
-} 
+}

@@ -11,7 +11,9 @@ body {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -86,7 +88,12 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(156, 163, 175, 0.3) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(156, 163, 175, 0.3) 50%,
+    transparent 100%
+  );
 }
 
 /* Анимации для страницы Executive MBA */
@@ -198,14 +205,30 @@ html {
   opacity: 0;
 }
 
-.news-card-animate:nth-child(1) { animation-delay: 0.1s; }
-.news-card-animate:nth-child(2) { animation-delay: 0.2s; }
-.news-card-animate:nth-child(3) { animation-delay: 0.3s; }
-.news-card-animate:nth-child(4) { animation-delay: 0.4s; }
-.news-card-animate:nth-child(5) { animation-delay: 0.5s; }
-.news-card-animate:nth-child(6) { animation-delay: 0.6s; }
-.news-card-animate:nth-child(7) { animation-delay: 0.7s; }
-.news-card-animate:nth-child(8) { animation-delay: 0.8s; }
+.news-card-animate:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.news-card-animate:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.news-card-animate:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.news-card-animate:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.news-card-animate:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.news-card-animate:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.news-card-animate:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.news-card-animate:nth-child(8) {
+  animation-delay: 0.8s;
+}
 
 /* Плавный переход для карточек */
 .faculty-transition {
@@ -246,4 +269,243 @@ html {
 
 .card-hover:hover {
   transform: translateY(-8px);
+}
+
+/* Скрытие скроллбара для мобильных фильтров */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Улучшенная поддержка тач-интерфейса */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Мобильные анимации - более плавные */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+}
+
+/* Мобильные карточки - улучшенная адаптация */
+@media (max-width: 768px) {
+  .mobile-card-spacing {
+    margin-bottom: 1rem;
+  }
+
+  .mobile-text-responsive {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .mobile-padding {
+    padding: 1rem;
+  }
+
+  .mobile-gap {
+    gap: 0.75rem;
+  }
+}
+
+/* Контейнер для мобильных форм */
+.mobile-form-container {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .mobile-form-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-form-container {
+    padding: 2rem;
+  }
+}
+
+/* Мобильные кнопки - улучшенные размеры для тача */
+.mobile-button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-button {
+    min-height: 40px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Адаптивная сетка для карточек */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Мобильная типографика */
+.mobile-heading {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-heading {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Мобильные модальные окна */
+.mobile-modal {
+  margin: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+@media (min-width: 640px) {
+  .mobile-modal {
+    margin: 2rem;
+    max-height: calc(100vh - 4rem);
+  }
+}
+
+/* Улучшенная адаптация изображений */
+.mobile-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Мобильная навигация по секциям */
+.mobile-section-nav {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Адаптивные отступы */
+.mobile-spacing {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-spacing {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-spacing {
+    padding: 2rem;
+  }
+}
+
+/* Фокус для клавиатурной навигации */
+.mobile-focus:focus {
+  outline: 2px solid #991e1e;
+  outline-offset: 2px;
+}
+
+/* Адаптивные видео */
+.mobile-video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.mobile-video-container iframe,
+.mobile-video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Мобильные переходы страниц */
+.mobile-page-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Адаптивные контейнеры */
+.mobile-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-container {
+    padding: 0 2rem;
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mobile-container {
+    max-width: 1536px;
+  }
 }

@@ -9,14 +9,14 @@ import kk from './locales/kk.json';
 
 const resources = {
   ru: {
-    translation: ru
+    translation: ru,
   },
   en: {
-    translation: en
+    translation: en,
   },
   kk: {
-    translation: kk
-  }
+    translation: kk,
+  },
 };
 
 i18n
@@ -26,15 +26,15 @@ i18n
     resources,
     fallbackLng: 'ru',
     debug: false,
-    
+
     interpolation: {
       escapeValue: false,
     },
-    
+
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
-    }
+    },
   });
 
-export default i18n; 
+export default i18n;

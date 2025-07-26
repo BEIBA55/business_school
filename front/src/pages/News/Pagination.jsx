@@ -5,7 +5,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPe
   const getPageNumbers = () => {
     const pages = [];
     const maxVisiblePages = 5;
-    
+
     if (totalPages <= maxVisiblePages) {
       // Если общее количество страниц меньше или равно максимальному количеству видимых страниц
       for (let i = 1; i <= totalPages; i++) {
@@ -30,7 +30,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPe
         }
       }
     }
-    
+
     return pages;
   };
 
@@ -55,24 +55,20 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPe
           disabled={currentPage === 1}
           className={`
             w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200
-            ${currentPage === 1 
-              ? 'text-gray-400 cursor-not-allowed opacity-50' 
-              : 'text-gray-600 hover:text-red-600 hover:bg-gray-100 cursor-pointer hover:scale-105'
+            ${
+              currentPage === 1
+                ? 'text-gray-400 cursor-not-allowed opacity-50'
+                : 'text-gray-600 hover:text-red-600 hover:bg-gray-100 cursor-pointer hover:scale-105'
             }
           `}
           title="Предыдущая страница"
         >
-          <svg 
-            className="w-5 h-5" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M15 19l-7-7 7-7" 
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
             />
           </svg>
         </button>
@@ -87,9 +83,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPe
             >
               1
             </button>
-            {pageNumbers[0] > 2 && (
-              <span className="text-gray-400">...</span>
-            )}
+            {pageNumbers[0] > 2 && <span className="text-gray-400">...</span>}
           </>
         )}
 
@@ -100,9 +94,10 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPe
             onClick={() => onPageChange(pageNumber)}
             className={`
               w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-200 hover:scale-105
-              ${currentPage === pageNumber
-                ? 'bg-red-600 text-white shadow-lg'
-                : 'text-gray-600 hover:text-red-600 hover:bg-gray-100'
+              ${
+                currentPage === pageNumber
+                  ? 'bg-red-600 text-white shadow-lg'
+                  : 'text-gray-600 hover:text-red-600 hover:bg-gray-100'
               }
             `}
             title={`Страница ${pageNumber}`}
@@ -133,25 +128,16 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPe
           disabled={currentPage === totalPages}
           className={`
             w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200
-            ${currentPage === totalPages 
-              ? 'text-gray-400 cursor-not-allowed opacity-50' 
-              : 'text-gray-600 hover:text-red-600 hover:bg-gray-100 cursor-pointer hover:scale-105'
+            ${
+              currentPage === totalPages
+                ? 'text-gray-400 cursor-not-allowed opacity-50'
+                : 'text-gray-600 hover:text-red-600 hover:bg-gray-100 cursor-pointer hover:scale-105'
             }
           `}
           title="Следующая страница"
         >
-          <svg 
-            className="w-5 h-5" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M9 5l7 7-7 7" 
-            />
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
@@ -164,4 +150,4 @@ const Pagination = ({ currentPage, totalPages, onPageChange, totalItems, itemsPe
   );
 };
 
-export default Pagination; 
+export default Pagination;

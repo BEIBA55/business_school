@@ -5,11 +5,7 @@ const App = () => {
     // eslint-disable-next-line no-console
     console.warn('Placeholder: App is not implemented yet.');
   }, []);
-  return (
-    <>
-  { /*App */} 
- </>
-  );
+  return <>{/*App */}</>;
 };
 
 export default App;

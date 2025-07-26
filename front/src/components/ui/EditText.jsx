@@ -1,14 +1,14 @@
 import React from 'react';
 
-const EditText = ({ 
+const EditText = ({
   label = '',
-  placeholder = '', 
-  value = '', 
-  onChange, 
+  placeholder = '',
+  value = '',
+  onChange,
   type = 'text',
   disabled = false,
   className = '',
-  multiline = false
+  multiline = false,
 }) => {
   const handleChange = (e) => {
     if (onChange) {
@@ -18,11 +18,7 @@ const EditText = ({
 
   return (
     <div className={`mb-6 ${className}`}>
-      {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          {label}
-        </label>
-      )}
+      {label && <label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>}
       {multiline ? (
         <textarea
           placeholder={placeholder}

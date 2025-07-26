@@ -15,7 +15,7 @@ const Homepage = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: ''
+    email: '',
   });
 
   const [currentAccreditationPage, setCurrentAccreditationPage] = useState(0);
@@ -30,20 +30,20 @@ const Homepage = () => {
   const [contactFormData, setContactFormData] = useState({
     name: '',
     email: '',
-    phone: ''
+    phone: '',
   });
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handleContactFormChange = (field, value) => {
-    setContactFormData(prev => ({
+    setContactFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -76,16 +76,16 @@ const Homepage = () => {
   };
 
   const toggleFacultyCard = (index) => {
-    setExpandedFacultyCards(prev => ({
+    setExpandedFacultyCards((prev) => ({
       ...prev,
-      [index]: !prev[index]
+      [index]: !prev[index],
     }));
   };
 
   const handleProgramSelect = (program) => {
     setAnimatePrograms(false);
     setExpandedMBA(false); // Сбрасываем состояние развернутой MBA
-    
+
     setTimeout(() => {
       setActiveProgram(program);
       setTimeout(() => {
@@ -120,83 +120,75 @@ const Homepage = () => {
     { src: '/images/halyk_save.png', name: 'Halyk Save', url: 'https://www.halyksave.kz' },
     { src: '/images/temir.png', name: 'Temir', url: 'https://temirbank.kz' },
     { src: '/images/kaztele.png', name: 'Kaztele', url: 'https://www.kaztele.kz' },
-    { src: '/images/img_image_14.png', name: 'Penn State Smeal', url: 'https://www.smeal.psu.edu' },
-    { src: '/images/img_image_15.png', name: 'British Chamber of Commerce in Kazakhstan', url: 'https://www.bcck.kz' },
-    { src: '/images/img_image_16.png', name: 'ESMT Berlin', url: 'https://www.esmt.org' },
-    { src: '/images/img_image_17.png', name: 'Skills Development Scotland', url: 'https://www.skillsdevelopmentscotland.co.uk' },
-    { src: '/images/img_image_18.png', name: 'Hult ExEd', url: 'https://www.hult.edu/en/exed' },
-    { src: '/images/img_image_19.png', name: 'CUD', url: 'https://www.cud.ac.ae' },
-    { src: '/images/img_image_21.png', name: 'Abertay University', url: 'https://www.abertay.ac.uk' },
-    { src: '/images/img_image_22.png', name: 'Zurich Elite Business School', url: 'https://www.zebs.ch' },
-    { src: '/images/img_image_23.png', name: 'Birmingham University', url: 'https://www.birmingham.ac.uk' },
-    { src: '/images/img_image_24.png', name: 'International University of Monaco', url: 'https://www.monaco.edu' },
+    {
+      src: '/images/img_image_15.png',
+      name: 'British Chamber of Commerce in Kazakhstan',
+      url: 'https://www.bcck.kz',
+    },
     { src: '/images/img_image_25.png', name: 'AmCham', url: 'https://www.amcham.kz' },
-    { src: '/images/img_image_26.png', name: 'СберУниверситет', url: 'https://sberuniversity.ru' },
-    { src: '/images/img_image_27.png', name: 'SBS Business School', url: 'https://www.sbs.edu' },
-    { src: '/images/img_image_28.png', name: 'ESSCA', url: 'https://www.essca.fr' }
   ];
 
   const accreditationItems = [
     {
       image: '/images/img_csmsiegelinstacc1bb4df2af7_1.png',
-      text: '2% of universities in central asia'
+      text: '2% of universities in central asia',
     },
     {
       image: '/images/img_fibbaaccredited_1.png',
-      text: '7% of universities in central asia'
+      text: '7% of universities in central asia',
     },
     {
       image: '/images/img_channels4profile_1.png',
-      text: '7% of universities in central asia'
+      text: '7% of universities in central asia',
     },
     {
       image: '/images/img_cimalogo1280x647_1.png',
-      text: 'Chartered institute of management accountants'
+      text: 'Chartered institute of management accountants',
     },
     {
       image: '/images/MBA.png',
-      text: 'MBA QS'
+      text: 'MBA QS',
     },
     {
       image: '/images/CEEMAN.png',
-      text: 'In the process of accreditation'
+      text: 'In the process of accreditation',
     },
     {
       image: '/images/ACCA.png',
-      text: 'Accreditation & test center'
+      text: 'Accreditation & test center',
     },
     {
       image: '/images/img_images_1.png',
-      text: 'Ranked in ui greenmetric'
+      text: 'Ranked in ui greenmetric',
     },
     {
       image: '/images/img_blob_1.png',
-      text: 'Chartered institute of marketing'
+      text: 'Chartered institute of marketing',
     },
     {
       image: '/images/img_thelogoimpactrank_1.png',
-      text: 'Quality of education (600-800)'
+      text: 'Quality of education (600-800)',
     },
     {
       image: '/images/img_images_2.png',
-      text: '451-500 range together with top universities in asia'
+      text: '451-500 range together with top universities in asia',
     },
     {
       image: '/images/img_qsworlduniversityrankingslogo_1.png',
-      text: 'Listed in the world top university rankings'
+      text: 'Listed in the world top university rankings',
     },
     {
       image: '/images/img_qsworlduniversityrankingslogo_2.png',
-      text: 'Governance (top 25% globally)'
+      text: 'Governance (top 25% globally)',
     },
     {
       image: '/images/img_qs5starspkusratingsystem_1.png',
-      text: 'Rated for excellence by qs stars'
+      text: 'Rated for excellence by qs stars',
     },
     {
       image: '/images/img_nppatameken_1.png',
-      text: 'Top-3 universities in Kazakhstan'
-    }
+      text: 'Top-3 universities in Kazakhstan',
+    },
   ];
 
   // Основные программы MBA (отображаются в фильтре)
@@ -207,7 +199,7 @@ const Homepage = () => {
       type: 'MBA',
       duration: t('homepage.programs.mbaDuration'),
       price: t('homepage.programs.mbaPrice'),
-      isMain: true
+      isMain: true,
     },
     {
       title: t('homepage.programs.mbaFinanceTitle'),
@@ -215,8 +207,8 @@ const Homepage = () => {
       type: 'MBA',
       duration: t('homepage.programs.mbaFinanceDuration'),
       price: t('homepage.programs.mbaFinancePrice'),
-      isMain: true
-    }
+      isMain: true,
+    },
   ];
 
   // Дополнительные программы MBA (скрыты из основного отображения)
@@ -227,7 +219,7 @@ const Homepage = () => {
       type: 'MBA',
       duration: t('homepage.programs.mbaSustainabilityDuration'),
       price: t('homepage.programs.mbaSustainabilityPrice'),
-      isMain: false
+      isMain: false,
     },
     {
       title: t('homepage.programs.mbaAITitle'),
@@ -235,7 +227,7 @@ const Homepage = () => {
       type: 'MBA',
       duration: t('homepage.programs.mbaAIDuration'),
       price: t('homepage.programs.mbaAIPrice'),
-      isMain: false
+      isMain: false,
     },
     {
       title: t('homepage.programs.mbaCreativeTitle'),
@@ -243,7 +235,7 @@ const Homepage = () => {
       type: 'MBA',
       duration: t('homepage.programs.mbaCreativeDuration'),
       price: t('homepage.programs.mbaCreativePrice'),
-      isMain: false
+      isMain: false,
     },
     {
       title: t('homepage.programs.mbaFinTechTitle'),
@@ -251,8 +243,8 @@ const Homepage = () => {
       type: 'MBA',
       duration: t('homepage.programs.mbaFinTechDuration'),
       price: t('homepage.programs.mbaFinTechPrice'),
-      isMain: false
-    }
+      isMain: false,
+    },
   ];
 
   const programs = [
@@ -260,97 +252,97 @@ const Homepage = () => {
     ...mainMBAPrograms,
     // Дополнительные программы MBA
     ...additionalMBAPrograms,
-    
+
     // Executive MBA блок
     {
       title: t('homepage.programs.executiveMbaTitle'),
       description: t('homepage.programs.executiveMbaDescription'),
       type: 'Executive MBA',
       duration: t('homepage.programs.executiveMbaDuration'),
-      price: t('homepage.programs.executiveMbaPrice')
+      price: t('homepage.programs.executiveMbaPrice'),
     },
     {
       title: t('homepage.programs.executiveMbaNGOTitle'),
       description: t('homepage.programs.executiveMbaNGODescription'),
       type: 'Executive MBA',
       duration: t('homepage.programs.executiveMbaNGODuration'),
-      price: t('homepage.programs.executiveMbaNGOPrice')
+      price: t('homepage.programs.executiveMbaNGOPrice'),
     },
     {
       title: t('homepage.programs.executiveMbaCIOTitle'),
       description: t('homepage.programs.executiveMbaCIODescription'),
       type: 'Executive MBA',
       duration: t('homepage.programs.executiveMbaCIODuration'),
-      price: t('homepage.programs.executiveMbaCIOPrice')
+      price: t('homepage.programs.executiveMbaCIOPrice'),
     },
-    
+
     // DBA блок
     {
       title: t('homepage.programs.dbaTitle'),
       description: t('homepage.programs.dbaDescription'),
       type: 'DBA',
       duration: t('homepage.programs.dbaDuration'),
-      price: t('homepage.programs.dbaPrice')
+      price: t('homepage.programs.dbaPrice'),
     },
-    
+
     // Магистратура
     {
       title: t('homepage.programs.mscFinanceTitle'),
       description: t('homepage.programs.mscFinanceDescription'),
       type: t('homepage.programs.magistracy'),
       duration: t('homepage.programs.mscFinanceDuration'),
-      price: t('homepage.programs.mscFinancePrice')
-    }
+      price: t('homepage.programs.mscFinancePrice'),
+    },
   ];
 
   const graduates = [
     { name: 'Ляззат Альжанова', description: 'Про Executive MBA для руководителей НПО НКО' },
     { name: 'Айнаш Касенова', description: 'Про Executive MBA для руководителей НПО НКО' },
     { name: 'Ляззат Альжанова', description: 'Про Executive MBA для руководителей НПО НКО' },
-    { name: 'Ляззат Альжанова', description: 'Про Executive MBA для руководителей НПО НКО' }
+    { name: 'Ляззат Альжанова', description: 'Про Executive MBA для руководителей НПО НКО' },
   ];
 
   const faculty = [
-    { 
+    {
       image: '/images/Yelzhas.png',
-      name: t('homepage.faculty.0.name'), 
-      description: t('homepage.faculty.0.description') 
+      name: t('homepage.faculty.0.name'),
+      description: t('homepage.faculty.0.description'),
     },
-    { 
+    {
       image: '/images/Oleg.png',
-      name: t('homepage.faculty.1.name'), 
-      description: t('homepage.faculty.1.description') 
+      name: t('homepage.faculty.1.name'),
+      description: t('homepage.faculty.1.description'),
     },
-    { 
+    {
       image: '/images/Ulia.png',
-      name: t('homepage.faculty.2.name'), 
-      description: t('homepage.faculty.2.description') 
+      name: t('homepage.faculty.2.name'),
+      description: t('homepage.faculty.2.description'),
     },
-    { 
+    {
       image: '/images/Irina.png',
-      name: t('homepage.faculty.3.name'), 
-      description: t('homepage.faculty.3.description') 
+      name: t('homepage.faculty.3.name'),
+      description: t('homepage.faculty.3.description'),
     },
-    { 
+    {
       image: '/images/Lilya.png',
-      name: t('homepage.faculty.4.name'), 
-      description: t('homepage.faculty.4.description') 
+      name: t('homepage.faculty.4.name'),
+      description: t('homepage.faculty.4.description'),
     },
-    { 
+    {
       image: '/images/Zevira.png',
-      name: t('homepage.faculty.5.name'), 
-      description: t('homepage.faculty.5.description') 
+      name: t('homepage.faculty.5.name'),
+      description: t('homepage.faculty.5.description'),
     },
-    { 
+    {
       image: '/images/Kaisar.png',
-      name: t('homepage.faculty.6.name'), 
-      description: t('homepage.faculty.6.description') 
+      name: t('homepage.faculty.6.name'),
+      description: t('homepage.faculty.6.description'),
     },
-    { 
+    {
       image: '/images/Marina.png',
-      name: t('homepage.faculty.7.name'), 
-      description: t('homepage.faculty.7.description') 
-    }
+      name: t('homepage.faculty.7.name'),
+      description: t('homepage.faculty.7.description'),
+    },
   ];
 
   const administration = [
@@ -358,71 +350,71 @@ const Homepage = () => {
       image: '/images/img_rectangle_1178.png',
       name: t('homepage.administration.0.name'),
       position: t('homepage.administration.0.position'),
-      email: 'marina.obraztsova@narxoz.kz'
+      email: 'marina.obraztsova@narxoz.kz',
     },
     {
       image: '/images/img_rectangle_1205.png',
       name: t('homepage.administration.1.name'),
       position: t('homepage.administration.1.position'),
-      email: 'ewan.simpson@narxoz.kz'
+      email: 'ewan.simpson@narxoz.kz',
     },
     {
       image: '/images/img_rectangle_1206.png',
       name: t('homepage.administration.2.name'),
       position: t('homepage.administration.2.position'),
-      email: 'aikerim.myrzatayeva@narxoz.kz'
+      email: 'aikerim.myrzatayeva@narxoz.kz',
     },
     {
       image: '/images/img_rectangle_1207.png',
       name: t('homepage.administration.3.name'),
       position: t('homepage.administration.3.position'),
-      email: 'agipa.monobaeva@narxoz.kz'
+      email: 'agipa.monobaeva@narxoz.kz',
     },
     {
       image: '/images/Anna.png',
       name: t('homepage.administration.4.name'),
       position: t('homepage.administration.4.position'),
-      email: 'anna.anissimova@narxoz.kz'
+      email: 'anna.anissimova@narxoz.kz',
     },
     {
       image: '/images/Gulnar.png',
       name: t('homepage.administration.5.name'),
       position: t('homepage.administration.5.position'),
-      email: 'gulnar.zhumanova@narxoz.kz'
+      email: 'gulnar.zhumanova@narxoz.kz',
     },
     {
       image: '/images/Saltanat.png',
       name: t('homepage.administration.6.name'),
       position: t('homepage.administration.6.position'),
-      email: 'saltanat.abdelinova@narxoz.kz'
-    }
+      email: 'saltanat.abdelinova@narxoz.kz',
+    },
   ];
 
   const newsItems = [
     {
       date: '15.01.2025',
       title: t('homepage.news.0.title'),
-      description: t('homepage.news.0.description')
+      description: t('homepage.news.0.description'),
     },
     {
       date: '10.01.2025',
       title: t('homepage.news.1.title'),
-      description: t('homepage.news.1.description')
+      description: t('homepage.news.1.description'),
     },
     {
       date: '05.01.2025',
       title: t('homepage.news.2.title'),
-      description: t('homepage.news.2.description')
+      description: t('homepage.news.2.description'),
     },
     {
       date: '01.01.2025',
       title: t('homepage.news.3.title'),
-      description: t('homepage.news.3.description')
-    }
+      description: t('homepage.news.3.description'),
+    },
   ];
 
   // Фильтрация программ по выбранному типу
-  const filteredPrograms = programs.filter(program => {
+  const filteredPrograms = programs.filter((program) => {
     if (activeProgram === t('homepage.programs.allPrograms')) {
       // Исключаем программу MSc in Finance из общего отображения
       return program.title !== 'MSc in Finance';
@@ -436,17 +428,19 @@ const Homepage = () => {
 
   // Группировка программ по типам для вертикального отображения
   const groupedPrograms = {
-    'MBA': programs.filter(program => program.type === 'MBA' && program.isMain),
-    'Executive MBA': programs.filter(program => program.type === 'Executive MBA'),
-    'DBA': programs.filter(program => program.type === 'DBA'),
-    [t('homepage.programs.magistracy')]: programs.filter(program => program.type === t('homepage.programs.magistracy'))
+    MBA: programs.filter((program) => program.type === 'MBA' && program.isMain),
+    'Executive MBA': programs.filter((program) => program.type === 'Executive MBA'),
+    DBA: programs.filter((program) => program.type === 'DBA'),
+    [t('homepage.programs.magistracy')]: programs.filter(
+      (program) => program.type === t('homepage.programs.magistracy')
+    ),
   };
 
   // Создаем отдельную группировку для отображения "Все программы" без MSc in Finance
   const allProgramsGrouped = {
-    'MBA': programs.filter(program => program.type === 'MBA' && program.isMain),
-    'Executive MBA': programs.filter(program => program.type === 'Executive MBA'),
-    'DBA': programs.filter(program => program.type === 'DBA')
+    MBA: programs.filter((program) => program.type === 'MBA' && program.isMain),
+    'Executive MBA': programs.filter((program) => program.type === 'Executive MBA'),
+    DBA: programs.filter((program) => program.type === 'DBA'),
   };
 
   // Получаем все уникальные типы программ
@@ -456,48 +450,48 @@ const Homepage = () => {
   const graduateVideos = [
     {
       url: 'https://www.youtube.com/embed/p3vTgMVvWdk',
-      description: t('homepage.graduates.videos.0.description')
+      description: t('homepage.graduates.videos.0.description'),
     },
     {
       url: 'https://www.youtube.com/embed/U6mHH-kGQfU',
-      description: t('homepage.graduates.videos.1.description')
+      description: t('homepage.graduates.videos.1.description'),
     },
     {
       url: 'https://www.youtube.com/embed/WS3lCOtGg4s',
-      description: t('homepage.graduates.videos.2.description')
+      description: t('homepage.graduates.videos.2.description'),
     },
     {
       url: 'https://www.youtube.com/embed/FL0H0I3rgcI',
-      description: t('homepage.graduates.videos.3.description')
+      description: t('homepage.graduates.videos.3.description'),
     },
     {
       url: 'https://www.youtube.com/embed/1XPx8iKbS-Y',
-      description: t('homepage.graduates.videos.4.description')
+      description: t('homepage.graduates.videos.4.description'),
     },
     {
       url: 'https://www.youtube.com/embed/UizMWwVKLOw',
-      description: t('homepage.graduates.videos.5.description')
+      description: t('homepage.graduates.videos.5.description'),
     },
     {
       url: 'https://www.youtube.com/embed/l4IePhpXz8Y',
-      description: t('homepage.graduates.videos.6.description')
+      description: t('homepage.graduates.videos.6.description'),
     },
     {
       url: 'https://www.youtube.com/embed/MPXMNiH6j5o',
-      description: t('homepage.graduates.videos.7.description')
+      description: t('homepage.graduates.videos.7.description'),
     },
     {
       url: 'https://www.youtube.com/embed/m9--bfum4CU',
-      description: t('homepage.graduates.videos.8.description')
+      description: t('homepage.graduates.videos.8.description'),
     },
     {
       url: 'https://www.youtube.com/embed/r5SVVe8ZOFo',
-      description: t('homepage.graduates.videos.9.description')
+      description: t('homepage.graduates.videos.9.description'),
     },
     {
       url: 'https://www.youtube.com/embed/mv8ghkwGsUg',
-      description: t('homepage.graduates.videos.10.description')
-    }
+      description: t('homepage.graduates.videos.10.description'),
+    },
   ];
 
   // --- СТЕЙТ для пагинации видео выпускников ---
@@ -512,14 +506,14 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
-      {/* Hero Section */}
-      <div className="relative h-screen min-h-[600px] overflow-hidden">
+
+      {/* Hero Section - Mobile Optimized */}
+      <div className="relative h-screen min-h-[600px] lg:min-h-[700px] overflow-hidden">
         {/* Background Video */}
-        <video 
+        <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          autoPlay 
-          muted 
+          autoPlay
+          muted
           loop
           playsInline
         >
@@ -528,47 +522,50 @@ const Homepage = () => {
           {/* Fallback image if video doesn't load */}
           <img src="/images/img_.png" alt="Background" className="w-full h-full object-cover" />
         </video>
-        
+
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        
-        {/* Title Section - Centered */}
-        <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 flex flex-col items-center px-4 sm:px-8">
-          <h1 className="text-white text-5xl sm:text-6xl md:text-7xl font-bold leading-tight drop-shadow-lg text-center">
+
+        {/* Title Section - Mobile Optimized */}
+        <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 z-10 flex flex-col items-center px-4 sm:px-6 lg:px-8">
+          <h1 className="text-white text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg text-center animate-fade-in-up">
             {t('homepage.hero.title')}
           </h1>
         </div>
 
-        {/* Contact Form - Bottom */}
-        <div className="absolute bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-8">
-          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-medium leading-tight mb-6 drop-shadow-lg text-center">
+        {/* Contact Form - Mobile Optimized */}
+        <div className="absolute bottom-4 sm:bottom-8 lg:bottom-20 left-0 right-0 z-10 flex flex-col items-center w-full px-4 sm:px-6 lg:px-8">
+          <h2 className="text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-tight mb-4 sm:mb-6 drop-shadow-lg text-center animate-fade-in-up">
             {t('homepage.hero.subtitle')}
           </h2>
           <form
-            className="flex flex-col sm:flex-row gap-2 w-full max-w-4xl mx-auto"
-            onSubmit={e => { e.preventDefault(); handleConsultationSubmit(); }}
+            className="flex flex-col gap-3 sm:gap-2 w-full max-w-4xl mx-auto lg:flex-row"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleConsultationSubmit();
+            }}
           >
             <EditText
               placeholder={t('forms.namePlaceholder')}
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.emailPlaceholder')}
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.phonePlaceholder')}
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="flex-1 min-w-[120px] shadow-sm rounded-md bg-white h-[38px] mb-0 [&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center"
+              className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <button
               type="submit"
-              className="flex-1 min-w-[120px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] transition-colors flex items-center justify-center h-[42px]"
+              className="flex-1 lg:flex-none lg:min-w-[200px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] active:bg-[#660c0c] transition-colors flex items-center justify-center h-[44px] sm:h-[42px] text-sm sm:text-base touch-manipulation"
             >
               {t('homepage.hero.consultationTitle')}
             </button>
@@ -576,13 +573,13 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* About Section */}
-      <div className="py-20 px-8">
+      {/* About Section - Mobile Optimized */}
+      <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-dark text-4xl font-bold leading-tight mb-12 slide-in-up">
+          <h2 className="text-dark text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-8 lg:mb-12 animate-fade-in-up">
             {t('homepage.about.title')}
           </h2>
-          <p className="text-gray-600 text-xl leading-relaxed slide-in-up">
+          <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed animate-fade-in-up">
             {t('homepage.about.description')}
           </p>
         </div>
@@ -591,64 +588,68 @@ const Homepage = () => {
       {/* Business School Grid Section */}
       <BusinessSchoolGrid />
 
-      {/* MBA Programs Image */}
-      {/* <div className="px-8 max-w-7xl mx-auto mb-16">
-        <img 
-          src="/images/img_image_13.png" 
-          alt="MBA Programs Overview" 
-          className="w-full h-auto rounded-lg fade-in hover-scale"
-        />
-      </div> */}
-
-      {/* Programs Section */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8 slide-in-up">
-          <h2 className="text-dark text-4xl font-bold">{t('homepage.programs.title')}</h2>
+      {/* Programs Section - Mobile Optimized */}
+      <div className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 animate-fade-in-up">
+          <h2 className="text-dark text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-0">
+            {t('homepage.programs.title')}
+          </h2>
         </div>
 
-        {/* Program Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12 p-6 border border-gray-300 rounded-full slide-in-up">
-          <button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
-          >
-            {t('homepage.programs.allPrograms')}
-          </button>
-          <button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.mba') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect(t('homepage.programs.mba'))}
-          >
-            {t('homepage.programs.mba')}
-          </button>
-          <button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[140px] text-center font-medium ${activeProgram === t('homepage.programs.executiveMba') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect(t('homepage.programs.executiveMba'))}
-          >
-            {t('homepage.programs.executiveMba')}
-          </button>
-          <button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.dba') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect(t('homepage.programs.dba'))}
-          >
-            {t('homepage.programs.dba')}
-          </button>
-          <button 
-            className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.magistracy') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
-            onClick={() => handleProgramSelect(t('homepage.programs.magistracy'))}
-          >
-            {t('homepage.programs.magistracy')}
-          </button>
+        {/* Program Filter Buttons - Mobile Scrollable */}
+        <div className="mb-8 sm:mb-12 animate-fade-in-up">
+          <div className="block sm:hidden">
+            {/* Mobile: Horizontal scrollable filters */}
+            <div className="flex gap-3 overflow-x-auto pb-4 px-2 scrollbar-hide">
+              <button
+                className={`px-4 py-2 rounded-full transition-all whitespace-nowrap font-medium text-sm ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 active:bg-red-800 active:text-white'}`}
+                onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
+              >
+                {t('homepage.programs.allPrograms')}
+              </button>
+              {programTypes.map((type) => (
+                <button
+                  key={type}
+                  className={`px-4 py-2 rounded-full transition-all whitespace-nowrap font-medium text-sm ${activeProgram === type ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 active:bg-red-800 active:text-white'}`}
+                  onClick={() => handleProgramSelect(type)}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Original centered layout */}
+          <div className="hidden sm:flex flex-wrap justify-center gap-4 p-6 border border-gray-300 rounded-full">
+            <button
+              className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
+              onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
+            >
+              {t('homepage.programs.allPrograms')}
+            </button>
+            {programTypes.map((type) => (
+              <button
+                key={type}
+                className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === type ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
+                onClick={() => handleProgramSelect(type)}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Programs Grid */}
         {activeProgram === t('homepage.programs.allPrograms') ? (
           // Вертикальные колонки для "Все программы"
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}
+          >
             {Object.keys(allProgramsGrouped).map((programType, columnIndex) => {
               const programsInColumn = allProgramsGrouped[programType];
-              
+
               return (
-                <div 
+                <div
                   key={programType}
                   className="flex flex-col space-y-6"
                   style={{ transitionDelay: `${columnIndex * 0.1}s` }}
@@ -658,16 +659,19 @@ const Homepage = () => {
                     const isExecutiveMBA = program.title === 'Executive MBA';
                     const isMainMBA = program.title === 'MBA';
                     const isMBAFinance = program.title === 'MBA Программа Прикладных Финансов';
-                    const CardWrapper = (isExecutiveMBA || isMainMBA) ? Link : 'div';
-                    const cardProps = isExecutiveMBA ? { to: '/programs/executive-mba' } : 
-                                   isMainMBA ? { to: '/programs/mba' } : {};
-                    
+                    const CardWrapper = isExecutiveMBA || isMainMBA ? Link : 'div';
+                    const cardProps = isExecutiveMBA
+                      ? { to: '/programs/executive-mba' }
+                      : isMainMBA
+                        ? { to: '/programs/mba' }
+                        : {};
+
                     return (
-                      <CardWrapper 
-                        key={`${programType}-${index}`} 
+                      <CardWrapper
+                        key={`${programType}-${index}`}
                         {...cardProps}
                         className={`bg-gray-100 p-6 rounded-lg hover:shadow-xl hover:bg-white hover:scale-105 transition-all duration-300 cursor-pointer transform group border border-gray-200 h-80 flex flex-col justify-between ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                        style={{ transitionDelay: `${(columnIndex * 0.1) + (index * 0.05)}s` }}
+                        style={{ transitionDelay: `${columnIndex * 0.1 + index * 0.05}s` }}
                       >
                         <div>
                           <div className="flex justify-between items-start mb-3">
@@ -675,101 +679,118 @@ const Homepage = () => {
                               {program.type}
                             </span>
                             {program.duration && (
-                              <span className="text-xs text-gray-500">
-                                {program.duration}
-                              </span>
+                              <span className="text-xs text-gray-500">{program.duration}</span>
                             )}
                           </div>
-                          
+
                           <h3 className="text-xl font-bold mb-4 leading-tight transition-colors duration-300 text-gray-800 group-hover:text-red-800">
                             {program.title}
                           </h3>
-                          
+
                           <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
                             {program.description}
                           </p>
                         </div>
-                        
+
                         <div className="flex justify-between items-center mt-4">
                           <div className="text-xs text-gray-500">
-                            {isMainMBA ? (expandedMBA ? t('homepage.programs.collapse') : t('homepage.programs.expand')) : t('homepage.programs.more')}
+                            {isMainMBA
+                              ? expandedMBA
+                                ? t('homepage.programs.collapse')
+                                : t('homepage.programs.expand')
+                              : t('homepage.programs.more')}
                           </div>
                           {isMainMBA ? (
                             <button
-                              onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleMBAExpand(); }}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleMBAExpand();
+                              }}
                               className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 hover:bg-red-800 transition-all duration-300 hover:shadow-lg"
                             >
-                              <svg 
+                              <svg
                                 className={`w-4 h-4 text-red-800 hover:text-white transition-all duration-300 ${expandedMBA ? 'rotate-180' : ''}`}
-                                fill="currentColor" 
+                                fill="currentColor"
                                 viewBox="0 0 20 20"
                               >
-                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                <path
+                                  fillRule="evenodd"
+                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
                             </button>
                           ) : (
                             <div className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 group-hover:bg-red-800 group-hover:border-red-800 transition-all duration-300 group-hover:shadow-lg">
-                              <svg 
-                                className="w-4 h-4 text-red-800 group-hover:text-white transition-colors duration-300" 
-                                fill="currentColor" 
+                              <svg
+                                className="w-4 h-4 text-red-800 group-hover:text-white transition-colors duration-300"
+                                fill="currentColor"
                                 viewBox="0 0 20 20"
                               >
-                                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                <path
+                                  fillRule="evenodd"
+                                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
                             </div>
                           )}
                         </div>
                       </CardWrapper>
-                  );
-                })}
+                    );
+                  })}
 
-                {/* Дополнительные программы MBA (показываются при развертывании) */}
-                {programType === 'MBA' && expandedMBA && (
-                  <div className="space-y-4 mt-4">
-                    {additionalMBAPrograms.map((program, index) => (
-                      <div 
-                        key={`additional-mba-${index}`}
-                        className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between"
-                      >
-                        <div>
-                          <div className="flex justify-between items-start mb-2">
-                            <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
-                              {program.type}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              {program.duration}
-                            </span>
+                  {/* Дополнительные программы MBA (показываются при развертывании) */}
+                  {programType === 'MBA' && expandedMBA && (
+                    <div className="space-y-4 mt-4">
+                      {additionalMBAPrograms.map((program, index) => (
+                        <div
+                          key={`additional-mba-${index}`}
+                          className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between"
+                        >
+                          <div>
+                            <div className="flex justify-between items-start mb-2">
+                              <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
+                                {program.type}
+                              </span>
+                              <span className="text-xs text-gray-500">{program.duration}</span>
+                            </div>
+
+                            <h4 className="text-lg font-bold mb-2 text-gray-800">
+                              {program.title}
+                            </h4>
+
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              {program.description}
+                            </p>
                           </div>
-                          
-                          <h4 className="text-lg font-bold mb-2 text-gray-800">
-                            {program.title}
-                          </h4>
-                          
-                          <p className="text-gray-600 text-sm leading-relaxed">
-                            {program.description}
-                          </p>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         ) : (
           // Горизонтальная сетка для остальных фильтров
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
+          <div
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}
+          >
             {filteredPrograms.map((program, index) => {
               const isExecutiveMBA = program.title === 'Executive MBA';
               const isMainMBA = program.title === 'MBA';
-              const CardWrapper = (isExecutiveMBA || isMainMBA) ? Link : 'div';
-              const cardProps = isExecutiveMBA ? { to: '/programs/executive-mba' } : 
-                             isMainMBA ? { to: '/programs/mba' } : {};
-              
+              const CardWrapper = isExecutiveMBA || isMainMBA ? Link : 'div';
+              const cardProps = isExecutiveMBA
+                ? { to: '/programs/executive-mba' }
+                : isMainMBA
+                  ? { to: '/programs/mba' }
+                  : {};
+
               return (
-                <CardWrapper 
-                  key={`${program.type}-${index}`} 
+                <CardWrapper
+                  key={`${program.type}-${index}`}
                   {...cardProps}
                   className={`bg-gray-100 p-6 rounded-lg hover:shadow-xl hover:bg-white hover:scale-105 transition-all duration-300 cursor-pointer transform group border border-gray-200 h-80 flex flex-col justify-between ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
                   style={{ transitionDelay: `${index * 0.1}s` }}
@@ -780,46 +801,60 @@ const Homepage = () => {
                         {program.type}
                       </span>
                       {program.duration && (
-                        <span className="text-xs text-gray-500">
-                          {program.duration}
-                        </span>
+                        <span className="text-xs text-gray-500">{program.duration}</span>
                       )}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold mb-4 leading-tight transition-colors duration-300 text-gray-800 group-hover:text-red-800">
                       {program.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
                       {program.description}
                     </p>
                   </div>
-                  
+
                   <div className="flex justify-between items-center mt-4">
                     <div className="text-xs text-gray-500">
-                      {isMainMBA ? (expandedMBA ? t('homepage.programCards.collapse') : t('homepage.programCards.expand')) : t('homepage.programCards.more')}
+                      {isMainMBA
+                        ? expandedMBA
+                          ? t('homepage.programCards.collapse')
+                          : t('homepage.programCards.expand')
+                        : t('homepage.programCards.more')}
                     </div>
                     {isMainMBA ? (
                       <button
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleMBAExpand(); }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleMBAExpand();
+                        }}
                         className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 hover:bg-red-800 transition-all duration-300 hover:shadow-lg"
                       >
-                        <svg 
+                        <svg
                           className={`w-4 h-4 text-red-800 hover:text-white transition-all duration-300 ${expandedMBA ? 'rotate-180' : ''}`}
-                          fill="currentColor" 
+                          fill="currentColor"
                           viewBox="0 0 20 20"
                         >
-                          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                          <path
+                            fillRule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       </button>
                     ) : (
                       <div className="w-10 h-10 rounded-full flex items-center justify-center border-2 border-red-800 group-hover:bg-red-800 group-hover:border-red-800 transition-all duration-300 group-hover:shadow-lg">
-                        <svg 
-                          className="w-4 h-4 text-red-800 group-hover:text-white transition-colors duration-300" 
-                          fill="currentColor" 
+                        <svg
+                          className="w-4 h-4 text-red-800 group-hover:text-white transition-colors duration-300"
+                          fill="currentColor"
                           viewBox="0 0 20 20"
                         >
-                          <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                          <path
+                            fillRule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       </div>
                     )}
@@ -833,7 +868,7 @@ const Homepage = () => {
               <div className="col-span-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
                   {additionalMBAPrograms.map((program, index) => (
-                    <div 
+                    <div
                       key={`additional-mba-${index}`}
                       className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between"
                     >
@@ -842,15 +877,11 @@ const Homepage = () => {
                           <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
                             {program.type}
                           </span>
-                          <span className="text-xs text-gray-500">
-                            {program.duration}
-                          </span>
+                          <span className="text-xs text-gray-500">{program.duration}</span>
                         </div>
-                        
-                        <h4 className="text-lg font-bold mb-2 text-gray-800">
-                          {program.title}
-                        </h4>
-                        
+
+                        <h4 className="text-lg font-bold mb-2 text-gray-800">{program.title}</h4>
+
                         <p className="text-gray-600 text-sm leading-relaxed">
                           {program.description}
                         </p>
@@ -864,59 +895,64 @@ const Homepage = () => {
         )}
       </div>
 
-       {/* Разделитель */}
-       <div className="max-w-7xl mx-auto px-8">
+      {/* Разделитель */}
+      <div className="max-w-7xl mx-auto px-8">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
       </div>
 
       {/* NBS Stats Section */}
       <NbsStatsSection />
-      
-
-
 
       {/* Accreditations Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 slide-in-up">
           <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.accreditations')}</h2>
           <div className="flex items-center space-x-4">
-            <img 
-              src="/images/img_group_21.svg" 
-              alt="Previous" 
+            <img
+              src="/images/img_group_21.svg"
+              alt="Previous"
               className="w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70"
               onClick={() => setCurrentAccreditationPage(Math.max(0, currentAccreditationPage - 1))}
             />
-            <img 
-              src="/images/img_group_21_blue_gray_100.svg" 
-              alt="Next" 
+            <img
+              src="/images/img_group_21_blue_gray_100.svg"
+              alt="Next"
               className="w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70"
-              onClick={() => setCurrentAccreditationPage(Math.min(accreditationItems.length - 4, currentAccreditationPage + 1))}
+              onClick={() =>
+                setCurrentAccreditationPage(
+                  Math.min(accreditationItems.length - 4, currentAccreditationPage + 1)
+                )
+              }
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden">
-          {accreditationItems.slice(currentAccreditationPage, currentAccreditationPage + 4).map((item, index) => (
-            <div 
-              key={`${currentAccreditationPage}-${index}`} 
-              className="bg-white p-6 text-center rounded-lg animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <img 
-                src={item.image} 
-                alt="Accreditation" 
-                className="w-20 h-20 mx-auto mb-4 object-contain"
-              />
-              <p 
-                className="text-gray-600 text-sm leading-relaxed hover:text-gray-800 transition-colors cursor-pointer"
-                onClick={() => console.log('Clicked accreditation:', item.text)}
+          {accreditationItems
+            .slice(currentAccreditationPage, currentAccreditationPage + 4)
+            .map((item, index) => (
+              <div
+                key={`${currentAccreditationPage}-${index}`}
+                className="bg-white p-6 text-center rounded-lg animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {item.text.split('\n').map((line, i) => (
-                  <span key={i} className="block">{line}</span>
-                ))}
-              </p>
-            </div>
-          ))}
+                <img
+                  src={item.image}
+                  alt="Accreditation"
+                  className="w-20 h-20 mx-auto mb-4 object-contain"
+                />
+                <p
+                  className="text-gray-600 text-sm leading-relaxed hover:text-gray-800 transition-colors cursor-pointer"
+                  onClick={() => console.log('Clicked accreditation:', item.text)}
+                >
+                  {item.text.split('\n').map((line, i) => (
+                    <span key={i} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            ))}
         </div>
       </div>
 
@@ -930,22 +966,22 @@ const Homepage = () => {
         <div className="flex justify-between items-center mb-6 slide-in-up">
           <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.graduates')}</h2>
           <div className="flex items-center space-x-4">
-            <img 
-              src="/images/img_group_21.svg" 
-              alt="Previous" 
+            <img
+              src="/images/img_group_21.svg"
+              alt="Previous"
               className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${graduateVideoPage === 0 ? 'opacity-30 pointer-events-none' : ''}`}
               onClick={() => setGraduateVideoPage(Math.max(0, graduateVideoPage - 1))}
             />
-            <img 
-              src="/images/img_group_21_blue_gray_100.svg" 
-              alt="Next" 
+            <img
+              src="/images/img_group_21_blue_gray_100.svg"
+              alt="Next"
               className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${graduateVideoPage === totalGraduatePages - 1 ? 'opacity-30 pointer-events-none' : ''}`}
-              onClick={() => setGraduateVideoPage(Math.min(totalGraduatePages - 1, graduateVideoPage + 1))}
+              onClick={() =>
+                setGraduateVideoPage(Math.min(totalGraduatePages - 1, graduateVideoPage + 1))
+              }
             />
           </div>
         </div>
-
-        
 
         {/* Новая сетка с видео и пагинацией */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -976,8 +1012,8 @@ const Homepage = () => {
         </div>
       </div>
 
-       {/* Разделитель */}
-       <div className="max-w-7xl mx-auto px-8">
+      {/* Разделитель */}
+      <div className="max-w-7xl mx-auto px-8">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
       </div>
 
@@ -991,7 +1027,7 @@ const Homepage = () => {
         {/* Декоративные элементы */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-red-100 rounded-full opacity-20 -translate-x-16 -translate-y-16"></div>
         <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-100 rounded-full opacity-20 translate-x-12 translate-y-12"></div>
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
             <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.partners')}</h2>
@@ -1004,11 +1040,11 @@ const Homepage = () => {
                 href={partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white h-32 rounded-lg slide-in-up hover-scale smooth-animate flex items-center justify-center p-4 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl" 
+                className="bg-white h-32 rounded-lg slide-in-up hover-scale smooth-animate flex items-center justify-center p-4 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <img 
-                  src={partner.src} 
+                <img
+                  src={partner.src}
                   alt={partner.name}
                   className="max-h-20 max-w-full object-contain transition-all duration-300 hover:scale-105"
                   title={partner.name}
@@ -1028,23 +1064,21 @@ const Homepage = () => {
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="slide-in-left">
-            <h2 className="text-dark text-4xl font-bold mb-6">
-              {t('homepage.support.title')}
-            </h2>
+            <h2 className="text-dark text-4xl font-bold mb-6">{t('homepage.support.title')}</h2>
             <p className="text-muted text-lg leading-relaxed mb-8">
               {t('homepage.support.description')}
             </p>
             <Link to="/support">
-            <Button className="bg-[#991E1E] text-white px-6 py-0 rounded-md hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center">
-              {t('homepage.support.button')}
-            </Button>
+              <Button className="bg-[#991E1E] text-white px-6 py-0 rounded-md hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center">
+                {t('homepage.support.button')}
+              </Button>
             </Link>
           </div>
-          
+
           <div className="slide-in-right">
-            <img 
-              src="/images/support_section_image.png" 
-              alt={t('homepage.support.title')} 
+            <img
+              src="/images/support_section_image.png"
+              alt={t('homepage.support.title')}
               className="w-full h-auto"
             />
           </div>
@@ -1061,20 +1095,20 @@ const Homepage = () => {
         {/* Декоративные элементы */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-red-100 rounded-full opacity-20 -translate-x-16 -translate-y-16"></div>
         <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-100 rounded-full opacity-20 translate-x-12 translate-y-12"></div>
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
             <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.faculty')}</h2>
             <div className="flex items-center space-x-4">
-              <img 
-                src="/images/img_group_21.svg" 
-                alt="Previous" 
+              <img
+                src="/images/img_group_21.svg"
+                alt="Previous"
                 className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentFacultyIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
                 onClick={() => handleFacultyNavigation('prev')}
               />
-              <img 
-                src="/images/img_group_21_blue_gray_100.svg" 
-                alt="Next" 
+              <img
+                src="/images/img_group_21_blue_gray_100.svg"
+                alt="Next"
                 className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentFacultyIndex >= faculty.length - 4 ? 'opacity-50 cursor-not-allowed' : ''}`}
                 onClick={() => handleFacultyNavigation('next')}
               />
@@ -1085,19 +1119,23 @@ const Homepage = () => {
             {faculty.slice(currentFacultyIndex, currentFacultyIndex + 4).map((member, index) => {
               const globalIndex = currentFacultyIndex + index;
               const isExpanded = expandedFacultyCards[globalIndex];
-              
+
               return (
-                <div key={`${currentFacultyIndex}-${index}`} className="slide-in-up hover-scale smooth-transition group" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div
+                  key={`${currentFacultyIndex}-${index}`}
+                  className="slide-in-up hover-scale smooth-transition group"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group-hover:border-red-200">
                     <div className="relative overflow-hidden">
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
+                      <img
+                        src={member.image}
+                        alt={member.name}
                         className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    
+
                     <div className="p-6">
                       <div className="flex items-center space-x-2 mb-3">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -1105,33 +1143,44 @@ const Homepage = () => {
                           {member.name}
                         </h3>
                       </div>
-                      
+
                       <div className="relative">
-                        <p className={`text-gray-600 text-sm leading-relaxed transition-all duration-500 ${
-                          isExpanded ? 'line-clamp-none' : 'line-clamp-3'
-                        }`}>
+                        <p
+                          className={`text-gray-600 text-sm leading-relaxed transition-all duration-500 ${
+                            isExpanded ? 'line-clamp-none' : 'line-clamp-3'
+                          }`}
+                        >
                           {member.description}
                         </p>
-                        
+
                         {/* Градиент для скрытия текста */}
                         {!isExpanded && (
                           <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
                         )}
                       </div>
-                      
+
                       {/* Кнопка "Читать дальше" */}
                       <button
                         onClick={() => toggleFacultyCard(globalIndex)}
                         className="mt-4 text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-300 flex items-center space-x-1 group/btn"
                       >
-                        <span>{isExpanded ? t('homepage.programCards.collapse') : t('homepage.programCards.more')}</span>
-                        <svg 
-                          className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
+                        <span>
+                          {isExpanded
+                            ? t('homepage.programCards.collapse')
+                            : t('homepage.programCards.more')}
+                        </span>
+                        <svg
+                          className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
                           viewBox="0 0 24 24"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -1152,7 +1201,10 @@ const Homepage = () => {
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8 slide-in-up">
           <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.news')}</h2>
-          <Link to="/news" className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer">
+          <Link
+            to="/news"
+            className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer"
+          >
             <span className="text-muted text-lg">{t('homepage.sections.viewAllNews')}</span>
             <img src="/images/img_group_21_blue_gray_100.svg" alt="Arrow" className="w-7 h-7" />
           </Link>
@@ -1160,21 +1212,23 @@ const Homepage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {newsItems.map((news, index) => (
-            <div key={index} className="slide-in-up hover-scale smooth-animate" style={{ animationDelay: `${index * 0.1}s` }}>
+            <div
+              key={index}
+              className="slide-in-up hover-scale smooth-animate"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <div className="bg-light-gray h-72 rounded-lg mb-4 relative">
                 <Button className="absolute bottom-4 right-4 bg-light text-muted px-6 py-3 rounded-full text-sm">
                   {news.date}
                 </Button>
               </div>
-              <h3 
+              <h3
                 className="text-dark text-xl font-semibold mb-4 leading-tight cursor-pointer hover:text-red-800 transition-colors duration-300"
                 onClick={() => console.log('Clicked news:', news.title)}
               >
                 {news.title}
               </h3>
-              <p className="text-muted text-base leading-relaxed">
-                {news.description}
-              </p>
+              <p className="text-muted text-base leading-relaxed">{news.description}</p>
             </div>
           ))}
         </div>
@@ -1190,20 +1244,22 @@ const Homepage = () => {
         {/* Декоративные элементы */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-red-100 rounded-full opacity-20 -translate-x-16 -translate-y-16"></div>
         <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-100 rounded-full opacity-20 translate-x-12 translate-y-12"></div>
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
-            <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.administration')}</h2>
+            <h2 className="text-dark text-4xl font-bold">
+              {t('homepage.sections.administration')}
+            </h2>
             <div className="flex items-center space-x-4">
-              <img 
-                src="/images/img_group_21.svg" 
-                alt="Previous" 
+              <img
+                src="/images/img_group_21.svg"
+                alt="Previous"
                 className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentAdminIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
                 onClick={() => handleAdminNavigation('prev')}
               />
-              <img 
-                src="/images/img_group_21_blue_gray_100.svg" 
-                alt="Next" 
+              <img
+                src="/images/img_group_21_blue_gray_100.svg"
+                alt="Next"
                 className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentAdminIndex >= administration.length - 4 ? 'opacity-50 cursor-not-allowed' : ''}`}
                 onClick={() => handleAdminNavigation('next')}
               />
@@ -1213,19 +1269,23 @@ const Homepage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
             {administration.slice(currentAdminIndex, currentAdminIndex + 4).map((admin, index) => {
               const globalIndex = currentAdminIndex + index;
-              
+
               return (
-                <div key={`${currentAdminIndex}-${index}`} className="slide-in-up hover-scale smooth-transition group" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div
+                  key={`${currentAdminIndex}-${index}`}
+                  className="slide-in-up hover-scale smooth-transition group"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group-hover:border-red-200 h-full flex flex-col">
                     <div className="relative overflow-hidden">
-                      <img 
-                        src={admin.image} 
-                        alt={admin.name} 
+                      <img
+                        src={admin.image}
+                        alt={admin.name}
                         className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    
+
                     <div className="p-6 flex-1 flex flex-col">
                       <div className="flex items-center space-x-2 mb-3">
                         <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -1233,11 +1293,11 @@ const Homepage = () => {
                           {admin.name}
                         </h3>
                       </div>
-                      
+
                       <p className="text-gray-600 text-sm leading-relaxed mb-3 flex-1">
                         {admin.position}
                       </p>
-                      
+
                       <p className="text-red-600 text-sm font-medium hover:text-red-700 transition-colors duration-300 mt-auto">
                         {admin.email}
                       </p>
@@ -1259,15 +1319,13 @@ const Homepage = () => {
       <div className="bg-primary py-16 px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="slide-in-left">
-            <h2 className="text-white text-4xl font-bold mb-6">
-              Не знаете с чего начать?
-            </h2>
+            <h2 className="text-white text-4xl font-bold mb-6">Не знаете с чего начать?</h2>
             <p className="text-white text-lg leading-relaxed">
-              Если вы хотите больше узнать об Narxoz Business School или не знаете, 
-              какую программу обучения выбрать, оставьте заявку — и мы перезвоним
+              Если вы хотите больше узнать об Narxoz Business School или не знаете, какую программу
+              обучения выбрать, оставьте заявку — и мы перезвоним
             </p>
           </div>
-          
+
           <div className="space-y-4 slide-in-right">
             <EditText
               placeholder="Имя"

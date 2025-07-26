@@ -1,102 +1,112 @@
-# React + Vite + Tailwind CSS Project
+# NARKOZ Business School - Frontend
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+Мобильно-оптимизированный frontend для сайта NARKOZ Business School.
 
-## 🚀 Features
-
-- **React 18** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router** - Declarative routing for React applications
-
-## 📋 Prerequisites
-
-- Node.js (v14.x or higher)
-- npm or yarn
-
-
-## 🛠️ Installation
-
-1. Install dependencies:
-  ```bash
-  npm install
-  # or
-  yarn install
-  ```
-
-2. Start the server:
-  ```bash
-  npm run start
-  # or
-  yarn start
-  ```
-
-## 📁 Project Structure
-
-```
-/
-├── public/              # Static assets
-├── src/
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Page components
-│   ├── styles/          # Global styles and Tailwind configuration
-│   ├── App.jsx          # Main application component
-│   ├── main.jsx         # Application entry point
-│   └── Routes.jsx       # Application routes
-├── index.html           # HTML template
-├── package.json         # Project dependencies and scripts
-├── postcss.config.js    # PostCSS configuration for Tailwind
-├── tailwind.config.js   # Tailwind CSS configuration
-├── vite.config.js       # Vite configuration
-```
-
-## 🧩 Adding Routes
-
-To add new routes to the application, update the `Routes.jsx` file:
-
-```jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Import page components
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-
-const AppRoutes = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-      </Routes>
-    </Router>
-  );
-};
-
-export default AppRoutes;
-```
-
-## 🎨 Styling
-
-This project uses Tailwind CSS for styling. The configuration includes:
-
-- Utility-first approach for rapid development
-- Custom theme configuration
-- Responsive design utilities
-- PostCSS and Autoprefixer integration
-
-## 📦 Deployment
-
-Build the application for production:
+## 🚀 Быстрый старт
 
 ```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm start
+
+# Сборка для продакшена
 npm run build
 ```
 
-## 🙏 Acknowledgments
+## 📱 Мобильная оптимизация
 
-- Built with [Rocket.new](https://rocket.new)
-- Powered by React and Vite
-- Styled with Tailwind CSS
+Проект полностью оптимизирован для мобильных устройств:
 
-Built with ❤️ on Rocket.new
+### ✅ Что оптимизировано:
+
+- **Адаптивная навигация**: Полнофункциональное мобильное меню с анимацией
+- **Формы**: Увеличенные поля ввода для удобства на мобильных (44px min-height)
+- **Кнопки**: Touch-friendly размеры и состояния
+- **Типографика**: Адаптивные размеры шрифтов
+- **Карточки**: Улучшенная сетка и отступы
+- **Footer**: Сворачиваемые секции для мобильных
+
+### 📋 Технические детали:
+
+- **Breakpoints**: xs (475px), sm (640px), md (768px), lg (1024px), xl (1280px), 3xl (1600px)
+- **Touch поддержка**: `touch-manipulation` для лучшего отклика
+- **Анимации**: Оптимизированы для мобильных устройств
+- **Accessibility**: Улучшенная фокусировка и навигация
+
+## 🛠 Технологии
+
+- **React 18** - UI библиотека
+- **Vite** - Сборщик
+- **Tailwind CSS** - CSS фреймворк
+- **React Router** - Маршрутизация
+- **React i18next** - Интернационализация
+
+## 📁 Структура проекта
+
+```
+src/
+├── components/
+│   ├── common/          # Общие компоненты (Header, Footer)
+│   └── ui/              # UI компоненты (Button, EditText)
+├── pages/               # Страницы приложения
+├── i18n/                # Переводы
+└── styles/              # Глобальные стили
+```
+
+## 🎨 Feature-Sliced Design
+
+Проект следует принципам Feature-Sliced Design для лучшей организации кода.
+
+## 🌐 Поддерживаемые языки
+
+- Русский (ru)
+- Казахский (kk) 
+- Английский (en)
+
+## 📊 Проверка мобильной версии
+
+1. Запустите проект: `npm start`
+2. Откройте DevTools (F12)
+3. Переключитесь в режим устройства (Ctrl+Shift+M)
+4. Протестируйте различные размеры экранов
+
+### Рекомендуемые разрешения для тестирования:
+- iPhone SE (375x667)
+- iPhone 12 Pro (390x844)
+- iPad (768x1024)
+- Samsung Galaxy S20 (360x800)
+
+## 🔧 Настройка
+
+Все настройки мобильной адаптации находятся в:
+- `tailwind.config.js` - breakpoints и темы
+- `src/styles/index.css` - мобильные утилиты
+- Компонентах - адаптивные классы
+
+## 🐛 Решение проблем
+
+### Меню не видно:
+- Проверьте, что переводы загружаются корректно
+- Fallback значения добавлены для всех элементов навигации
+
+### Формы не адаптивны:
+- Убедитесь, что используются правильные Tailwind классы
+- Минимальная высота элементов: 44px для мобильных
+
+## 📝 Scripts
+
+- `npm start` - Запуск dev сервера
+- `npm run build` - Сборка для продакшена  
+- `npm run preview` - Предпросмотр сборки
+- `npm run format` - Форматирование кода
+
+## 🎯 Performance
+
+- Lazy loading изображений
+- Code splitting по страницам
+- Оптимизированные анимации
+- Минимизированные CSS и JS
+
+Проект готов к развертыванию и полностью оптимизирован для мобильных устройств!

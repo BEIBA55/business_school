@@ -11,9 +11,9 @@ const ScrollToTop = () => {
       if (element) {
         // Небольшая задержка для корректной прокрутки к якорю
         setTimeout(() => {
-          element.scrollIntoView({ 
+          element.scrollIntoView({
             behavior: 'smooth',
-            block: 'start'
+            block: 'start',
           });
         }, 100);
         return;
@@ -24,11 +24,11 @@ const ScrollToTop = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }, [pathname, hash]);
 
   return null; // Компонент не рендерит ничего
 };
 
-export default ScrollToTop; 
+export default ScrollToTop;
