@@ -350,11 +350,11 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-3">
             {/* Mobile Search */}
             <button
               onClick={toggleSearch}
-              className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+              className="p-3 text-gray-700 hover:text-gray-900 transition-colors bg-gray-50 hover:bg-gray-100 rounded-full"
             >
               <img src="/images/img_search.svg" alt="Search" className="w-5 h-5" />
             </button>
@@ -362,7 +362,7 @@ const Header = () => {
             {/* Hamburger Menu */}
             <button
               onClick={toggleMobileMenu}
-              className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+              className="p-3 text-gray-700 hover:text-gray-900 transition-colors bg-gray-50 hover:bg-gray-100 rounded-full"
             >
               {isMobileMenuOpen ? (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -374,12 +374,19 @@ const Header = () => {
                   />
                 </svg>
               ) : (
-                <img src="/images/img_menu.svg" alt="Menu" className="w-6 h-6" />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               )}
             </button>
           </div>
         </div>
-
+        
         {/* Mobile Search Bar */}
         {isSearchOpen && (
           <div className="lg:hidden border-t border-gray-200 px-4 py-3 bg-white">
@@ -390,31 +397,24 @@ const Header = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={getNavigationLabel(
-                    'navigation.searchPlaceholder',
-                    'Введите запрос...'
-                  )}
+                  placeholder={getNavigationLabel('navigation.searchPlaceholder', 'Введите запрос...')}
                   className="bg-transparent outline-none text-sm text-gray-700 placeholder-gray-500 flex-1"
                   autoFocus
                 />
-                <button
+                <button 
                   type="button"
                   onClick={toggleSearch}
                   className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
+                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
               </div>
             </form>
           </div>
         )}
-
+        
         {/* Language Switcher - positioned at edge */}
         <div className="absolute top-2 right-2 z-50">
           <LanguageSwitcher />
@@ -430,29 +430,34 @@ const Header = () => {
       )}
 
       {/* Mobile Menu */}
-      <div className={`fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white z-[70] transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${
+      <div className={`fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-white z-[70] transform transition-transform duration-300 ease-in-out lg:hidden ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-            <img 
-              src="/images/img_x00201.svg" 
-              alt="NARKOZ Business School Logo" 
+          <div className="flex items-center justify-between p-4 border-b border-gray-200">
+            <img
+              src="/images/img_x00201.svg"
+              alt="NARKOZ Business School Logo"
               className="h-6 w-auto"
             />
-            <button 
+            <button
               onClick={closeMobileMenu}
-              className="p-2 text-gray-600 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-100"
+              className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
 
           {/* Mobile Menu Content */}
-          <div className="flex-1 overflow-y-auto py-4 bg-white">
+          <div className="flex-1 overflow-y-auto py-4">
             <nav className="space-y-2 px-4">
               {/* About Section */}
               <div className="py-2">
@@ -460,49 +465,49 @@ const Header = () => {
                   {getNavigationLabel('navigation.about', 'О школе')}
                 </div>
                 <div className="space-y-2 ml-4">
-                  <Link 
+                  <Link
                     to="/about"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getAboutLabel('about.whoWeAre', 'Кто мы')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/news"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getAboutLabel('about.news', 'Новости')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/accreditations"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getAboutLabel('about.accreditations', 'Аккредитации')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/partners"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getAboutLabel('about.partners', 'Партнеры')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/faculty"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getAboutLabel('about.faculty', 'Преподаватели')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/administration"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getAboutLabel('about.administration', 'Администрация школы')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/support"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
@@ -518,28 +523,28 @@ const Header = () => {
                   {getNavigationLabel('navigation.programs', 'Программы')}
                 </div>
                 <div className="space-y-2 ml-4">
-                  <Link 
+                  <Link
                     to="/programs/mba"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getNavigationLabel('programs.mba', 'MBA')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/programs/executive-mba"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getNavigationLabel('programs.executiveMba', 'Executive MBA')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/programs/dba"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getNavigationLabel('programs.dba', 'DBA')}
                   </Link>
-                  <Link 
+                  <Link
                     to="/programs/Magistracy"
                     onClick={closeMobileMenu}
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
@@ -551,14 +556,14 @@ const Header = () => {
 
               {/* Other Links */}
               <div className="space-y-2 pt-2 border-t border-gray-100">
-                <Link 
+                <Link
                   to="/schedule"
                   onClick={closeMobileMenu}
                   className="block py-3 text-gray-900 font-medium hover:text-red-600 transition-colors"
                 >
                   {getNavigationLabel('navigation.schedule', 'Расписание')}
                 </Link>
-                <Link 
+                <Link
                   to="/programs/executive-education"
                   onClick={closeMobileMenu}
                   className="block py-3 text-gray-900 font-medium hover:text-red-600 transition-colors"
@@ -568,7 +573,7 @@ const Header = () => {
                 <div className="block py-3 text-gray-900 font-medium hover:text-red-600 transition-colors cursor-pointer">
                   {getNavigationLabel('navigation.corporateClients', 'Корпоративные клиенты')}
                 </div>
-                <Link 
+                <Link
                   to="/graduates"
                   onClick={closeMobileMenu}
                   className="block py-3 text-gray-900 font-medium hover:text-red-600 transition-colors"
@@ -580,11 +585,11 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Footer */}
-          <div className="border-t border-gray-200 p-4 bg-white">
+          <div className="border-t border-gray-200 p-4">
             {/* Contact Info */}
             <div className="mb-4 space-y-2">
-              <a 
-                href="tel:+77767083636" 
+              <a
+                href="tel:+77767083636"
                 className="flex items-center text-gray-600 hover:text-red-600 transition-colors"
               >
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -592,8 +597,8 @@ const Header = () => {
                 </svg>
                 <span className="text-sm">+ 7 776 708 3636</span>
               </a>
-              <a 
-                href="mailto:gsb@narxoz.kz" 
+              <a
+                href="mailto:gsb@narxoz.kz"
                 className="flex items-center text-gray-600 hover:text-red-600 transition-colors"
               >
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -606,32 +611,36 @@ const Header = () => {
 
             {/* Social Icons */}
             <div className="flex items-center space-x-4">
-              <a 
-                href="https://wa.me/87767083636" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://wa.me/87767083636"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"
                 title="WhatsApp"
               >
                 <img src="/images/img_vector.svg" alt="WhatsApp" className="w-6 h-6" />
               </a>
-              <a 
-                href="https://t.me/narxoz_business_school" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://t.me/narxoz_business_school"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"
                 title="Telegram"
               >
                 <img src="/images/img_vector_gray_600.svg" alt="Telegram" className="w-6 h-6" />
               </a>
-              <a 
-                href="https://instagram.com/narxoz_business_school" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://instagram.com/narxoz_business_school"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"
                 title="Instagram"
               >
-                <img src="/images/img_vector_gray_600_25x25.svg" alt="Instagram" className="w-6 h-6" />
+                <img
+                  src="/images/img_vector_gray_600_25x25.svg"
+                  alt="Instagram"
+                  className="w-6 h-6"
+                />
               </a>
             </div>
           </div>
