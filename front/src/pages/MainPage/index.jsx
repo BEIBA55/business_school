@@ -429,121 +429,33 @@ const MainPage = () => {
       {/* Divider */}
       <div className="w-full h-px bg-gray-200"></div>
 
-      {/* University Slogan Section */}
-      <div className="relative py-20 px-8 max-w-7xl mx-auto">
-        <div className="relative flex items-center justify-center">
-          {/* Left Student Image */}
-          <div className="absolute left-0 top-0 slide-in-left hidden lg:block">
-            <div className="relative">
-              <div
-                className="w-64 h-80 overflow-hidden shadow-lg"
-                style={{
-                  clipPath: 'polygon(0% 0%, 85% 0%, 100% 20%, 100% 100%, 15% 100%, 0% 80%)',
-                }}
-              >
-                <img
-                  src="/images/img_image_20.png"
-                  alt="Student"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
 
-          {/* Right Student Image */}
-          <div className="absolute right-0 top-0 slide-in-right hidden lg:block">
-            <div className="relative">
-              <div
-                className="w-64 h-80 overflow-hidden shadow-lg"
-                style={{
-                  clipPath: 'polygon(15% 0%, 100% 0%, 100% 80%, 85% 100%, 0% 100%, 0% 20%)',
-                }}
-              >
-                <img
-                  src="/images/img_image_20.png"
-                  alt="Student"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Central Slogan */}
-          <div className="relative z-10 text-center py-16 px-8 lg:px-24 max-w-4xl mx-auto">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 lg:p-12 shadow-xl">
-              <h2 className="text-gray-900 text-2xl lg:text-3xl font-bold leading-relaxed italic slide-in-up">
-                "Бизнес-школа Нархоз — это не просто обучение. Это сообщество, которое вдохновляет,
-                поддерживает и двигается вперёд вместе с вами. Присоединяйтесь к сообществу будущих
-                лидеров. Мы рядом на каждом этапе — от первых шагов до больших побед. Добро
-                пожаловать в будущее бизнеса — добро пожаловать в Нархоз."
-              </h2>
-              <div className="mt-8 flex items-center justify-center">
-                <div className="w-16 h-1 bg-red-600 rounded-full"></div>
-                <div className="mx-4 text-red-600 font-bold text-lg">NARXOZ</div>
-                <div className="w-16 h-1 bg-red-600 rounded-full"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Student Images */}
-        <div className="flex justify-center space-x-8 mt-12 lg:hidden">
-          <div
-            className="w-32 h-40 overflow-hidden shadow-lg slide-in-left"
-            style={{
-              clipPath: 'polygon(0% 0%, 80% 0%, 100% 25%, 100% 100%, 20% 100%, 0% 75%)',
-            }}
-          >
-            <img
-              src="/images/img_image_20.png"
-              alt="Student"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div
-            className="w-32 h-40 overflow-hidden shadow-lg slide-in-right"
-            style={{
-              clipPath: 'polygon(20% 0%, 100% 0%, 100% 75%, 80% 100%, 0% 100%, 0% 25%)',
-            }}
-          >
-            <img
-              src="/images/img_image_20.png"
-              alt="Student"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Divider */}
-      <div className="w-full h-px bg-gray-200"></div>
 
       {/* Contact Form Section */}
       <div className="bg-primary py-16 px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="slide-in-left">
-            <h2 className="text-white text-4xl font-bold mb-6">Не знаете с чего начать?</h2>
+            <h2 className="text-white text-4xl font-bold mb-6">{t('homepage.contactForm.title')}</h2>
             <p className="text-white text-lg leading-relaxed">
-              Если вы хотите больше узнать об Narxoz Business School или не знаете, какую программу
-              обучения выбрать, оставьте заявку — и мы перезвоним
+              {t('homepage.contactForm.description')}
             </p>
           </div>
 
           <div className="space-y-4 slide-in-right">
             <EditText
-              placeholder="Имя"
+              placeholder={t('homepage.contactForm.namePlaceholder')}
               value={contactFormData.name}
               onChange={(e) => handleContactInputChange('name', e.target.value)}
               className="h-[38px]"
             />
             <EditText
-              placeholder="Email"
+              placeholder={t('homepage.contactForm.emailPlaceholder')}
               value={contactFormData.email}
               onChange={(e) => handleContactInputChange('email', e.target.value)}
               className="h-[38px]"
             />
             <EditText
-              placeholder="Номер"
+              placeholder={t('homepage.contactForm.phonePlaceholder')}
               value={contactFormData.phone}
               onChange={(e) => handleContactInputChange('phone', e.target.value)}
               className="h-[38px]"
@@ -552,10 +464,10 @@ const MainPage = () => {
               onClick={handleContactSubmit}
               className="w-full bg-[#991E1E] text-white py-0 font-medium hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center"
             >
-              Получить консультацию
+              {t('homepage.contactForm.submitButton')}
             </Button>
             <p className="text-white text-sm text-center leading-relaxed">
-              Нажимая на кнопку, я соглашаюсь с политикой обработки персональных данных
+              {t('homepage.contactForm.privacyText')}
             </p>
           </div>
         </div>

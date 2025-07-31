@@ -434,15 +434,7 @@ const Faculty = () => {
                       </ul>
                     </div>
 
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Контакты</h3>
-                      <a
-                        href={`mailto:${selectedMember.email}`}
-                        className="text-red-800 hover:text-red-900 font-medium"
-                      >
-                        {selectedMember.email}
-                      </a>
-                    </div>
+
                   </div>
                 </div>
               </div>

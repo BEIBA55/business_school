@@ -57,12 +57,24 @@ const AnimatedCounter = ({ value, duration = 2000 }) => {
 };
 
 const NbsStatsSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   // Получаем статистику из переводов
   const stats = t('homepage.statsSection.stats', { returnObjects: true });
+
+  // Функция для получения правильного изображения в зависимости от языка
+  const getN1Image = () => {
+    switch (i18n.language) {
+      case 'en':
+        return '/images/n1en.png';
+      case 'kk':
+        return '/images/n1kz.png';
+      default:
+        return '/images/n1.png';
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -82,10 +94,10 @@ const NbsStatsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white relative overflow-hidden py-20">
+    <section ref={sectionRef} className="w-full bg-[#F9F8F6] relative overflow-hidden py-8">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Заголовок секции */}
-        <div className="px-6 md:px-12 pt-8 md:pt-12">
+        <div className="px-6 md:px-12 pt-2 md:pt-4">
           <div
             className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
@@ -95,7 +107,7 @@ const NbsStatsSection = () => {
           </div>
         </div>
 
-        <div className="px-6 md:px-12 py-8 md:py-12">
+        <div className="px-6 md:px-12 py-4 md:py-6">
           {/* Подзаголовок */}
           <div
             className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
@@ -106,7 +118,7 @@ const NbsStatsSection = () => {
           </div>
 
           {/* Статистические карточки */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-2">
             {stats.map((item, idx) => (
               <div
                 key={idx}
@@ -133,46 +145,58 @@ const NbsStatsSection = () => {
             ))}
           </div>
 
-          {/* QS Ranking Block */}
+          {/* Изображение №1 в Центральной Азии */}
           <div
-            className={`transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            className={`transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
-            <div className="bg-gray-50 rounded-3xl p-8 md:p-12">
-              <div className="text-center mb-8">
-                <h4 className="text-[#991E1E] text-2xl md:text-3xl font-bold mb-4">
-                  {t('homepage.statsSection.ranking.title')}
-                </h4>
-                <div className="w-24 h-1 bg-[#991E1E] mx-auto rounded-full"></div>
-              </div>
-
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12">
-                <div className="group hover:scale-105 transition-transform duration-300">
+            <div className="flex flex-col items-center justify-center gap-1 md:gap-2 mb-4">
+              {/* Изображение сверху */}
+              <div className="flex justify-center">
+                <div className="w-[500px] md:w-[700px] lg:w-[800px] h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center">
                   <img
-                    src="/images/Ranked.png"
-                    alt="QS Ranked"
-                    className="w-44 md:w-56 h-auto rounded-xl"
+                    src={getN1Image()}
+                    alt="№1 в Центральной Азии"
+                    className="w-full h-full object-contain"
                   />
                 </div>
+              </div>
 
-                <div className="flex-1 max-w-2xl text-center flex flex-col items-center justify-center px-2">
-                  <div className="space-y-4">
-                    <p className="text-gray-900 text-base leading-relaxed text-center max-w-xl">
-                      {t('homepage.statsSection.ranking.description1')}
-                    </p>
-                    <p className="text-gray-900 text-base leading-relaxed text-center max-w-xl">
-                      {t('homepage.statsSection.ranking.description2')}
-                    </p>
+              {/* Описание под изображением */}
+              <div className="max-w-6xl w-full">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+                  {/* Изображение слева */}
+                  <div className="group hover:scale-105 transition-transform duration-300">
+                    <img
+                      src="/images/Ranked.png"
+                      alt="QS Ranked"
+                      className="w-40 md:w-48 h-auto rounded-xl"
+                    />
+                  </div>
+
+                  {/* Описание в центре */}
+                  <div className="flex-1 max-w-4xl text-center px-2">
+                    <div className="space-y-3">
+                      <p className="text-gray-900 text-base leading-relaxed text-center">
+                        {t('homepage.statsSection.ranking.description1')}
+                      </p>
+                      <p className="text-gray-900 text-base leading-relaxed text-center">
+                        {t('homepage.statsSection.ranking.description2')}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Изображение справа */}
+                  <div className="group hover:scale-105 transition-transform duration-300">
+                    <img
+                      src="/images/42.png"
+                      alt="QS 42 Asia"
+                      className="w-40 md:w-48 h-auto rounded-xl"
+                    />
                   </div>
                 </div>
-
-                <div className="group hover:scale-105 transition-transform duration-300">
-                  <img
-                    src="/images/42.png"
-                    alt="QS 42 Asia"
-                    className="w-44 md:w-56 h-auto rounded-xl"
-                  />
-                </div>
               </div>
+
+              {/* Убираем старый блок с QS изображениями */}
             </div>
           </div>
         </div>

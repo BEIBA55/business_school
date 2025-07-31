@@ -1,11 +1,12 @@
 {
   "navigation": {
-    "programs": "Programs",
     "about": "About",
+    "programs": "Programs",
     "schedule": "Schedule",
     "executiveEducation": "Executive Education",
     "corporateClients": "Corporate Clients",
     "graduates": "Graduates",
+    "library": "Library",
     "search": "Search",
     "searchPlaceholder": "Enter your query..."
   },
@@ -24,6 +25,25 @@
     "administration": "School Administration",
     "supportNBS": "Support NBS"
   },
+  "news": {
+    "relatedNews": "Related News",
+    "searchPlaceholder": "Search news...",
+    "foundResults": "Found {{count}} news",
+    "foundResultsWithQuery": "Found {{count}} news for query \"{{query}}\"",
+    "foundResultsInCategory": "Found {{count}} news in category \"{{category}}\"",
+    "noNewsFound": "No news found",
+    "noNewsFoundDescription": "Try changing search parameters or filters",
+    "sortBy": "Sort by:",
+    "sortByDate": "By date",
+    "sortByTitle": "By title",
+    "sortByCategory": "By category",
+    "allCategories": "All",
+    "events": "Events",
+    "achievements": "Achievements",
+    "programs": "Programs",
+    "partnerships": "Partnerships",
+    "infrastructure": "Infrastructure"
+  },
   "common": {
     "loading": "Loading...",
     "submit": "Submit",
@@ -36,7 +56,8 @@
     "readMore": "Read More",
     "back": "Back",
     "next": "Next",
-    "previous": "Previous"
+    "previous": "Previous",
+    "home": "Home"
   },
   "forms": {
     "name": "Name",
@@ -49,6 +70,32 @@
     "phonePlaceholder": "Enter your phone number",
     "companyPlaceholder": "Enter company name",
     "messagePlaceholder": "Enter your message"
+  },
+  "main": {
+    "hero": {
+      "subtitle": "Get consultation on training programs",
+      "consultationTitle": "Get Consultation"
+    },
+    "intro": {
+      "title": "Narxoz Business School: where leaders create the future",
+      "description": "Narxoz Business School forms a new generation of leaders ready to transform business, society and economy in Central Asia and beyond. We combine cutting-edge research with practice and global business education standards.",
+      "details": {
+        "paragraph1": "Our MBA, Executive MBA, DBA, Mini MBA, open trainings and exclusive solutions for companies are developed taking into account modern business challenges. We offer training in three languages: Kazakh, Russian and English.",
+        "paragraph2": "Our partners are leading world universities, including ESMT Berlin, Penn State, University of Monaco, and invited professors from Harvard, Columbia, Yale and world bestseller authors regularly conduct classes for our students.",
+        "paragraph3": "We are proud that our MBA programs are recognized as #1 in Central Asia in the world ranking. This confirms that we create education that meets and exceeds world standards."
+      }
+    },
+    "sidebar": {
+      "quickInfo": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "quote": {
+        "title": "Our Mission",
+        "text": "At Narxoz Business School, we create a space where knowledge meets practice, and learning becomes an investment in tomorrow's career and leadership.",
+        "author": "Marina Obraztsova, Director of Narxoz Business School"
+      }
+    }
   },
   "homepage": {
     "hero": {
@@ -76,6 +123,15 @@
       "graduates": "graduates",
       "languages": "languages: Kazakh, English, Russian",
       "countries": "countries: Kazakhstan, Uzbekistan"
+    },
+    "contactForm": {
+      "title": "Don't know where to start?",
+      "description": "If you want to learn more about Narxoz Business School or don't know which training program to choose, leave a request — and we will call you back",
+      "namePlaceholder": "Name",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Phone",
+      "submitButton": "Get Consultation",
+      "privacyText": "By clicking the button, I agree to the personal data processing policy"
     },
     "businessGrid": {
       "mba": {
@@ -129,7 +185,7 @@
         }
       ],
       "ranking": {
-        "title": "Narxoz University Business School MBA program recognized as #1 in Central Asia",
+        "title": "",
         "description1": "The published QS Global MBA ranking highlights the program's strengths. On September 25, 2024, the QS Global MBA 2025 ranking was published. The Narxoz University Business School MBA program entered the top 50 best in Asia for the first time (QS Global MBA 2025 Asia: #42) and based on open data and QS methodology for calculating overall scores became #1 in the Central Asian region.",
         "description2": "Based on data published by QS agency, the MBA program also ranks in the top 50 best in the world by entrepreneurship and graduate employability criteria. By this indicator, Narxoz University Business School scored high points and outperformed other world-renowned schools such as Carnegie Mellon and Dartmouth (USA), Shanghai University of Finance and Economics and Tsinghua (China), Edinburgh and Manchester (UK)."
       }
@@ -287,7 +343,7 @@
       "button": "Support"
     },
     "programs": {
-      "title": "Programs",
+      "title": "Diploma Programs",
       "allPrograms": "All Programs",
       "mba": "MBA",
       "executiveMba": "Executive MBA",
@@ -296,52 +352,52 @@
       "mbaTitle": "MBA",
       "mbaDescription": "Comprehensive MBA program for developing the next generation of leaders. Strategic management, finance, marketing. 2 years of study.",
       "mbaDuration": "2 years",
-      "mbaPrice": "3,000,000 tenge",
+      "mbaPrice": "On request",
       "mbaFinanceTitle": "MBA Applied Finance Program",
       "mbaFinanceDescription": "Specialized MBA program with in-depth study of finance, financial analysis, and corporate finance.",
       "mbaFinanceDuration": "2 years",
-      "mbaFinancePrice": "3,200,000 tenge",
+      "mbaFinancePrice": "On request",
       "mbaSustainabilityTitle": "MBA \"Sustainable Entrepreneurship\"",
       "mbaSustainabilityDescription": "MBA program focused on sustainable business development, environmentally responsible entrepreneurship, and social impact.",
       "mbaSustainabilityDuration": "2 years",
-      "mbaSustainabilityPrice": "3,100,000 tenge",
+      "mbaSustainabilityPrice": "On request",
       "mbaAITitle": "MBA \"AI in Business\"",
       "mbaAIDescription": "Innovative MBA program dedicated to applying artificial intelligence in modern business and digital transformation.",
       "mbaAIDuration": "2 years",
-      "mbaAIPrice": "3,300,000 tenge",
+      "mbaAIPrice": "On request",
       "mbaCreativeTitle": "MBA \"Creative Economy\"",
       "mbaCreativeDescription": "MBA program for developing management skills in creative industries, media, arts, and innovative economy.",
       "mbaCreativeDuration": "2 years",
-      "mbaCreativePrice": "3,000,000 tenge",
+      "mbaCreativePrice": "On request",
       "mbaFinTechTitle": "MBA \"Financial Technologies (FinTech)\"",
       "mbaFinTechDescription": "Specialized MBA program for studying financial technologies, blockchain, digital payments, and innovative financial services.",
       "mbaFinTechDuration": "2 years",
-      "mbaFinTechPrice": "3,400,000 tenge",
+      "mbaFinTechPrice": "On request",
       "executiveMbaTitle": "Executive MBA",
       "executiveMbaDescription": "Program for top managers. Strategic management and business modeling. Modular format for working executives.",
       "executiveMbaDuration": "1 year",
-      "executiveMbaPrice": "2,625,000 tenge",
+      "executiveMbaPrice": "On request",
       "executiveMbaNGOTitle": "Executive MBA for NGO/NPO Leaders",
       "executiveMbaNGODescription": "Specialized Executive MBA program for leaders of non-profit organizations and social enterprises.",
       "executiveMbaNGODuration": "1 year",
-      "executiveMbaNGOPrice": "2,400,000 tenge",
+      "executiveMbaNGOPrice": "On request",
       "executiveMbaCIOTitle": "Executive MBA for CIO",
       "executiveMbaCIODescription": "Executive MBA program for Chief Information Officers and IT department leaders.",
       "executiveMbaCIODuration": "1 year",
-      "executiveMbaCIOPrice": "2,500,000 tenge",
+      "executiveMbaCIOPrice": "On request",
       "dbaTitle": "DBA (Doctor of Business Administration)",
       "dbaDescription": "The highest level of business education for top executives and business owners. Program for practicing professionals.",
       "dbaDuration": "3 years",
-      "dbaPrice": "4,500,000 tenge",
+      "dbaPrice": "On request",
       "mscFinanceTitle": "MSc in Finance",
       "mscFinanceDescription": "Master of Science in Finance. Program for specialists who want to deepen their knowledge in the financial sphere.",
       "mscFinanceDuration": "1.5 years",
-      "mscFinancePrice": "2,800,000 tenge"
+      "mscFinancePrice": "On request"
     },
     "footer": {
       "programs": "Programs",
       "aboutSchool": "About School",
-      "students": "Students",
+      "students": "Participants",
       "contacts": "Contacts",
       "socialMedia": "Social Media",
       "copyright": "© 2024 Narxoz Business School. All rights reserved.",
@@ -418,5 +474,39 @@
     "ru": "Русский",
     "en": "English",
     "kk": "Қазақша"
+  },
+  "library": {
+    "title": "Narxoz Business School Library",
+    "subtitle": "Welcome to the intellectual center of Narxoz Business School — our library",
+    "aboutTitle": "About our library",
+    "servicesTitle": "The library offers",
+    "recommendationsTitle": "Recommendations from B.Zh. Utemuratov",
+    "recommendationsSubtitle": "A selection of the best works of Kazakhstani and world literature, recommended for studying cultural heritage and personal development"
+  },
+  "search": {
+    "title": "Site Search",
+    "subtitle": "Enter a query to search for programs, news, faculty and other materials",
+    "placeholder": "Enter search query...",
+    "searchButton": "Search",
+    "filters": "Filters",
+    "contentType": "Content Type",
+    "category": "Category",
+    "allTypes": "All Types",
+    "allCategories": "All Categories",
+    "resetFilters": "Reset Filters",
+    "loading": "Searching results...",
+    "error": "Search error. Please try again.",
+    "noResults": "No results found",
+    "noResultsDescription": "Nothing found for query \"{{query}}\". Try changing the query or filters.",
+    "foundResults": "Found {{count}} results for query \"{{query}}\"",
+    "showingResults": "Showing {{shown}} of {{total}} results",
+    "program": "Program",
+    "news": "News",
+    "faculty": "Faculty",
+    "accreditation": "Accreditation",
+    "partner": "Partner",
+    "graduate": "Graduate",
+    "library": "Library",
+    "result": "Result"
   }
 }

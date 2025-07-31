@@ -3,6 +3,7 @@ import Header from '../../../components/common/Header';
 import Footer from '../../../components/common/Footer';
 import Button from '../../../components/ui/Button';
 import EditText from '../../../components/ui/EditText';
+import PresentationModal from '../../../components/ui/PresentationModal';
 
 const features = [
   {
@@ -131,6 +132,7 @@ const ExecutiveMBA = () => {
     phone: '',
     company: '',
   });
+  const [showPresentationModal, setShowPresentationModal] = useState(false);
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({
@@ -142,6 +144,17 @@ const ExecutiveMBA = () => {
   const handleSubmit = () => {
     console.log('Заявка отправлена:', formData);
     alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+  };
+
+  const handleDownloadPresentation = () => {
+    // Создаем ссылку для скачивания презентации Executive MBA
+    const link = document.createElement('a');
+    link.href = '/presentations/EMBA новый (1).pdf';
+    link.download = 'Executive-MBA-presentation.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -161,6 +174,15 @@ const ExecutiveMBA = () => {
           </p>
           <p className="text-2xl mb-3">Программа для топ-менеджеров и собственников бизнеса</p>
           <p className="text-xl mb-16 opacity-90">Премиум образование для лидеров</p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                               <Button
+                     onClick={() => setShowPresentationModal(true)}
+                     className="bg-[#991E1E] text-white px-8 py-3 rounded-lg hover:bg-[#7A1818] transition-colors"
+                   >
+                     Скачать презентацию
+                   </Button>
+          </div>
         </div>
 
         <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
@@ -516,17 +538,12 @@ const ExecutiveMBA = () => {
       {/* Pricing */}
       <div className="py-20 px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Стоимость обучения</h2>
-            <p className="text-xl text-gray-600">
-              Инвестиция в ваше профессиональное развитие и карьерный рост
-            </p>
-          </div>
+          
 
           <div className="bg-gradient-to-br from-gray-900 to-red-900 text-white rounded-2xl p-8 lg:p-12 shadow-2xl">
             <div className="text-center mb-8">
-              <div className="text-5xl lg:text-6xl font-bold mb-4">12 500 000₸</div>
-              <div className="text-xl text-gray-200">Полная стоимость программы</div>
+              <div className="text-5xl lg:text-6xl font-bold mb-4">Executive MBA</div>
+              <div className="text-xl text-gray-200">Инвестиция в ваше будущее</div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -621,7 +638,7 @@ const ExecutiveMBA = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Рассрочка на 6 месяцев
+                    Рассрочка
                   </li>
                   <li className="flex items-center">
                     <svg
@@ -637,20 +654,7 @@ const ExecutiveMBA = () => {
                     </svg>
                     Корпоративная оплата
                   </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="w-5 h-5 text-blue-400 mr-3"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Скидка за раннюю оплату 10%
-                  </li>
+
                 </ul>
               </div>
             </div>
@@ -661,7 +665,7 @@ const ExecutiveMBA = () => {
                 onClick={() =>
                   document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' })
                 }
-                className="bg-white text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-100 transition-colors"
+                className="bg-red-600 text-white px-8 py-4 text-lg font-medium hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl rounded-lg"
               >
                 Забронировать место
               </Button>
@@ -711,7 +715,7 @@ const ExecutiveMBA = () => {
             <div className="mt-8 text-center">
               <Button
                 onClick={handleSubmit}
-                className="bg-red-600 text-white px-12 py-4 text-lg font-medium hover:bg-red-700 transition-colors"
+                className="bg-red-600 text-white px-12 py-4 text-lg font-medium hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl rounded-lg"
               >
                 Отправить заявку
               </Button>
@@ -770,6 +774,13 @@ const ExecutiveMBA = () => {
       </div>
 
       <Footer />
+      
+      <PresentationModal
+        isOpen={showPresentationModal}
+        onClose={() => setShowPresentationModal(false)}
+        onDownload={handleDownloadPresentation}
+        programName="Executive MBA (Executive Master of Business Administration)"
+      />
     </div>
   );
 };

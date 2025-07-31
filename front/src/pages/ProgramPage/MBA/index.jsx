@@ -3,15 +3,18 @@ import Header from '../../../components/common/Header';
 import Footer from '../../../components/common/Footer';
 import Button from '../../../components/ui/Button';
 import EditText from '../../../components/ui/EditText';
+import PresentationModal from '../../../components/ui/PresentationModal';
 
 const MBA = () => {
   const [activeModule, setActiveModule] = useState(null);
+  const [showDocuments, setShowDocuments] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
   });
+  const [showPresentationModal, setShowPresentationModal] = useState(false);
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({
@@ -23,6 +26,17 @@ const MBA = () => {
   const handleSubmit = () => {
     console.log('Заявка отправлена:', formData);
     alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+  };
+
+  const handleDownloadPresentation = () => {
+    // Создаем ссылку для скачивания презентации MBA
+    const link = document.createElement('a');
+    link.href = '/presentations/MBA presentation.pdf';
+    link.download = 'MBA-presentation.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const modules = [
@@ -135,6 +149,15 @@ const MBA = () => {
           </p>
           <p className="text-2xl mb-3">Программа №1 в Центральной Азии</p>
           <p className="text-xl mb-16 opacity-90">по версии QS Global MBA 2025</p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                               <Button
+                     onClick={() => setShowPresentationModal(true)}
+                     className="bg-[#991E1E] text-white px-8 py-3 rounded-lg hover:bg-[#7A1818] transition-colors"
+                   >
+                     Скачать презентацию
+                   </Button>
+          </div>
         </div>
 
         <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
@@ -591,11 +614,11 @@ const MBA = () => {
                     </div>
                     <div>
                       <div className="text-sm text-gray-300 mb-2">Язык обучения</div>
-                      <div className="text-2xl font-bold">Русский</div>
+                      <div className="text-2xl font-bold">Русский, английский</div>
                     </div>
                     <div>
                       <div className="text-sm text-gray-300 mb-2">Формат обучения</div>
-                      <div className="text-2xl font-bold">Offline</div>
+                      <div className="text-2xl font-bold">Модульный</div>
                     </div>
                   </div>
 
@@ -763,51 +786,73 @@ const MBA = () => {
       {/* Required Documents */}
       <div className="py-24 px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-16">
-            Список необходимых документов
-          </h2>
+          <button
+            onClick={() => setShowDocuments(!showDocuments)}
+            className="w-full flex items-center justify-between p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 mb-8"
+          >
+            <h2 className="text-3xl font-bold text-gray-900">
+              Список необходимых документов
+            </h2>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-600">
+                {showDocuments ? 'Скрыть' : 'Показать'}
+              </span>
+              <svg
+                className={`w-6 h-6 text-[#991E1E] transition-transform duration-300 ${
+                  showDocuments ? 'rotate-180' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </button>
 
-          <div className="space-y-8">
-            {[
-              'Нотариально заверенные копии диплома о высшем образовании с приложениями (если у Вас несколько высших, достаточно первого диплома и приложения)',
-              'Копия удостоверения личности',
-              'Медицинская справка форма 075-у',
-              'Справка с места работы с указанием должности и количества лет работы',
-              'Фотографии 3Х4 2 штуки',
-              '2 рекомендательных письма',
-              'Военный билет (или сведения о прохождении военной службы) - только для мужчин',
-            ].map((document, index) => (
-              <div key={index} className="flex items-start gap-8 p-8 border-b border-gray-200">
-                <div className="w-8 h-8 bg-[#991E1E] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+          {showDocuments && (
+            <div className="space-y-8 animate-fadeIn">
+              {[
+                'Нотариально заверенные копии диплома о высшем образовании с приложениями (если у Вас несколько высших, достаточно первого диплома и приложения)',
+                'Копия удостоверения личности',
+                'Медицинская справка форма 075-у',
+                'Справка с места работы с указанием должности и количества лет работы',
+                'Фотографии 3Х4 2 штуки',
+                '2 рекомендательных письма',
+                'Военный билет (или сведения о прохождении военной службы) - только для мужчин',
+              ].map((document, index) => (
+                <div key={index} className="flex items-start gap-8 p-8 border-b border-gray-200 bg-white rounded-xl shadow-sm">
+                  <div className="w-8 h-8 bg-[#991E1E] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 leading-relaxed text-lg">{document}</span>
                 </div>
-                <span className="text-gray-700 leading-relaxed text-lg">{document}</span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
       {/* Pricing */}
       <div className="py-24 px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Стоимость обучения</h2>
-            <p className="text-xl text-gray-600">
-              Инвестиция в ваше профессиональное развитие и карьерный рост
-            </p>
-          </div>
+          
 
           <div className="bg-gradient-to-br from-gray-900 to-red-900 text-white rounded-2xl p-8 lg:p-12 shadow-2xl">
             <div className="text-center mb-8">
-              <div className="text-5xl lg:text-6xl font-bold mb-4">3 000 000₸</div>
-              <div className="text-xl text-gray-200">Полная стоимость программы MBA</div>
+              <div className="text-5xl lg:text-6xl font-bold mb-4">Программа MBA</div>
+              <div className="text-xl text-gray-200">Инвестиция в ваше будущее</div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -902,7 +947,7 @@ const MBA = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Рассрочка на 12 месяцев
+                    Рассрочка
                   </li>
                   <li className="flex items-center">
                     <svg
@@ -918,20 +963,7 @@ const MBA = () => {
                     </svg>
                     Корпоративная оплата
                   </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="w-5 h-5 text-blue-400 mr-3"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Скидка за раннюю оплату 5%
-                  </li>
+
                 </ul>
               </div>
             </div>
@@ -942,7 +974,7 @@ const MBA = () => {
                 onClick={() =>
                   document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' })
                 }
-                className="bg-white text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-100 transition-colors"
+                className="bg-red-600 text-white px-8 py-4 text-lg font-medium hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl rounded-lg"
               >
                 Забронировать место
               </Button>
@@ -1048,7 +1080,7 @@ const MBA = () => {
             <div className="mt-8 text-center">
               <Button
                 onClick={handleSubmit}
-                className="bg-red-600 text-white px-12 py-4 text-lg font-medium hover:bg-red-700 transition-colors"
+                className="bg-red-600 text-white px-12 py-4 text-lg font-medium hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl rounded-lg"
               >
                 Отправить заявку
               </Button>
@@ -1107,6 +1139,13 @@ const MBA = () => {
       </div>
 
       <Footer />
+      
+      <PresentationModal
+        isOpen={showPresentationModal}
+        onClose={() => setShowPresentationModal(false)}
+        onDownload={handleDownloadPresentation}
+        programName="Программа MBA (Master of Business Administration)"
+      />
     </div>
   );
 };

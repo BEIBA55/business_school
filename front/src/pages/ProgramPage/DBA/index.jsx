@@ -3,6 +3,7 @@ import Header from '../../../components/common/Header';
 import Footer from '../../../components/common/Footer';
 import Button from '../../../components/ui/Button';
 import EditText from '../../../components/ui/EditText';
+import PresentationModal from '../../../components/ui/PresentationModal';
 
 const features = [
   {
@@ -119,6 +120,7 @@ const DBA = () => {
     phone: '',
     company: '',
   });
+  const [showPresentationModal, setShowPresentationModal] = useState(false);
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({
@@ -130,6 +132,17 @@ const DBA = () => {
   const handleSubmit = () => {
     console.log('Заявка отправлена:', formData);
     alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+  };
+
+  const handleDownloadPresentation = () => {
+    // Создаем ссылку для скачивания презентации DBA
+    const link = document.createElement('a');
+    link.href = '/presentations/DBA доктор дел. админ.pdf';
+    link.download = 'DBA-presentation.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -149,6 +162,15 @@ const DBA = () => {
           </p>
           <p className="text-2xl mb-3">Докторская программа в области бизнес-администрирования</p>
           <p className="text-xl mb-16 opacity-90">Высший уровень бизнес-образования</p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                               <Button
+                     onClick={() => setShowPresentationModal(true)}
+                     className="bg-[#991E1E] text-white px-8 py-3 rounded-lg hover:bg-[#7A1818] transition-colors"
+                   >
+                     Скачать презентацию
+                   </Button>
+          </div>
         </div>
 
         <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
@@ -319,6 +341,13 @@ const DBA = () => {
       </div>
 
       <Footer />
+      
+      <PresentationModal
+        isOpen={showPresentationModal}
+        onClose={() => setShowPresentationModal(false)}
+        onDownload={handleDownloadPresentation}
+        programName="DBA (Doctor of Business Administration)"
+      />
     </div>
   );
 };

@@ -22,8 +22,6 @@ const Footer = () => {
         { to: '/programs/executive-mba', text: t('homepage.footer.links.executiveMba') },
         { to: '/programs/dba', text: t('homepage.footer.links.dba') },
         { to: '/programs/exec', text: t('homepage.footer.links.executiveEducation') },
-        { to: '/programs/corporate', text: t('homepage.footer.links.corporatePrograms') },
-        { to: '/programs/trainings', text: t('homepage.footer.links.trainings') },
       ],
     },
     {
@@ -34,7 +32,6 @@ const Footer = () => {
         { to: '/faculty', text: t('homepage.footer.links.faculty') },
         { to: '/accreditations', text: t('homepage.footer.links.accreditations') },
         { to: '/partners', text: t('homepage.footer.links.partners') },
-        { to: '/careers', text: t('homepage.footer.links.careerCenter') },
         { to: '/alumni', text: t('homepage.footer.links.graduates') },
       ],
     },
@@ -46,7 +43,6 @@ const Footer = () => {
         { to: '/events', text: t('homepage.footer.links.events') },
         { to: '/news', text: t('homepage.footer.links.news') },
         { to: '/library', text: t('homepage.footer.links.library') },
-        { to: '/student-life', text: t('homepage.footer.links.studentLife') },
         { to: '/support', text: t('homepage.footer.links.support') },
       ],
     },
@@ -234,22 +230,6 @@ const Footer = () => {
                     {t('homepage.footer.links.executiveEducation')}
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/programs/corporate"
-                    className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
-                  >
-                    {t('homepage.footer.links.corporatePrograms')}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/programs/trainings"
-                    className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
-                  >
-                    {t('homepage.footer.links.trainings')}
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -289,14 +269,6 @@ const Footer = () => {
                     className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
                   >
                     {t('homepage.footer.links.partners')}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/careers"
-                    className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
-                  >
-                    {t('homepage.footer.links.careerCenter')}
                   </Link>
                 </li>
                 <li>
@@ -346,14 +318,6 @@ const Footer = () => {
                     className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
                   >
                     {t('homepage.footer.links.library')}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/student-life"
-                    className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
-                  >
-                    {t('homepage.footer.links.studentLife')}
                   </Link>
                 </li>
                 <li>

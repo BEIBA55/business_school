@@ -6,6 +6,7 @@
     "executiveEducation": "Executive Education",
     "corporateClients": "Корпоративные клиенты",
     "graduates": "Выпускники",
+    "library": "Библиотека",
     "search": "Поиск",
     "searchPlaceholder": "Введите запрос..."
   },
@@ -24,6 +25,25 @@
     "administration": "Администрация школы",
     "supportNBS": "Поддержать NBS"
   },
+  "news": {
+    "relatedNews": "Похожие новости",
+    "searchPlaceholder": "Поиск новостей...",
+    "foundResults": "Найдено {{count}} новостей",
+    "foundResultsWithQuery": "Найдено {{count}} новостей по запросу \"{{query}}\"",
+    "foundResultsInCategory": "Найдено {{count}} новостей в категории \"{{category}}\"",
+    "noNewsFound": "Новости не найдены",
+    "noNewsFoundDescription": "Попробуйте изменить параметры поиска или фильтры",
+    "sortBy": "Сортировать:",
+    "sortByDate": "По дате",
+    "sortByTitle": "По названию",
+    "sortByCategory": "По категории",
+    "allCategories": "Все",
+    "events": "События",
+    "achievements": "Достижения",
+    "programs": "Программы",
+    "partnerships": "Партнерства",
+    "infrastructure": "Инфраструктура"
+  },
   "common": {
     "loading": "Загрузка...",
     "submit": "Отправить",
@@ -36,7 +56,8 @@
     "readMore": "Читать далее",
     "back": "Назад",
     "next": "Далее",
-    "previous": "Предыдущий"
+    "previous": "Предыдущий",
+    "home": "Главная"
   },
   "forms": {
     "name": "Имя",
@@ -50,15 +71,41 @@
     "companyPlaceholder": "Введите название компании",
     "messagePlaceholder": "Введите ваше сообщение"
   },
+  "main": {
+    "hero": {
+      "subtitle": "Получите консультацию по программам обучения",
+      "consultationTitle": "Получить консультацию"
+    },
+    "intro": {
+      "title": "Narxoz Business School: там, где лидеры создают будущее",
+      "description": "Narxoz Business School формирует новое поколение лидеров, готовых трансформировать бизнес, общество и экономику в Центральной Азии и за её пределами. Мы объединяем передовые исследования с практикой и глобальными стандартами бизнес-образования.",
+      "details": {
+        "paragraph1": "Наши программы MBA, Executive MBA, DBA, Mini MBA, открытые тренинги и эксклюзивные решения для компаний разработаны с учетом современных вызовов бизнеса. Мы предлагаем обучение на трех языках: казахском, русском и английском.",
+        "paragraph2": "Наши партнёры — ведущие мировые университеты, включая ESMT Berlin, Penn State, University of Monaco, а приглашённые профессора из Harvard, Columbia, Yale и авторы мировых бестселлеров регулярно проводят занятия для наших студентов.",
+        "paragraph3": "Мы гордимся тем, что наши программы MBA признаны №1 в Центральной Азии в мировом рейтинге. Это подтверждает, что мы создаём обучение, которое соответствует и опережает мировые стандарты."
+      }
+    },
+    "sidebar": {
+      "quickInfo": "Контактная информация",
+      "phone": "Телефон",
+      "email": "Email",
+      "address": "Адрес",
+      "quote": {
+        "title": "Наша миссия",
+        "text": "В Narxoz Business School мы создаём пространство, где знания встречаются с практикой, а обучение становится инвестициями в карьеру и лидерство завтрашнего дня.",
+        "author": "Марина Образцова, Директор Narxoz Business School"
+      }
+    }
+  },
   "homepage": {
     "hero": {
-      "title": "NARKOZ Business School",
-      "subtitle": "Ведущая бизнес-школа Центральной Азии",
+      "title": "Narxoz Business School",
+      "subtitle": "Leading today, changing the world tomorrow",
       "consultationTitle": "Получить консультацию"
     },
     "about": {
-      "title": "О школе",
-      "description": "NARKOZ Business School - ведущая бизнес-школа Центральной Азии, предлагающая программы MBA, Executive MBA, DBA и корпоративное обучение."
+      "title": "Narxoz Business School",
+      "description": "Narxoz Business School готовит новое поколение лидеров, способных формировать устойчивое будущее в Центральной Азии и за её пределами. Наши программы MBA, Executive MBA, DBA и корпоративного обучения сочетают передовые исследования с практикой, помогая руководителям и предпринимателям развивать видение, навыки и смелость для внедрения инноваций и лидерства в быстро меняющемся мире. Вместе мы поднимаем стандарты бизнес-образования в регионе."
     },
     "programs": {
       "title": "Наши программы",
@@ -75,6 +122,15 @@
       "graduates": "выпускников",
       "languages": "языка: казахский, английский, русский",
       "countries": "страны: Казахстан, Узбекистан"
+    },
+    "contactForm": {
+      "title": "Не знаете с чего начать?",
+      "description": "Если вы хотите больше узнать об Narxoz Business School или не знаете, какую программу обучения выбрать, оставьте заявку — и мы перезвоним",
+      "namePlaceholder": "Имя",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Номер",
+      "submitButton": "Получить консультацию",
+      "privacyText": "Нажимая на кнопку, я соглашаюсь с политикой обработки персональных данных"
     },
     "businessGrid": {
       "mba": {
@@ -128,7 +184,7 @@
         }
       ],
       "ranking": {
-        "title": "Программа MBA Бизнес-школы Университета Нархоз признана №1 в Центральной Азии",
+        "title": "",
         "description1": "В опубликованном рейтинге QS Global MBA отмечены сильные стороны программы. 25 сентября 2024 года опубликован рейтинг QS Global MBA 2025. Программа MBA Бизнес-школы Университета Нархоз с первого раза вошла в топ-50 лучших в Азии (QS Global MBA 2025 Asia: #42) и на основе открытых данных и методологии QS для расчета общих баллов стала № 1 в Центрально-Азиатском регионе.",
         "description2": "На основе обнародованных агентством QS данных, программа MBA также входит в топ-50 лучших мира по критерию предпринимательства и востребованности выпускников. По этому показателю Бизнес-школа Университета Нархоз набрала высокие баллы и опередила другие всемирно признанные школы, такие как Carnegie Mellon и Dartmouth (США), Shanghai University of Finance and Economics и Tsinghua (Китай), Edinburgh и Manchester (Великобритания)."
       }
@@ -286,7 +342,7 @@
       "button": "Поддержать"
     },
     "programs": {
-      "title": "Программы",
+      "title": "Дипломные программы",
       "allPrograms": "Все программы",
       "mba": "MBA",
       "executiveMba": "Executive MBA",
@@ -295,52 +351,52 @@
       "mbaTitle": "MBA",
       "mbaDescription": "Полноценная программа MBA для формирования лидеров нового поколения. Стратегическое управление, финансы, маркетинг. 2 года обучения.",
       "mbaDuration": "2 года",
-      "mbaPrice": "3 000 000 тенге",
+      "mbaPrice": "По запросу",
       "mbaFinanceTitle": "MBA Программа Прикладных Финансов",
       "mbaFinanceDescription": "Специализированная программа MBA с углубленным изучением финансов, финансового анализа и корпоративных финансов.",
       "mbaFinanceDuration": "2 года",
-      "mbaFinancePrice": "3 200 000 тенге",
+      "mbaFinancePrice": "По запросу",
       "mbaSustainabilityTitle": "MBA \"Устойчивое предпринимательство\"",
       "mbaSustainabilityDescription": "Программа MBA с фокусом на устойчивое развитие бизнеса, экологически ответственное предпринимательство и социальное воздействие.",
       "mbaSustainabilityDuration": "2 года",
-      "mbaSustainabilityPrice": "3 100 000 тенге",
+      "mbaSustainabilityPrice": "По запросу",
       "mbaAITitle": "MBA \"ИИ в бизнесе\"",
       "mbaAIDescription": "Инновационная программа MBA, посвященная применению искусственного интеллекта в современном бизнесе и цифровой трансформации.",
       "mbaAIDuration": "2 года",
-      "mbaAIPrice": "3 300 000 тенге",
+      "mbaAIPrice": "По запросу",
       "mbaCreativeTitle": "MBA \"Креативная экономика\"",
       "mbaCreativeDescription": "Программа MBA для развития навыков управления в креативных индустриях, медиа, искусстве и инновационной экономике.",
       "mbaCreativeDuration": "2 года",
-      "mbaCreativePrice": "3 000 000 тенге",
+      "mbaCreativePrice": "По запросу",
       "mbaFinTechTitle": "MBA \"Финансовые технологии (FinTech)\"",
       "mbaFinTechDescription": "Специализированная программа MBA для изучения финансовых технологий, блокчейна, цифровых платежей и инновационных финансовых услуг.",
       "mbaFinTechDuration": "2 года",
-      "mbaFinTechPrice": "3 400 000 тенге",
+      "mbaFinTechPrice": "По запросу",
       "executiveMbaTitle": "Executive MBA",
       "executiveMbaDescription": "Программа для топ-менеджеров. Стратегическое управление и бизнес-моделирование. Модульный формат для работающих руководителей.",
       "executiveMbaDuration": "1 год",
-      "executiveMbaPrice": "2 625 000 тенге",
+      "executiveMbaPrice": "По запросу",
       "executiveMbaNGOTitle": "Executive MBA для руководителей НПО/НКО",
       "executiveMbaNGODescription": "Специализированная программа Executive MBA для руководителей некоммерческих организаций и социальных предприятий.",
       "executiveMbaNGODuration": "1 год",
-      "executiveMbaNGOPrice": "2 400 000 тенге",
+      "executiveMbaNGOPrice": "По запросу",
       "executiveMbaCIOTitle": "Executive MBA для CIO",
       "executiveMbaCIODescription": "Программа Executive MBA для директоров по информационным технологиям и руководителей IT-подразделений.",
       "executiveMbaCIODuration": "1 год",
-      "executiveMbaCIOPrice": "2 500 000 тенге",
+      "executiveMbaCIOPrice": "По запросу",
       "dbaTitle": "DBA (Доктор делового администрирования)",
       "dbaDescription": "Высший уровень бизнес-образования для топ-руководителей и владельцев бизнеса. Программа для практикующих профессионалов.",
       "dbaDuration": "3 года",
-      "dbaPrice": "4 500 000 тенге",
+      "dbaPrice": "По запросу",
       "mscFinanceTitle": "MSc in Finance",
       "mscFinanceDescription": "Магистр наук в области финансов. Программа для специалистов, желающих углубить знания в финансовой сфере.",
       "mscFinanceDuration": "1.5 года",
-      "mscFinancePrice": "2 800 000 тенге"
+      "mscFinancePrice": "По запросу"
     },
     "footer": {
       "programs": "Программы",
       "aboutSchool": "О школе",
-      "students": "Студентам",
+      "students": "Слушателям",
       "contacts": "Контакты",
       "socialMedia": "Социальные сети",
       "copyright": "© 2024 NARKOZ Business School. Все права защищены.",
@@ -417,5 +473,39 @@
     "ru": "Русский",
     "en": "English",
     "kk": "Қазақша"
+  },
+  "library": {
+    "title": "Библиотека Narxoz Business School",
+    "subtitle": "Добро пожаловать в интеллектуальный центр Narxoz Business School — нашу библиотеку",
+    "aboutTitle": "О нашей библиотеке",
+    "servicesTitle": "В библиотеке представлены",
+    "recommendationsTitle": "Рекомендации от Б.Ж. Утемуратова",
+    "recommendationsSubtitle": "Подборка лучших произведений казахской и мировой литературы, рекомендованных для изучения культурного наследия и развития личности"
+  },
+  "search": {
+    "title": "Поиск по сайту",
+    "subtitle": "Введите запрос для поиска по программам, новостям, преподавателям и другим материалам",
+    "placeholder": "Введите запрос для поиска...",
+    "searchButton": "Найти",
+    "filters": "Фильтры",
+    "contentType": "Тип контента",
+    "category": "Категория",
+    "allTypes": "Все типы",
+    "allCategories": "Все категории",
+    "resetFilters": "Сбросить фильтры",
+    "loading": "Поиск результатов...",
+    "error": "Ошибка при поиске. Попробуйте еще раз.",
+    "noResults": "Ничего не найдено",
+    "noResultsDescription": "По запросу \"{{query}}\" ничего не найдено. Попробуйте изменить запрос или фильтры.",
+    "foundResults": "Найдено {{count}} результатов по запросу \"{{query}}\"",
+    "showingResults": "Показано {{shown}} из {{total}} результатов",
+    "program": "Программа",
+    "news": "Новость",
+    "faculty": "Преподаватель",
+    "accreditation": "Аккредитация",
+    "partner": "Партнер",
+    "graduate": "Выпускник",
+    "library": "Библиотека",
+    "result": "Результат"
   }
 }

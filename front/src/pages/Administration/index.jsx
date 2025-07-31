@@ -426,21 +426,7 @@ const Administration = () => {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Опыт работы</h3>
                       <p className="text-gray-600 mb-4">{selectedMember.experience}</p>
 
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Контакты</h3>
-                      <div className="space-y-2">
-                        <a
-                          href={`mailto:${selectedMember.email}`}
-                          className="block text-red-800 hover:text-red-900 font-medium"
-                        >
-                          {selectedMember.email}
-                        </a>
-                        <a
-                          href={`tel:${selectedMember.phone}`}
-                          className="block text-gray-600 hover:text-gray-900"
-                        >
-                          {selectedMember.phone}
-                        </a>
-                      </div>
+
                     </div>
 
                     <div>
@@ -536,10 +522,10 @@ const Administration = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-4">Email</h3>
               <p className="text-gray-600 mb-4">Напишите нам на общий адрес</p>
               <a
-                href="mailto:info@narkoz.edu.kz"
+                href="mailto:gsb@narxoz.kz"
                 className="text-red-800 hover:text-red-900 font-medium"
               >
-                info@narkoz.edu.kz
+                gsb@narxoz.kz
               </a>
             </div>
 
@@ -547,8 +533,8 @@ const Administration = () => {
               <div className="text-4xl mb-4">📞</div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Телефон</h3>
               <p className="text-gray-600 mb-4">Позвоните в приемную</p>
-              <a href="tel:+77273771111" className="text-red-800 hover:text-red-900 font-medium">
-                +7 (727) 377-11-11
+              <a href="tel:+77767083636" className="text-red-800 hover:text-red-900 font-medium">
+              +7 776 708 3636
               </a>
             </div>
 

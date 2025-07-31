@@ -413,11 +413,59 @@ const Homepage = () => {
     },
   ];
 
+  // Функция для определения ссылки программы
+  const getProgramLink = (program) => {
+    const title = program.title;
+    
+    // MBA программы
+    if (title === t('homepage.programs.mbaTitle')) {
+      return '/programs/mba';
+    }
+    if (title === t('homepage.programs.mbaFinanceTitle')) {
+      return '/programs/mba-finance';
+    }
+    if (title === t('homepage.programs.mbaSustainabilityTitle')) {
+      return '/programs/mba-sustainability';
+    }
+    if (title === t('homepage.programs.mbaAITitle')) {
+      return '/programs/mba-ai';
+    }
+    if (title === t('homepage.programs.mbaCreativeTitle')) {
+      return '/programs/mba-creative';
+    }
+    if (title === t('homepage.programs.mbaFinTechTitle')) {
+      return '/programs/mba-fintech';
+    }
+    
+    // Executive MBA программы
+    if (title === t('homepage.programs.executiveMbaTitle')) {
+      return '/programs/executive-mba';
+    }
+    if (title === t('homepage.programs.executiveMbaNGOTitle')) {
+      return '/programs/executive-mba-ngo';
+    }
+    if (title === t('homepage.programs.executiveMbaCIOTitle')) {
+      return '/programs/executive-mba-cio';
+    }
+    
+    // DBA программа
+    if (title === t('homepage.programs.dbaTitle')) {
+      return '/programs/dba';
+    }
+    
+    // Магистратура
+    if (title === t('homepage.programs.mscFinanceTitle')) {
+      return '/programs/msc-finance';
+    }
+    
+    return null; // Если ссылка не найдена
+  };
+
   // Фильтрация программ по выбранному типу
   const filteredPrograms = programs.filter((program) => {
     if (activeProgram === t('homepage.programs.allPrograms')) {
-      // Исключаем программу MSc in Finance из общего отображения
-      return program.title !== 'MSc in Finance';
+      // Показываем все программы, включая магистратуру
+      return true;
     }
     if (activeProgram === t('homepage.programs.mba')) {
       // Показываем только основные программы MBA
@@ -436,11 +484,14 @@ const Homepage = () => {
     ),
   };
 
-  // Создаем отдельную группировку для отображения "Все программы" без MSc in Finance
+  // Создаем отдельную группировку для отображения "Все программы" включая магистратуру
   const allProgramsGrouped = {
     MBA: programs.filter((program) => program.type === 'MBA' && program.isMain),
     'Executive MBA': programs.filter((program) => program.type === 'Executive MBA'),
     DBA: programs.filter((program) => program.type === 'DBA'),
+    [t('homepage.programs.magistracy')]: programs.filter(
+      (program) => program.type === t('homepage.programs.magistracy')
+    ),
   };
 
   // Получаем все уникальные типы программ
@@ -620,7 +671,7 @@ const Homepage = () => {
           </div>
 
           {/* Desktop: Original centered layout */}
-          <div className="hidden sm:flex flex-wrap justify-center gap-4 p-6 border border-gray-300 rounded-full">
+          <div className="hidden sm:flex flex-wrap justify-center gap-6 p-4 border border-gray-300 rounded-full w-full">
             <button
               className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
               onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
@@ -644,14 +695,9 @@ const Homepage = () => {
           // Простая сетка для "Все программы" 
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
             {filteredPrograms.map((program, index) => {
-              const isExecutiveMBA = program.title.includes('Executive MBA');
-              const isMainMBA = program.title === 'MBA' || program.title.includes('MBA') && !program.title.includes('Executive');
-              const CardWrapper = isExecutiveMBA || isMainMBA ? Link : 'div';
-              const cardProps = isExecutiveMBA
-                ? { to: '/programs/executive-mba' }
-                : isMainMBA
-                  ? { to: '/programs/mba' }
-                  : {};
+              const programLink = getProgramLink(program);
+              const CardWrapper = programLink ? Link : 'div';
+              const cardProps = programLink ? { to: programLink } : {};
 
               return (
                 <CardWrapper
@@ -686,7 +732,7 @@ const Homepage = () => {
                       </div>
                     )}
                     <div className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span>Подробнее</span>
+                      <span>{t('common.more')}</span>
                       <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -700,14 +746,9 @@ const Homepage = () => {
           // Сетка для конкретного типа программ
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
             {filteredPrograms.map((program, index) => {
-              const isExecutiveMBA = program.title.includes('Executive MBA');
-              const isMainMBA = program.title === 'MBA' || program.title.includes('MBA') && !program.title.includes('Executive');
-              const CardWrapper = isExecutiveMBA || isMainMBA ? Link : 'div';
-              const cardProps = isExecutiveMBA
-                ? { to: '/programs/executive-mba' }
-                : isMainMBA
-                  ? { to: '/programs/mba' }
-                  : {};
+              const programLink = getProgramLink(program);
+              const CardWrapper = programLink ? Link : 'div';
+              const cardProps = programLink ? { to: programLink } : {};
 
               return (
                 <CardWrapper
@@ -742,7 +783,7 @@ const Homepage = () => {
                       </div>
                     )}
                     <div className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span>Подробнее</span>
+                      <span>{t('common.more')}</span>
                       <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -758,27 +799,43 @@ const Homepage = () => {
         {expandedMBA && activeProgram === 'MBA' && (
           <div className="col-span-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-              {additionalMBAPrograms.map((program, index) => (
-                <div
-                  key={`additional-mba-${index}`}
-                  className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex justify-between items-start mb-2">
-                      <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
-                        {program.type}
-                      </span>
-                      <span className="text-xs text-gray-500">{program.duration}</span>
+              {additionalMBAPrograms.map((program, index) => {
+                const programLink = getProgramLink(program);
+                const CardWrapper = programLink ? Link : 'div';
+                const cardProps = programLink ? { to: programLink } : {};
+
+                return (
+                  <CardWrapper
+                    key={`additional-mba-${index}`}
+                    {...cardProps}
+                    className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between cursor-pointer group"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
+                          {program.type}
+                        </span>
+                        <span className="text-xs text-gray-500">{program.duration}</span>
+                      </div>
+
+                      <h4 className="text-lg font-bold mb-2 text-gray-800 group-hover:text-red-800 transition-colors duration-300">{program.title}</h4>
+
+                      <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+                        {program.description}
+                      </p>
                     </div>
-
-                    <h4 className="text-lg font-bold mb-2 text-gray-800">{program.title}</h4>
-
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {program.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                    
+                    {programLink && (
+                      <div className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                        <span>{t('common.more')}</span>
+                        <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    )}
+                  </CardWrapper>
+                );
+              })}
             </div>
           </div>
         )}
@@ -1208,28 +1265,27 @@ const Homepage = () => {
       <div className="bg-primary py-16 px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="slide-in-left">
-            <h2 className="text-white text-4xl font-bold mb-6">Не знаете с чего начать?</h2>
+            <h2 className="text-white text-4xl font-bold mb-6">{t('homepage.contactForm.title')}</h2>
             <p className="text-white text-lg leading-relaxed">
-              Если вы хотите больше узнать об Narxoz Business School или не знаете, какую программу
-              обучения выбрать, оставьте заявку — и мы перезвоним
+              {t('homepage.contactForm.description')}
             </p>
           </div>
 
           <div className="space-y-4 slide-in-right">
             <EditText
-              placeholder="Имя"
+              placeholder={t('homepage.contactForm.namePlaceholder')}
               value={contactFormData.name}
               onChange={(e) => handleContactFormChange('name', e.target.value)}
               className="h-[38px]"
             />
             <EditText
-              placeholder="Email"
+              placeholder={t('homepage.contactForm.emailPlaceholder')}
               value={contactFormData.email}
               onChange={(e) => handleContactFormChange('email', e.target.value)}
               className="h-[38px]"
             />
             <EditText
-              placeholder="Номер"
+              placeholder={t('homepage.contactForm.phonePlaceholder')}
               value={contactFormData.phone}
               onChange={(e) => handleContactFormChange('phone', e.target.value)}
               className="h-[38px]"
@@ -1238,10 +1294,10 @@ const Homepage = () => {
               onClick={handleContactSubmit}
               className="w-full bg-[#991E1E] text-white py-0 font-medium hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center"
             >
-              Получить консультацию
+              {t('homepage.contactForm.submitButton')}
             </Button>
             <p className="text-white text-sm text-center leading-relaxed">
-              Нажимая на кнопку, я соглашаюсь с политикой обработки персональных данных
+              {t('homepage.contactForm.privacyText')}
             </p>
           </div>
         </div>

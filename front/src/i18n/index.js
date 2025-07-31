@@ -26,6 +26,8 @@ i18n
     resources,
     fallbackLng: 'ru',
     debug: false,
+    load: 'languageOnly',
+    preload: ['ru', 'en', 'kk'],
 
     interpolation: {
       escapeValue: false,
@@ -34,6 +36,11 @@ i18n
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
+    },
+
+    react: {
+      useSuspense: false,
     },
   });
 

@@ -1,11 +1,12 @@
 {
   "navigation": {
+    "about": "Мектеп туралы",
     "programs": "Бағдарламалар",
-    "about": "Біз туралы",
     "schedule": "Кесте",
     "executiveEducation": "Executive Education",
-    "corporateClients": "Корпоративті клиенттерге",
-    "graduates": "Түлектерге",
+    "corporateClients": "Корпоративтік клиенттер",
+    "graduates": "Түлектер",
+    "library": "Кітапхана",
     "search": "Іздеу",
     "searchPlaceholder": "Сұрауыңызды енгізіңіз..."
   },
@@ -24,6 +25,25 @@
     "administration": "Мектеп әкімшілігі",
     "supportNBS": "NBS-ті қолдау"
   },
+  "news": {
+    "relatedNews": "Ұқсас жаңалықтар",
+    "searchPlaceholder": "Жаңалықтарды іздеу...",
+    "foundResults": "{{count}} жаңалық табылды",
+    "foundResultsWithQuery": "\"{{query}}\" сұрауы бойынша {{count}} жаңалық табылды",
+    "foundResultsInCategory": "\"{{category}}\" санатында {{count}} жаңалық табылды",
+    "noNewsFound": "Жаңалықтар табылмады",
+    "noNewsFoundDescription": "Іздеу параметрлерін немесе сүзгілерді өзгертуге тырысыңыз",
+    "sortBy": "Сұрыптау:",
+    "sortByDate": "Күні бойынша",
+    "sortByTitle": "Тақырыбы бойынша",
+    "sortByCategory": "Санаты бойынша",
+    "allCategories": "Барлығы",
+    "events": "Оқиғалар",
+    "achievements": "Жетістіктер",
+    "programs": "Бағдарламалар",
+    "partnerships": "Серіктестік",
+    "infrastructure": "Инфрақұрылым"
+  },
   "common": {
     "loading": "Жүктелуде...",
     "submit": "Жіберу",
@@ -36,7 +56,8 @@
     "readMore": "Толығырақ оқу",
     "back": "Артқа",
     "next": "Келесі",
-    "previous": "Алдыңғы"
+    "previous": "Алдыңғы",
+    "home": "Басты бет"
   },
   "forms": {
     "name": "Аты",
@@ -49,6 +70,32 @@
     "phonePlaceholder": "Телефон нөміріңізді енгізіңіз",
     "companyPlaceholder": "Компания атауын енгізіңіз",
     "messagePlaceholder": "Хабарламаңызды енгізіңіз"
+  },
+  "main": {
+    "hero": {
+      "subtitle": "Оқыту бағдарламалары бойынша кеңес алыңыз",
+      "consultationTitle": "Кеңес алу"
+    },
+    "intro": {
+      "title": "Narxoz Business School: көшбасшылар болашақты қайда жасайды",
+      "description": "Narxoz Business School Орталық Азияда және одан тыс жерлерде бизнес, қоғам және экономиканы түрлендіруге дайын көшбасшылардың жаңа ұрпағын қалыптастырады. Біз алдыңғы қатарлы зерттеулерді тәжірибемен және әлемдік бизнес-білім беру стандарттарымен біріктіреміз.",
+      "details": {
+        "paragraph1": "Біздің MBA, Executive MBA, DBA, Mini MBA, ашық тренингтер және компанияларға арналған эксклюзивті шешімдеріміз заманауи бизнес күрделіліктерін ескере отырып әзірленген. Біз үш тілде оқыту ұсынамыз: қазақ, орыс және ағылшын.",
+        "paragraph2": "Біздің серіктестеріміз — ESMT Berlin, Penn State, University of Monaco қоса алғанда, әлемдік жетекші университеттер, ал Harvard, Columbia, Yale-ден шақырылған профессорлар мен әлемдік бестселлерлердің авторлары біздің студенттерімізге дәрістерді үнемі өткізеді.",
+        "paragraph3": "Біздің MBA бағдарламаларымыздың әлемдік рейтингте Орталық Азияда №1 деп танылғанына мақтанамыз. Бұл біздің әлемдік стандарттарға сәйкес келетін және оларды асып түсетін білім беруді құратынымызды растайды."
+      }
+    },
+    "sidebar": {
+      "quickInfo": "Байланыс ақпараты",
+      "phone": "Телефон",
+      "email": "Email",
+      "address": "Мекенжай",
+      "quote": {
+        "title": "Біздің миссиямыз",
+        "text": "Narxoz Business School-де біз білім тәжірибемен кездесетін, ал оқу ертеңгі кәсіп және көшбасшылыққа инвестицияға айналатын кеңістік жасаймыз.",
+        "author": "Марина Образцова, Narxoz Business School директоры"
+      }
+    }
   },
   "homepage": {
     "hero": {
@@ -76,6 +123,15 @@
       "graduates": "түлек",
       "languages": "тіл: қазақ, ағылшын, орыс",
       "countries": "ел: Қазақстан, Өзбекстан"
+    },
+    "contactForm": {
+      "title": "Қайдан бастау керектігін білмей жүрсіз бе?",
+      "description": "Егер сіз Narxoz Business School туралы көбірек білгіңіз келсе немесе қандай оқыту бағдарламасын таңдау керектігін білмесеңіз, өтініш қалдырыңыз — біз сізге қоңырау шаламыз",
+      "namePlaceholder": "Аты",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Телефон",
+      "submitButton": "Кеңес алу",
+      "privacyText": "Батырманы басу арқылы мен жеке деректерді өңдеу саясатымен келісемін"
     },
     "businessGrid": {
       "mba": {
@@ -129,7 +185,7 @@
         }
       ],
       "ranking": {
-        "title": "Нархоз Университеті Бизнес-мектебінің MBA бағдарламасы Орталық Азияда №1 деп танылды",
+        "title": "",
         "description1": "Жарияланған QS Global MBA рейтингінде бағдарламаның күшті жақтары атап өтілді. 2024 жылдың 25 қыркүйегінде QS Global MBA 2025 рейтингі жарияланды. Нархоз Университеті Бизнес-мектебінің MBA бағдарламасы алғаш рет Азиядағы ең жақсы 50-ге кірді (QS Global MBA 2025 Asia: #42) және ашық деректер мен QS әдістемесіне сүйене отырып, жалпы баллдарды есептеу үшін Орталық Азия аймағында №1 болды.",
         "description2": "QS агенттігі жариялаған деректерге сүйене отырып, MBA бағдарламасы кәсіпкерлік және түлектердің сұранысы критерийлері бойынша әлемдегі ең жақсы 50-ге кіреді. Бұл көрсеткіш бойынша Нархоз Университеті Бизнес-мектебі жоғары балл жинады және Carnegie Mellon және Dartmouth (АҚШ), Shanghai University of Finance and Economics және Tsinghua (Қытай), Edinburgh және Manchester (Ұлыбритания) сияқты басқа да әлемге танымал мектептерді басып озды."
       }
@@ -138,7 +194,7 @@
       "accreditations": "Аккредитациялар",
       "graduates": "Түлектер тарихы",
       "partners": "Бізге сенеді",
-      "faculty": "Преподаватели",
+      "faculty": "Оқытушылар",
       "news": "Жаңалықтар",
       "viewAllNews": "Барлық жаңалықтарды көру",
       "administration": "Мектеп әкімшілігі"
@@ -287,7 +343,7 @@
       "button": "Қолдау"
     },
     "programs": {
-      "title": "Бағдарламалар",
+      "title": "Дипломдық бағдарламалар",
       "allPrograms": "Барлық бағдарламалар",
       "mba": "MBA",
       "executiveMba": "Executive MBA",
@@ -296,52 +352,52 @@
       "mbaTitle": "MBA",
       "mbaDescription": "Жаңа ұрпақ көшбасшыларды дамытуға арналған толық MBA бағдарламасы. Стратегиялық басқару, қаржы, маркетинг. 2 жыл оқу.",
       "mbaDuration": "2 жыл",
-      "mbaPrice": "3 000 000 теңге",
+      "mbaPrice": "Сұрау бойынша",
       "mbaFinanceTitle": "MBA Қолданбалы Қаржы Бағдарламасы",
       "mbaFinanceDescription": "Қаржы, қаржылық талдау және корпоративті қаржыны терең зерттейтін мамандандырылған MBA бағдарламасы.",
       "mbaFinanceDuration": "2 жыл",
-      "mbaFinancePrice": "3 200 000 теңге",
+      "mbaFinancePrice": "Сұрау бойынша",
       "mbaSustainabilityTitle": "MBA \"Тұрақты кәсіпкерлік\"",
       "mbaSustainabilityDescription": "Тұрақты бизнес дамуына, экологиялық жауапкершілікті кәсіпкерлікке және әлеуметтік әсерге бағытталған MBA бағдарламасы.",
       "mbaSustainabilityDuration": "2 жыл",
-      "mbaSustainabilityPrice": "3 100 000 теңге",
+      "mbaSustainabilityPrice": "Сұрау бойынша",
       "mbaAITitle": "MBA \"Бизнестегі ЖИ\"",
       "mbaAIDescription": "Заманауи бизнесте жасанды интеллект қолдану және сандық трансформацияға арналған инновациялық MBA бағдарламасы.",
       "mbaAIDuration": "2 жыл",
-      "mbaAIPrice": "3 300 000 теңге",
+      "mbaAIPrice": "Сұрау бойынша",
       "mbaCreativeTitle": "MBA \"Шығармашылық экономика\"",
       "mbaCreativeDescription": "Шығармашылық индустрияларда, медиа, өнер және инновациялық экономикада басқару дағдыларын дамытуға арналған MBA бағдарламасы.",
       "mbaCreativeDuration": "2 жыл",
-      "mbaCreativePrice": "3 000 000 теңге",
+      "mbaCreativePrice": "Сұрау бойынша",
       "mbaFinTechTitle": "MBA \"Қаржылық технологиялар (FinTech)\"",
       "mbaFinTechDescription": "Қаржылық технологиялар, блокчейн, сандық төлемдер және инновациялық қаржылық қызметтерді зерттейтін мамандандырылған MBA бағдарламасы.",
       "mbaFinTechDuration": "2 жыл",
-      "mbaFinTechPrice": "3 400 000 теңге",
+      "mbaFinTechPrice": "Сұрау бойынша",
       "executiveMbaTitle": "Executive MBA",
       "executiveMbaDescription": "Топ-менеджерлерге арналған бағдарлама. Стратегиялық басқару және бизнес-модельдеу. Жұмыс істейтін көшбасшыларға арналған модульді формат.",
       "executiveMbaDuration": "1 жыл",
-      "executiveMbaPrice": "2 625 000 теңге",
+      "executiveMbaPrice": "Сұрау бойынша",
       "executiveMbaNGOTitle": "НПО/НКО көшбасшыларына арналған Executive MBA",
       "executiveMbaNGODescription": "Коммерциялық емес ұйымдар мен әлеуметтік кәсіпорындар көшбасшыларына арналған мамандандырылған Executive MBA бағдарламасы.",
       "executiveMbaNGODuration": "1 жыл",
-      "executiveMbaNGOPrice": "2 400 000 теңге",
+      "executiveMbaNGOPrice": "Сұрау бойынша",
       "executiveMbaCIOTitle": "CIO-ға арналған Executive MBA",
       "executiveMbaCIODescription": "Ақпараттық технологиялар директорлары және IT бөлімдерінің көшбасшыларына арналған Executive MBA бағдарламасы.",
       "executiveMbaCIODuration": "1 жыл",
-      "executiveMbaCIOPrice": "2 500 000 теңге",
+      "executiveMbaCIOPrice": "Сұрау бойынша",
       "dbaTitle": "DBA (Бизнес администрирациясының докторы)",
       "dbaDescription": "Топ-менеджерлер мен кәсіпкерлерге арналған бизнес-білім берудің ең жоғары деңгейі. Тәжірибелі мамандарға арналған бағдарлама.",
       "dbaDuration": "3 жыл",
-      "dbaPrice": "4 500 000 теңге",
+      "dbaPrice": "Сұрау бойынша",
       "mscFinanceTitle": "Қаржы бойынша MSc",
       "mscFinanceDescription": "Қаржы саласындағы ғылым магистрі. Қаржы саласындағы білімдерін тереңдеткісі келетін мамандарға арналған бағдарлама.",
       "mscFinanceDuration": "1.5 жыл",
-      "mscFinancePrice": "2 800 000 теңге"
+      "mscFinancePrice": "Сұрау бойынша"
     },
     "footer": {
       "programs": "Бағдарламалар",
       "aboutSchool": "Мектеп туралы",
-      "students": "Студенттерге",
+      "students": "Тыңдаушыларға",
       "contacts": "Байланыс",
       "socialMedia": "Әлеуметтік желілер",
       "copyright": "© 2024 Narxoz Business School. Барлық құқықтар қорғалған.",
@@ -418,5 +474,39 @@
     "ru": "Русский",
     "en": "English",
     "kk": "Қазақша"
+  },
+  "library": {
+    "title": "Narxoz Business School кітапханасы",
+    "subtitle": "Narxoz Business School интеллектуалдық орталығына — біздің кітапханамызға қош келдіңіз",
+    "aboutTitle": "Біздің кітапхана туралы",
+    "servicesTitle": "Кітапханада ұсынылған",
+    "recommendationsTitle": "Б.Ж. Өтемұратовтың ұсыныстары",
+    "recommendationsSubtitle": "Мәдени мұраны зерделеу және жеке дамуға ұсынылған қазақ және әлем әдебиетінің үздік шығармаларының жинағы"
+  },
+  "search": {
+    "title": "Сайт бойынша іздеу",
+    "subtitle": "Бағдарламалар, жаңалықтар, оқытушылар және басқа материалдарды іздеу үшін сұрау енгізіңіз",
+    "placeholder": "Іздеу сұрауын енгізіңіз...",
+    "searchButton": "Іздеу",
+    "filters": "Сүзгілер",
+    "contentType": "Мазмұн түрі",
+    "category": "Санат",
+    "allTypes": "Барлық түрлер",
+    "allCategories": "Барлық санаттар",
+    "resetFilters": "Сүзгілерді қалпына келтіру",
+    "loading": "Нәтижелер ізделуде...",
+    "error": "Іздеу қатесі. Қайталап көріңіз.",
+    "noResults": "Нәтижелер табылмады",
+    "noResultsDescription": "\"{{query}}\" сұрауы бойынша ештеңе табылмады. Сұрауды немесе сүзгілерді өзгертуге тырысыңыз.",
+    "foundResults": "\"{{query}}\" сұрауы бойынша {{count}} нәтиже табылды",
+    "showingResults": "{{total}}-дан {{shown}} нәтиже көрсетілді",
+    "program": "Бағдарлама",
+    "news": "Жаңалық",
+    "faculty": "Оқытушы",
+    "accreditation": "Аккредитация",
+    "partner": "Серіктес",
+    "graduate": "Түлек",
+    "library": "Кітапхана",
+    "result": "Нәтиже"
   }
 }

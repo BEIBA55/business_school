@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
@@ -12,6 +12,13 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [forceUpdate, setForceUpdate] = useState(0); // Для принудительной перерисовки
+
+  // Отслеживаем изменения языка
+  useEffect(() => {
+    // Принудительно перерисовываем компонент при смене языка
+    setForceUpdate(prev => prev + 1);
+  }, [i18n.language]);
 
   const handleMouseEnter = () => {
     if (timeoutId) {
@@ -46,7 +53,8 @@ const Header = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      console.log('Поиск:', searchQuery);
+      // Перенаправляем на страницу результатов поиска
+      window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
     }
   };
 
@@ -68,14 +76,116 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Исправленная функция для получения переводов
   const getAboutLabel = (key, fallback) => {
-    const label = t(key);
-    return label === key ? fallback : label;
+    try {
+      const label = t(key);
+      
+      // Проверяем, что перевод найден и не равен ключу
+      if (label && label !== key) {
+        return label;
+      }
+      
+      // Если перевод не найден, возвращаем fallback в зависимости от языка
+      const fallbacks = {
+        ru: {
+          'about.whoWeAre': 'Кто мы',
+          'about.news': 'Новости',
+          'about.accreditations': 'Аккредитации',
+          'about.partners': 'Партнеры',
+          'about.faculty': 'Преподаватели',
+          'about.administration': 'Администрация школы',
+          'about.supportNBS': 'Поддержать NBS'
+        },
+        en: {
+          'about.whoWeAre': 'Who We Are',
+          'about.news': 'News',
+          'about.accreditations': 'Accreditations',
+          'about.partners': 'Partners',
+          'about.faculty': 'Faculty',
+          'about.administration': 'School Administration',
+          'about.supportNBS': 'Support NBS'
+        },
+        kk: {
+          'about.whoWeAre': 'Біз кімміз',
+          'about.news': 'Жаңалықтар',
+          'about.accreditations': 'Аккредитациялар',
+          'about.partners': 'Серіктестер',
+          'about.faculty': 'Преподаватели',
+          'about.administration': 'Мектеп әкімшілігі',
+          'about.supportNBS': 'NBS-ті қолдау'
+        }
+      };
+      
+      const currentLanguage = i18n.language || 'ru';
+      const languageFallback = fallbacks[currentLanguage]?.[key] || fallback;
+      
+      return languageFallback;
+    } catch (error) {
+      return fallback;
+    }
   };
 
   const getNavigationLabel = (key, fallback) => {
-    const label = t(key);
-    return label === key ? fallback : label;
+    try {
+      const label = t(key);
+      if (label && label !== key) {
+        return label;
+      }
+      
+      // Возвращаем fallback в зависимости от текущего языка
+      const fallbacks = {
+        ru: {
+          'navigation.about': 'О школе',
+          'navigation.programs': 'Программы',
+          'navigation.schedule': 'Расписание',
+          'navigation.executiveEducation': 'Executive Education',
+          'navigation.corporateClients': 'Корпоративные клиенты',
+          'navigation.graduates': 'Выпускники',
+          'navigation.search': 'Поиск',
+          'navigation.searchPlaceholder': 'Введите запрос...',
+          'programs.mba': 'MBA',
+          'programs.executiveMba': 'Executive MBA',
+          'programs.dba': 'DBA',
+          'programs.magistracy': 'Магистратура'
+        },
+        en: {
+          'navigation.about': 'About',
+          'navigation.programs': 'Programs',
+          'navigation.schedule': 'Schedule',
+          'navigation.executiveEducation': 'Executive Education',
+          'navigation.corporateClients': 'Corporate Clients',
+          'navigation.graduates': 'Graduates',
+          'navigation.search': 'Search',
+          'navigation.searchPlaceholder': 'Enter your query...',
+          'programs.mba': 'MBA',
+          'programs.executiveMba': 'Executive MBA',
+          'programs.dba': 'DBA',
+          'programs.magistracy': "Master's Degree"
+        },
+        kk: {
+          'navigation.about': 'Мектеп туралы',
+          'navigation.programs': 'Бағдарламалар',
+          'navigation.schedule': 'Кесте',
+          'navigation.executiveEducation': 'Executive Education',
+          'navigation.corporateClients': 'Корпоративтік клиенттер',
+          'navigation.graduates': 'Түлектер',
+          'navigation.search': 'Іздеу',
+          'navigation.searchPlaceholder': 'Сұрауыңызды енгізіңіз...',
+          'programs.mba': 'MBA',
+          'programs.executiveMba': 'Executive MBA',
+          'programs.dba': 'DBA',
+          'programs.magistracy': 'Магистратура'
+        }
+      };
+      
+      const currentLanguage = i18n.language || 'ru';
+      const languageFallback = fallbacks[currentLanguage]?.[key] || fallback;
+      
+      return languageFallback;
+    } catch (error) {
+      return fallback;
+    }
   };
 
   return (

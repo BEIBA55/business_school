@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 
 const Schedule = () => {
+  const navigate = useNavigate();
   const [currentDate, setCurrentDate] = useState(new Date(2025, 6, 1)); // Июль 2025
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [viewMode, setViewMode] = useState('calendar'); // calendar | list
+  const [filters, setFilters] = useState({
+    eventType: 'all',
+    dateRange: 'upcoming', // upcoming, past, all
+    searchQuery: ''
+  });
 
   // Мероприятия июля-августа 2025
   const events = [
@@ -18,8 +25,7 @@ const Schedule = () => {
       type: 'emba',
       speaker: 'Администрация ЕМВА',
       location: 'Новое здание NBS',
-      description:
-        'Экскурсия по новому зданию и welcome break. Розыгрыш мерча за посты в соц сетях и больше всего лайков.',
+      description: 'Экскурсия по новому зданию и welcome break. Розыгрыш мерча за посты в соц сетях и больше всего лайков.',
       cost: 'в бюджете программ ЕМВА',
     },
     {
@@ -46,13 +52,13 @@ const Schedule = () => {
     },
     {
       id: 4,
-      title: 'Коллаборация постов в соц сетях с narxoz.edu.kz',
+      title: 'Коллаборация постов в соц сетях с narxoz.kz',
       date: '2025-07-16',
       time: '15:00-17:00',
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description: 'Коллаборация постов в социальных сетях с официальным аккаунтом narxoz.edu.kz',
+      description: 'Коллаборация постов в социальных сетях с официальным аккаунтом narxoz.kz',
       cost: '0 тенге',
     },
     {
@@ -74,8 +80,7 @@ const Schedule = () => {
       type: 'alumni',
       speaker: 'Олег Алферов, эксперт NBS',
       location: 'Главный зал NBS',
-      description:
-        'Встреча выпускников программ Мини-МВА - Форте, Халык, Алагуем. Мастер-класс от эксперта NBS',
+      description: 'Встреча выпускников программ Мини-МВА - Форте, Халык, Алагуем. Мастер-класс от эксперта NBS',
       cost: '0 тенге',
     },
     {
@@ -97,8 +102,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -109,8 +113,7 @@ const Schedule = () => {
       type: 'graduation',
       speaker: 'НБРК, АРРФР и ФГСВ',
       location: 'Актовый зал NBS',
-      description:
-        'Graduation программ МВА "Прикладные финансы" с НБРК, АРРФР и ФГСВ - встреча выпускников ППФ',
+      description: 'Graduation программ МВА "Прикладные финансы" с НБРК, АРРФР и ФГСВ - встреча выпускников ППФ',
       cost: 'в бюджете программ',
     },
     {
@@ -132,8 +135,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -199,8 +201,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -211,8 +212,7 @@ const Schedule = () => {
       type: 'course',
       speaker: 'Елжас Аубакиров, CFA',
       location: 'Аудитория NBS',
-      description:
-        'Стратегический Контроль Затрат: Основа Эффективных Решений - курс-подарок для компаний',
+      description: 'Стратегический Контроль Затрат: Основа Эффективных Решений - курс-подарок для компаний',
       cost: '0 тенге',
     },
 
@@ -236,8 +236,7 @@ const Schedule = () => {
       type: 'course',
       speaker: 'Елжас Аубакиров, CFA',
       location: 'Аудитория NBS',
-      description:
-        'Инвестиционный анализ проектов с розыгрышем мерча за посты в соц сетях и больше всего лайков',
+      description: 'Инвестиционный анализ проектов с розыгрышем мерча за посты в соц сетях и больше всего лайков',
       cost: '0 тенге',
     },
     {
@@ -248,8 +247,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -297,17 +295,6 @@ const Schedule = () => {
       cost: '0 тенге',
     },
     {
-      id: 43,
-      title: 'Розыгрыш гранта на МВА',
-      date: '2025-08-01',
-      time: '10:00-18:00',
-      type: 'event',
-      speaker: 'Администрация NBS',
-      location: 'Онлайн',
-      description: 'Розыгрыш гранта на МВА на англоязычную программу и на русскоязычную',
-      cost: '300 000 тенге на таргет',
-    },
-    {
       id: 26,
       title: 'Мастер-класс: Маркетинг в кризис',
       date: '2025-08-11',
@@ -337,8 +324,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -349,8 +335,7 @@ const Schedule = () => {
       type: 'course',
       speaker: 'Елжас Аубакиров, CFA',
       location: 'Аудитория NBS',
-      description:
-        'Стратегический Контроль Затрат: Основа Эффективных Решений с розыгрышем мерча за посты в соц сетях',
+      description: 'Стратегический Контроль Затрат: Основа Эффективных Решений с розыгрышем мерча за посты в соц сетях',
       cost: '0 тенге',
     },
     {
@@ -361,8 +346,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -428,8 +412,7 @@ const Schedule = () => {
       type: 'forum',
       speaker: 'HR Association',
       location: 'Конференц-зал NBS',
-      description:
-        'HR Human Capital - NBS партнер форума, PR новой NBS и программы EMBA для HRD. Участие принимают порядка 200 HRD',
+      description: 'HR Human Capital - NBS партнер форума, PR новой NBS и программы EMBA для HRD. Участие принимают порядка 200 HRD',
       cost: '0 тенге',
     },
     {
@@ -440,8 +423,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -485,8 +467,7 @@ const Schedule = () => {
       type: 'collaboration',
       speaker: 'Маркетинг команда',
       location: 'Онлайн',
-      description:
-        'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
+      description: 'Коллаборация постов в социальных сетях с партнерами, грантодателями, слушателями',
       cost: '0 тенге',
     },
     {
@@ -500,6 +481,28 @@ const Schedule = () => {
       description: 'Мероприятие для Грантодателей - pre-Opening',
       cost: '0 тенге',
     },
+    {
+      id: 43,
+      title: 'Розыгрыш гранта на МВА',
+      date: '2025-08-01',
+      time: '10:00-18:00',
+      type: 'event',
+      speaker: 'Администрация NBS',
+      location: 'Онлайн',
+      description: 'Розыгрыш гранта на МВА на англоязычную программу и на русскоязычную',
+      cost: '300 000 тенге на таргет',
+    },
+    {
+      id: 44,
+      title: 'Партнерство с YPO',
+      date: '2025-07-01',
+      time: '10:00-17:00',
+      type: 'event',
+      speaker: 'YPO Kazakhstan',
+      location: 'Конференц-зал NBS',
+      description: 'YPO Kazakhstan Business case book, презентация в сентябре 2025',
+      cost: '0 тенге',
+    }
   ];
 
   const eventTypes = {
@@ -544,24 +547,51 @@ const Schedule = () => {
   };
 
   const monthNames = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь',
   ];
 
   const weekDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
+  // Функция для определения статуса мероприятия
+  const getEventStatus = (eventDate) => {
+    const today = new Date();
+    const eventDateTime = new Date(eventDate + 'T00:00:00');
+    return eventDateTime < today ? 'past' : 'upcoming';
+  };
+
+  // Функция для фильтрации событий
+  const getFilteredEvents = () => {
+    let filtered = events;
+
+    // Фильтр по типу мероприятия
+    if (filters.eventType !== 'all') {
+      filtered = filtered.filter(event => event.type === filters.eventType);
+    }
+
+    // Фильтр по дате
+    if (filters.dateRange === 'upcoming') {
+      filtered = filtered.filter(event => getEventStatus(event.date) === 'upcoming');
+    } else if (filters.dateRange === 'past') {
+      filtered = filtered.filter(event => getEventStatus(event.date) === 'past');
+    }
+
+    // Фильтр по поиску
+    if (filters.searchQuery.trim()) {
+      const query = filters.searchQuery.toLowerCase();
+      filtered = filtered.filter(event => 
+        event.title.toLowerCase().includes(query) ||
+        event.description.toLowerCase().includes(query) ||
+        event.speaker.toLowerCase().includes(query)
+      );
+    }
+
+    return filtered;
+  };
+
   // Функция для группировки событий по дате
-  const groupedEvents = events.reduce((acc, event) => {
+  const filteredEvents = getFilteredEvents();
+  const groupedEvents = filteredEvents.reduce((acc, event) => {
     if (!acc[event.date]) acc[event.date] = [];
     acc[event.date].push(event);
     return acc;
@@ -590,23 +620,27 @@ const Schedule = () => {
           key={day}
           className={`h-24 border border-gray-200 p-1 overflow-hidden hover:bg-gray-50 cursor-pointer ${isToday ? 'bg-blue-50 border-blue-300' : ''}`}
         >
-          <div
-            className={`text-sm font-medium mb-1 ${isToday ? 'text-blue-600' : 'text-gray-900'}`}
-          >
+          <div className={`text-sm font-medium mb-1 ${isToday ? 'text-blue-600' : 'text-gray-900'}`}>
             {day}
           </div>
           <div className="space-y-1">
-            {dayEvents.slice(0, 2).map((event) => (
-              <div
-                key={event.id}
-                className={`text-xs p-1 rounded text-white cursor-pointer hover:opacity-80 ${eventTypes[event.type].color}`}
-                onClick={() => setSelectedEvent(event)}
-                title={event.title}
-              >
-                <div className="truncate font-medium">{event.time}</div>
-                <div className="truncate">{event.title}</div>
-              </div>
-            ))}
+            {dayEvents.slice(0, 2).map((event) => {
+              const eventStatus = getEventStatus(event.date);
+              return (
+                <div
+                  key={event.id}
+                  className={`text-xs p-1 rounded text-white cursor-pointer hover:opacity-80 ${eventStatus === 'past' ? 'opacity-60' : ''} ${eventTypes[event.type].color}`}
+                  onClick={() => setSelectedEvent(event)}
+                  title={event.title}
+                >
+                  <div className="truncate font-medium">{event.time}</div>
+                  <div className="truncate">{event.title}</div>
+                  {eventStatus === 'past' && (
+                    <div className="truncate text-xs opacity-75">Завершено</div>
+                  )}
+                </div>
+              );
+            })}
             {dayEvents.length > 2 && (
               <div className="text-xs text-gray-500 pl-1">+{dayEvents.length - 2} еще</div>
             )}
@@ -651,6 +685,92 @@ const Schedule = () => {
         </button>
       </div>
 
+      {/* Фильтры для списка */}
+      {viewMode === 'list' && (
+        <div className="max-w-7xl mx-auto px-8 mb-6">
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-bold text-gray-900">Фильтры</h3>
+              <div className="text-sm text-gray-600">
+                Найдено: {filteredEvents.length} мероприятий
+                {filters.dateRange === 'upcoming' && (
+                  <span className="ml-2 text-green-600">
+                    • Предстоящих: {filteredEvents.filter(e => getEventStatus(e.date) === 'upcoming').length}
+                  </span>
+                )}
+                {filters.dateRange === 'past' && (
+                  <span className="ml-2 text-gray-600">
+                    • Прошедших: {filteredEvents.filter(e => getEventStatus(e.date) === 'past').length}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {/* Поиск */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Поиск
+                </label>
+                <input
+                  type="text"
+                  placeholder="Поиск по названию, описанию, спикеру..."
+                  value={filters.searchQuery}
+                  onChange={(e) => setFilters(prev => ({ ...prev, searchQuery: e.target.value }))}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                />
+              </div>
+
+              {/* Тип мероприятия */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Тип мероприятия
+                </label>
+                <select
+                  value={filters.eventType}
+                  onChange={(e) => setFilters(prev => ({ ...prev, eventType: e.target.value }))}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                >
+                  <option value="all">Все типы</option>
+                  {Object.entries(eventTypes).map(([type, config]) => (
+                    <option key={type} value={type}>{config.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Период */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Период
+                </label>
+                <select
+                  value={filters.dateRange}
+                  onChange={(e) => setFilters(prev => ({ ...prev, dateRange: e.target.value }))}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                >
+                  <option value="upcoming">Предстоящие</option>
+                  <option value="past">Прошедшие</option>
+                  <option value="all">Все мероприятия</option>
+                </select>
+              </div>
+
+              {/* Сброс фильтров */}
+              <div className="flex items-end">
+                <button
+                  onClick={() => setFilters({
+                    eventType: 'all',
+                    dateRange: 'upcoming',
+                    searchQuery: ''
+                  })}
+                  className="w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  Сбросить фильтры
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Calendar/List Section */}
       <div className="py-8 px-8 max-w-7xl mx-auto">
         {viewMode === 'calendar' ? (
@@ -663,11 +783,7 @@ const Schedule = () => {
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
+                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <h2 className="text-2xl font-bold text-gray-900">
@@ -678,11 +794,7 @@ const Schedule = () => {
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clipRule="evenodd"
-                    />
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                   </svg>
                 </button>
               </div>
@@ -700,10 +812,7 @@ const Schedule = () => {
             {/* Week Days Header */}
             <div className="grid grid-cols-7 gap-0 mb-2">
               {weekDays.map((day) => (
-                <div
-                  key={day}
-                  className="p-3 text-center font-medium text-gray-600 bg-gray-100 border border-gray-200"
-                >
+                <div key={day} className="p-3 text-center font-medium text-gray-600 bg-gray-100 border border-gray-200">
                   {day}
                 </div>
               ))}
@@ -714,50 +823,78 @@ const Schedule = () => {
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-lg p-6">
-            {sortedDates.map((date) => (
-              <div key={date} className="mb-8">
-                <div className="text-lg font-bold text-gray-700 mb-2 flex items-center gap-2">
-                  <span className="uppercase text-gray-400 text-base font-semibold">
-                    {new Date(date).toLocaleDateString('ru-RU', {
-                      day: '2-digit',
-                      month: 'long',
-                      year: 'numeric',
-                    })}
-                  </span>
+            {filteredEvents.length === 0 ? (
+              <div className="text-center py-12">
+                <div className="text-gray-400 mb-4">
+                  <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
                 </div>
-                <div className="space-y-6">
-                  {groupedEvents[date].map((event) => (
-                    <div key={event.id} className="flex flex-col md:flex-row gap-4 border-b pb-6">
-                      {/* Картинка (если будет) */}
-                      {/* <img src={event.image} alt="" className="w-56 h-36 object-cover rounded-lg" /> */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span
-                            className={`text-xs font-bold uppercase tracking-wider ${eventTypes[event.type]?.color || 'bg-gray-300'} text-white px-2 py-1 rounded`}
-                          >
-                            {eventTypes[event.type]?.name || event.type}
-                          </span>
-                          <span className="text-xs text-gray-500">{event.time}</span>
-                        </div>
-                        <div className="text-xl font-bold text-gray-900 mb-1">{event.title}</div>
-                        <div className="text-gray-700 mb-1">{event.description}</div>
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-500 mt-2">
-                          <span>
-                            <b>Спикер:</b> {event.speaker}
-                          </span>
-                          <span>
-                            <b>Локация:</b> {event.location}
-                          </span>
-                          <span>
-                            <b>Стоимость:</b> {event.cost}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  Мероприятия не найдены
+                </h3>
+                <p className="text-gray-500 mb-4">
+                  Попробуйте изменить фильтры или поисковый запрос
+                </p>
+                <button
+                  onClick={() => setFilters({
+                    eventType: 'all',
+                    dateRange: 'upcoming',
+                    searchQuery: ''
+                  })}
+                  className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  Сбросить фильтры
+                </button>
               </div>
-            ))}
+            ) : (
+              sortedDates.map((date) => (
+                <div key={date} className="mb-8">
+                  <div className="text-lg font-bold text-gray-700 mb-2 flex items-center gap-2">
+                    <span className="uppercase text-gray-400 text-base font-semibold">
+                      {new Date(date).toLocaleDateString('ru-RU', {
+                        day: '2-digit',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                    </span>
+                  </div>
+                  <div className="space-y-6">
+                    {groupedEvents[date].map((event) => {
+                      const eventStatus = getEventStatus(event.date);
+                      return (
+                        <div 
+                          key={event.id} 
+                          className={`flex flex-col md:flex-row gap-4 border-b pb-6 cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors ${eventStatus === 'past' ? 'opacity-75' : ''}`}
+                          onClick={() => setSelectedEvent(event)}
+                        >
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className={`text-xs font-bold uppercase tracking-wider ${eventTypes[event.type]?.color || 'bg-gray-300'} text-white px-2 py-1 rounded`}>
+                                {eventTypes[event.type]?.name || event.type}
+                              </span>
+                              <span className="text-xs text-gray-500">{event.time}</span>
+                              {eventStatus === 'past' && (
+                                <span className="text-xs bg-gray-500 text-white px-2 py-1 rounded">
+                                  Завершено
+                                </span>
+                              )}
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-1">{event.title}</div>
+                            <div className="text-gray-700 mb-1">{event.description}</div>
+                            <div className="flex flex-wrap gap-4 text-sm text-gray-500 mt-2">
+                              <span><b>Спикер:</b> {event.speaker}</span>
+                              <span><b>Локация:</b> {event.location}</span>
+                              <span><b>Стоимость:</b> {event.cost}</span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         )}
 
@@ -780,9 +917,7 @@ const Schedule = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-md w-full p-6">
             <div className="flex justify-between items-start mb-4">
-              <div
-                className={`px-3 py-1 rounded-full text-white text-sm ${eventTypes[selectedEvent.type].color}`}
-              >
+              <div className={`px-3 py-1 rounded-full text-white text-sm ${eventTypes[selectedEvent.type].color}`}>
                 {eventTypes[selectedEvent.type].name}
               </div>
               <button
@@ -790,11 +925,7 @@ const Schedule = () => {
                 className="text-gray-400 hover:text-gray-600"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
+                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
             </div>
@@ -804,55 +935,35 @@ const Schedule = () => {
             <div className="space-y-3 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                    clipRule="evenodd"
-                  />
+                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                 </svg>
                 <span>{selectedEvent.date}</span>
               </div>
 
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                    clipRule="evenodd"
-                  />
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                 </svg>
                 <span>{selectedEvent.time}</span>
               </div>
 
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <span>{selectedEvent.location}</span>
               </div>
 
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clipRule="evenodd"
-                  />
+                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
                 <span>{selectedEvent.speaker}</span>
               </div>
 
               <div className="flex items-center space-x-2">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
+                  <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <span className="font-medium">{selectedEvent.cost}</span>
               </div>
@@ -862,13 +973,22 @@ const Schedule = () => {
               <p className="text-gray-700">{selectedEvent.description}</p>
             </div>
 
-            <div className="mt-6 flex space-x-3">
-              <button className="flex-1 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">
-                Записаться
-              </button>
-              <button className="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                Подробнее
-              </button>
+            <div className="mt-6">
+              {getEventStatus(selectedEvent.date) === 'past' ? (
+                <div className="w-full bg-gray-500 text-white py-2 px-4 rounded-lg text-center">
+                  Мероприятие завершено
+                </div>
+              ) : (
+                <button 
+                  onClick={() => {
+                    setSelectedEvent(null);
+                    navigate(`/events/register/${selectedEvent.id}`);
+                  }}
+                  className="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  Записаться
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -879,4 +999,4 @@ const Schedule = () => {
   );
 };
 
-export default Schedule;
+export default Schedule; 

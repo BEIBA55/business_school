@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import NewsCard from './NewsCard';
 import Pagination from './Pagination';
-import NewsModal from './NewsModal';
 
 const News = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Все');
   const [sortBy, setSortBy] = useState('date');
-  const [selectedNews, setSelectedNews] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const newsPerPage = 8;
 
   // Расширенные данные новостей о Нархоз с категориями и тегами
@@ -267,16 +266,6 @@ const News = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNewsClick = (news) => {
-    setSelectedNews(news);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedNews(null);
-  };
-
   // Сброс страницы при изменении фильтров
   useEffect(() => {
     setCurrentPage(1);
@@ -308,7 +297,7 @@ const News = () => {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="Поиск новостей..."
+                  placeholder={t('news.searchPlaceholder', 'Поиск новостей...')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
@@ -341,22 +330,22 @@ const News = () => {
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
-                  {category}
+                  {t(`news.${category.toLowerCase().replace(/\s+/g, '')}`, category)}
                 </button>
               ))}
             </div>
 
             {/* Sort */}
             <div className="flex items-center space-x-2">
-              <span className="text-gray-600 text-sm">Сортировать:</span>
+              <span className="text-gray-600 text-sm">{t('news.sortBy', 'Сортировать:')}</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
               >
-                <option value="date">По дате</option>
-                <option value="title">По названию</option>
-                <option value="category">По категории</option>
+                <option value="date">{t('news.sortByDate', 'По дате')}</option>
+                <option value="title">{t('news.sortByTitle', 'По названию')}</option>
+                <option value="category">{t('news.sortByCategory', 'По категории')}</option>
               </select>
             </div>
           </div>
@@ -369,26 +358,39 @@ const News = () => {
           {/* Results Info */}
           <div className="mb-8 text-center">
             <p className="text-gray-600">
-              Найдено {sortedNews.length} новостей
-              {searchQuery && ` по запросу "${searchQuery}"`}
-              {selectedCategory !== 'Все' && ` в категории "${selectedCategory}"`}
+              {searchQuery && selectedCategory !== 'Все' 
+                ? t('news.foundResultsInCategory', { 
+                    count: sortedNews.length, 
+                    category: selectedCategory 
+                  })
+                : searchQuery 
+                ? t('news.foundResultsWithQuery', { 
+                    count: sortedNews.length, 
+                    query: searchQuery 
+                  })
+                : t('news.foundResults', { count: sortedNews.length })
+              }
             </p>
           </div>
 
           {/* News Grid */}
           {currentNews.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 auto-rows-fr">
               {currentNews.map((news, index) => (
-                <div key={news.id} className="news-card-animate h-full">
-                  <NewsCard news={news} onClick={() => handleNewsClick(news)} />
+                <div key={news.id} className="news-card-animate">
+                  <NewsCard news={news} />
                 </div>
               ))}
             </div>
           ) : (
             <div className="text-center py-16">
               <div className="text-gray-400 text-6xl mb-4">📰</div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">Новости не найдены</h3>
-              <p className="text-gray-500">Попробуйте изменить параметры поиска или фильтры</p>
+              <h3 className="text-xl font-semibold text-gray-600 mb-2">
+                {t('news.noNewsFound', 'Новости не найдены')}
+              </h3>
+              <p className="text-gray-500">
+                {t('news.noNewsFoundDescription', 'Попробуйте изменить параметры поиска или фильтры')}
+              </p>
             </div>
           )}
 
@@ -406,11 +408,6 @@ const News = () => {
           )}
         </div>
       </div>
-
-      {/* Modal */}
-      {isModalOpen && selectedNews && (
-        <NewsModal news={selectedNews} isOpen={isModalOpen} onClose={handleCloseModal} />
-      )}
 
       <Footer />
     </div>

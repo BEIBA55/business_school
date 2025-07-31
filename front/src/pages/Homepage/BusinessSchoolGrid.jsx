@@ -54,7 +54,7 @@ const BusinessSchoolGrid = () => {
         </div>
         {/* 5. Фото выпускников (нижний левый) */}
         <div className="bg-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full overflow-hidden p-0">
-          <img src="/images/vipus.jpg" alt="Graduates" className="object-cover w-full h-full" />
+          <img src="/images/graduat.jpg" alt="Graduates" className="object-cover w-full h-full" />
         </div>
         {/* 6. Executive MBA (col-span-2) */}
         <Link

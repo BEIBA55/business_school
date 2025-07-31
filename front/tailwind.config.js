@@ -73,6 +73,7 @@ module.exports = {
         'slide-down': 'slideDown 0.3s ease-out',
         'bounce-subtle': 'bounceSubtle 2s infinite',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fadeIn': 'fadeIn 0.3s ease-out',
       },
       keyframes: {
         fadeInUp: {
@@ -137,6 +138,14 @@ module.exports = {
           },
           '50%': {
             transform: 'translateY(-10px)'
+          }
+        },
+        fadeIn: {
+          '0%': {
+            opacity: '0'
+          },
+          '100%': {
+            opacity: '1'
           }
         }
       },
