@@ -345,9 +345,12 @@ const Header = () => {
               >
                 {getNavigationLabel('navigation.executiveEducation', 'Executive Education')}
               </Link>
-              <div className="text-gray-700 text-sm font-medium hover:text-black transition-colors cursor-pointer">
+              <Link
+                to="/corporate-clients"
+                className="text-gray-700 text-sm font-medium hover:text-black transition-colors"
+              >
                 {getNavigationLabel('navigation.corporateClients', 'Корпоративные клиенты')}
-              </div>
+              </Link>
               <Link
                 to="/graduates"
                 className="text-gray-700 text-sm font-medium hover:text-black transition-colors"
@@ -680,9 +683,13 @@ const Header = () => {
                 >
                   {getNavigationLabel('navigation.executiveEducation', 'Executive Education')}
                 </Link>
-                <div className="block py-3 text-gray-900 font-medium hover:text-red-600 transition-colors cursor-pointer">
+                <Link
+                  to="/corporate-clients"
+                  onClick={closeMobileMenu}
+                  className="block py-3 text-gray-900 font-medium hover:text-red-600 transition-colors"
+                >
                   {getNavigationLabel('navigation.corporateClients', 'Корпоративные клиенты')}
-                </div>
+                </Link>
                 <Link
                   to="/graduates"
                   onClick={closeMobileMenu}

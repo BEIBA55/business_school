@@ -32,6 +32,7 @@ import MBAFinTech from './pages/ProgramPage/MBAFinTech';
 import ExecutiveMBANGO from './pages/ProgramPage/ExecutiveMBANGO';
 import ExecutiveMBACIO from './pages/ProgramPage/ExecutiveMBACIO';
 import MScFinance from './pages/ProgramPage/MScFinance';
+import CorporateClients from './pages/CorporateClients';
 
 const AppRoutes = () => {
   return (
@@ -67,6 +68,7 @@ const AppRoutes = () => {
         <Route path="/graduates" element={<Graduates />} />
         <Route path="/library" element={<Library />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/corporate-clients" element={<CorporateClients />} />
       </Routes>
     </Router>
   );
