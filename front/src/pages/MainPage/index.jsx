@@ -37,40 +37,36 @@ const MainPage = () => {
 
   const handleConsultationSubmit = () => {
     console.log('Consultation form submitted:', formData);
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+    alert(t('main.alerts.consultationSuccess'));
     setFormData({ name: '', phone: '', email: '' });
   };
 
   const handleContactSubmit = () => {
     console.log('Contact form submitted:', contactFormData);
-    alert('Спасибо за заявку! Мы перезвоним вам в ближайшее время.');
+    alert(t('main.alerts.contactSuccess'));
     setContactFormData({ name: '', email: '', phone: '' });
   };
 
   const newsItems = [
     {
       date: '15.01.2025',
-      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
-      description:
-        'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
+      title: t('main.news.items.0.title'),
+      description: t('main.news.items.0.description'),
     },
     {
       date: '10.01.2025',
-      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
-      description:
-        'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
+      title: t('main.news.items.1.title'),
+      description: t('main.news.items.1.description'),
     },
     {
       date: '05.01.2025',
-      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
-      description:
-        'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.',
+      title: t('main.news.items.2.title'),
+      description: t('main.news.items.2.description'),
     },
     {
       date: '01.01.2025',
-      title: 'Открыт новый корпоративный центр для Executive Education программ',
-      description:
-        'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.',
+      title: t('main.news.items.3.title'),
+      description: t('main.news.items.3.description'),
     },
   ];
 
@@ -244,7 +240,7 @@ const MainPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-gray-900 text-4xl font-bold mb-6 slide-in-up">
-              Почему выбирают нас?
+              {t('main.whyChooseUs.title')}
             </h2>
             <div className="w-24 h-1 bg-[#991E1E] mx-auto rounded-full"></div>
           </div>
@@ -261,10 +257,9 @@ const MainPage = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Международное признание</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('main.whyChooseUs.internationalRecognition.title')}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Наши программы аккредитованы ведущими организациями (FIBAA, IQAA) и соответствуют
-                мировым стандартам качества.
+                {t('main.whyChooseUs.internationalRecognition.description')}
               </p>
             </div>
 
@@ -278,10 +273,9 @@ const MainPage = () => {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Современные подходы</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('main.whyChooseUs.modernApproaches.title')}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Обучение строится на кейсах, реальных бизнес-задачах и цифровых инструментах.
-                Студенты решают то, что завтра будут решать топ-менеджеры.
+                {t('main.whyChooseUs.modernApproaches.description')}
               </p>
             </div>
 
@@ -299,10 +293,9 @@ const MainPage = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Преподаватели-практики</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('main.whyChooseUs.practitionerFaculty.title')}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Наши эксперты имеют богатый международный и профессиональный опыт, делясь с вами не
-                только теорией, но и реальной практикой бизнеса.
+                {t('main.whyChooseUs.practitionerFaculty.description')}
               </p>
             </div>
 
@@ -320,10 +313,9 @@ const MainPage = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Гибкие форматы</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('main.whyChooseUs.flexibleFormats.title')}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Очное, вечернее, онлайн или гибридное обучение — вы выбираете формат, который
-                подходит вашему стилю жизни.
+                {t('main.whyChooseUs.flexibleFormats.description')}
               </p>
             </div>
 
@@ -341,10 +333,9 @@ const MainPage = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Мощная карьерная поддержка</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('main.whyChooseUs.careerSupport.title')}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Центр карьеры, практика, ярмарки вакансий, акселераторы и партнёрские проекты
-                помогают выпускникам быстро находить своё место в бизнесе.
+                {t('main.whyChooseUs.careerSupport.description')}
               </p>
             </div>
 
@@ -362,10 +353,9 @@ const MainPage = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Студенческая активность</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('main.whyChooseUs.studentActivity.title')}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Бизнес-клубы, стартап-инкубаторы, дебаты, хакатоны и лидерские школы — у нас кипит
-                жизнь не только на лекциях.
+                {t('main.whyChooseUs.studentActivity.description')}
               </p>
             </div>
           </div>
@@ -385,12 +375,12 @@ const MainPage = () => {
       <div className="py-16 px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-8 slide-in-up">
-            <h2 className="text-gray-900 text-4xl font-bold">Новости</h2>
+            <h2 className="text-gray-900 text-4xl font-bold">{t('main.news.title')}</h2>
             <Link
               to="/news"
               className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer"
             >
-              <span className="text-gray-600 text-lg">Смотреть все новости</span>
+              <span className="text-gray-600 text-lg">{t('main.news.viewAllNews')}</span>
               <svg className="w-7 h-7 text-[#991E1E]" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"

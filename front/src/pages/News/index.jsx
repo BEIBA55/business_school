@@ -10,7 +10,7 @@ const News = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Все');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('date');
   const newsPerPage = 8;
 
@@ -19,7 +19,7 @@ const News = () => {
     {
       id: 1,
       image: '/images/experty.png',
-      category: 'События',
+      category: 'events',
       tags: ['Конференции', 'Эксперты'],
       date: '18/07/2025',
       readTime: '3 мин',
@@ -32,7 +32,7 @@ const News = () => {
     {
       id: 2,
       image: '/images/stud.png',
-      category: 'Достижения',
+      category: 'achievements',
       tags: ['Рейтинги', 'QS'],
       date: '18/07/2025',
       readTime: '5 мин',
@@ -45,7 +45,7 @@ const News = () => {
     {
       id: 3,
       image: '/images/Gradu.png',
-      category: 'Программы',
+      category: 'programs',
       tags: ['Executive MBA', 'Цифровизация'],
       date: '18/07/2025',
       readTime: '4 мин',
@@ -58,7 +58,7 @@ const News = () => {
     {
       id: 4,
       image: '/images/gruppa.png',
-      category: 'События',
+      category: 'events',
       tags: ['Хакатон', 'Сингапур'],
       date: '18/07/2025',
       readTime: '6 мин',
@@ -71,7 +71,7 @@ const News = () => {
     {
       id: 5,
       image: '/images/detali.png',
-      category: 'Инфраструктура',
+      category: 'infrastructure',
       tags: ['Центр', 'Образование'],
       date: '18/07/2025',
       readTime: '3 мин',
@@ -84,7 +84,7 @@ const News = () => {
     {
       id: 6,
       image: '/images/vipus.jpg',
-      category: 'Достижения',
+      category: 'achievements',
       tags: ['Аккредитация', 'AACSB'],
       date: '18/07/2025',
       readTime: '4 мин',
@@ -97,7 +97,7 @@ const News = () => {
     {
       id: 7,
       image: '/images/EMBA_fon.png',
-      category: 'Партнерства',
+      category: 'partnerships',
       tags: ['Harvard', 'London Business School'],
       date: '18/07/2025',
       readTime: '5 мин',
@@ -110,7 +110,7 @@ const News = () => {
     {
       id: 8,
       image: '/images/MBA.png',
-      category: 'Программы',
+      category: 'programs',
       tags: ['MBA', 'Устойчивое развитие'],
       date: '18/07/2025',
       readTime: '4 мин',
@@ -123,7 +123,7 @@ const News = () => {
     {
       id: 9,
       image: '/images/ACCA.png',
-      category: 'Достижения',
+      category: 'achievements',
       tags: ['Конкурс', 'EFMD'],
       date: '18/07/2025',
       readTime: '3 мин',
@@ -136,7 +136,7 @@ const News = () => {
     {
       id: 10,
       image: '/images/CEEMAN.png',
-      category: 'Инфраструктура',
+      category: 'infrastructure',
       tags: ['Инновации', 'Стартапы'],
       date: '18/07/2025',
       readTime: '4 мин',
@@ -149,7 +149,7 @@ const News = () => {
     {
       id: 11,
       image: '/images/Ranked.png',
-      category: 'Достижения',
+      category: 'achievements',
       tags: ['Рейтинги', 'THE'],
       date: '18/07/2025',
       readTime: '3 мин',
@@ -162,7 +162,7 @@ const News = () => {
     {
       id: 12,
       image: '/images/ERG.png',
-      category: 'Партнерства',
+      category: 'partnerships',
       tags: ['ERG', 'Kazzinc'],
       date: '18/07/2025',
       readTime: '4 мин',
@@ -175,7 +175,7 @@ const News = () => {
     {
       id: 13,
       image: '/images/Beeline.png',
-      category: 'Программы',
+      category: 'programs',
       tags: ['Цифровой маркетинг', 'Аналитика'],
       date: '18/07/2025',
       readTime: '5 мин',
@@ -188,7 +188,7 @@ const News = () => {
     {
       id: 14,
       image: '/images/Halyk.png',
-      category: 'Партнерства',
+      category: 'partnerships',
       tags: ['Halyk Bank', 'Финансы'],
       date: '18/07/2025',
       readTime: '4 мин',
@@ -201,7 +201,7 @@ const News = () => {
     {
       id: 15,
       image: '/images/forte.png',
-      category: 'События',
+      category: 'events',
       tags: ['Конференция', 'Международная'],
       date: '18/07/2025',
       readTime: '6 мин',
@@ -214,7 +214,7 @@ const News = () => {
     {
       id: 16,
       image: '/images/alag.png',
-      category: 'Программы',
+      category: 'programs',
       tags: ['Женское лидерство', 'Развитие'],
       date: '18/07/2025',
       readTime: '4 мин',
@@ -227,7 +227,14 @@ const News = () => {
   ];
 
   // Категории для фильтрации
-  const categories = ['Все', 'События', 'Достижения', 'Программы', 'Партнерства', 'Инфраструктура'];
+  const categories = [
+    { key: 'all', label: 'Все' },
+    { key: 'events', label: 'События' },
+    { key: 'achievements', label: 'Достижения' },
+    { key: 'programs', label: 'Программы' },
+    { key: 'partnerships', label: 'Партнерства' },
+    { key: 'infrastructure', label: 'Инфраструктура' }
+  ];
 
   // Фильтрация и поиск
   const filteredNews = allNews.filter((news) => {
@@ -236,7 +243,7 @@ const News = () => {
       news.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       news.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
 
-    const matchesCategory = selectedCategory === 'Все' || news.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'all' || news.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
   });
@@ -280,10 +287,10 @@ const News = () => {
         <div className="max-w-7xl mx-auto px-8">
           <nav className="flex items-center space-x-2 text-sm">
             <Link to="/" className="text-gray-500 hover:text-red-600 transition-colors">
-              Главная
+              {t('common.home')}
             </Link>
             <span className="text-gray-400">/</span>
-            <span className="text-gray-900 font-medium">Новости</span>
+            <span className="text-gray-900 font-medium">{t('news.title')}</span>
           </nav>
         </div>
       </div>
@@ -322,15 +329,15 @@ const News = () => {
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
+                  key={category.key}
+                  onClick={() => setSelectedCategory(category.key)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    selectedCategory === category
+                    selectedCategory === category.key
                       ? 'bg-red-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
-                  {t(`news.${category.toLowerCase().replace(/\s+/g, '')}`, category)}
+                  {t(`news.${category.key === 'all' ? 'allCategories' : category.key}`)}
                 </button>
               ))}
             </div>
@@ -358,10 +365,10 @@ const News = () => {
           {/* Results Info */}
           <div className="mb-8 text-center">
             <p className="text-gray-600">
-              {searchQuery && selectedCategory !== 'Все' 
+              {searchQuery && selectedCategory !== 'all' 
                 ? t('news.foundResultsInCategory', { 
                     count: sortedNews.length, 
-                    category: selectedCategory 
+                    category: t(`news.${selectedCategory}`)
                   })
                 : searchQuery 
                 ? t('news.foundResultsWithQuery', { 

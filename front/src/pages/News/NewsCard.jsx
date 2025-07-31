@@ -37,7 +37,7 @@ const NewsCard = ({ news, className = '' }) => {
         <div className="flex items-center justify-between mb-2 flex-shrink-0">
           {category && (
             <span className="text-xs text-red-600 font-medium bg-red-50 px-2 py-1 rounded-full">
-              {category}
+              {t(`news.${category}`)}
             </span>
           )}
           {date && (

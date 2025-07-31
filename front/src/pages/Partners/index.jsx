@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 
 const Partners = () => {
+  const { t } = useTranslation();
+  
   const trustPartners = [
     { src: '/images/RG_gold.png', name: 'RG Gold', url: 'https://rg-gold.com' },
     { src: '/images/ERG.png', name: 'ERG', url: 'https://www.erg.kz' },
@@ -66,14 +69,13 @@ const Partners = () => {
       <div className="bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 slide-in-up">
-            Наши партнеры
+            {t('partners.title')}
           </h1>
           <p
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed slide-in-up"
             style={{ animationDelay: '0.2s' }}
           >
-            Narxoz Business School сотрудничает с ведущими корпорациями и университетами мира. Наши
-            партнерские отношения открывают уникальные возможности для студентов и выпускников.
+            {t('partners.subtitle')}
           </p>
         </div>
       </div>
@@ -81,10 +83,9 @@ const Partners = () => {
       {/* Corporate Partners Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12 slide-in-up">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Корпоративные партнеры</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('partners.corporatePartners.title')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ведущие компании Казахстана и мира доверяют нам подготовку своих специалистов и
-            руководителей
+            {t('partners.corporatePartners.subtitle')}
           </p>
         </div>
 
@@ -113,10 +114,9 @@ const Partners = () => {
       <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-16 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 slide-in-up">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Академические партнеры</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('partners.academicPartners.title')}</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Международные университеты и бизнес-школы, с которыми мы развиваем совместные
-              программы
+              {t('partners.academicPartners.subtitle')}
             </p>
           </div>
 
@@ -145,10 +145,9 @@ const Partners = () => {
       {/* Partnership Benefits Section */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12 slide-in-up">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">Преимущества партнерства</h3>
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">{t('partners.benefits.title')}</h3>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Наши партнерские отношения создают уникальные возможности для всех участников
-            образовательного процесса
+            {t('partners.benefits.subtitle')}
           </p>
         </div>
 
@@ -164,10 +163,9 @@ const Partners = () => {
                 />
               </svg>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-4">Международный опыт</h4>
+            <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('partners.benefits.internationalExperience.title')}</h4>
             <p className="text-gray-600 leading-relaxed">
-              Студенты получают доступ к международным программам, стажировкам и обменам с ведущими
-              университетами мира
+              {t('partners.benefits.internationalExperience.description')}
             </p>
           </div>
 
@@ -182,10 +180,9 @@ const Partners = () => {
                 />
               </svg>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-4">Карьерные возможности</h4>
+            <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('partners.benefits.careerOpportunities.title')}</h4>
             <p className="text-gray-600 leading-relaxed">
-              Партнерские отношения с корпорациями открывают двери к стажировкам и трудоустройству в
-              ведущих компаниях
+              {t('partners.benefits.careerOpportunities.description')}
             </p>
           </div>
 
@@ -200,9 +197,9 @@ const Partners = () => {
                 />
               </svg>
             </div>
-            <h4 className="text-xl font-semibold text-gray-900 mb-4">Инновационные проекты</h4>
+            <h4 className="text-xl font-semibold text-gray-900 mb-4">{t('partners.benefits.innovativeProjects.title')}</h4>
             <p className="text-gray-600 leading-relaxed">
-              Совместные исследовательские проекты и разработка новых образовательных технологий
+              {t('partners.benefits.innovativeProjects.description')}
             </p>
           </div>
         </div>
@@ -212,17 +209,16 @@ const Partners = () => {
       <div className="bg-[#991E1E] py-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-3xl font-bold text-white mb-6 slide-in-up">
-            Станьте нашим партнером
+            {t('partners.cta.title')}
           </h3>
           <p className="text-xl text-red-100 mb-8 slide-in-up" style={{ animationDelay: '0.2s' }}>
-            Присоединяйтесь к сообществу Narxoz Business School и вместе с нами формируйте будущее
-            бизнес-образования
+            {t('partners.cta.subtitle')}
           </p>
           <button
             className="bg-white text-[#991E1E] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 slide-in-up"
             style={{ animationDelay: '0.4s' }}
           >
-            Связаться с нами
+            {t('partners.cta.button')}
           </button>
         </div>
       </div>

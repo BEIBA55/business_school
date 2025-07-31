@@ -1,68 +1,71 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 
 const Accreditations = () => {
+  const { t } = useTranslation();
+  
   const accreditationItems = [
     {
       image: '/images/img_csmsiegelinstacc1bb4df2af7_1.png',
-      text: '2% of universities in central asia',
+      text: t('accreditations.items.0.text'),
     },
     {
       image: '/images/img_fibbaaccredited_1.png',
-      text: '7% of universities in central asia',
+      text: t('accreditations.items.1.text'),
     },
     {
       image: '/images/img_channels4profile_1.png',
-      text: '7% of universities in central asia',
+      text: t('accreditations.items.2.text'),
     },
     {
       image: '/images/img_cimalogo1280x647_1.png',
-      text: 'Chartered institute of management accountants',
+      text: t('accreditations.items.3.text'),
     },
     {
       image: '/images/MBA.png',
-      text: 'MBA QS',
+      text: t('accreditations.items.4.text'),
     },
     {
       image: '/images/CEEMAN.png',
-      text: 'In the process of accreditation',
+      text: t('accreditations.items.5.text'),
     },
     {
       image: '/images/ACCA.png',
-      text: 'Accreditation & test center',
+      text: t('accreditations.items.6.text'),
     },
     {
       image: '/images/img_images_1.png',
-      text: 'Ranked in ui greenmetric',
+      text: t('accreditations.items.7.text'),
     },
     {
       image: '/images/img_blob_1.png',
-      text: 'Chartered institute of marketing',
+      text: t('accreditations.items.8.text'),
     },
     {
       image: '/images/img_thelogoimpactrank_1.png',
-      text: 'Quality of education (600-800)',
+      text: t('accreditations.items.9.text'),
     },
     {
       image: '/images/img_images_2.png',
-      text: '451-500 range together with top universities in asia',
+      text: t('accreditations.items.10.text'),
     },
     {
       image: '/images/img_qsworlduniversityrankingslogo_1.png',
-      text: 'Listed in the world top university rankings',
+      text: t('accreditations.items.11.text'),
     },
     {
       image: '/images/img_qsworlduniversityrankingslogo_2.png',
-      text: 'Governance (top 25% globally)',
+      text: t('accreditations.items.12.text'),
     },
     {
       image: '/images/img_qs5starspkusratingsystem_1.png',
-      text: 'Rated for excellence by qs stars',
+      text: t('accreditations.items.13.text'),
     },
     {
       image: '/images/img_nppatameken_1.png',
-      text: 'Top-3 universities in Kazakhstan',
+      text: t('accreditations.items.14.text'),
     },
   ];
 
@@ -74,15 +77,13 @@ const Accreditations = () => {
       <div className="bg-gradient-to-br from-red-50 via-white to-blue-50 py-20 px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 slide-in-up">
-            Аккредитации
+            {t('accreditations.title')}
           </h1>
           <p
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed slide-in-up"
             style={{ animationDelay: '0.2s' }}
           >
-            Narxoz Business School гордится своими международными аккредитациями и признанием
-            качества образования. Наши достижения подтверждают высокий уровень образовательных
-            программ и соответствие мировым стандартам.
+            {t('accreditations.subtitle')}
           </p>
         </div>
       </div>
@@ -90,9 +91,9 @@ const Accreditations = () => {
       {/* Accreditations Grid */}
       <div className="py-16 px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12 slide-in-up">
-          <h2 className="text-3xl font-bold text-gray-900">Наши достижения</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t('accreditations.achievements.title')}</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-            Международные аккредитации и признания качества образования Narxoz Business School
+            {t('accreditations.achievements.subtitle')}
           </p>
         </div>
 
@@ -124,23 +125,19 @@ const Accreditations = () => {
       <div className="bg-gradient-to-br from-gray-50 to-red-50 py-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-3xl font-bold text-gray-900 mb-8 slide-in-up">
-            Что означают наши аккредитации?
+            {t('accreditations.whatMeans.title')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             <div className="slide-in-left">
-              <h4 className="text-xl font-semibold text-red-600 mb-4">Международное признание</h4>
+              <h4 className="text-xl font-semibold text-red-600 mb-4">{t('accreditations.whatMeans.internationalRecognition.title')}</h4>
               <p className="text-gray-600 leading-relaxed">
-                Наши программы соответствуют высочайшим международным стандартам качества
-                образования. Аккредитации от ведущих мировых организаций подтверждают превосходство
-                наших образовательных программ.
+                {t('accreditations.whatMeans.internationalRecognition.description')}
               </p>
             </div>
             <div className="slide-in-right">
-              <h4 className="text-xl font-semibold text-red-600 mb-4">Качество образования</h4>
+              <h4 className="text-xl font-semibold text-red-600 mb-4">{t('accreditations.whatMeans.educationQuality.title')}</h4>
               <p className="text-gray-600 leading-relaxed">
-                Постоянное совершенствование учебных программ, современные методики преподавания и
-                практико-ориентированный подход обеспечивают высокий уровень подготовки наших
-                выпускников.
+                {t('accreditations.whatMeans.educationQuality.description')}
               </p>
             </div>
           </div>

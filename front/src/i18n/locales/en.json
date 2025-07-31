@@ -42,7 +42,37 @@
     "achievements": "Achievements",
     "programs": "Programs",
     "partnerships": "Partnerships",
-    "infrastructure": "Infrastructure"
+    "infrastructure": "Infrastructure",
+    "title": "News",
+    "subtitle": "Latest news and events from Narxoz Business School",
+    "readMore": "Read More",
+    "readTime": "min",
+    "backToNews": "Back to News",
+    "share": "Share",
+    "published": "Published",
+    "tags": "Tags",
+    "category": "Category",
+    "filters": {
+      "title": "Filters",
+      "category": "Category",
+      "date": "Date",
+      "search": "Search",
+      "apply": "Apply",
+      "clear": "Clear"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "of": "of",
+      "showingResults": "Showing {{start}}-{{end}} of {{total}} news",
+      "pageInfo": "Page {{current}} of {{total}}",
+      "firstPage": "First Page",
+      "lastPage": "Last Page",
+      "previousPage": "Previous Page",
+      "nextPage": "Next Page",
+      "pageNumber": "Page {{number}}"
+    }
   },
   "common": {
     "loading": "Loading...",
@@ -95,6 +125,59 @@
         "text": "At Narxoz Business School, we create a space where knowledge meets practice, and learning becomes an investment in tomorrow's career and leadership.",
         "author": "Marina Obraztsova, Director of Narxoz Business School"
       }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "internationalRecognition": {
+        "title": "International Recognition",
+        "description": "Our programs are accredited by leading organizations (FIBAA, IQAA) and meet world quality standards."
+      },
+      "modernApproaches": {
+        "title": "Modern Approaches",
+        "description": "Learning is built on cases, real business challenges and digital tools. Students solve what top managers will solve tomorrow."
+      },
+      "practitionerFaculty": {
+        "title": "Practitioner Faculty",
+        "description": "Our experts have rich international and professional experience, sharing with you not only theory but also real business practice."
+      },
+      "flexibleFormats": {
+        "title": "Flexible Formats",
+        "description": "Full-time, evening, online or hybrid learning — you choose the format that suits your lifestyle."
+      },
+      "careerSupport": {
+        "title": "Powerful Career Support",
+        "description": "Career center, internships, job fairs, accelerators and partnership projects help graduates quickly find their place in business."
+      },
+      "studentActivity": {
+        "title": "Student Activity",
+        "description": "Business clubs, startup incubators, debates, hackathons and leadership schools — life is bustling not only in lectures."
+      }
+    },
+    "news": {
+      "title": "News",
+      "viewAllNews": "View All News",
+      "items": [
+        {
+          "title": "Narxoz Business School entered the top 50 best business schools in Asia according to QS",
+          "description": "The MBA program of Narxoz University Business School took 42nd place in the QS Global MBA 2025 Asia ranking and became #1 in the Central Asian region."
+        },
+        {
+          "title": "A new Executive MBA program focused on digital transformation has been launched",
+          "description": "Narxoz Business School presented an updated Executive MBA program, which includes modules on artificial intelligence and digital technologies."
+        },
+        {
+          "title": "MBA students participated in an international hackathon in Singapore",
+          "description": "The Narxoz Business School team took second place at an international hackathon on sustainable development, organized by partner universities."
+        },
+        {
+          "title": "A new corporate center for Executive Education programs has been opened",
+          "description": "A modern corporate center with innovative auditoriums and spaces for teamwork has opened on the Narxoz campus."
+        }
+      ]
+    },
+    "alerts": {
+      "consultationSuccess": "Thank you for your application! We will contact you soon.",
+      "contactSuccess": "Thank you for your application! We will call you back soon."
     }
   },
   "homepage": {
@@ -481,7 +564,40 @@
     "aboutTitle": "About our library",
     "servicesTitle": "The library offers",
     "recommendationsTitle": "Recommendations from B.Zh. Utemuratov",
-    "recommendationsSubtitle": "A selection of the best works of Kazakhstani and world literature, recommended for studying cultural heritage and personal development"
+    "recommendationsSubtitle": "A selection of the best works of Kazakhstani and world literature, recommended for studying cultural heritage and personal development",
+    "services": {
+      "digitalResources": "Digital Resources",
+      "digitalResourcesDesc": "Access to e-books, journals and databases",
+      "studySpaces": "Study Spaces",
+      "studySpacesDesc": "Quiet zones for individual and group work",
+      "researchSupport": "Research Support",
+      "researchSupportDesc": "Consultations on information search and analysis",
+      "events": "Events",
+      "eventsDesc": "Book clubs, lectures and presentations"
+    },
+    "quotes": {
+      "title": "Inspiring Quotes",
+      "readMore": "Read Book",
+      "author": "Author",
+      "description": "Description"
+    },
+    "books": {
+      "title": "Recommended Books",
+      "subtitle": "Best books for developing business thinking",
+      "readOnline": "Read Online",
+      "download": "Download",
+      "available": "Available",
+      "notAvailable": "Not Available"
+    },
+    "categories": {
+      "business": "Business",
+      "leadership": "Leadership",
+      "innovation": "Innovation",
+      "finance": "Finance",
+      "marketing": "Marketing",
+      "strategy": "Strategy",
+      "entrepreneurship": "Entrepreneurship"
+    }
   },
   "search": {
     "title": "Site Search",
@@ -508,5 +624,277 @@
     "graduate": "Graduate",
     "library": "Library",
     "result": "Result"
+  },
+  "schedule": {
+    "title": "Event Schedule",
+    "subtitle": "Calendar of events and activities at Narxoz Business School",
+    "calendar": "Calendar",
+    "list": "List",
+    "today": "Today",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "all": "All",
+    "filters": {
+      "title": "Filters",
+      "eventType": "Event Type",
+      "dateRange": "Date Range",
+      "search": "Search",
+      "apply": "Apply",
+      "clear": "Clear"
+    },
+    "eventTypes": {
+      "all": "All Types",
+      "emba": "EMBA",
+      "course": "Course",
+      "masterclass": "Masterclass",
+      "collaboration": "Collaboration",
+      "alumni": "Alumni",
+      "workshop": "Workshop",
+      "conference": "Conference",
+      "seminar": "Seminar"
+    },
+    "event": {
+      "title": "Title",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "speaker": "Speaker",
+      "description": "Description",
+      "cost": "Cost",
+      "register": "Register",
+      "details": "Details",
+      "free": "Free"
+    },
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    },
+    "weekdays": {
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat",
+      "sunday": "Sun"
+    }
+  },
+  "programs": {
+    "title": "Study Programs",
+    "subtitle": "Choose the program that's right for you",
+    "duration": "Duration",
+    "price": "Price",
+    "apply": "Apply",
+    "learnMore": "Learn More",
+    "downloadBrochure": "Download Brochure",
+    "contactAdvisor": "Contact Advisor",
+    "features": {
+      "title": "Program Features",
+      "internationalFaculty": "International Faculty",
+      "practicalProjects": "Practical Projects",
+      "networking": "Networking",
+      "flexibleSchedule": "Flexible Schedule",
+      "accreditation": "International Accreditation"
+    },
+    "curriculum": {
+      "title": "Curriculum",
+      "coreModules": "Core Modules",
+      "electiveModules": "Elective Modules",
+      "capstoneProject": "Capstone Project",
+      "internship": "Internship"
+    },
+    "admission": {
+      "title": "Admission Requirements",
+      "requirements": "Requirements",
+      "documents": "Documents",
+      "deadline": "Deadline",
+      "interview": "Interview"
+    }
+  },
+  "faculty": {
+    "title": "Faculty",
+    "subtitle": "Our experts and instructors",
+    "expertise": "Expertise",
+    "experience": "Experience",
+    "education": "Education",
+    "publications": "Publications",
+    "contact": "Contact",
+    "viewProfile": "View Profile",
+    "research": "Research",
+    "consulting": "Consulting"
+  },
+  "administration": {
+    "title": "School Administration",
+    "subtitle": "Leadership of Narxoz Business School",
+    "position": "Position",
+    "responsibilities": "Responsibilities",
+    "contact": "Contact",
+    "schedule": "Office Hours"
+  },
+  "graduates": {
+    "title": "Graduates",
+    "subtitle": "Success stories of our graduates",
+    "successStory": "Success Story",
+    "currentPosition": "Current Position",
+    "company": "Company",
+    "graduationYear": "Graduation Year",
+    "testimonial": "Testimonial",
+    "achievements": "Achievements",
+    "contact": "Contact"
+  },
+  "partners": {
+    "title": "Partners",
+    "subtitle": "Narxoz Business School collaborates with leading corporations and universities worldwide. Our partnerships open unique opportunities for students and graduates.",
+    "corporatePartners": {
+      "title": "Corporate Partners",
+      "subtitle": "Leading companies in Kazakhstan and worldwide trust us to train their specialists and managers"
+    },
+    "academicPartners": {
+      "title": "Academic Partners",
+      "subtitle": "International universities and business schools with which we develop joint programs"
+    },
+    "benefits": {
+      "title": "Partnership Benefits",
+      "subtitle": "Our partnerships create unique opportunities for all participants in the educational process",
+      "internationalExperience": {
+        "title": "International Experience",
+        "description": "Students gain access to international programs, internships and exchanges with leading universities worldwide"
+      },
+      "careerOpportunities": {
+        "title": "Career Opportunities",
+        "description": "Partnerships with corporations open doors to internships and employment in leading companies"
+      },
+      "innovativeProjects": {
+        "title": "Innovative Projects",
+        "description": "Joint research projects and development of new educational technologies"
+      }
+    },
+    "cta": {
+      "title": "Become Our Partner",
+      "subtitle": "Join the Narxoz Business School community and together with us shape the future of business education",
+      "button": "Contact Us"
+    },
+    "strategic": "Strategic Partners",
+    "academic": "Academic Partners",
+    "corporate": "Corporate Partners",
+    "international": "International Partners",
+    "local": "Local Partners",
+    "partnership": "Partnership",
+    "collaboration": "Collaboration"
+  },
+  "accreditations": {
+    "title": "Accreditations",
+    "subtitle": "Narxoz Business School is proud of its international accreditations and recognition of education quality. Our achievements confirm the high level of educational programs and compliance with world standards.",
+    "achievements": {
+      "title": "Our Achievements",
+      "subtitle": "International accreditations and recognitions of Narxoz Business School education quality"
+    },
+    "whatMeans": {
+      "title": "What do our accreditations mean?",
+      "internationalRecognition": {
+        "title": "International Recognition",
+        "description": "Our programs meet the highest international standards of education quality. Accreditations from leading world organizations confirm the excellence of our educational programs."
+      },
+      "educationQuality": {
+        "title": "Education Quality",
+        "description": "Continuous improvement of curricula, modern teaching methods and practice-oriented approach ensure high level of training for our graduates."
+      }
+    },
+    "items": [
+      {
+        "text": "2% of universities in Central Asia"
+      },
+      {
+        "text": "7% of universities in Central Asia"
+      },
+      {
+        "text": "7% of universities in Central Asia"
+      },
+      {
+        "text": "Chartered Institute of Management Accountants"
+      },
+      {
+        "text": "MBA QS"
+      },
+      {
+        "text": "In the process of accreditation"
+      },
+      {
+        "text": "Accreditation & test center"
+      },
+      {
+        "text": "Ranked in UI GreenMetric"
+      },
+      {
+        "text": "Chartered Institute of Marketing"
+      },
+      {
+        "text": "Quality of education (600-800)"
+      },
+      {
+        "text": "451-500 range together with top universities in Asia"
+      },
+      {
+        "text": "Listed in the world top university rankings"
+      },
+      {
+        "text": "Governance (top 25% globally)"
+      },
+      {
+        "text": "Rated for excellence by QS Stars"
+      },
+      {
+        "text": "Top-3 universities in Kazakhstan"
+      }
+    ],
+    "accreditation": "Accreditation",
+    "validUntil": "Valid Until",
+    "scope": "Scope",
+    "benefits": "Benefits",
+    "recognition": "Recognition",
+    "quality": "Quality"
+  },
+  "corporateClients": {
+    "title": "Corporate Clients",
+    "subtitle": "Business Solutions",
+    "solutions": "Solutions",
+    "customPrograms": "Custom Programs",
+    "consulting": "Consulting",
+    "training": "Training",
+    "research": "Research",
+    "partnership": "Partnership",
+    "successStories": "Success Stories"
+  },
+  "supportNBS": {
+    "title": "Support NBS",
+    "subtitle": "Contribute to the development of business education",
+    "donate": "Donate",
+    "sponsor": "Sponsor",
+    "volunteer": "Volunteer",
+    "partnership": "Partnership",
+    "impact": "Impact",
+    "transparency": "Transparency"
+  },
+  "eventRegistration": {
+    "title": "Event Registration",
+    "subtitle": "Register for an upcoming event",
+    "eventDetails": "Event Details",
+    "personalInfo": "Personal Information",
+    "registration": "Registration",
+    "confirmation": "Confirmation",
+    "required": "Required",
+    "optional": "Optional",
+    "submit": "Submit Application",
+    "success": "Registration Successful"
   }
 }
