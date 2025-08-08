@@ -18,19 +18,33 @@ const LanguageSwitcher = () => {
   const inactiveLanguages = languages.filter((language) => language.code !== i18n.language);
 
   return (
-    <div className="flex items-center space-x-1">
+    <div className="flex items-center bg-white/80 backdrop-blur-sm rounded-full p-1 shadow-lg border border-white/20">
       {inactiveLanguages.map((language) => (
         <button
           key={language.code}
           onClick={() => handleLanguageChange(language.code)}
-          className="flex items-center space-x-1.5 px-3 py-2 text-sm font-semibold 
-                     bg-white/90 text-gray-700 rounded-lg transition-all duration-300 
-                     hover:bg-gray-100 hover:scale-105 border border-gray-200
-                     focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-300"
+          className="
+            relative flex items-center justify-center w-10 h-8 rounded-full
+            transition-all duration-300 ease-out transform
+            text-gray-600 hover:text-gray-800 hover:bg-gray-100/80 hover:scale-102
+            focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-1
+            active:scale-95
+            group
+          "
           title={language.name}
+          aria-label={`Переключить на ${language.name}`}
         >
-          <span className="text-base">{language.flag}</span>
-          <span className="font-bold tracking-wide">{language.short}</span>
+          {/* Флаг */}
+          <span className="text-sm leading-none filter drop-shadow-sm relative z-10">
+            {language.flag}
+          </span>
+          
+          {/* Hover эффект */}
+          <div className="
+            absolute inset-0 rounded-full opacity-0 transition-opacity duration-200
+            bg-gray-200/50
+            group-hover:opacity-100
+          " />
         </button>
       ))}
     </div>

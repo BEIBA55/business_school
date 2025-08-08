@@ -44,6 +44,9 @@ module.exports = {
         '112': '28rem',
         '128': '32rem',
       },
+      scale: {
+        '102': '1.02',
+      },
       fontSize: {
         'xxs': '0.625rem',
         '2.5xl': '1.75rem',

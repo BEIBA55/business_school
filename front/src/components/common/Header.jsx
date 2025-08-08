@@ -464,6 +464,11 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center space-x-3">
+            {/* Mobile Language Switcher */}
+            <div className="mr-2">
+              <LanguageSwitcher />
+            </div>
+            
             {/* Mobile Search */}
             <button
               onClick={toggleSearch}
@@ -529,7 +534,7 @@ const Header = () => {
         )}
         
         {/* Language Switcher - positioned at edge */}
-        <div className="absolute top-2 right-2 z-50">
+        <div className="absolute top-2 right-2 z-40 hidden lg:block">
           <LanguageSwitcher />
         </div>
       </div>
@@ -703,6 +708,8 @@ const Header = () => {
 
           {/* Mobile Menu Footer */}
           <div className="border-t border-gray-200 p-4">
+
+            
             {/* Contact Info */}
             <div className="mb-4 space-y-2">
               <a
