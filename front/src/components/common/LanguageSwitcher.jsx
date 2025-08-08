@@ -24,19 +24,20 @@ const LanguageSwitcher = () => {
           key={language.code}
           onClick={() => handleLanguageChange(language.code)}
           className="
-            relative flex items-center justify-center w-10 h-8 rounded-full
+            relative flex items-center justify-center px-3 py-2 rounded-full
             transition-all duration-300 ease-out transform
             text-gray-600 hover:text-gray-800 hover:bg-gray-100/80 hover:scale-102
             focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-1
             active:scale-95
             group
+            min-w-[3rem]
           "
           title={language.name}
           aria-label={`Переключить на ${language.name}`}
         >
-          {/* Флаг */}
-          <span className="text-sm leading-none filter drop-shadow-sm relative z-10">
-            {language.flag}
+          {/* Текст кода языка */}
+          <span className="text-sm font-medium text-gray-600 relative z-10">
+            {language.short}
           </span>
           
           {/* Hover эффект */}
