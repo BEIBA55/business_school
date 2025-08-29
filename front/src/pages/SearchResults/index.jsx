@@ -61,7 +61,7 @@ const SearchResults = () => {
                      type="text"
                      name="search"
                      placeholder={t('search.placeholder')}
-                     className="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     className="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E]"
                      autoFocus
                    />
                    <button
@@ -95,7 +95,7 @@ const SearchResults = () => {
                      name="search"
                      defaultValue={query}
                      placeholder={t('search.placeholder')}
-                     className="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                     className="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:border-[#991E1E]"
                    />
                    <button
                      type="submit"
@@ -118,7 +118,7 @@ const SearchResults = () => {
             <div className="flex-1">
                              {isLoading ? (
                  <div className="text-center py-12">
-                   <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                   <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2" style={{ borderColor: '#991E1E' }}></div>
                    <p className="mt-4 text-gray-600">{t('search.loading')}</p>
                  </div>
                ) : error ? (

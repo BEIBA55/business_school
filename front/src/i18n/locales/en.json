@@ -43,6 +43,7 @@
     "programs": "Programs",
     "partnerships": "Partnerships",
     "infrastructure": "Infrastructure",
+    "faculty": "Faculty",
     "title": "News",
     "subtitle": "Latest news and events from Narxoz Business School",
     "readMore": "Read More",
@@ -234,9 +235,68 @@
         "subtitle": "Modular format for working managers"
       },
       "brand": {
-        "title": "Narxoz Business School",
-        "subtitle": "Next generation business school"
+        "title": "Executive Education",
+        "subtitle": "For leaders"
       }
+    },
+    "executiveEducationGrid": {
+      "corporate": {
+        "title": "For Corporate Clients"
+      },
+      "miniMba": {
+        "title": "Mini-MBA",
+        "description": "Intensive program for specialists and managers"
+      },
+      "executiveSessions": {
+        "title": "Executive Sessions for Top Managers",
+        "description": "For top-level executives"
+      },
+      "executiveMbaNgo": {
+        "title": "Executive MBA for NGO/NPO Leaders"
+      },
+      "executiveMbaCio": {
+        "title": "Executive MBA for CIOs",
+        "description": "For IT directors and digital leaders"
+      },
+      "trainings": {
+        "title": "Trainings",
+        "description": "For developing key management skills"
+      }
+    },
+    "mbaProgramsGrid": {
+      "mbaFinance": {
+        "title": "MBA Finance",
+        "description": "Applied Finance"
+      },
+      "mbaSustainability": {
+        "title": "MBA Sustainability",
+        "description": "Sustainable Business Development"
+      },
+      "mbaAi": {
+        "title": "MBA AI",
+        "description": "Artificial Intelligence in Business"
+      },
+      "mbaCreative": {
+        "title": "MBA Creative",
+        "description": "Creative Economy"
+      },
+      "mbaFinTech": {
+        "title": "MBA FinTech",
+        "description": "Financial Technologies"
+      },
+      "mscFinance": {
+        "title": "MSc Finance",
+        "description": "Master's in Finance"
+      }
+    },
+    "executiveSessionsSection": {
+      "title": "Executive Sessions for Top Managers",
+      "description": "For top-level executives"
+    },
+    "newAboutSection": {
+      "title": "Narxoz Business School — World Class Business Education in Central Asia. We create future leaders — bold, strategic and ready to change the rules of the game.",
+      "description": "Our MBA, Executive MBA, DBA and Executive Education programs are designed for those who strive for more: managing companies, inspiring teams and implementing innovations. We combine international standards, the practice of leading experts and local context to give you a competitive advantage here and now. Corporate training and Executive Education help top managers and companies accelerate business growth and transformation. With Narxoz Business School, you become part of a community of leaders who create sustainable futures and change the rules of the game in the region and beyond.",
+      "contactButton": "Contact Us"
     },
     "statsSection": {
       "title": "Statistics",
@@ -284,6 +344,16 @@
     },
     "alerts": {
       "applicationSuccess": "Thank you for your application! We will contact you soon."
+    },
+    "contactModal": {
+      "title": "Contact Us",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "addressValue": "Almaty, Zhandosov St., 55",
+      "workingHours": "Working Hours",
+      "workingHoursValue": "Mon-Fri: 9:00 - 18:00",
+      "close": "Close"
     },
     "programCards": {
       "expand": "Expand",
@@ -793,8 +863,13 @@
     "collaboration": "Collaboration"
   },
   "accreditations": {
-    "title": "Accreditations",
+    "title": "Ratings and Accreditations",
     "subtitle": "Narxoz Business School is proud of its international accreditations and recognition of education quality. Our achievements confirm the high level of educational programs and compliance with world standards.",
+    "ratings": {
+      "inclusivity": "Inclusivity",
+      "teachingQuality": "Teaching Quality",
+      "employability": "Employability"
+    },
     "achievements": {
       "title": "Our Achievements",
       "subtitle": "International accreditations and recognitions of Narxoz Business School education quality"

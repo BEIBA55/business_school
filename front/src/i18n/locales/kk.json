@@ -43,6 +43,7 @@
     "programs": "Бағдарламалар",
     "partnerships": "Серіктестік",
     "infrastructure": "Инфрақұрылым",
+    "faculty": "Оқытушылар",
     "title": "Жаңалықтар",
     "subtitle": "Narxoz Business School-дың күнделікті жаңалықтары мен оқиғалары",
     "readMore": "Толығырақ оқу",
@@ -234,13 +235,72 @@
         "subtitle": "Жұмыс істейтін менеджерлерге арналған модульді формат"
       },
       "brand": {
-        "title": "Narxoz Business School",
-        "subtitle": "Жаңа ұрпақ бизнес-мектебі"
+        "title": "Executive Education",
+        "subtitle": "Көшбасшыларға арналған"
       }
+    },
+    "executiveEducationGrid": {
+      "corporate": {
+        "title": "Корпоративті клиенттерге"
+      },
+      "miniMba": {
+        "title": "Mini-MBA",
+        "description": "Сарапшылар мен менеджерлерге арналған интенсивті бағдарлама"
+      },
+      "executiveSessions": {
+        "title": "Топ-менеджерлерге арналған Executive Sessions",
+        "description": "Жоғары деңгейдегі басшыларға арналған"
+      },
+      "executiveMbaNgo": {
+        "title": "ҚОҒ/ҚҰҚ көшбасшыларына арналған Executive MBA"
+      },
+      "executiveMbaCio": {
+        "title": "СІО-ға арналған Executive MBA",
+        "description": "Ақпараттық технология директорлары және digital-көшбасшыларға арналған"
+      },
+      "trainings": {
+        "title": "Тренингтер",
+        "description": "Басқарудағы негізгі дағдыларды дамыту үшін"
+      }
+    },
+    "mbaProgramsGrid": {
+      "mbaFinance": {
+        "title": "MBA Finance",
+        "description": "Қолданыстағы қаржы"
+      },
+      "mbaSustainability": {
+        "title": "MBA Sustainability",
+        "description": "Тұрақты бизнес дамуы"
+      },
+      "mbaAi": {
+        "title": "MBA AI",
+        "description": "Бизнестегі жасанды интеллект"
+      },
+      "mbaCreative": {
+        "title": "MBA Creative",
+        "description": "Креативті экономика"
+      },
+      "mbaFinTech": {
+        "title": "MBA FinTech",
+        "description": "Қаржылық технологиялар"
+      },
+      "mscFinance": {
+        "title": "MSc Finance",
+        "description": "Қаржы бойынша магистратура"
+      }
+    },
+    "executiveSessionsSection": {
+      "title": "Топ-менеджерлерге арналған Executive Sessions",
+      "description": "Жоғары деңгейдегі басшыларға арналған"
+    },
+    "newAboutSection": {
+      "title": "Narxoz Business School — Орталық Азиядағы World Class Business Education. Біз болашақ көшбасшыларын жасаймыз — батыл, стратегиялық және ойын ережелерін өзгертуге дайын.",
+      "description": "Біздің MBA, Executive MBA, DBA және Executive Education бағдарламалары көбірек ұмтылатындар үшін жасалған: компанияларды басқару, командаларды шабыттандыру және инновацияларды енгізу. Біз халықаралық стандарттарды, жетекші сарапшылардың тәжірибесін және жергілікті контекстті біріктіреміз, сізге осында және қазір бәсекелестік артықшылығын беру үшін. Корпоративтік оқыту және Executive Education топ-менеджерлер мен компанияларға өсу мен бизнес трансформациясын жеделдетуге көмектеседі. Narxoz Business School арқылы сіз тұрақты болашақ жасайтын және аймақта және одан тыс ойын ережелерін өзгертетін көшбасшылар қауымдастығының бөлігі боласыз.",
+      "contactButton": "Бізбен байланысу"
     },
     "statsSection": {
       "title": "",
-      "subtitle": "Narxoz Business School – сізге арналған жаңа мүмкіндіктер:",
+      "subtitle": "",
       "stats": [
         {
           "value": "16",
@@ -284,6 +344,16 @@
     },
     "alerts": {
       "applicationSuccess": "Өтінішіңіз үшін рахмет! Жақын арада сізбен хабарласамыз."
+    },
+    "contactModal": {
+      "title": "Бізбен байланысу",
+      "phone": "Телефон",
+      "email": "Email",
+      "address": "Мекенжай",
+      "addressValue": "Алматы қ., Жандосов көш., 55",
+      "workingHours": "Жұмыс уақыты",
+      "workingHoursValue": "Дс-Жм: 9:00 - 18:00",
+      "close": "Жабу"
     },
     "programCards": {
       "expand": "Кеңейту",
@@ -793,8 +863,13 @@
     "collaboration": "Ынтымақтастық"
   },
   "accreditations": {
-    "title": "Аккредитациялар",
+    "title": "Рейтингтер және аккредитациялар",
     "subtitle": "Narxoz Business School өз халықаралық аккредитациялары мен білім беру сапасын тануына мақтанады. Біздің жетістіктеріміз жоғары деңгейдегі білім беру бағдарламаларын және әлемдік стандарттарға сәйкестікті растайды.",
+    "ratings": {
+      "inclusivity": "Инклюзивтілік",
+      "teachingQuality": "Оқыту сапасы",
+      "employability": "Жұмысқа орналасу мүмкіндігі"
+    },
     "achievements": {
       "title": "Біздің жетістіктеріміз",
       "subtitle": "Narxoz Business School білім беру сапасының халықаралық аккредитациялары мен танылулары"

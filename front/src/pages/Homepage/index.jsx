@@ -8,7 +8,10 @@ import EditText from '../../components/ui/EditText';
 import Slider from '../../components/ui/Slider';
 import PagerIndicator from '../../components/ui/PagerIndicator';
 import BusinessSchoolGrid from './BusinessSchoolGrid';
-import NbsStatsSection from './NbsStatsSection';
+import ExecutiveSessionsSection from './ExecutiveSessionsSection';
+import ExecutiveEducationGrid from './ExecutiveEducationGrid';
+import StatsNumbers from './StatsNumbers';
+import RankingSection from './RankingSection';
 
 const Homepage = () => {
   const { t } = useTranslation();
@@ -18,15 +21,11 @@ const Homepage = () => {
     email: '',
   });
 
-  const [currentAccreditationPage, setCurrentAccreditationPage] = useState(0);
   const [currentGraduatesPage, setCurrentGraduatesPage] = useState(0);
   const [currentFacultyIndex, setCurrentFacultyIndex] = useState(0);
   const [currentAdminIndex, setCurrentAdminIndex] = useState(0);
   const [currentNewsPage, setCurrentNewsPage] = useState(0);
   const [expandedFacultyCards, setExpandedFacultyCards] = useState({});
-  const [activeProgram, setActiveProgram] = useState(t('homepage.programs.allPrograms'));
-  const [animatePrograms, setAnimatePrograms] = useState(false);
-  const [expandedMBA, setExpandedMBA] = useState(false);
   const [contactFormData, setContactFormData] = useState({
     name: '',
     email: '',
@@ -82,32 +81,9 @@ const Homepage = () => {
     }));
   };
 
-  const handleProgramSelect = (program) => {
-    setAnimatePrograms(false);
-    setExpandedMBA(false); // Сбрасываем состояние развернутой MBA
 
-    setTimeout(() => {
-      setActiveProgram(program);
-      setTimeout(() => {
-        setAnimatePrograms(true);
-      }, 50);
-    }, 300);
-  };
 
-  const handleMBAExpand = () => {
-    setExpandedMBA(!expandedMBA);
-  };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setAnimatePrograms(true);
-    }, 500);
-  }, []);
-
-  // Сброс активной программы на "Все программы" при смене языка
-  useEffect(() => {
-    setActiveProgram(t('homepage.programs.allPrograms'));
-  }, [t]);
 
   const trustPartners = [
     { src: '/images/RG_gold.png', name: 'RG Gold', url: 'https://rg-gold.com' },
@@ -130,11 +106,11 @@ const Homepage = () => {
 
   const accreditationItems = [
     {
-      image: '/images/img_csmsiegelinstacc1bb4df2af7_1.png',
+      image: '/images/FIbaa.png',
       text: '2% of universities in central asia',
     },
     {
-      image: '/images/img_fibbaaccredited_1.png',
+      image: '/images/Fibaa2.png',
       text: '7% of universities in central asia',
     },
     {
@@ -142,11 +118,7 @@ const Homepage = () => {
       text: '7% of universities in central asia',
     },
     {
-      image: '/images/img_cimalogo1280x647_1.png',
-      text: 'Chartered institute of management accountants',
-    },
-    {
-      image: '/images/MBA.png',
+      image: '/images/mbaqs.png',
       text: 'MBA QS',
     },
     {
@@ -154,7 +126,11 @@ const Homepage = () => {
       text: 'In the process of accreditation',
     },
     {
-      image: '/images/ACCA.png',
+      image: '/images/img_cimalogo1280x647_1.png',
+      text: 'Chartered institute of management accountants',
+    },
+    {
+      image: '/images/ACCA_logo.png',
       text: 'Accreditation & test center',
     },
     {
@@ -162,7 +138,7 @@ const Homepage = () => {
       text: 'Ranked in ui greenmetric',
     },
     {
-      image: '/images/img_blob_1.png',
+      image: '/images/cim.png',
       text: 'Chartered institute of marketing',
     },
     {
@@ -191,109 +167,7 @@ const Homepage = () => {
     },
   ];
 
-  // Основные программы MBA (отображаются в фильтре)
-  const mainMBAPrograms = [
-    {
-      title: t('homepage.programs.mbaTitle'),
-      description: t('homepage.programs.mbaDescription'),
-      type: 'MBA',
-      duration: t('homepage.programs.mbaDuration'),
-      price: t('homepage.programs.mbaPrice'),
-      isMain: true,
-    },
-    {
-      title: t('homepage.programs.mbaFinanceTitle'),
-      description: t('homepage.programs.mbaFinanceDescription'),
-      type: 'MBA',
-      duration: t('homepage.programs.mbaFinanceDuration'),
-      price: t('homepage.programs.mbaFinancePrice'),
-      isMain: true,
-    },
-  ];
 
-  // Дополнительные программы MBA (скрыты из основного отображения)
-  const additionalMBAPrograms = [
-    {
-      title: t('homepage.programs.mbaSustainabilityTitle'),
-      description: t('homepage.programs.mbaSustainabilityDescription'),
-      type: 'MBA',
-      duration: t('homepage.programs.mbaSustainabilityDuration'),
-      price: t('homepage.programs.mbaSustainabilityPrice'),
-      isMain: false,
-    },
-    {
-      title: t('homepage.programs.mbaAITitle'),
-      description: t('homepage.programs.mbaAIDescription'),
-      type: 'MBA',
-      duration: t('homepage.programs.mbaAIDuration'),
-      price: t('homepage.programs.mbaAIPrice'),
-      isMain: false,
-    },
-    {
-      title: t('homepage.programs.mbaCreativeTitle'),
-      description: t('homepage.programs.mbaCreativeDescription'),
-      type: 'MBA',
-      duration: t('homepage.programs.mbaCreativeDuration'),
-      price: t('homepage.programs.mbaCreativePrice'),
-      isMain: false,
-    },
-    {
-      title: t('homepage.programs.mbaFinTechTitle'),
-      description: t('homepage.programs.mbaFinTechDescription'),
-      type: 'MBA',
-      duration: t('homepage.programs.mbaFinTechDuration'),
-      price: t('homepage.programs.mbaFinTechPrice'),
-      isMain: false,
-    },
-  ];
-
-  const programs = [
-    // Основные программы MBA
-    ...mainMBAPrograms,
-    // Дополнительные программы MBA
-    ...additionalMBAPrograms,
-
-    // Executive MBA блок
-    {
-      title: t('homepage.programs.executiveMbaTitle'),
-      description: t('homepage.programs.executiveMbaDescription'),
-      type: 'Executive MBA',
-      duration: t('homepage.programs.executiveMbaDuration'),
-      price: t('homepage.programs.executiveMbaPrice'),
-    },
-    {
-      title: t('homepage.programs.executiveMbaNGOTitle'),
-      description: t('homepage.programs.executiveMbaNGODescription'),
-      type: 'Executive MBA',
-      duration: t('homepage.programs.executiveMbaNGODuration'),
-      price: t('homepage.programs.executiveMbaNGOPrice'),
-    },
-    {
-      title: t('homepage.programs.executiveMbaCIOTitle'),
-      description: t('homepage.programs.executiveMbaCIODescription'),
-      type: 'Executive MBA',
-      duration: t('homepage.programs.executiveMbaCIODuration'),
-      price: t('homepage.programs.executiveMbaCIOPrice'),
-    },
-
-    // DBA блок
-    {
-      title: t('homepage.programs.dbaTitle'),
-      description: t('homepage.programs.dbaDescription'),
-      type: 'DBA',
-      duration: t('homepage.programs.dbaDuration'),
-      price: t('homepage.programs.dbaPrice'),
-    },
-
-    // Магистратура
-    {
-      title: t('homepage.programs.mscFinanceTitle'),
-      description: t('homepage.programs.mscFinanceDescription'),
-      type: t('homepage.programs.magistracy'),
-      duration: t('homepage.programs.mscFinanceDuration'),
-      price: t('homepage.programs.mscFinancePrice'),
-    },
-  ];
 
   const graduates = [
     { name: 'Ляззат Альжанова', description: 'Про Executive MBA для руководителей НПО НКО' },
@@ -390,115 +264,84 @@ const Homepage = () => {
     },
   ];
 
+  // Расширенные данные новостей с изображениями и ссылками
   const newsItems = [
     {
+      id: 1,
       date: '15.01.2025',
-      title: t('homepage.news.0.title'),
-      description: t('homepage.news.0.description'),
+      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
+      description: 'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
+      image: '/images/stud.png',
+      category: 'achievements',
+      tags: ['Рейтинги', 'QS']
     },
     {
+      id: 2,
       date: '10.01.2025',
-      title: t('homepage.news.1.title'),
-      description: t('homepage.news.1.description'),
+      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
+      description: 'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
+      image: '/images/EMBA_fon.png',
+      category: 'programs',
+      tags: ['Executive MBA', 'Цифровизация']
     },
     {
+      id: 3,
       date: '05.01.2025',
-      title: t('homepage.news.2.title'),
-      description: t('homepage.news.2.description'),
+      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
+      description: 'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.',
+      image: '/images/gruppa.png',
+      category: 'events',
+      tags: ['Хакатон', 'Сингапур']
     },
     {
+      id: 4,
       date: '01.01.2025',
-      title: t('homepage.news.3.title'),
-      description: t('homepage.news.3.description'),
+      title: 'Открыт новый корпоративный центр для Executive Education программ',
+      description: 'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.',
+      image: '/images/detali.png',
+      category: 'infrastructure',
+      tags: ['Центр', 'Образование']
     },
+    {
+      id: 5,
+      date: '28.12.2024',
+      title: 'Narxoz Business School получила международную аккредитацию AACSB',
+      description: 'Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International.',
+      image: '/images/vipus.jpg',
+      category: 'achievements',
+      tags: ['Аккредитация', 'AACSB']
+    },
+    {
+      id: 6,
+      date: '25.12.2024',
+      title: 'Топовые эксперты присоединились к преподавательскому составу',
+      description: 'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента.',
+      image: '/images/experty.png',
+      category: 'faculty',
+      tags: ['Эксперты', 'Преподаватели']
+    }
   ];
 
-  // Функция для определения ссылки программы
-  const getProgramLink = (program) => {
-    const title = program.title;
-    
-    // MBA программы
-    if (title === t('homepage.programs.mbaTitle')) {
-      return '/programs/mba';
-    }
-    if (title === t('homepage.programs.mbaFinanceTitle')) {
-      return '/programs/mba-finance';
-    }
-    if (title === t('homepage.programs.mbaSustainabilityTitle')) {
-      return '/programs/mba-sustainability';
-    }
-    if (title === t('homepage.programs.mbaAITitle')) {
-      return '/programs/mba-ai';
-    }
-    if (title === t('homepage.programs.mbaCreativeTitle')) {
-      return '/programs/mba-creative';
-    }
-    if (title === t('homepage.programs.mbaFinTechTitle')) {
-      return '/programs/mba-fintech';
-    }
-    
-    // Executive MBA программы
-    if (title === t('homepage.programs.executiveMbaTitle')) {
-      return '/programs/executive-mba';
-    }
-    if (title === t('homepage.programs.executiveMbaNGOTitle')) {
-      return '/programs/executive-mba-ngo';
-    }
-    if (title === t('homepage.programs.executiveMbaCIOTitle')) {
-      return '/programs/executive-mba-cio';
-    }
-    
-    // DBA программа
-    if (title === t('homepage.programs.dbaTitle')) {
-      return '/programs/dba';
-    }
-    
-    // Магистратура
-    if (title === t('homepage.programs.mscFinanceTitle')) {
-      return '/programs/msc-finance';
-    }
-    
-    return null; // Если ссылка не найдена
-  };
 
-  // Фильтрация программ по выбранному типу
-  const filteredPrograms = programs.filter((program) => {
-    if (activeProgram === t('homepage.programs.allPrograms')) {
-      // Показываем все программы, включая магистратуру
-      return true;
-    }
-    if (activeProgram === t('homepage.programs.mba')) {
-      // Показываем только основные программы MBA
-      return program.type === 'MBA' && program.isMain;
-    }
-    return program.type === activeProgram;
-  });
-
-  // Группировка программ по типам для вертикального отображения
-  const groupedPrograms = {
-    MBA: programs.filter((program) => program.type === 'MBA' && program.isMain),
-    'Executive MBA': programs.filter((program) => program.type === 'Executive MBA'),
-    DBA: programs.filter((program) => program.type === 'DBA'),
-    [t('homepage.programs.magistracy')]: programs.filter(
-      (program) => program.type === t('homepage.programs.magistracy')
-    ),
-  };
-
-  // Создаем отдельную группировку для отображения "Все программы" включая магистратуру
-  const allProgramsGrouped = {
-    MBA: programs.filter((program) => program.type === 'MBA' && program.isMain),
-    'Executive MBA': programs.filter((program) => program.type === 'Executive MBA'),
-    DBA: programs.filter((program) => program.type === 'DBA'),
-    [t('homepage.programs.magistracy')]: programs.filter(
-      (program) => program.type === t('homepage.programs.magistracy')
-    ),
-  };
-
-  // Получаем все уникальные типы программ
-  const programTypes = Object.keys(groupedPrograms);
 
   // --- ОБНОВЛЁННЫЙ массив с видео выпускников ---
   const graduateVideos = [
+    {
+      url: 'https://www.youtube.com/embed/r5SVVe8ZOFo',
+      description: t('homepage.graduates.videos.9.description'),
+    },
+    {
+      url: 'https://www.youtube.com/embed/mv8ghkwGsUg',
+      description: t('homepage.graduates.videos.10.description'),
+    },
+    {
+      url: 'https://www.youtube.com/embed/WS3lCOtGg4s',
+      description: t('homepage.graduates.videos.2.description'),
+    },
+    {
+      url: 'https://www.youtube.com/embed/1XPx8iKbS-Y',
+      description: t('homepage.graduates.videos.4.description'),
+    },
     {
       url: 'https://www.youtube.com/embed/p3vTgMVvWdk',
       description: t('homepage.graduates.videos.0.description'),
@@ -507,18 +350,12 @@ const Homepage = () => {
       url: 'https://www.youtube.com/embed/U6mHH-kGQfU',
       description: t('homepage.graduates.videos.1.description'),
     },
-    {
-      url: 'https://www.youtube.com/embed/WS3lCOtGg4s',
-      description: t('homepage.graduates.videos.2.description'),
-    },
+    
     {
       url: 'https://www.youtube.com/embed/FL0H0I3rgcI',
       description: t('homepage.graduates.videos.3.description'),
     },
-    {
-      url: 'https://www.youtube.com/embed/1XPx8iKbS-Y',
-      description: t('homepage.graduates.videos.4.description'),
-    },
+    
     {
       url: 'https://www.youtube.com/embed/UizMWwVKLOw',
       description: t('homepage.graduates.videos.5.description'),
@@ -535,14 +372,7 @@ const Homepage = () => {
       url: 'https://www.youtube.com/embed/m9--bfum4CU',
       description: t('homepage.graduates.videos.8.description'),
     },
-    {
-      url: 'https://www.youtube.com/embed/r5SVVe8ZOFo',
-      description: t('homepage.graduates.videos.9.description'),
-    },
-    {
-      url: 'https://www.youtube.com/embed/mv8ghkwGsUg',
-      description: t('homepage.graduates.videos.10.description'),
-    },
+    
   ];
 
   // --- СТЕЙТ для пагинации видео выпускников ---
@@ -598,20 +428,20 @@ const Homepage = () => {
             <EditText
               placeholder={t('forms.namePlaceholder')}
               value={formData.name}
-              onChange={(e) => handleInputChange('name', e.target.value)}
+              onChange={(value) => handleInputChange('name', value)}
               className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.emailPlaceholder')}
               type="email"
               value={formData.email}
-              onChange={(e) => handleInputChange('email', e.target.value)}
+              onChange={(value) => handleInputChange('email', value)}
               className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <EditText
               placeholder={t('forms.phonePlaceholder')}
               value={formData.phone}
-              onChange={(e) => handleInputChange('phone', e.target.value)}
+              onChange={(value) => handleInputChange('phone', value)}
               className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] mb-0 [&>input]:px-3 sm:[&>input]:px-4 [&>input]:py-2 [&>input]:flex [&>input]:items-center [&>input]:text-sm sm:[&>input]:text-base"
             />
             <button
@@ -624,283 +454,209 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* About Section - Mobile Optimized */}
-      <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-dark text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-8 lg:mb-12 animate-fade-in-up">
-            {t('homepage.about.title')}
-          </h2>
-          <p className="text-gray-600 text-base sm:text-lg lg:text-xl leading-relaxed animate-fade-in-up">
-            {t('homepage.about.description')}
-          </p>
+      {/* New About Section - Mobile Optimized */}
+      <div className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-[#F9F8F6]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Левая колонка с заголовком */}
+            <div className="animate-fade-in-up">
+              <h2 className="text-[#991E1E] text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+                {t('homepage.newAboutSection.title')}
+              </h2>
+              {/* Кнопка Contact Us */}
+              <div className="mt-8">
+                <Link to="/contact">
+                  <button className="bg-[#991E1E] text-white px-6 py-3 rounded-md font-medium hover:bg-[#7a1818] transition-colors">
+                    Contact US
+                  </button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Правая колонка с описанием */}
+            <div className="animate-fade-in-up">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                {t('homepage.newAboutSection.description')}
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Stats Numbers Section */}
+      <StatsNumbers />
+
+      {/* Визуальный переход к программам */}
+      <div className="relative py-20 bg-gradient-to-b from-[#F9F8F6] to-white overflow-hidden">
+        {/* Анимированные декоративные элементы */}
+        <div className="absolute top-0 left-1/4 w-32 h-32 bg-red-100 rounded-full opacity-10 -translate-x-16 -translate-y-16 animate-pulse"></div>
+        <div className="absolute top-8 right-1/3 w-24 h-24 bg-blue-100 rounded-full opacity-10 translate-x-12 -translate-y-12 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-4 left-1/3 w-20 h-20 bg-gray-200 rounded-full opacity-10 -translate-x-10 translate-y-10 animate-pulse" style={{animationDelay: '2s'}}></div>
+        
+        {/* Дополнительные геометрические элементы */}
+        <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-gradient-to-br from-red-200 to-red-300 opacity-20 rotate-45 animate-bounce" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-gradient-to-br from-blue-200 to-blue-300 opacity-20 rotate-12 animate-bounce" style={{animationDelay: '1.5s'}}></div>
+        
+        {/* Центральный декоративный элемент с анимацией */}
+        <div className="max-w-7xl mx-auto px-8 relative z-10">
+          <div className="flex justify-center items-center">
+            <div className="flex items-center space-x-12">
+              {/* Левая линия с градиентом */}
+              <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-[#991E1E] animate-pulse"></div>
+              
+              {/* Центральный элемент с анимацией */}
+              <div className="relative group cursor-pointer">
+                {/* Внешний круг */}
+                <div className="w-12 h-12 border-2 border-[#991E1E] border-opacity-30 rounded-full animate-spin" style={{animationDuration: '8s'}}></div>
+                
+                {/* Средний круг */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 border-2 border-[#991E1E] border-opacity-50 rounded-full animate-spin" style={{animationDuration: '6s', animationDirection: 'reverse'}}></div>
+                
+                {/* Центральная точка */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[#991E1E] rounded-full animate-pulse group-hover:scale-125 transition-transform duration-300"></div>
+                
+                {/* Дополнительные точки */}
+                <div className="absolute -top-2 -right-2 w-2 h-2 bg-red-400 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+              </div>
+              
+              {/* Правая линия с градиентом */}
+              <div className="w-24 h-0.5 bg-gradient-to-l from-transparent via-gray-300 to-[#991E1E] animate-pulse"></div>
+            </div>
+          </div>
+          
+          {/* Дополнительная декоративная линия */}
+          <div className="mt-8 flex justify-center">
+            <div className="w-48 h-px bg-gradient-to-r from-transparent via-[#991E1E] to-transparent opacity-30"></div>
+          </div>
+        </div>
+        
+        {/* Плавающие элементы */}
+        <div className="absolute top-1/2 left-10 w-6 h-6 bg-red-300 opacity-20 rounded-full animate-float"></div>
+        <div className="absolute top-1/3 right-16 w-4 h-4 bg-blue-300 opacity-20 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/3 left-20 w-5 h-5 bg-gray-300 opacity-20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Business School Grid Section */}
-      <BusinessSchoolGrid />
+      <div className="relative">
+        <BusinessSchoolGrid />
+      </div>
 
-      {/* Programs Section - Mobile Optimized */}
-      <div className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 animate-fade-in-up">
-          <h2 className="text-dark text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-0">
-            {t('homepage.programs.title')}
+      {/* Executive Sessions Section */}
+      <div className="relative">
+        <ExecutiveSessionsSection />
+      </div>
+
+      {/* Executive Education Grid Section */}
+      <div className="relative">
+        <ExecutiveEducationGrid />
+      </div>
+
+      {/* Отступ между ExecutiveEducationGrid и новой секцией аккредитации */}
+      <div className="py-8"></div>
+
+      {/* Новая секция аккредитации */}
+      <div className="relative w-full h-[550px] md:h-[700px] lg:h-[800px] overflow-hidden">
+        {/* Фоновое изображение без текста */}
+        <img
+          src="/images/ReitingAccreddd.png"
+          alt={t('accreditations.title')}
+          className="absolute top-0 left-0 w-full h-full object-cover object-top"
+          style={{ objectPosition: 'center 5%' }}
+          loading="eager"
+          decoding="async"
+        />
+        
+        {/* Полупрозрачный оверлей для лучшей читаемости текста */}
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        
+        {/* Тексты со звездами в нижней части */}
+        <div className="absolute bottom-12 md:bottom-16 left-1/2 transform -translate-x-1/2 z-10 text-center">
+          <h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 drop-shadow-lg">
+            {t('accreditations.title')}
           </h2>
-        </div>
-
-        {/* Program Filter Buttons - Mobile Scrollable */}
-        <div className="mb-8 sm:mb-12 animate-fade-in-up">
-          <div className="block sm:hidden">
-            {/* Mobile: Horizontal scrollable filters */}
-            <div className="flex gap-3 overflow-x-auto pb-4 px-2 scrollbar-hide">
-              <button
-                className={`px-4 py-2 rounded-full transition-all whitespace-nowrap font-medium text-sm ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 active:bg-red-800 active:text-white'}`}
-                onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
-              >
-                {t('homepage.programs.allPrograms')}
-              </button>
-              {programTypes.map((type) => (
-                <button
-                  key={type}
-                  className={`px-4 py-2 rounded-full transition-all whitespace-nowrap font-medium text-sm ${activeProgram === type ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 active:bg-red-800 active:text-white'}`}
-                  onClick={() => handleProgramSelect(type)}
-                >
-                  {type}
-                </button>
-              ))}
+          
+          {/* Три рейтинга с звездами */}
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12 lg:gap-16 justify-center items-center">
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-white text-base md:text-lg lg:text-xl font-medium">
+                {t('accreditations.ratings.inclusivity')}
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-white text-base md:text-lg lg:text-xl font-medium">
+                {t('accreditations.ratings.teachingQuality')}
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="flex justify-center mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-white text-base md:text-lg lg:text-xl font-medium">
+                {t('accreditations.ratings.employability')}
+              </p>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Desktop: Original centered layout */}
-          <div className="hidden sm:flex flex-wrap justify-center gap-6 p-4 border border-gray-300 rounded-full w-full">
-            <button
-              className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === t('homepage.programs.allPrograms') ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
-              onClick={() => handleProgramSelect(t('homepage.programs.allPrograms'))}
-            >
-              {t('homepage.programs.allPrograms')}
-            </button>
-            {programTypes.map((type) => (
-              <button
-                key={type}
-                className={`px-6 py-2 rounded-full transition-all min-w-[120px] text-center font-medium ${activeProgram === type ? 'bg-red-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-red-800 hover:text-white'}`}
-                onClick={() => handleProgramSelect(type)}
+      {/* Секция с логотипами аккредитаций */}
+      <div className="py-16 px-8 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+            {accreditationItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center p-6 transition-transform duration-300 hover:scale-105"
               >
-                {type}
-              </button>
+                <img
+                  src={item.image}
+                  alt={t('accreditations.accreditation')}
+                  className="w-28 h-28 md:w-36 md:h-36 mb-4 object-contain"
+                />
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {t(`accreditations.items.${index}.text`)}
+                </p>
+              </div>
             ))}
           </div>
         </div>
-
-        {/* Programs Grid - Simplified and Mobile Optimized */}
-        {activeProgram === t('homepage.programs.allPrograms') ? (
-          // Простая сетка для "Все программы" 
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
-            {filteredPrograms.map((program, index) => {
-              const programLink = getProgramLink(program);
-              const CardWrapper = programLink ? Link : 'div';
-              const cardProps = programLink ? { to: programLink } : {};
-
-              return (
-                <CardWrapper
-                  key={`program-${index}`}
-                  {...cardProps}
-                  className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer transform group border border-gray-200 flex flex-col justify-between h-auto min-h-[300px] ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                  style={{ transitionDelay: `${index * 0.1}s` }}
-                >
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-xs bg-red-100 text-red-800 px-3 py-1 rounded-full font-medium">
-                        {program.type}
-                      </span>
-                      {program.duration && (
-                        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">{program.duration}</span>
-                      )}
-                    </div>
-
-                    <h3 className="text-lg sm:text-xl font-bold mb-3 leading-tight transition-colors duration-300 text-gray-800 group-hover:text-red-800">
-                      {program.title}
-                    </h3>
-
-                    <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300 line-clamp-3">
-                      {program.description}
-                    </p>
-                  </div>
-
-                  <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
-                    {program.price && (
-                      <div className="text-sm font-semibold text-red-600">
-                        {program.price}
-                      </div>
-                    )}
-                    <div className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span>{t('common.more')}</span>
-                      <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </CardWrapper>
-              );
-            })}
-          </div>
-        ) : (
-          // Сетка для конкретного типа программ
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 ${animatePrograms ? 'opacity-100' : 'opacity-0'}`}>
-            {filteredPrograms.map((program, index) => {
-              const programLink = getProgramLink(program);
-              const CardWrapper = programLink ? Link : 'div';
-              const cardProps = programLink ? { to: programLink } : {};
-
-              return (
-                <CardWrapper
-                  key={`filtered-${index}`}
-                  {...cardProps}
-                  className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer transform group border border-gray-200 flex flex-col justify-between h-auto min-h-[300px] ${animatePrograms ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-                  style={{ transitionDelay: `${index * 0.1}s` }}
-                >
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-xs bg-red-100 text-red-800 px-3 py-1 rounded-full font-medium">
-                        {program.type}
-                      </span>
-                      {program.duration && (
-                        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">{program.duration}</span>
-                      )}
-                    </div>
-
-                    <h3 className="text-lg sm:text-xl font-bold mb-3 leading-tight transition-colors duration-300 text-gray-800 group-hover:text-red-800">
-                      {program.title}
-                    </h3>
-
-                    <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300 line-clamp-3">
-                      {program.description}
-                    </p>
-                  </div>
-
-                  <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
-                    {program.price && (
-                      <div className="text-sm font-semibold text-red-600">
-                        {program.price}
-                      </div>
-                    )}
-                    <div className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span>{t('common.more')}</span>
-                      <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </CardWrapper>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Дополнительные программы MBA (показываются при развертывании) */}
-        {expandedMBA && activeProgram === 'MBA' && (
-          <div className="col-span-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-              {additionalMBAPrograms.map((program, index) => {
-                const programLink = getProgramLink(program);
-                const CardWrapper = programLink ? Link : 'div';
-                const cardProps = programLink ? { to: programLink } : {};
-
-                return (
-                  <CardWrapper
-                    key={`additional-mba-${index}`}
-                    {...cardProps}
-                    className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-300 transform hover:scale-102 h-64 flex flex-col justify-between cursor-pointer group"
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full font-medium">
-                          {program.type}
-                        </span>
-                        <span className="text-xs text-gray-500">{program.duration}</span>
-                      </div>
-
-                      <h4 className="text-lg font-bold mb-2 text-gray-800 group-hover:text-red-800 transition-colors duration-300">{program.title}</h4>
-
-                      <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                        {program.description}
-                      </p>
-                    </div>
-                    
-                    {programLink && (
-                      <div className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
-                        <span>{t('common.more')}</span>
-                        <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    )}
-                  </CardWrapper>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Разделитель */}
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+      </div>
+
+      {/* Ranking Section */}
+      <RankingSection />
 
       {/* Разделитель */}
       <div className="max-w-7xl mx-auto px-8">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
       </div>
 
-      {/* NBS Stats Section */}
-      <NbsStatsSection />
 
-      {/* Accreditations Section */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8 slide-in-up">
-          <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.accreditations')}</h2>
-          <div className="flex items-center space-x-4">
-            <img
-              src="/images/img_group_21.svg"
-              alt="Previous"
-              className="w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70"
-              onClick={() => setCurrentAccreditationPage(Math.max(0, currentAccreditationPage - 1))}
-            />
-            <img
-              src="/images/img_group_21_blue_gray_100.svg"
-              alt="Next"
-              className="w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70"
-              onClick={() =>
-                setCurrentAccreditationPage(
-                  Math.min(accreditationItems.length - 4, currentAccreditationPage + 1)
-                )
-              }
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden">
-          {accreditationItems
-            .slice(currentAccreditationPage, currentAccreditationPage + 4)
-            .map((item, index) => (
-              <div
-                key={`${currentAccreditationPage}-${index}`}
-                className="bg-white p-6 text-center rounded-lg animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <img
-                  src={item.image}
-                  alt="Accreditation"
-                  className="w-20 h-20 mx-auto mb-4 object-contain"
-                />
-                <p
-                  className="text-gray-600 text-sm leading-relaxed hover:text-gray-800 transition-colors cursor-pointer"
-                  onClick={() => console.log('Clicked accreditation:', item.text)}
-                >
-                  {item.text.split('\n').map((line, i) => (
-                    <span key={i} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            ))}
-        </div>
-      </div>
 
       {/* Разделитель */}
       <div className="max-w-7xl mx-auto px-8">
@@ -1023,7 +779,7 @@ const Homepage = () => {
 
           <div className="slide-in-right">
             <img
-              src="/images/support_section_image.png"
+              src="/images/support_section_phto.png"
               alt={t('homepage.support.title')}
               className="w-full h-auto"
             />
@@ -1144,37 +900,94 @@ const Homepage = () => {
       </div>
 
       {/* News Section */}
-      <div className="py-16 px-8 max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8 slide-in-up">
+      <div className="py-16 px-12 max-w-8xl mx-auto">
+        <div className="flex justify-between items-center mb-12 slide-in-up">
           <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.news')}</h2>
           <Link
             to="/news"
-            className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer"
+            className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer group"
           >
-            <span className="text-muted text-lg">{t('homepage.sections.viewAllNews')}</span>
-            <img src="/images/img_group_21_blue_gray_100.svg" alt="Arrow" className="w-7 h-7" />
+            <span className="text-muted text-lg group-hover:text-red-600 transition-colors">{t('homepage.sections.viewAllNews')}</span>
+            <img src="/images/img_group_21_blue_gray_100.svg" alt="Arrow" className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {newsItems.map((news, index) => (
+          {newsItems.slice(0, 4).map((news, index) => (
             <div
-              key={index}
-              className="slide-in-up hover-scale smooth-animate"
+              key={news.id}
+              className="slide-in-up hover-scale smooth-animate bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100 min-h-[500px] flex flex-col"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-light-gray h-72 rounded-lg mb-4 relative">
-                <Button className="absolute bottom-4 right-4 bg-light text-muted px-6 py-3 rounded-full text-sm">
-                  {news.date}
-                </Button>
+              {/* Image Container */}
+              <Link to={`/news/${news.id}`} className="block flex-shrink-0">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={news.image}
+                    alt={news.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Date Badge */}
+                  <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm">
+                    {news.date}
+                  </div>
+                  
+                  {/* Category Badge */}
+                  {news.category && (
+                    <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm">
+                      {t(`news.${news.category}`)}
+                    </div>
+                  )}
+                </div>
+              </Link>
+
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col">
+                {/* Title */}
+                <Link to={`/news/${news.id}`} className="block">
+                  <h3 className="text-dark text-xl font-bold mb-4 leading-tight line-clamp-2 group-hover:text-red-800 transition-colors duration-300">
+                    {news.title}
+                  </h3>
+                </Link>
+
+                {/* Description */}
+                <p className="text-muted text-base leading-relaxed line-clamp-4 mb-4 flex-1">
+                  {news.description}
+                </p>
+
+                {/* Tags */}
+                {news.tags && news.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {news.tags.slice(0, 2).map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Read More Link */}
+                <Link 
+                  to={`/news/${news.id}`}
+                  className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-auto"
+                >
+                  <span>{t('common.readMore', 'Читать далее')}</span>
+                  <svg
+                    className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
-              <h3
-                className="text-dark text-xl font-semibold mb-4 leading-tight cursor-pointer hover:text-red-800 transition-colors duration-300"
-                onClick={() => console.log('Clicked news:', news.title)}
-              >
-                {news.title}
-              </h3>
-              <p className="text-muted text-base leading-relaxed">{news.description}</p>
             </div>
           ))}
         </div>
@@ -1275,19 +1088,19 @@ const Homepage = () => {
             <EditText
               placeholder={t('homepage.contactForm.namePlaceholder')}
               value={contactFormData.name}
-              onChange={(e) => handleContactFormChange('name', e.target.value)}
+              onChange={(value) => handleContactFormChange('name', value)}
               className="h-[38px]"
             />
             <EditText
               placeholder={t('homepage.contactForm.emailPlaceholder')}
               value={contactFormData.email}
-              onChange={(e) => handleContactFormChange('email', e.target.value)}
+              onChange={(value) => handleContactFormChange('email', value)}
               className="h-[38px]"
             />
             <EditText
               placeholder={t('homepage.contactForm.phonePlaceholder')}
               value={contactFormData.phone}
-              onChange={(e) => handleContactFormChange('phone', e.target.value)}
+              onChange={(value) => handleContactFormChange('phone', value)}
               className="h-[38px]"
             />
             <Button

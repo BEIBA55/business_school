@@ -1054,25 +1054,25 @@ const MBA = () => {
               <EditText
                 placeholder="Ваше имя"
                 value={formData.name}
-                onChange={(e) => handleInputChange('name', e.target.value)}
+                onChange={(value) => handleInputChange('name', value)}
                 className="h-12"
               />
               <EditText
                 placeholder="Email"
                 value={formData.email}
-                onChange={(e) => handleInputChange('email', e.target.value)}
+                onChange={(value) => handleInputChange('email', value)}
                 className="h-12"
               />
               <EditText
                 placeholder="Телефон"
                 value={formData.phone}
-                onChange={(e) => handleInputChange('phone', e.target.value)}
+                onChange={(value) => handleInputChange('phone', value)}
                 className="h-12"
               />
               <EditText
                 placeholder="Компания"
                 value={formData.company}
-                onChange={(e) => handleInputChange('company', e.target.value)}
+                onChange={(value) => handleInputChange('company', value)}
                 className="h-12"
               />
             </div>

@@ -43,6 +43,7 @@
     "programs": "Программы",
     "partnerships": "Партнерства",
     "infrastructure": "Инфраструктура",
+    "faculty": "Преподаватели",
     "title": "Новости",
     "subtitle": "Актуальные новости и события Narxoz Business School",
     "readMore": "Читать далее",
@@ -233,13 +234,72 @@
         "subtitle": "Модульный формат для работающих руководителей"
       },
       "brand": {
-        "title": "Narxoz Business School",
-        "subtitle": "Бизнес-школа нового поколения"
+        "title": "Executive Education",
+        "subtitle": "Для лидеров"
       }
+    },
+    "executiveEducationGrid": {
+      "corporate": {
+        "title": "Корпоративным клиентам"
+      },
+      "miniMba": {
+        "title": "Mini-MBA",
+        "description": "Интенсивная программа для специалистов и менеджеров"
+      },
+      "executiveSessions": {
+        "title": "Executive Sessions for Top Managers",
+        "description": "Для руководителей высшего звена"
+      },
+      "executiveMbaNgo": {
+        "title": "Executive MBA для лидеров НПО/НКО"
+      },
+      "executiveMbaCio": {
+        "title": "Executive MBA для СІО",
+        "description": "Для ИТ-директоров и digital-лидеров"
+      },
+      "trainings": {
+        "title": "Тренинги",
+        "description": "Для развития ключевых навыков в управлении"
+      }
+    },
+    "mbaProgramsGrid": {
+      "mbaFinance": {
+        "title": "MBA Finance",
+        "description": "Прикладные финансы"
+      },
+      "mbaSustainability": {
+        "title": "MBA Sustainability",
+        "description": "Устойчивое развитие бизнеса"
+      },
+      "mbaAi": {
+        "title": "MBA AI",
+        "description": "Искусственный интеллект в бизнесе"
+      },
+      "mbaCreative": {
+        "title": "MBA Creative",
+        "description": "Креативная экономика"
+      },
+      "mbaFinTech": {
+        "title": "MBA FinTech",
+        "description": "Финансовые технологии"
+      },
+      "mscFinance": {
+        "title": "MSc Finance",
+        "description": "Магистратура по финансам"
+      }
+    },
+    "executiveSessionsSection": {
+      "title": "Executive Sessions for Top Managers",
+      "description": "Для руководителей высшего звена"
+    },
+    "newAboutSection": {
+      "title": "Narxoz Business School — World Class Business Education в Центральной Азии. Мы создаём лидеров будущего — смелых, стратегичных и готовых менять правила игры.",
+      "description": "Наши программы MBA, Executive MBA, DBA и Executive Education разработаны для тех, кто стремится к большему: управлять компаниями, вдохновлять команды и внедрять инновации. Мы объединяем международные стандарты, практику ведущих экспертов и локальный контекст, чтобы дать вам конкурентное преимущество здесь и сейчас. Корпоративное обучение и Executive Education помогают топ-менеджерам и компаниям ускорить рост и трансформацию бизнеса. С Narxoz Business School вы становитесь частью сообщества лидеров, которые создают устойчивое будущее и меняют правила игры в регионе и за его пределами.",
+      "contactButton": "Связаться с нами"
     },
     "statsSection": {
       "title": "",
-      "subtitle": "Narxoz Business School – это новые возможности для Вас:",
+      "subtitle": "",
       "stats": [
         {
           "value": "16",
@@ -283,6 +343,16 @@
     },
     "alerts": {
       "applicationSuccess": "Заявка успешно отправлена!"
+    },
+    "contactModal": {
+      "title": "Связаться с нами",
+      "phone": "Телефон",
+      "email": "Email",
+      "address": "Адрес",
+      "addressValue": "г. Алматы, ул. Жандосова, 55",
+      "workingHours": "Время работы",
+      "workingHoursValue": "Пн-Пт: 9:00 - 18:00",
+      "close": "Закрыть"
     },
     "programCards": {
       "expand": "Развернуть",
@@ -792,8 +862,13 @@
     "collaboration": "Сотрудничество"
   },
   "accreditations": {
-    "title": "Аккредитации",
+    "title": "Рейтинги и аккредитации",
     "subtitle": "Narxoz Business School гордится своими международными аккредитациями и признанием качества образования. Наши достижения подтверждают высокий уровень образовательных программ и соответствие мировым стандартам.",
+    "ratings": {
+      "inclusivity": "Инклюзивность",
+      "teachingQuality": "Качество преподавания",
+      "employability": "Возможность трудоустройства"
+    },
     "achievements": {
       "title": "Наши достижения",
       "subtitle": "Международные аккредитации и признания качества образования Narxoz Business School"

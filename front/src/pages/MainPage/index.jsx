@@ -5,7 +5,7 @@ import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import EditText from '../../components/ui/EditText';
 import Button from '../../components/ui/Button';
-import NbsStatsSection from '../Homepage/NbsStatsSection';
+import RankingSection from '../Homepage/RankingSection';
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -47,27 +47,62 @@ const MainPage = () => {
     setContactFormData({ name: '', email: '', phone: '' });
   };
 
+  // Расширенные данные новостей с изображениями и ссылками
   const newsItems = [
     {
+      id: 1,
       date: '15.01.2025',
-      title: t('main.news.items.0.title'),
-      description: t('main.news.items.0.description'),
+      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
+      description: 'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
+      image: '/images/stud.png',
+      category: 'achievements',
+      tags: ['Рейтинги', 'QS']
     },
     {
+      id: 2,
       date: '10.01.2025',
-      title: t('main.news.items.1.title'),
-      description: t('main.news.items.1.description'),
+      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
+      description: 'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
+      image: '/images/EMBA_fon.png',
+      category: 'programs',
+      tags: ['Executive MBA', 'Цифровизация']
     },
     {
+      id: 3,
       date: '05.01.2025',
-      title: t('main.news.items.2.title'),
-      description: t('main.news.items.2.description'),
+      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
+      description: 'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.',
+      image: '/images/gruppa.png',
+      category: 'events',
+      tags: ['Хакатон', 'Сингапур']
     },
     {
+      id: 4,
       date: '01.01.2025',
-      title: t('main.news.items.3.title'),
-      description: t('main.news.items.3.description'),
+      title: 'Открыт новый корпоративный центр для Executive Education программ',
+      description: 'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.',
+      image: '/images/detali.png',
+      category: 'infrastructure',
+      tags: ['Центр', 'Образование']
     },
+    {
+      id: 5,
+      date: '28.12.2024',
+      title: 'Narxoz Business School получила международную аккредитацию AACSB',
+      description: 'Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International.',
+      image: '/images/vipus.jpg',
+      category: 'achievements',
+      tags: ['Аккредитация', 'AACSB']
+    },
+    {
+      id: 6,
+      date: '25.12.2024',
+      title: 'Топовые эксперты присоединились к преподавательскому составу',
+      description: 'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента.',
+      image: '/images/experty.png',
+      category: 'faculty',
+      tags: ['Эксперты', 'Преподаватели']
+    }
   ];
 
   return (
@@ -105,21 +140,28 @@ const MainPage = () => {
             className="flex flex-col gap-3 sm:gap-2 w-full max-w-4xl mx-auto lg:flex-row"
             onSubmit={(e) => {
               e.preventDefault();
+              handleConsultationSubmit();
             }}
           >
             <input
               type="text"
               placeholder={t('forms.namePlaceholder')}
+              value={formData.name}
+              onChange={(e) => handleInputChange('name', e.target.value)}
               className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] px-3 sm:px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:ring-opacity-50"
             />
             <input
               type="email"
               placeholder={t('forms.emailPlaceholder')}
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
               className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] px-3 sm:px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:ring-opacity-50"
             />
             <input
               type="tel"
               placeholder={t('forms.phonePlaceholder')}
+              value={formData.phone}
+              onChange={(e) => handleInputChange('phone', e.target.value)}
               className="flex-1 min-w-0 shadow-sm rounded-md bg-white h-[44px] sm:h-[42px] px-3 sm:px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#991E1E] focus:ring-opacity-50"
             />
             <button
@@ -139,16 +181,68 @@ const MainPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-12 lg:mb-16">
             <div className="lg:col-span-2 space-y-6 lg:space-y-8">
               <div className="animate-fade-in-up">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                   {t('main.intro.title')}
                 </h2>
-                <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
-                  {t('main.intro.description')}
-                </p>
-                <div className="prose prose-sm sm:prose lg:prose-lg text-gray-600">
-                  <p className="mb-4 sm:mb-6">{t('main.intro.details.paragraph1')}</p>
-                  <p className="mb-4 sm:mb-6">{t('main.intro.details.paragraph2')}</p>
-                  <p>{t('main.intro.details.paragraph3')}</p>
+                
+                <div className="prose prose-lg sm:prose-xl text-gray-600 leading-relaxed space-y-6">
+                  <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6 sm:mb-8 border-l-4 border-[#991E1E] pl-6 bg-gradient-to-r from-red-50 to-transparent py-4">
+                    {t('main.intro.description')}
+                  </p>
+                  
+                  <div className="space-y-6">
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                      {t('main.intro.details.paragraph1')}
+                    </p>
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                      {t('main.intro.details.paragraph2')}
+                    </p>
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-medium">
+                      {t('main.intro.details.paragraph3')}
+                    </p>
+                  </div>
+
+                  {/* Секция с языками обучения */}
+                  <div className="mt-8 p-8 bg-white rounded-xl border border-gray-200">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+                      <svg className="w-5 h-5 text-[#991E1E] mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7 2a1 1 0 011 1v1h3a1 1 0 110 2H9.578a18.87 18.87 0 01-1.724 4.674c-.29.516-.6.988-.882 1.326C6.538 13.828 6.14 14 6 14a1 1 0 01-.707-1.707l.707-.707A1 1 0 016 12c.14 0 .538-.172.774-.326.282-.338.592-.81.882-1.326A18.87 18.87 0 009.578 6H12a1 1 0 110-2H8V3a1 1 0 011-1z" clipRule="evenodd" />
+                      </svg>
+                      Обучение на трех языках
+                    </h3>
+                    <p className="text-gray-600 mb-6 text-sm">
+                      Мы предлагаем образовательные программы на трех языках для максимального удобства наших студентов
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      <div className="flex items-center p-4 bg-gray-50 rounded-lg">
+                        <div className="w-8 h-8 bg-[#991E1E] rounded-full flex items-center justify-center mr-3">
+                          <span className="text-white font-medium text-sm">Қ</span>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-900 text-sm">Қазақ тілі</h4>
+                          <p className="text-xs text-gray-500">Казахский язык</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center p-4 bg-gray-50 rounded-lg">
+                        <div className="w-8 h-8 bg-[#991E1E] rounded-full flex items-center justify-center mr-3">
+                          <span className="text-white font-medium text-sm">Р</span>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-900 text-sm">Русский язык</h4>
+                          <p className="text-xs text-gray-500">Russian language</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center p-4 bg-gray-50 rounded-lg">
+                        <div className="w-8 h-8 bg-[#991E1E] rounded-full flex items-center justify-center mr-3">
+                          <span className="text-white font-medium text-sm">E</span>
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-gray-900 text-sm">English</h4>
+                          <p className="text-xs text-gray-500">Английский язык</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -193,7 +287,7 @@ const MainPage = () => {
                 </div>
               </div>
 
-              <div className="bg-primary rounded-xl p-6 sm:p-8 lg:p-12 text-white text-center animate-fade-in-up">
+              <div className="bg-[#991E1E] rounded-xl p-6 sm:p-8 lg:p-12 text-white text-center animate-fade-in-up">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6">
                   {t('main.sidebar.quote.title')}
                 </h3>
@@ -365,54 +459,103 @@ const MainPage = () => {
       {/* Divider */}
       <div className="w-full h-px bg-gray-200"></div>
 
-      {/* Statistics Section */}
-      <NbsStatsSection />
+      {/* Ranking Section */}
+      <RankingSection />
 
       {/* Divider */}
       <div className="w-full h-px bg-gray-200"></div>
 
       {/* News Section */}
-      <div className="py-16 px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-8 slide-in-up">
-            <h2 className="text-gray-900 text-4xl font-bold">{t('main.news.title')}</h2>
-            <Link
-              to="/news"
-              className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer"
-            >
-              <span className="text-gray-600 text-lg">{t('main.news.viewAllNews')}</span>
-              <svg className="w-7 h-7 text-[#991E1E]" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </Link>
-          </div>
+      <div className="py-16 px-12 max-w-8xl mx-auto">
+        <div className="flex justify-between items-center mb-12 slide-in-up">
+          <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.news')}</h2>
+          <Link
+            to="/news"
+            className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer group"
+          >
+            <span className="text-muted text-lg group-hover:text-red-600 transition-colors">{t('homepage.sections.viewAllNews')}</span>
+            <img src="/images/img_group_21_blue_gray_100.svg" alt="Arrow" className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {newsItems.map((news, index) => (
-              <div
-                key={index}
-                className="slide-in-up hover-scale smooth-animate"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="bg-gray-100 h-72 rounded-lg mb-4 relative">
-                  <Button className="absolute bottom-4 right-4 bg-white text-gray-600 px-6 py-3 rounded-full text-sm shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {newsItems.slice(0, 4).map((news, index) => (
+            <div
+              key={news.id}
+              className="slide-in-up hover-scale smooth-animate bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100 min-h-[500px] flex flex-col"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {/* Image Container */}
+              <Link to={`/news/${news.id}`} className="block flex-shrink-0">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={news.image}
+                    alt={news.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Date Badge */}
+                  <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm">
                     {news.date}
-                  </Button>
+                  </div>
+                  
+                  {/* Category Badge */}
+                  {news.category && (
+                    <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm">
+                      {t(`news.${news.category}`)}
+                    </div>
+                  )}
                 </div>
-                <h3
-                  className="text-gray-900 text-xl font-semibold mb-4 leading-tight cursor-pointer hover:text-[#991E1E] transition-colors duration-300"
-                  onClick={() => console.log('Clicked news:', news.title)}
+              </Link>
+
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col">
+                {/* Title */}
+                <Link to={`/news/${news.id}`} className="block">
+                  <h3 className="text-dark text-xl font-bold mb-4 leading-tight line-clamp-2 group-hover:text-red-800 transition-colors duration-300">
+                    {news.title}
+                  </h3>
+                </Link>
+
+                {/* Description */}
+                <p className="text-muted text-base leading-relaxed line-clamp-4 mb-4 flex-1">
+                  {news.description}
+                </p>
+
+                {/* Tags */}
+                {news.tags && news.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {news.tags.slice(0, 2).map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-xs text-gray-600 bg-gray-100 px-3 py-1 rounded-full font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Read More Link */}
+                <Link 
+                  to={`/news/${news.id}`}
+                  className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-auto"
                 >
-                  {news.title}
-                </h3>
-                <p className="text-gray-600 text-base leading-relaxed">{news.description}</p>
+                  <span>{t('common.readMore', 'Читать далее')}</span>
+                  <svg
+                    className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -435,19 +578,19 @@ const MainPage = () => {
             <EditText
               placeholder={t('homepage.contactForm.namePlaceholder')}
               value={contactFormData.name}
-              onChange={(e) => handleContactInputChange('name', e.target.value)}
+              onChange={(value) => handleContactInputChange('name', value)}
               className="h-[38px]"
             />
             <EditText
               placeholder={t('homepage.contactForm.emailPlaceholder')}
               value={contactFormData.email}
-              onChange={(e) => handleContactInputChange('email', e.target.value)}
+              onChange={(value) => handleContactInputChange('email', value)}
               className="h-[38px]"
             />
             <EditText
               placeholder={t('homepage.contactForm.phonePlaceholder')}
               value={contactFormData.phone}
-              onChange={(e) => handleContactInputChange('phone', e.target.value)}
+              onChange={(value) => handleContactInputChange('phone', value)}
               className="h-[38px]"
             />
             <Button

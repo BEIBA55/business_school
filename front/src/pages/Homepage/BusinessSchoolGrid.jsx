@@ -6,24 +6,39 @@ const BusinessSchoolGrid = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full max-w-7xl mx-auto my-12">
-      <div className="grid grid-cols-4 grid-rows-2 w-full h-[540px]">
+    <div className="w-full max-w-7xl mx-auto">
+      <div className="grid grid-cols-4 grid-rows-2 w-full h-[540px] gap-0">
         {/* 1. №1 MBA */}
         <Link
           to="/programs/mba"
           className="bg-[#991E1E] text-white flex flex-col justify-center items-center relative rounded-[40px] border border-gray-200 h-full w-full p-6"
         >
-          <span className="text-5xl md:text-6xl font-bold leading-tight">
-            {t('homepage.businessGrid.mba.rank')}
-            <br />
+          <span className="text-4xl md:text-5xl font-medium leading-tight">
             {t('homepage.businessGrid.mba.program')}
           </span>
           <span className="text-base font-normal mt-2 opacity-80">
-            {t('homepage.businessGrid.mba.region')}
+            {t('homepage.businessGrid.mba.rank')} {t('homepage.businessGrid.mba.region')}
           </span>
           <span className="text-sm font-normal mt-4 text-white/80 text-center">
             {t('homepage.businessGrid.mba.description')}
           </span>
+          <div className="flex items-center mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
+              <span className="text-white font-medium text-sm">Подробнее</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
         </Link>
         {/* 2. Фото здания */}
         <div className="bg-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full overflow-hidden p-0">
@@ -38,15 +53,29 @@ const BusinessSchoolGrid = () => {
           to="/programs/dba"
           className="bg-white text-[#991E1E] flex flex-col justify-center items-center relative rounded-[40px] border border-gray-200 h-full w-full p-6"
         >
-          <span className="text-5xl md:text-6xl font-bold leading-tight">
+          <span className="text-4xl md:text-5xl font-medium leading-tight">
             {t('homepage.businessGrid.dba.program')}
           </span>
           <span className="text-base font-normal mt-2 opacity-80 text-center">
             {t('homepage.businessGrid.dba.description')}
           </span>
-          <span className="text-sm font-normal mt-4 text-[#991E1E]/80 text-center">
-            {t('homepage.businessGrid.dba.subtitle')}
-          </span>
+          <div className="flex items-center mt-4">
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full px-4 py-1">
+              <span className="text-[#991E1E] font-medium text-sm">Подробнее</span>
+            </div>
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full w-7 h-7 ml-0">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="#991E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
         </Link>
         {/* 4. Фото выпускников (верхний правый) */}
         <div className="bg-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full overflow-hidden p-0">
@@ -62,29 +91,27 @@ const BusinessSchoolGrid = () => {
           className="bg-white text-[#991E1E] flex flex-col justify-center items-start relative rounded-[40px] border border-gray-200 h-full w-full col-span-2 p-8"
           style={{ gridColumn: '2 / span 2' }}
         >
-          <span className="text-5xl md:text-6xl font-bold leading-tight">
+          <span className="text-4xl md:text-5xl font-medium leading-tight">
             {t('homepage.businessGrid.executiveMba.program').split(' ')[0]}
             <br />
             {t('homepage.businessGrid.executiveMba.program').split(' ')[1]}
           </span>
           <div className="flex items-center mt-4">
-            <svg
-              width="56"
-              height="28"
-              viewBox="0 0 56 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect x="1" y="1" width="54" height="26" rx="13" stroke="#991E1E" strokeWidth="2" />
-              <path d="M34 14H48" stroke="#991E1E" strokeWidth="2" strokeLinecap="round" />
-              <path
-                d="M44 10L48 14L44 18"
-                stroke="#991E1E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full px-4 py-1">
+              <span className="text-[#991E1E] font-medium text-sm">Подробнее</span>
+            </div>
+            <div className="flex items-center border-2 border-[#991E1E] rounded-full w-7 h-7 ml-0">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="#991E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
           </div>
           <span className="text-base font-normal mt-4 text-[#991E1E]/80">
             {t('homepage.businessGrid.executiveMba.description')}
@@ -93,22 +120,37 @@ const BusinessSchoolGrid = () => {
             {t('homepage.businessGrid.executiveMba.subtitle')}
           </span>
         </Link>
-        {/* 7-8. Narxoz Business School (row-span-2, col-start-4) */}
+        {/* 7-8. Executive Education (row-span-2, col-start-4) */}
         <Link
-          to="/"
+          to="/programs/executive-education"
           className="bg-[#991E1E] text-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full row-span-2 col-start-4 p-6"
           style={{ gridRow: '2 / span 1', gridColumn: '4 / span 1' }}
         >
-          <span className="text-5xl md:text-6xl font-bold leading-tight text-center">
-            {t('homepage.businessGrid.brand.title').split(' ')[0]}
+          <span className="text-4xl md:text-5xl font-medium leading-tight text-center">
+            Executive
             <br />
-            {t('homepage.businessGrid.brand.title').split(' ')[1]}
-            <br />
-            {t('homepage.businessGrid.brand.title').split(' ')[2]}
+            Education
           </span>
           <span className="text-sm font-normal mt-4 text-white/80 text-center">
-            {t('homepage.businessGrid.brand.subtitle')}
+            Для лидеров
           </span>
+          <div className="flex items-center mt-4">
+            <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
+              <span className="text-white font-medium text-sm">Подробнее</span>
+            </div>
+            <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-auto"
+              >
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
         </Link>
       </div>
     </div>

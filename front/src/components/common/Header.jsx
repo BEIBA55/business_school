@@ -146,8 +146,7 @@ const Header = () => {
           'navigation.searchPlaceholder': 'Введите запрос...',
           'programs.mba': 'MBA',
           'programs.executiveMba': 'Executive MBA',
-          'programs.dba': 'DBA',
-          'programs.magistracy': 'Магистратура'
+          'programs.dba': 'DBA'
         },
         en: {
           'navigation.about': 'About',
@@ -160,8 +159,7 @@ const Header = () => {
           'navigation.searchPlaceholder': 'Enter your query...',
           'programs.mba': 'MBA',
           'programs.executiveMba': 'Executive MBA',
-          'programs.dba': 'DBA',
-          'programs.magistracy': "Master's Degree"
+          'programs.dba': 'DBA'
         },
         kk: {
           'navigation.about': 'Мектеп туралы',
@@ -174,8 +172,7 @@ const Header = () => {
           'navigation.searchPlaceholder': 'Сұрауыңызды енгізіңіз...',
           'programs.mba': 'MBA',
           'programs.executiveMba': 'Executive MBA',
-          'programs.dba': 'DBA',
-          'programs.magistracy': 'Магистратура'
+          'programs.dba': 'DBA'
         }
       };
       
@@ -321,12 +318,6 @@ const Header = () => {
                         className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
                       >
                         {getNavigationLabel('programs.dba', 'DBA')}
-                      </Link>
-                      <Link
-                        to="/programs/Magistracy"
-                        className="block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-black transition-colors text-sm font-medium"
-                      >
-                        {getNavigationLabel('programs.magistracy', 'Магистратура')}
                       </Link>
                     </div>
                   </div>
@@ -661,13 +652,6 @@ const Header = () => {
                     className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
                   >
                     {getNavigationLabel('programs.dba', 'DBA')}
-                  </Link>
-                  <Link
-                    to="/programs/Magistracy"
-                    onClick={closeMobileMenu}
-                    className="block py-2 text-gray-600 hover:text-red-600 transition-colors"
-                  >
-                    {getNavigationLabel('programs.magistracy', 'Магистратура')}
                   </Link>
                 </div>
               </div>
