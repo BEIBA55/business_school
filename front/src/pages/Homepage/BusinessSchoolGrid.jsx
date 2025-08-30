@@ -24,7 +24,7 @@ const BusinessSchoolGrid = () => {
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
-              <span className="text-white font-medium text-sm">Подробнее</span>
+              <span className="text-white font-medium text-sm">{t('homepage.businessGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
               <svg
@@ -43,7 +43,7 @@ const BusinessSchoolGrid = () => {
         {/* 2. Фото здания */}
         <div className="bg-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full overflow-hidden p-0">
           <img
-            src="/images/img_.png"
+            src="/images/NBSphoto.png"
             alt="Narxoz Building"
             className="object-cover w-full h-full"
           />
@@ -61,7 +61,7 @@ const BusinessSchoolGrid = () => {
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-[#991E1E] rounded-full px-4 py-1">
-              <span className="text-[#991E1E] font-medium text-sm">Подробнее</span>
+              <span className="text-[#991E1E] font-medium text-sm">{t('homepage.businessGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-[#991E1E] rounded-full w-7 h-7 ml-0">
               <svg
@@ -83,12 +83,12 @@ const BusinessSchoolGrid = () => {
         </div>
         {/* 5. Фото выпускников (нижний левый) */}
         <div className="bg-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full overflow-hidden p-0">
-          <img src="/images/graduat.jpg" alt="Graduates" className="object-cover w-full h-full" />
+          <img src="/images/ExecMBA.png" alt="Graduates" className="object-cover w-full h-full" />
         </div>
         {/* 6. Executive MBA (col-span-2) */}
         <Link
           to="/programs/executive-mba"
-          className="bg-white text-[#991E1E] flex flex-col justify-center items-start relative rounded-[40px] border border-gray-200 h-full w-full col-span-2 p-8"
+          className="bg-[#E94848] text-white flex flex-col justify-center items-start relative rounded-[40px] border border-gray-200 h-full w-full col-span-2 p-8"
           style={{ gridColumn: '2 / span 2' }}
         >
           <span className="text-4xl md:text-5xl font-medium leading-tight">
@@ -97,10 +97,10 @@ const BusinessSchoolGrid = () => {
             {t('homepage.businessGrid.executiveMba.program').split(' ')[1]}
           </span>
           <div className="flex items-center mt-4">
-            <div className="flex items-center border-2 border-[#991E1E] rounded-full px-4 py-1">
-              <span className="text-[#991E1E] font-medium text-sm">Подробнее</span>
+            <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
+              <span className="text-white font-medium text-sm">{t('homepage.businessGrid.more')}</span>
             </div>
-            <div className="flex items-center border-2 border-[#991E1E] rounded-full w-7 h-7 ml-0">
+            <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
               <svg
                 width="16"
                 height="16"
@@ -109,14 +109,14 @@ const BusinessSchoolGrid = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="mx-auto"
               >
-                <path d="M6 12L10 8L6 4" stroke="#991E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M6 12L10 8L6 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>
-          <span className="text-base font-normal mt-4 text-[#991E1E]/80">
+          <span className="text-base font-normal mt-4 text-white/80">
             {t('homepage.businessGrid.executiveMba.description')}
           </span>
-          <span className="text-sm font-normal mt-2 text-[#991E1E]/60">
+          <span className="text-sm font-normal mt-2 text-white/60">
             {t('homepage.businessGrid.executiveMba.subtitle')}
           </span>
         </Link>
@@ -132,11 +132,11 @@ const BusinessSchoolGrid = () => {
             Education
           </span>
           <span className="text-sm font-normal mt-4 text-white/80 text-center">
-            Для лидеров
+            {t('homepage.businessGrid.brand.subtitle')}
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
-              <span className="text-white font-medium text-sm">Подробнее</span>
+              <span className="text-white font-medium text-sm">{t('homepage.businessGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
               <svg

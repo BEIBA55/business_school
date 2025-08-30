@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useTranslatedNews } from '../../data/translatedNewsData';
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -10,639 +11,30 @@ const NewsDetail = () => {
   const navigate = useNavigate();
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true);
 
-  // Расширенные данные новостей с подробной информацией
-  const allNews = [
-    {
-      id: 1,
-      image: '/images/stud.png',
-      category: 'achievements',
-      tags: ['Рейтинги', 'QS'],
-      date: '15.01.2025',
-      readTime: '5 мин',
-      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
-      description: 'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
-      fullContent: `
-        <p>Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента. Наши эксперты имеют многолетний опыт работы в ведущих корпорациях и готовы поделиться своими знаниями со студентами Narxoz Business School.</p>
-        
-        <h2>Кто наши эксперты?</h2>
-        <p>В Narxoz Business School мы гордимся тем, что наши программы ведут практикующие специалисты из ведущих компаний Казахстана и мира. Это не просто теоретики, а люди, которые ежедневно принимают важные бизнес-решения и управляют крупными проектами.</p>
-        
-        <h3>Практический опыт</h3>
-        <p>Наши эксперты имеют опыт работы в таких компаниях как:</p>
-        <ul>
-          <li>KPMG Kazakhstan</li>
-          <li>Ernst & Young</li>
-          <li>Deloitte</li>
-          <li>PwC</li>
-          <li>Крупнейшие банки Казахстана</li>
-          <li>Международные корпорации</li>
-        </ul>
-        
-        <h3>Инновационные подходы</h3>
-        <p>Мы постоянно обновляем наши программы, чтобы они соответствовали современным требованиям бизнеса. Наши эксперты привносят в обучение:</p>
-        <ul>
-          <li>Реальные кейсы из практики</li>
-          <li>Современные инструменты управления</li>
-          <li>Международный опыт</li>
-          <li>Сетевые возможности</li>
-        </ul>
-        
-        <h2>Результаты обучения</h2>
-        <p>Благодаря такому подходу наши выпускники получают не только теоретические знания, но и практические навыки, которые сразу можно применять в работе. Это подтверждается высокими позициями наших выпускников в ведущих компаниях региона.</p>
-      `,
-      author: 'Команда Narxoz Business School',
-      relatedNews: [2, 3, 4]
-    },
-    {
-      id: 2,
-      image: '/images/EMBA_fon.png',
-      category: 'programs',
-      tags: ['Executive MBA', 'Цифровизация'],
-      date: '10.01.2025',
-      readTime: '4 мин',
-      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
-      description: 'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
-      fullContent: `
-        <p>Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе. Это историческое достижение для казахстанского образования и признание высокого качества наших программ.</p>
-        
-        <h2>О рейтинге QS Global MBA</h2>
-        <p>QS Global MBA Rankings является одним из самых авторитетных рейтингов бизнес-школ в мире. Он оценивает программы MBA по следующим критериям:</p>
-        <ul>
-          <li>Качество преподавания и исследований</li>
-          <li>Карьерные перспективы выпускников</li>
-          <li>Международная репутация</li>
-          <li>Доходы выпускников</li>
-          <li>Предпринимательская активность</li>
-        </ul>
-        
-        <h3>Ключевые достижения</h3>
-        <p>В опубликованном рейтинге QS Global MBA отмечены сильные стороны программы:</p>
-        <ul>
-          <li>Высокие баллы по критерию предпринимательства</li>
-          <li>Отличные карьерные перспективы выпускников</li>
-          <li>Международное признание качества образования</li>
-          <li>Сильная исследовательская база</li>
-        </ul>
-        
-        <h2>Сравнение с мировыми лидерами</h2>
-        <p>По показателю предпринимательства и востребованности выпускников наша программа MBA также входит в топ-50 лучших мира. По этому показателю Бизнес-школа Университета Нархоз набрала высокие баллы и опередила другие всемирно признанные школы, такие как:</p>
-        <ul>
-          <li>Carnegie Mellon (США)</li>
-          <li>Dartmouth (США)</li>
-          <li>Shanghai University of Finance and Economics (Китай)</li>
-          <li>Tsinghua (Китай)</li>
-          <li>Edinburgh (Великобритания)</li>
-          <li>Manchester (Великобритания)</li>
-        </ul>
-        
-        <h3>Региональное лидерство</h3>
-        <p>Это достижение подтверждает, что мы создаём обучение, которое соответствует и опережает мировые стандарты. Наша программа MBA стала первой в Центрально-Азиатском регионе, достигшей таких высоких результатов в международном рейтинге.</p>
-        
-        <h2>Перспективы развития</h2>
-        <p>Этот успех мотивирует нас продолжать развиваться и улучшать качество образования. Мы планируем:</p>
-        <ul>
-          <li>Расширить международные партнерства</li>
-          <li>Улучшить исследовательскую деятельность</li>
-          <li>Развивать предпринимательские программы</li>
-          <li>Усилить карьерную поддержку студентов</li>
-        </ul>
-      `,
-      author: 'Пресс-служба Narxoz Business School',
-      relatedNews: [1, 3, 5]
-    },
-    {
-      id: 3,
-      image: '/images/gruppa.png',
-      category: 'events',
-      tags: ['Хакатон', 'Сингапур'],
-      date: '05.01.2025',
-      readTime: '6 мин',
-      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
-      description: 'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.',
-      fullContent: `
-        <p>Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям. Программа разработана в сотрудничестве с ведущими технологическими компаниями и включает практические проекты.</p>
-        
-        <h2>Новые модули программы</h2>
-        <p>Обновленная программа Executive MBA включает следующие инновационные модули:</p>
-        
-        <h3>Цифровая трансформация бизнеса</h3>
-        <p>Модуль посвящен стратегиям цифровой трансформации и включает:</p>
-        <ul>
-          <li>Анализ цифровой зрелости организации</li>
-          <li>Разработка цифровой стратегии</li>
-          <li>Управление изменениями в цифровую эпоху</li>
-          <li>Цифровые бизнес-модели</li>
-        </ul>
-        
-        <h3>Искусственный интеллект в бизнесе</h3>
-        <p>Практическое применение ИИ в различных отраслях:</p>
-        <ul>
-          <li>Машинное обучение для бизнес-аналитики</li>
-          <li>Автоматизация бизнес-процессов</li>
-          <li>ИИ в маркетинге и продажах</li>
-          <li>Этические аспекты использования ИИ</li>
-        </ul>
-        
-        <h3>Цифровые финансы и FinTech</h3>
-        <p>Изучение современных финансовых технологий:</p>
-        <ul>
-          <li>Блокчейн и криптовалюты</li>
-          <li>Цифровые платежные системы</li>
-          <li>Регулирование FinTech</li>
-          <li>Инвестиции в цифровые активы</li>
-        </ul>
-        
-        <h2>Практические проекты</h2>
-        <p>Программа включает реальные проекты с партнерскими компаниями:</p>
-        <ul>
-          <li>Консультационные проекты для реальных компаний</li>
-          <li>Разработка цифровых решений</li>
-          <li>Анализ кейсов ведущих технологических компаний</li>
-          <li>Международные стажировки</li>
-        </ul>
-        
-        <h3>Партнерства</h3>
-        <p>Программа разработана в сотрудничестве с:</p>
-        <ul>
-          <li>Microsoft Kazakhstan</li>
-          <li>Google for Startups</li>
-          <li>Местными технологическими компаниями</li>
-          <li>Международными консалтинговыми фирмами</li>
-        </ul>
-        
-        <h2>Формат обучения</h2>
-        <p>Программа Executive MBA сохраняет удобный модульный формат:</p>
-        <ul>
-          <li>12 месяцев обучения</li>
-          <li>Модули по 3-4 дня каждый месяц</li>
-          <li>Онлайн-поддержка между модулями</li>
-          <li>Индивидуальные консультации</li>
-        </ul>
-      `,
-      author: 'Академический директор Narxoz Business School',
-      relatedNews: [1, 2, 4]
-    },
-    {
-      id: 4,
-      image: '/images/detali.png',
-      category: 'infrastructure',
-      tags: ['Центр', 'Образование'],
-      date: '01.01.2025',
-      readTime: '3 мин',
-      title: 'Открыт новый корпоративный центр для Executive Education программ',
-      description: 'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.',
-      fullContent: `
-        <p>Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами. Наши студенты представили инновационное решение для экологических проблем в регионе.</p>
-        
-        <h2>О хакатоне</h2>
-        <p>Международный хакатон по устойчивому развитию проходил в Сингапуре с участием команд из 15 стран. Мероприятие было организовано ведущими университетами Азии и Европы с целью поиска инновационных решений глобальных экологических проблем.</p>
-        
-        <h3>Тема хакатона</h3>
-        <p>В этом году хакатон был посвящен теме "Устойчивые города будущего" и включал следующие направления:</p>
-        <ul>
-          <li>Энергоэффективность и возобновляемые источники энергии</li>
-          <li>Умные транспортные системы</li>
-          <li>Переработка отходов и циркулярная экономика</li>
-          <li>Зеленое строительство</li>
-          <li>Цифровые решения для экологии</li>
-        </ul>
-        
-        <h2>Наш проект</h2>
-        <p>Команда Narxoz Business School представила проект "EcoSmart Central Asia" - комплексное решение для мониторинга и управления экологическими показателями в городах Центральной Азии.</p>
-        
-        <h3>Ключевые особенности проекта</h3>
-        <ul>
-          <li>IoT-сенсоры для мониторинга качества воздуха</li>
-          <li>ИИ-алгоритмы для прогнозирования экологических рисков</li>
-          <li>Мобильное приложение для граждан</li>
-          <li>Дашборд для городских властей</li>
-          <li>Интеграция с существующими городскими системами</li>
-        </ul>
-        
-        <h3>Состав команды</h3>
-        <p>Нашу команду представляли:</p>
-        <ul>
-          <li>Алиса Ким - MBA, руководитель проекта</li>
-          <li>Дамир Нурланов - MBA, технический директор</li>
-          <li>Мария Петрова - MBA, аналитик данных</li>
-          <li>Артем Соколов - MBA, маркетолог</li>
-        </ul>
-        
-        <h2>Конкуренция</h2>
-        <p>В хакатоне участвовали команды из:</p>
-        <ul>
-          <li>Национального университета Сингапура</li>
-          <li>Гонконгского университета науки и технологий</li>
-          <li>Токийского университета</li>
-          <li>Лондонской школы экономики</li>
-          <li>Стэнфордского университета</li>
-          <li>И других ведущих университетов</li>
-        </ul>
-        
-        <h3>Результаты</h3>
-        <p>Наша команда заняла второе место, уступив только команде из Сингапура. Жюри высоко оценило:</p>
-        <ul>
-          <li>Инновационность решения</li>
-          <li>Практическую применимость</li>
-          <li>Качество презентации</li>
-          <li>Техническую реализацию</li>
-        </ul>
-        
-        <h2>Перспективы развития</h2>
-        <p>После хакатона проект получил поддержку от:</p>
-        <ul>
-          <li>Азиатского банка развития</li>
-          <li>Местных экологических организаций</li>
-          <li>Городских администраций</li>
-        </ul>
-        <p>Команда планирует запустить пилотный проект в Алматы в следующем году.</p>
-      `,
-      author: 'Международный отдел Narxoz Business School',
-      relatedNews: [2, 3, 5]
-    },
-    {
-      id: 5,
-      image: '/images/vipus.jpg',
-      category: 'achievements',
-      tags: ['Аккредитация', 'AACSB'],
-      date: '28.12.2024',
-      readTime: '4 мин',
-      title: 'Narxoz Business School получила международную аккредитацию AACSB',
-      description: 'Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International.',
-      fullContent: `
-        <p>В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы. Центр оснащен последними технологиями и создает идеальную среду для обучения руководителей.</p>
-        
-        <h2>Новые возможности</h2>
-        <p>Корпоративный центр площадью 2000 квадратных метров включает:</p>
-        
-        <h3>Инновационные аудитории</h3>
-        <ul>
-          <li>Аудитория-трансформер на 100 человек</li>
-          <li>Семинарские комнаты на 20-30 человек</li>
-          <li>Переговорные комнаты для командной работы</li>
-          <li>Коворкинг-зона для неформального общения</li>
-        </ul>
-        
-        <h3>Технологическое оснащение</h3>
-        <ul>
-          <li>Интерактивные доски и проекторы</li>
-          <li>Системы видеоконференций</li>
-          <li>VR-оборудование для симуляций</li>
-          <li>Высокоскоростной интернет</li>
-          <li>Системы голосования и опросов</li>
-        </ul>
-        
-        <h2>Дизайн и комфорт</h2>
-        <p>Центр спроектирован с учетом современных требований к образовательным пространствам:</p>
-        <ul>
-          <li>Эргономичная мебель</li>
-          <li>Естественное освещение</li>
-          <li>Системы вентиляции и кондиционирования</li>
-          <li>Зеленые зоны и места для отдыха</li>
-        </ul>
-        
-        <h3>Кафе и зоны отдыха</h3>
-        <p>Для комфортного пребывания участников программ:</p>
-        <ul>
-          <li>Современное кафе с здоровым питанием</li>
-          <li>Лаунж-зоны для неформального общения</li>
-          <li>Терраса с видом на город</li>
-          <li>Фитнес-зал для активного отдыха</li>
-        </ul>
-        
-        <h2>Программы центра</h2>
-        <p>В новом центре будут проводиться:</p>
-        <ul>
-          <li>Executive MBA программы</li>
-          <li>Корпоративные тренинги</li>
-          <li>Международные конференции</li>
-          <li>Сетевые мероприятия</li>
-          <li>Коучинг-сессии</li>
-        </ul>
-        
-        <h3>Партнерские программы</h3>
-        <p>Центр также будет использоваться для программ с нашими международными партнерами:</p>
-        <ul>
-          <li>ESMT Berlin</li>
-          <li>Penn State University</li>
-          <li>University of Monaco</li>
-          <li>Другие ведущие университеты</li>
-        </ul>
-        
-        <h2>Экологичность</h2>
-        <p>Центр построен с учетом принципов устойчивого развития:</p>
-        <ul>
-          <li>Энергоэффективные системы</li>
-          <li>Использование экологических материалов</li>
-          <li>Системы переработки отходов</li>
-          <li>Зеленые технологии</li>
-        </ul>
-      `,
-      author: 'Отдел инфраструктуры Narxoz Business School',
-      relatedNews: [1, 2, 4]
-    },
-    {
-      id: 6,
-      image: '/images/experty.png',
-      category: 'faculty',
-      tags: ['Эксперты', 'Преподаватели'],
-      date: '25.12.2024',
-      readTime: '3 мин',
-      title: 'Топовые эксперты присоединились к преподавательскому составу',
-      description: 'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента.',
-      fullContent: `
-        <p>Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International. Это подтверждает соответствие наших программ мировым стандартам качества образования.</p>
-        
-        <h2>О аккредитации AACSB</h2>
-        <p>AACSB International является одной из самых престижных аккредитационных организаций в мире бизнес-образования. Получение этой аккредитации означает соответствие высочайшим стандартам качества.</p>
-        
-        <h3>Критерии аккредитации</h3>
-        <ul>
-          <li>Качество преподавания и исследований</li>
-          <li>Актуальность учебных программ</li>
-          <li>Международное сотрудничество</li>
-          <li>Карьерные перспективы выпускников</li>
-        </ul>
-        
-        <h2>Значение для студентов</h2>
-        <p>Аккредитация AACSB открывает новые возможности для наших студентов и выпускников.</p>
-      `,
-      author: 'Пресс-служба Narxoz Business School',
-      relatedNews: [2, 7, 8]
-    },
-    {
-      id: 7,
-      image: '/images/EMBA_fon.png',
-      category: 'Партнерства',
-      tags: ['Harvard', 'London Business School'],
-      date: '18/07/2025',
-      readTime: '5 мин',
-      title: 'Партнерство с ведущими мировыми университетами',
-      description: 'Подписаны соглашения о сотрудничестве с Harvard Business School и London Business School для обмена студентами и преподавателями.',
-      fullContent: `
-        <p>Подписаны соглашения о сотрудничестве с Harvard Business School и London Business School для обмена студентами и преподавателями. Это открывает новые возможности для наших студентов и преподавателей.</p>
-        
-        <h2>Программы обмена</h2>
-        <p>В рамках партнерства будут реализованы программы студенческого обмена и совместные исследовательские проекты.</p>
-        
-        <h3>Возможности для студентов</h3>
-        <ul>
-          <li>Семестр обучения в ведущих университетах</li>
-          <li>Совместные исследовательские проекты</li>
-          <li>Международные конференции</li>
-          <li>Сетевые мероприятия</li>
-        </ul>
-      `,
-      author: 'Международный отдел Narxoz Business School',
-      relatedNews: [1, 6, 8]
-    },
-    {
-      id: 8,
-      image: '/images/MBA.png',
-      category: 'Программы',
-      tags: ['MBA', 'Устойчивое развитие'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Запуск программы MBA в области устойчивого развития',
-      description: 'Новая специализация MBA фокусируется на экологических, социальных и управленческих аспектах современного бизнеса.',
-      fullContent: `
-        <p>Новая специализация MBA фокусируется на экологических, социальных и управленческих аспектах современного бизнеса. Программа готовит лидеров, способных создавать устойчивый бизнес будущего.</p>
-        
-        <h2>Модули программы</h2>
-        <p>Программа включает специализированные модули по устойчивому развитию и корпоративной социальной ответственности.</p>
-        
-        <h3>Ключевые темы</h3>
-        <ul>
-          <li>Экологическая устойчивость</li>
-          <li>Социальная ответственность бизнеса</li>
-          <li>Зеленые технологии</li>
-          <li>Устойчивые бизнес-модели</li>
-        </ul>
-      `,
-      author: 'Академический директор Narxoz Business School',
-      relatedNews: [3, 6, 7]
-    },
-    {
-      id: 9,
-      image: '/images/ACCA.png',
-      category: 'Достижения',
-      tags: ['Конкурс', 'EFMD'],
-      date: '18/07/2025',
-      readTime: '3 мин',
-      title: 'Студенты Narxoz заняли первое место на международном конкурсе бизнес-кейсов',
-      description: 'Команда MBA студентов победила в престижном конкурсе, организованном European Foundation for Management Development.',
-      fullContent: `
-        <p>Команда MBA студентов победила в престижном конкурсе, организованном European Foundation for Management Development. Наши студенты показали высокий уровень аналитических и презентационных навыков.</p>
-        
-        <h2>О конкурсе</h2>
-        <p>Конкурс EFMD Global Case Competition является одним из самых престижных международных соревнований в области бизнес-кейсов.</p>
-        
-        <h3>Достижения команды</h3>
-        <ul>
-          <li>Первое место среди 50 команд</li>
-          <li>Лучшая презентация</li>
-          <li>Инновационное решение</li>
-          <li>Высокое качество анализа</li>
-        </ul>
-      `,
-      author: 'Академический отдел Narxoz Business School',
-      relatedNews: [2, 4, 10]
-    },
-    {
-      id: 10,
-      image: '/images/CEEMAN.png',
-      category: 'Инфраструктура',
-      tags: ['Инновации', 'Стартапы'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Открытие Центра инноваций и предпринимательства',
-      description: 'Новый центр предоставляет студентам возможности для развития стартапов и инновационных проектов.',
-      fullContent: `
-        <p>Новый центр предоставляет студентам возможности для развития стартапов и инновационных проектов. Центр оснащен современным оборудованием и предоставляет менторскую поддержку.</p>
-        
-        <h2>Возможности центра</h2>
-        <p>Центр инноваций и предпринимательства предлагает комплексную поддержку для развития бизнес-идей.</p>
-        
-        <h3>Услуги центра</h3>
-        <ul>
-          <li>Менторская поддержка</li>
-          <li>Техническое оснащение</li>
-          <li>Сетевые мероприятия</li>
-          <li>Инвестиционные возможности</li>
-        </ul>
-      `,
-      author: 'Центр инноваций Narxoz Business School',
-      relatedNews: [5, 9, 11]
-    },
-    {
-      id: 11,
-      image: '/images/Ranked.png',
-      category: 'Достижения',
-      tags: ['Рейтинги', 'THE'],
-      date: '18/07/2025',
-      readTime: '3 мин',
-      title: 'Narxoz вошел в топ-100 лучших университетов развивающихся стран',
-      description: 'Университет Нархоз улучшил свои позиции в рейтинге Times Higher Education Emerging Economies University Rankings.',
-      fullContent: `
-        <p>Университет Нархоз улучшил свои позиции в рейтинге Times Higher Education Emerging Economies University Rankings. Это подтверждает высокое качество образования и исследований.</p>
-        
-        <h2>О рейтинге THE</h2>
-        <p>Times Higher Education Emerging Economies University Rankings оценивает университеты развивающихся стран по различным критериям.</p>
-        
-        <h3>Ключевые показатели</h3>
-        <ul>
-          <li>Качество преподавания</li>
-          <li>Исследовательская деятельность</li>
-          <li>Международное сотрудничество</li>
-          <li>Инновации и технологии</li>
-        </ul>
-      `,
-      author: 'Пресс-служба Narxoz Business School',
-      relatedNews: [2, 9, 12]
-    },
-    {
-      id: 12,
-      image: '/images/ERG.png',
-      category: 'Партнерства',
-      tags: ['ERG', 'Kazzinc'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Сотрудничество с крупнейшими корпорациями Казахстана',
-      description: 'Подписаны меморандумы о сотрудничестве с ERG, Kazzinc и другими ведущими компаниями для стажировок студентов.',
-      fullContent: `
-        <p>Подписаны меморандумы о сотрудничестве с ERG, Kazzinc и другими ведущими компаниями для стажировок студентов. Это обеспечивает практическую подготовку наших выпускников.</p>
-        
-        <h2>Партнерские компании</h2>
-        <p>Сотрудничество с ведущими корпорациями открывает новые возможности для студентов и выпускников.</p>
-        
-        <h3>Программы сотрудничества</h3>
-        <ul>
-          <li>Стажировки для студентов</li>
-          <li>Трудоустройство выпускников</li>
-          <li>Совместные проекты</li>
-          <li>Экспертные лекции</li>
-        </ul>
-      `,
-      author: 'Отдел по работе с партнерами Narxoz Business School',
-      relatedNews: [7, 10, 13]
-    },
-    {
-      id: 13,
-      image: '/images/Beeline.png',
-      category: 'Программы',
-      tags: ['Цифровой маркетинг', 'Аналитика'],
-      date: '18/07/2025',
-      readTime: '5 мин',
-      title: 'Запуск программы цифрового маркетинга',
-      description: 'Новая программа MBA специализации включает современные инструменты цифрового маркетинга и аналитики данных.',
-      fullContent: `
-        <p>Новая программа MBA специализации включает современные инструменты цифрового маркетинга и аналитики данных. Программа разработана в сотрудничестве с ведущими digital-агентствами.</p>
-        
-        <h2>Специализация программы</h2>
-        <p>Программа фокусируется на современных подходах к цифровому маркетингу и аналитике.</p>
-        
-        <h3>Ключевые модули</h3>
-        <ul>
-          <li>Цифровой маркетинг</li>
-          <li>Аналитика данных</li>
-          <li>SEO и SEM</li>
-          <li>Социальные медиа</li>
-        </ul>
-      `,
-      author: 'Академический директор Narxoz Business School',
-      relatedNews: [3, 8, 14]
-    },
-    {
-      id: 14,
-      image: '/images/Halyk.png',
-      category: 'Партнерства',
-      tags: ['Halyk Bank', 'Финансы'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Партнерство с Halyk Bank для финансового образования',
-      description: 'Совместная программа подготовки специалистов в области финансов и банковского дела.',
-      fullContent: `
-        <p>Совместная программа подготовки специалистов в области финансов и банковского дела. Программа включает стажировки в банке и практические проекты.</p>
-        
-        <h2>Программа сотрудничества</h2>
-        <p>Партнерство с Halyk Bank открывает новые возможности для студентов финансовых специальностей.</p>
-        
-        <h3>Возможности для студентов</h3>
-        <ul>
-          <li>Стажировки в банке</li>
-          <li>Практические проекты</li>
-          <li>Карьерные возможности</li>
-          <li>Экспертные лекции</li>
-        </ul>
-      `,
-      author: 'Финансовый факультет Narxoz Business School',
-      relatedNews: [12, 13, 15]
-    },
-    {
-      id: 15,
-      image: '/images/forte.png',
-      category: 'events',
-      tags: ['Конференция', 'Международная'],
-      date: '18/07/2025',
-      readTime: '6 мин',
-      title: 'Международная конференция по бизнес-образованию',
-      description: 'Narxoz Business School провела крупнейшую в регионе конференцию с участием экспертов из 25 стран.',
-      fullContent: `
-        <p>Narxoz Business School провела крупнейшую в регионе конференцию с участием экспертов из 25 стран. Конференция стала платформой для обмена опытом и установления новых партнерств.</p>
-        
-        <h2>О конференции</h2>
-        <p>Международная конференция собрала ведущих экспертов в области бизнес-образования со всего мира.</p>
-        
-        <h3>Ключевые темы</h3>
-        <ul>
-          <li>Цифровизация образования</li>
-          <li>Международные стандарты</li>
-          <li>Инновации в обучении</li>
-          <li>Партнерства университетов</li>
-        </ul>
-      `,
-      author: 'Оргкомитет конференции Narxoz Business School',
-      relatedNews: [1, 7, 16]
-    },
-    {
-      id: 16,
-      image: '/images/alag.png',
-      category: 'Программы',
-      tags: ['Женское лидерство', 'Развитие'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Программа поддержки женского лидерства',
-      description: 'Запущена специальная программа для развития лидерских качеств у женщин в бизнесе.',
-      fullContent: `
-        <p>Запущена специальная программа для развития лидерских качеств у женщин в бизнесе. Программа включает менторство, коучинг и сетевые мероприятия.</p>
-        
-        <h2>Цели программы</h2>
-        <p>Программа направлена на поддержку и развитие женского лидерства в бизнесе и обществе.</p>
-        
-        <h3>Компоненты программы</h3>
-        <ul>
-          <li>Менторская поддержка</li>
-          <li>Коучинг-сессии</li>
-          <li>Сетевые мероприятия</li>
-          <li>Лидерские тренинги</li>
-        </ul>
-      `,
-      author: 'Центр женского лидерства Narxoz Business School',
-      relatedNews: [8, 15, 1]
-    }
-  ];
+  // Используем переведенные новости
+  const allNews = useTranslatedNews();
 
   useEffect(() => {
-    const foundNews = allNews.find(n => n.id === parseInt(id));
+    const foundNews = allNews.find(news => news.id === parseInt(id));
     if (foundNews) {
       setNews(foundNews);
+      // Предзагружаем изображение
+      const img = new Image();
+      img.onload = () => {
+        setImageLoading(false);
+      };
+      img.onerror = () => {
+        setImageLoading(false);
+      };
+      img.src = foundNews.image;
     } else {
       // Если новость не найдена, перенаправляем на страницу новостей
       navigate('/news');
     }
     setLoading(false);
-  }, [id, navigate]);
+  }, [id, navigate, allNews]);
 
   if (loading) {
     return (
@@ -661,26 +53,33 @@ const NewsDetail = () => {
   }
 
   const getRelatedNews = () => {
-    return allNews.filter(n => news.relatedNews.includes(n.id));
+    // Возвращаем первые 3 новости, исключая текущую
+    return allNews.filter(n => n.id !== news.id).slice(0, 3);
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       <Header />
 
       {/* Breadcrumbs */}
-      <div className="bg-gray-50 py-4">
-        <div className="max-w-7xl mx-auto px-8">
+      <div className="bg-white border-b border-gray-200 py-4">
+        <div className="max-w-4xl mx-auto px-8">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link to="/" className="text-gray-500 hover:text-red-600 transition-colors">
+            <Link to="/" className="text-gray-500 hover:text-red-600 transition-colors flex items-center">
+              <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              </svg>
               {t('common.home', 'Главная')}
             </Link>
             <span className="text-gray-400">/</span>
-            <Link to="/news" className="text-gray-500 hover:text-red-600 transition-colors">
+            <Link to="/news" className="text-gray-500 hover:text-red-600 transition-colors flex items-center">
+              <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+              </svg>
               {t('about.news', 'Новости')}
             </Link>
             <span className="text-gray-400">/</span>
-            <span className="text-gray-900 font-medium">{news.title}</span>
+            <span className="text-gray-900 font-medium truncate max-w-xs">{news.title}</span>
           </nav>
         </div>
       </div>
@@ -688,78 +87,158 @@ const NewsDetail = () => {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-8 py-12">
         {/* Article Header */}
-        <article className="mb-12">
-          {/* Category and Date */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center space-x-4">
-              <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">
+        <article className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          {/* Hero Image */}
+          <div className="relative h-64 md:h-96 overflow-hidden bg-gray-100">
+            {/* Loading State */}
+            {imageLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                <div className="flex flex-col items-center">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mb-4"></div>
+                  <p className="text-gray-500 text-sm">Загрузка изображения...</p>
+                </div>
+              </div>
+            )}
+            
+            {/* Image */}
+            <img
+              src={news.image}
+              alt={news.title}
+              className={`w-full h-full object-cover transition-opacity duration-500 ${
+                imageLoading ? 'opacity-0' : 'opacity-100'
+              }`}
+              onLoad={() => setImageLoading(false)}
+              onError={() => setImageLoading(false)}
+              loading="eager"
+              decoding="async"
+            />
+            
+            {/* Gradient Overlay */}
+            <div className={`absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent transition-opacity duration-500 ${
+              imageLoading ? 'opacity-0' : 'opacity-100'
+            }`} />
+            
+            {/* Category Badge on Image */}
+            <div className="absolute top-6 left-6">
+              <span className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                </svg>
                 {news.category}
               </span>
-              <span className="text-gray-500 text-sm">{news.date}</span>
-              <span className="text-gray-500 text-sm">•</span>
-              <span className="text-gray-500 text-sm">{news.readTime}</span>
             </div>
+
+            {/* Back Button */}
             <button
               onClick={() => navigate('/news')}
-              className="text-gray-500 hover:text-red-600 transition-colors"
+              className="absolute top-6 right-6 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-600 transition-colors duration-300 shadow-lg"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          {/* Title */}
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-            {news.title}
-          </h1>
+          {/* Article Content */}
+          <div className="p-8">
+            {/* Meta Information */}
+            <div className="flex items-center justify-between mb-6 pb-6 border-b border-gray-100">
+              <div className="flex items-center space-x-6">
+                <div className="flex items-center text-gray-500 text-sm">
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  </svg>
+                  {news.date}
+                </div>
+                <div className="flex items-center text-gray-500 text-sm">
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  </svg>
+                  {news.readTime}
+                </div>
+              </div>
+              
+              {/* Share Button */}
+              <button className="flex items-center text-gray-500 hover:text-red-600 transition-colors duration-300">
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+                </svg>
+                Поделиться
+              </button>
+            </div>
 
-          {/* Description */}
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {news.description}
-          </p>
+            {/* Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              {news.title}
+            </h1>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {news.tags.map((tag, index) => (
-              <span
-                key={index}
-                className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+            {/* Description */}
+            <div className="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 rounded-r-xl mb-8">
+              <p className="text-xl text-gray-700 leading-relaxed font-medium">
+                {news.description}
+              </p>
+            </div>
 
-          {/* Main Image */}
-          <div className="relative mb-8">
-            <img
-              src={news.image}
-              alt={news.title}
-              className="w-full h-64 md:h-96 object-cover rounded-lg"
-            />
-          </div>
+            {/* Tags */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              {news.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="inline-flex items-center bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-red-100 hover:text-red-700 transition-colors duration-300 border border-gray-200"
+                >
+                  <svg className="w-3 h-3 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                  </svg>
+                  {tag}
+                </span>
+              ))}
+            </div>
 
-          {/* Content */}
-          <div 
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: news.fullContent }}
-          />
+            {/* Content */}
+            <div className="prose prose-lg max-w-none">
+              <div 
+                className="news-content"
+                dangerouslySetInnerHTML={{ __html: news.fullContent }}
+              />
+            </div>
 
-          {/* Author */}
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <p className="text-gray-600">
-              <span className="font-medium">Автор:</span> {news.author}
-            </p>
+            {/* Author Section */}
+            <div className="mt-12 pt-8 border-t border-gray-200 bg-gray-50 rounded-xl p-6">
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-gray-600 text-sm font-medium">Автор статьи</p>
+                  <p className="text-gray-900 font-semibold">{news.author}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
 
         {/* Related News */}
         {getRelatedNews().length > 0 && (
           <section className="mt-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
-              {t('news.relatedNews', 'Похожие новости')}
-            </h2>
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+                <svg className="w-6 h-6 mr-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                </svg>
+                {t('news.relatedNews', 'Похожие новости')}
+              </h2>
+              <Link 
+                to="/news" 
+                className="text-red-600 hover:text-red-700 font-medium flex items-center transition-colors duration-300"
+              >
+                Все новости
+                <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {getRelatedNews().map((relatedNews) => (
                 <Link
@@ -767,25 +246,35 @@ const NewsDetail = () => {
                   to={`/news/${relatedNews.id}`}
                   className="group block"
                 >
-                  <div className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
-                    <div className="aspect-[16/9] overflow-hidden">
+                  <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 hover:border-red-200">
+                    <div className="aspect-[16/9] overflow-hidden bg-gray-100">
                       <img
                         src={relatedNews.image}
                         alt={relatedNews.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
-                    <div className="p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs text-red-600 font-medium bg-red-50 px-2 py-1 rounded-full">
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="inline-flex items-center text-xs text-red-600 font-semibold bg-red-50 px-3 py-1.5 rounded-full border border-red-100">
+                          <svg className="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                          </svg>
                           {relatedNews.category}
                         </span>
-                        <span className="text-xs text-gray-500">{relatedNews.date}</span>
+                        <span className="text-xs text-gray-500 flex items-center">
+                          <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                          </svg>
+                          {relatedNews.date}
+                        </span>
                       </div>
-                      <h3 className="font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors line-clamp-2">
+                      <h3 className="font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors line-clamp-2 leading-tight">
                         {relatedNews.title}
                       </h3>
-                      <p className="text-sm text-gray-600 line-clamp-2">
+                      <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
                         {relatedNews.description}
                       </p>
                     </div>

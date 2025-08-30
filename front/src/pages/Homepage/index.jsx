@@ -12,9 +12,16 @@ import ExecutiveSessionsSection from './ExecutiveSessionsSection';
 import ExecutiveEducationGrid from './ExecutiveEducationGrid';
 import StatsNumbers from './StatsNumbers';
 import RankingSection from './RankingSection';
+import { useToast } from '../../hooks/useToast';
+import { useFormValidation } from '../../hooks/useFormValidation';
+import { useTranslatedNews } from '../../data/translatedNewsData';
+
 
 const Homepage = () => {
   const { t } = useTranslation();
+  const { showConsultationSuccess, showContactSuccess } = useToast();
+  const { validateConsultationForm, validateContactForm, showValidationErrors } = useFormValidation();
+  
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -31,6 +38,26 @@ const Homepage = () => {
     email: '',
     phone: '',
   });
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  // Обработчик клавиши Escape для закрытия модального окна
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        setIsContactModalOpen(false);
+      }
+    };
+
+    if (isContactModalOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden'; // Блокируем скролл
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset'; // Возвращаем скролл
+    };
+  }, [isContactModalOpen]);
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({
@@ -47,12 +74,26 @@ const Homepage = () => {
   };
 
   const handleConsultationSubmit = () => {
-    alert(t('homepage.alerts.applicationSuccess'));
+    const errors = validateConsultationForm(formData);
+    
+    if (errors.length > 0) {
+      showValidationErrors(errors);
+      return;
+    }
+    
+    showConsultationSuccess();
     setFormData({ name: '', phone: '', email: '' });
   };
 
   const handleContactSubmit = () => {
-    alert(t('homepage.alerts.applicationSuccess'));
+    const errors = validateContactForm(contactFormData);
+    
+    if (errors.length > 0) {
+      showValidationErrors(errors);
+      return;
+    }
+    
+    showContactSuccess();
     setContactFormData({ name: '', email: '', phone: '' });
   };
 
@@ -118,11 +159,11 @@ const Homepage = () => {
       text: '7% of universities in central asia',
     },
     {
-      image: '/images/mbaqs.png',
+      image: '/images/CEEMAN.png',
       text: 'MBA QS',
     },
     {
-      image: '/images/CEEMAN.png',
+      image: '/images/mbaqs.png',
       text: 'In the process of accreditation',
     },
     {
@@ -217,6 +258,51 @@ const Homepage = () => {
       name: t('homepage.faculty.7.name'),
       description: t('homepage.faculty.7.description'),
     },
+    {
+      image: '/images/Aleksandr.png',
+      name: t('homepage.faculty.8.name'),
+      description: t('homepage.faculty.8.description'),
+    },
+    {
+      image: '/images/Marat.png',
+      name: t('homepage.faculty.9.name'),
+      description: t('homepage.faculty.9.description'),
+    },
+    {
+      image: '/images/Andrei.png',
+      name: t('homepage.faculty.10.name'),
+      description: t('homepage.faculty.10.description'),
+    },
+    {
+      image: '/images/Nikolai.png',
+      name: t('homepage.faculty.11.name'),
+      description: t('homepage.faculty.11.description'),
+    },
+    {
+      image: '/images/Maksim.png',
+      name: t('homepage.faculty.12.name'),
+      description: t('homepage.faculty.12.description'),
+    },
+    {
+      image: '/images/Bulat.png',
+      name: t('homepage.faculty.13.name'),
+      description: t('homepage.faculty.13.description'),
+    },
+    {
+      image: '/images/Farhad.png',
+      name: t('homepage.faculty.14.name'),
+      description: t('homepage.faculty.14.description'),
+    },
+    {
+      image: '/images/GulmiraMuk.png',
+      name: t('homepage.faculty.15.name'),
+      description: t('homepage.faculty.15.description'),
+    },
+    {
+      image: '/images/Akzharkyn.jpg',
+      name: t('homepage.faculty.16.name'),
+      description: t('homepage.faculty.16.description'),
+    },
   ];
 
   const administration = [
@@ -264,63 +350,8 @@ const Homepage = () => {
     },
   ];
 
-  // Расширенные данные новостей с изображениями и ссылками
-  const newsItems = [
-    {
-      id: 1,
-      date: '15.01.2025',
-      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
-      description: 'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
-      image: '/images/stud.png',
-      category: 'achievements',
-      tags: ['Рейтинги', 'QS']
-    },
-    {
-      id: 2,
-      date: '10.01.2025',
-      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
-      description: 'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
-      image: '/images/EMBA_fon.png',
-      category: 'programs',
-      tags: ['Executive MBA', 'Цифровизация']
-    },
-    {
-      id: 3,
-      date: '05.01.2025',
-      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
-      description: 'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.',
-      image: '/images/gruppa.png',
-      category: 'events',
-      tags: ['Хакатон', 'Сингапур']
-    },
-    {
-      id: 4,
-      date: '01.01.2025',
-      title: 'Открыт новый корпоративный центр для Executive Education программ',
-      description: 'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.',
-      image: '/images/detali.png',
-      category: 'infrastructure',
-      tags: ['Центр', 'Образование']
-    },
-    {
-      id: 5,
-      date: '28.12.2024',
-      title: 'Narxoz Business School получила международную аккредитацию AACSB',
-      description: 'Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International.',
-      image: '/images/vipus.jpg',
-      category: 'achievements',
-      tags: ['Аккредитация', 'AACSB']
-    },
-    {
-      id: 6,
-      date: '25.12.2024',
-      title: 'Топовые эксперты присоединились к преподавательскому составу',
-      description: 'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента.',
-      image: '/images/experty.png',
-      category: 'faculty',
-      tags: ['Эксперты', 'Преподаватели']
-    }
-  ];
+  // Используем переведенные новости
+  const newsItems = useTranslatedNews();
 
 
 
@@ -465,11 +496,12 @@ const Homepage = () => {
               </h2>
               {/* Кнопка Contact Us */}
               <div className="mt-8">
-                <Link to="/contact">
-                  <button className="bg-[#991E1E] text-white px-6 py-3 rounded-md font-medium hover:bg-[#7a1818] transition-colors">
-                    Contact US
-                  </button>
-                </Link>
+                <button 
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="bg-[#991E1E] text-white px-6 py-3 rounded-md font-medium hover:bg-[#7a1818] transition-colors"
+                >
+                  {t('homepage.newAboutSection.contactButton')}
+                </button>
               </div>
             </div>
             
@@ -667,21 +699,66 @@ const Homepage = () => {
       <div className="py-10 px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6 slide-in-up">
           <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.graduates')}</h2>
-          <div className="flex items-center space-x-4">
-            <img
-              src="/images/img_group_21.svg"
-              alt="Previous"
-              className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${graduateVideoPage === 0 ? 'opacity-30 pointer-events-none' : ''}`}
+          <div className="flex items-center space-x-3">
+            {/* Улучшенная кнопка "Предыдущая" */}
+            <button
               onClick={() => setGraduateVideoPage(Math.max(0, graduateVideoPage - 1))}
-            />
-            <img
-              src="/images/img_group_21_blue_gray_100.svg"
-              alt="Next"
-              className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${graduateVideoPage === totalGraduatePages - 1 ? 'opacity-30 pointer-events-none' : ''}`}
-              onClick={() =>
-                setGraduateVideoPage(Math.min(totalGraduatePages - 1, graduateVideoPage + 1))
-              }
-            />
+              disabled={graduateVideoPage === 0}
+              className={`group relative w-12 h-12 rounded-full border-2 transition-all duration-300 ease-out flex items-center justify-center ${
+                graduateVideoPage === 0
+                  ? 'border-gray-300 bg-gray-100 cursor-not-allowed'
+                  : 'border-[#991E1E] bg-white hover:bg-[#991E1E] hover:scale-110 hover:shadow-lg cursor-pointer'
+              }`}
+            >
+              <svg
+                className={`w-5 h-5 transition-all duration-300 ${
+                  graduateVideoPage === 0
+                    ? 'text-gray-400'
+                    : 'text-[#991E1E] group-hover:text-white group-hover:-translate-x-0.5'
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              {/* Эффект пульсации при hover */}
+              <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                graduateVideoPage === 0
+                  ? 'opacity-0'
+                  : 'opacity-0 group-hover:opacity-20 group-hover:scale-125 bg-[#991E1E]'
+              }`}></div>
+            </button>
+
+            {/* Улучшенная кнопка "Следующая" */}
+            <button
+              onClick={() => setGraduateVideoPage(Math.min(totalGraduatePages - 1, graduateVideoPage + 1))}
+              disabled={graduateVideoPage === totalGraduatePages - 1}
+              className={`group relative w-12 h-12 rounded-full border-2 transition-all duration-300 ease-out flex items-center justify-center ${
+                graduateVideoPage === totalGraduatePages - 1
+                  ? 'border-gray-300 bg-gray-100 cursor-not-allowed'
+                  : 'border-[#991E1E] bg-white hover:bg-[#991E1E] hover:scale-110 hover:shadow-lg cursor-pointer'
+              }`}
+            >
+              <svg
+                className={`w-5 h-5 transition-all duration-300 ${
+                  graduateVideoPage === totalGraduatePages - 1
+                    ? 'text-gray-400'
+                    : 'text-[#991E1E] group-hover:text-white group-hover:translate-x-0.5'
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              {/* Эффект пульсации при hover */}
+              <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                graduateVideoPage === totalGraduatePages - 1
+                  ? 'opacity-0'
+                  : 'opacity-0 group-hover:opacity-20 group-hover:scale-125 bg-[#991E1E]'
+              }`}></div>
+            </button>
           </div>
         </div>
 
@@ -690,8 +767,10 @@ const Homepage = () => {
           {pagedGraduateVideos.map((video, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-6 flex flex-col items-center min-h-[340px] transition-transform duration-200 hover:scale-105"
-              style={{ minWidth: '340px' }}
+              className="graduate-video-card-simple bg-white rounded-2xl p-6 flex flex-col items-center min-h-[340px] transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:shadow-xl group"
+              style={{ 
+                minWidth: '340px'
+              }}
             >
               <div className="w-full mb-4" style={{ aspectRatio: '16/9', maxWidth: 420 }}>
                 <iframe
@@ -801,19 +880,66 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex justify-between items-center mb-8 slide-in-up">
             <h2 className="text-dark text-4xl font-bold">{t('homepage.sections.faculty')}</h2>
-            <div className="flex items-center space-x-4">
-              <img
-                src="/images/img_group_21.svg"
-                alt="Previous"
-                className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentFacultyIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+            <div className="flex items-center space-x-3">
+              {/* Улучшенная кнопка "Предыдущая" */}
+              <button
                 onClick={() => handleFacultyNavigation('prev')}
-              />
-              <img
-                src="/images/img_group_21_blue_gray_100.svg"
-                alt="Next"
-                className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentFacultyIndex >= faculty.length - 4 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={currentFacultyIndex === 0}
+                className={`group relative w-12 h-12 rounded-full border-2 transition-all duration-300 ease-out flex items-center justify-center ${
+                  currentFacultyIndex === 0
+                    ? 'border-gray-300 bg-gray-100 cursor-not-allowed'
+                    : 'border-[#991E1E] bg-white hover:bg-[#991E1E] hover:scale-110 hover:shadow-lg cursor-pointer'
+                }`}
+              >
+                <svg
+                  className={`w-5 h-5 transition-all duration-300 ${
+                    currentFacultyIndex === 0
+                      ? 'text-gray-400'
+                      : 'text-[#991E1E] group-hover:text-white group-hover:-translate-x-0.5'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                {/* Эффект пульсации при hover */}
+                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                  currentFacultyIndex === 0
+                    ? 'opacity-0'
+                    : 'opacity-0 group-hover:opacity-20 group-hover:scale-125 bg-[#991E1E]'
+                }`}></div>
+              </button>
+
+              {/* Улучшенная кнопка "Следующая" */}
+              <button
                 onClick={() => handleFacultyNavigation('next')}
-              />
+                disabled={currentFacultyIndex >= faculty.length - 4}
+                className={`group relative w-12 h-12 rounded-full border-2 transition-all duration-300 ease-out flex items-center justify-center ${
+                  currentFacultyIndex >= faculty.length - 4
+                    ? 'border-gray-300 bg-gray-100 cursor-not-allowed'
+                    : 'border-[#991E1E] bg-white hover:bg-[#991E1E] hover:scale-110 hover:shadow-lg cursor-pointer'
+                }`}
+              >
+                <svg
+                  className={`w-5 h-5 transition-all duration-300 ${
+                    currentFacultyIndex >= faculty.length - 4
+                      ? 'text-gray-400'
+                      : 'text-[#991E1E] group-hover:text-white group-hover:translate-x-0.5'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                {/* Эффект пульсации при hover */}
+                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                  currentFacultyIndex >= faculty.length - 4
+                    ? 'opacity-0'
+                    : 'opacity-0 group-hover:opacity-20 group-hover:scale-125 bg-[#991E1E]'
+                }`}></div>
+              </button>
             </div>
           </div>
 
@@ -824,23 +950,22 @@ const Homepage = () => {
 
               return (
                 <div
-                  key={`${currentFacultyIndex}-${index}`}
-                  className="slide-in-up hover-scale smooth-transition group"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  key={`faculty-${globalIndex}`}
+                  className="faculty-card-simple group"
                 >
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group-hover:border-red-200">
+                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out overflow-hidden border border-gray-100 group-hover:border-red-200 transform group-hover:-translate-y-2">
                     <div className="relative overflow-hidden">
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-80 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
 
                     <div className="p-6">
                       <div className="flex items-center space-x-2 mb-3">
-                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-red-500 rounded-full transition-all duration-300 group-hover:scale-125"></div>
                         <h3 className="text-dark text-xl font-bold group-hover:text-red-600 transition-colors duration-300">
                           {member.name}
                         </h3>
@@ -848,7 +973,7 @@ const Homepage = () => {
 
                       <div className="relative">
                         <p
-                          className={`text-gray-600 text-sm leading-relaxed transition-all duration-500 ${
+                          className={`text-gray-600 text-sm leading-relaxed transition-all duration-500 ease-out ${
                             isExpanded ? 'line-clamp-none' : 'line-clamp-3'
                           }`}
                         >
@@ -857,14 +982,14 @@ const Homepage = () => {
 
                         {/* Градиент для скрытия текста */}
                         {!isExpanded && (
-                          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+                          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0"></div>
                         )}
                       </div>
 
                       {/* Кнопка "Читать дальше" */}
                       <button
                         onClick={() => toggleFacultyCard(globalIndex)}
-                        className="mt-4 text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-300 flex items-center space-x-1 group/btn"
+                        className="mt-4 text-red-600 hover:text-red-700 font-medium text-sm transition-all duration-300 flex items-center space-x-1 group/btn hover:space-x-2"
                       >
                         <span>
                           {isExpanded
@@ -872,7 +997,7 @@ const Homepage = () => {
                             : t('homepage.programCards.more')}
                         </span>
                         <svg
-                          className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                          className={`w-4 h-4 transition-all duration-300 ease-out ${isExpanded ? 'rotate-180' : ''}`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -1009,19 +1134,66 @@ const Homepage = () => {
             <h2 className="text-dark text-4xl font-bold">
               {t('homepage.sections.administration')}
             </h2>
-            <div className="flex items-center space-x-4">
-              <img
-                src="/images/img_group_21.svg"
-                alt="Previous"
-                className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentAdminIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+            <div className="flex items-center space-x-3">
+              {/* Улучшенная кнопка "Предыдущая" */}
+              <button
                 onClick={() => handleAdminNavigation('prev')}
-              />
-              <img
-                src="/images/img_group_21_blue_gray_100.svg"
-                alt="Next"
-                className={`w-7 h-7 cursor-pointer hover:scale-110 transition-transform hover:opacity-70 ${currentAdminIndex >= administration.length - 4 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={currentAdminIndex === 0}
+                className={`group relative w-12 h-12 rounded-full border-2 transition-all duration-300 ease-out flex items-center justify-center ${
+                  currentAdminIndex === 0
+                    ? 'border-gray-300 bg-gray-100 cursor-not-allowed'
+                    : 'border-[#991E1E] bg-white hover:bg-[#991E1E] hover:scale-110 hover:shadow-lg cursor-pointer'
+                }`}
+              >
+                <svg
+                  className={`w-5 h-5 transition-all duration-300 ${
+                    currentAdminIndex === 0
+                      ? 'text-gray-400'
+                      : 'text-[#991E1E] group-hover:text-white group-hover:-translate-x-0.5'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                {/* Эффект пульсации при hover */}
+                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                  currentAdminIndex === 0
+                    ? 'opacity-0'
+                    : 'opacity-0 group-hover:opacity-20 group-hover:scale-125 bg-[#991E1E]'
+                }`}></div>
+              </button>
+
+              {/* Улучшенная кнопка "Следующая" */}
+              <button
                 onClick={() => handleAdminNavigation('next')}
-              />
+                disabled={currentAdminIndex >= administration.length - 4}
+                className={`group relative w-12 h-12 rounded-full border-2 transition-all duration-300 ease-out flex items-center justify-center ${
+                  currentAdminIndex >= administration.length - 4
+                    ? 'border-gray-300 bg-gray-100 cursor-not-allowed'
+                    : 'border-[#991E1E] bg-white hover:bg-[#991E1E] hover:scale-110 hover:shadow-lg cursor-pointer'
+                }`}
+              >
+                <svg
+                  className={`w-5 h-5 transition-all duration-300 ${
+                    currentAdminIndex >= administration.length - 4
+                      ? 'text-gray-400'
+                      : 'text-[#991E1E] group-hover:text-white group-hover:translate-x-0.5'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                {/* Эффект пульсации при hover */}
+                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${
+                  currentAdminIndex >= administration.length - 4
+                    ? 'opacity-0'
+                    : 'opacity-0 group-hover:opacity-20 group-hover:scale-125 bg-[#991E1E]'
+                }`}></div>
+              </button>
             </div>
           </div>
 
@@ -1031,23 +1203,22 @@ const Homepage = () => {
 
               return (
                 <div
-                  key={`${currentAdminIndex}-${index}`}
-                  className="slide-in-up hover-scale smooth-transition group"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  key={`admin-${globalIndex}`}
+                  className="admin-card-simple group"
                 >
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group-hover:border-red-200 h-full flex flex-col">
+                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-out overflow-hidden border border-gray-100 group-hover:border-red-200 h-full flex flex-col transform group-hover:-translate-y-2">
                     <div className="relative overflow-hidden">
                       <img
                         src={admin.image}
                         alt={admin.name}
-                        className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-80 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
 
                     <div className="p-6 flex-1 flex flex-col">
                       <div className="flex items-center space-x-2 mb-3">
-                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-red-500 rounded-full transition-all duration-300 group-hover:scale-125"></div>
                         <h3 className="text-dark text-xl font-bold group-hover:text-red-600 transition-colors duration-300">
                           {admin.name}
                         </h3>
@@ -1057,7 +1228,7 @@ const Homepage = () => {
                         {admin.position}
                       </p>
 
-                      <p className="text-red-600 text-sm font-medium hover:text-red-700 transition-colors duration-300 mt-auto">
+                      <p className="text-red-600 text-sm font-medium hover:text-red-700 transition-colors duration-300 mt-auto group-hover:underline">
                         {admin.email}
                       </p>
                     </div>
@@ -1117,6 +1288,94 @@ const Homepage = () => {
       </div>
 
       <Footer />
+
+      {/* Contact Modal */}
+      {isContactModalOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={() => setIsContactModalOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setIsContactModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Modal content */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-[#991E1E] mb-6">
+                {t('homepage.contactModal.title')}
+              </h3>
+              
+              <div className="space-y-4 text-left">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-[#E94848] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 font-medium">{t('homepage.contactModal.phone')}</p>
+                    <p className="text-lg font-semibold text-gray-800">+7 (727) 377-11-11</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-[#E94848] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 font-medium">{t('homepage.contactModal.email')}</p>
+                    <p className="text-lg font-semibold text-gray-800">info@narxoz.kz</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-[#E94848] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 font-medium">{t('homepage.contactModal.address')}</p>
+                    <p className="text-lg font-semibold text-gray-800">{t('homepage.contactModal.addressValue')}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-[#E94848] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 font-medium">{t('homepage.contactModal.workingHours')}</p>
+                    <p className="text-lg font-semibold text-gray-800">{t('homepage.contactModal.workingHoursValue')}</p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsContactModalOpen(false)}
+                className="mt-6 w-full bg-[#991E1E] text-white py-3 rounded-md font-medium hover:bg-[#7a1818] transition-colors"
+              >
+                {t('homepage.contactModal.close')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

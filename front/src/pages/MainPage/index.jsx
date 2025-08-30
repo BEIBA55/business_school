@@ -6,9 +6,17 @@ import Footer from '../../components/common/Footer';
 import EditText from '../../components/ui/EditText';
 import Button from '../../components/ui/Button';
 import RankingSection from '../Homepage/RankingSection';
+import { useToast } from '../../hooks/useToast';
+import { useFormValidation } from '../../hooks/useFormValidation';
+import { useFormAnimation } from '../../hooks/useFormAnimation';
+import { useTranslatedNews } from '../../data/translatedNewsData';
 
 const MainPage = () => {
   const { t } = useTranslation();
+  const { showConsultationSuccess, showContactSuccess } = useToast();
+  const { validateConsultationForm, validateContactForm, showValidationErrors } = useFormValidation();
+  const { isSubmitting, startSubmission, endSubmission, getButtonClasses, getButtonText } = useFormAnimation();
+  
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -36,74 +44,43 @@ const MainPage = () => {
   };
 
   const handleConsultationSubmit = () => {
+    if (isSubmitting) return;
+    
+    const errors = validateConsultationForm(formData);
+    
+    if (errors.length > 0) {
+      showValidationErrors(errors);
+      return;
+    }
+    
+    startSubmission();
+    
     console.log('Consultation form submitted:', formData);
-    alert(t('main.alerts.consultationSuccess'));
+    showConsultationSuccess();
     setFormData({ name: '', phone: '', email: '' });
+    endSubmission();
   };
 
   const handleContactSubmit = () => {
+    if (isSubmitting) return;
+    
+    const errors = validateContactForm(contactFormData);
+    
+    if (errors.length > 0) {
+      showValidationErrors(errors);
+      return;
+    }
+    
+    startSubmission();
+    
     console.log('Contact form submitted:', contactFormData);
-    alert(t('main.alerts.contactSuccess'));
+    showContactSuccess();
     setContactFormData({ name: '', email: '', phone: '' });
+    endSubmission();
   };
 
-  // Расширенные данные новостей с изображениями и ссылками
-  const newsItems = [
-    {
-      id: 1,
-      date: '15.01.2025',
-      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
-      description: 'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
-      image: '/images/stud.png',
-      category: 'achievements',
-      tags: ['Рейтинги', 'QS']
-    },
-    {
-      id: 2,
-      date: '10.01.2025',
-      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
-      description: 'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
-      image: '/images/EMBA_fon.png',
-      category: 'programs',
-      tags: ['Executive MBA', 'Цифровизация']
-    },
-    {
-      id: 3,
-      date: '05.01.2025',
-      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
-      description: 'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.',
-      image: '/images/gruppa.png',
-      category: 'events',
-      tags: ['Хакатон', 'Сингапур']
-    },
-    {
-      id: 4,
-      date: '01.01.2025',
-      title: 'Открыт новый корпоративный центр для Executive Education программ',
-      description: 'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.',
-      image: '/images/detali.png',
-      category: 'infrastructure',
-      tags: ['Центр', 'Образование']
-    },
-    {
-      id: 5,
-      date: '28.12.2024',
-      title: 'Narxoz Business School получила международную аккредитацию AACSB',
-      description: 'Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International.',
-      image: '/images/vipus.jpg',
-      category: 'achievements',
-      tags: ['Аккредитация', 'AACSB']
-    },
-    {
-      id: 6,
-      date: '25.12.2024',
-      title: 'Топовые эксперты присоединились к преподавательскому составу',
-      description: 'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента.',
-      image: '/images/experty.png',
-      category: 'faculty',
-      tags: ['Эксперты', 'Преподаватели']
-    }
-  ];
+  // Используем переведенные новости
+  const newsItems = useTranslatedNews();
 
   return (
     <div className="min-h-screen bg-white">
@@ -166,9 +143,10 @@ const MainPage = () => {
             />
             <button
               type="submit"
-              className="flex-1 lg:flex-none lg:min-w-[200px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] active:bg-[#660c0c] transition-colors flex items-center justify-center h-[44px] sm:h-[42px] text-sm sm:text-base touch-manipulation"
+              disabled={isSubmitting}
+              className={getButtonClasses("flex-1 lg:flex-none lg:min-w-[200px] bg-[#991E1E] text-white px-4 py-2 font-medium rounded-md shadow-sm hover:bg-[#7a1818] active:bg-[#660c0c] transition-colors flex items-center justify-center h-[44px] sm:h-[42px] text-sm sm:text-base touch-manipulation")}
             >
-              {t('main.hero.consultationTitle')}
+              {getButtonText(t('main.hero.consultationTitle'))}
             </button>
           </form>
         </div>
@@ -208,10 +186,10 @@ const MainPage = () => {
                       <svg className="w-5 h-5 text-[#991E1E] mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7 2a1 1 0 011 1v1h3a1 1 0 110 2H9.578a18.87 18.87 0 01-1.724 4.674c-.29.516-.6.988-.882 1.326C6.538 13.828 6.14 14 6 14a1 1 0 01-.707-1.707l.707-.707A1 1 0 016 12c.14 0 .538-.172.774-.326.282-.338.592-.81.882-1.326A18.87 18.87 0 009.578 6H12a1 1 0 110-2H8V3a1 1 0 011-1z" clipRule="evenodd" />
                       </svg>
-                      Обучение на трех языках
+                      {t('main.sidebar.languages.title')}
                     </h3>
                     <p className="text-gray-600 mb-6 text-sm">
-                      Мы предлагаем образовательные программы на трех языках для максимального удобства наших студентов
+                      {t('main.sidebar.languages.description')}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       <div className="flex items-center p-4 bg-gray-50 rounded-lg">
@@ -219,8 +197,8 @@ const MainPage = () => {
                           <span className="text-white font-medium text-sm">Қ</span>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900 text-sm">Қазақ тілі</h4>
-                          <p className="text-xs text-gray-500">Казахский язык</p>
+                          <h4 className="font-medium text-gray-900 text-sm">{t('main.sidebar.languages.kazakh.title')}</h4>
+                          <p className="text-xs text-gray-500">{t('main.sidebar.languages.kazakh.description')}</p>
                         </div>
                       </div>
                       <div className="flex items-center p-4 bg-gray-50 rounded-lg">
@@ -228,8 +206,8 @@ const MainPage = () => {
                           <span className="text-white font-medium text-sm">Р</span>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900 text-sm">Русский язык</h4>
-                          <p className="text-xs text-gray-500">Russian language</p>
+                          <h4 className="font-medium text-gray-900 text-sm">{t('main.sidebar.languages.russian.title')}</h4>
+                          <p className="text-xs text-gray-500">{t('main.sidebar.languages.russian.description')}</p>
                         </div>
                       </div>
                       <div className="flex items-center p-4 bg-gray-50 rounded-lg">
@@ -237,8 +215,8 @@ const MainPage = () => {
                           <span className="text-white font-medium text-sm">E</span>
                         </div>
                         <div>
-                          <h4 className="font-medium text-gray-900 text-sm">English</h4>
-                          <p className="text-xs text-gray-500">Английский язык</p>
+                          <h4 className="font-medium text-gray-900 text-sm">{t('main.sidebar.languages.english.title')}</h4>
+                          <p className="text-xs text-gray-500">{t('main.sidebar.languages.english.description')}</p>
                         </div>
                       </div>
                     </div>
@@ -281,7 +259,7 @@ const MainPage = () => {
                       {t('main.sidebar.address')}
                     </h4>
                     <p className="text-gray-600 text-sm sm:text-base">
-                      г. Алматы, ул. Жандосова, 55
+                      {t('main.sidebar.addressValue')}
                     </p>
                   </div>
                 </div>
@@ -473,7 +451,7 @@ const MainPage = () => {
             to="/news"
             className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer group"
           >
-            <span className="text-muted text-lg group-hover:text-red-600 transition-colors">{t('homepage.sections.viewAllNews')}</span>
+            <span className="text-muted text-lg group-hover:text-red-600 transition-colors">{t('main.news.viewAllNews')}</span>
             <img src="/images/img_group_21_blue_gray_100.svg" alt="Arrow" className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -504,7 +482,7 @@ const MainPage = () => {
                   {/* Category Badge */}
                   {news.category && (
                     <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-sm">
-                      {t(`news.${news.category}`)}
+                      {t(`main.news.categories.${news.category}`)}
                     </div>
                   )}
                 </div>
@@ -543,7 +521,7 @@ const MainPage = () => {
                   to={`/news/${news.id}`}
                   className="flex items-center text-red-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-auto"
                 >
-                  <span>{t('common.readMore', 'Читать далее')}</span>
+                  <span>{t('main.news.readMore')}</span>
                   <svg
                     className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"
                     fill="none"
@@ -595,9 +573,10 @@ const MainPage = () => {
             />
             <Button
               onClick={handleContactSubmit}
-              className="w-full bg-[#991E1E] text-white py-0 font-medium hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center"
+              disabled={isSubmitting}
+              className={getButtonClasses("w-full bg-[#991E1E] text-white py-0 font-medium hover:bg-[#7a1818] transition-colors h-[38px] flex items-center justify-center")}
             >
-              {t('homepage.contactForm.submitButton')}
+              {getButtonText(t('homepage.contactForm.submitButton'))}
             </Button>
             <p className="text-white text-sm text-center leading-relaxed">
               {t('homepage.contactForm.privacyText')}

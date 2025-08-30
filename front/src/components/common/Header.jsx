@@ -138,7 +138,7 @@ const Header = () => {
         ru: {
           'navigation.about': 'О школе',
           'navigation.programs': 'Программы',
-          'navigation.schedule': 'Расписание',
+          'navigation.events': 'События',
           'navigation.executiveEducation': 'Executive Education',
           'navigation.corporateClients': 'Корпоративные клиенты',
           'navigation.graduates': 'Выпускники',
@@ -151,7 +151,7 @@ const Header = () => {
         en: {
           'navigation.about': 'About',
           'navigation.programs': 'Programs',
-          'navigation.schedule': 'Schedule',
+          'navigation.events': 'Events',
           'navigation.executiveEducation': 'Executive Education',
           'navigation.corporateClients': 'Corporate Clients',
           'navigation.graduates': 'Graduates',
@@ -164,7 +164,7 @@ const Header = () => {
         kk: {
           'navigation.about': 'Мектеп туралы',
           'navigation.programs': 'Бағдарламалар',
-          'navigation.schedule': 'Кесте',
+          'navigation.events': 'Оқиғалар',
           'navigation.executiveEducation': 'Executive Education',
           'navigation.corporateClients': 'Корпоративтік клиенттер',
           'navigation.graduates': 'Түлектер',
@@ -325,10 +325,10 @@ const Header = () => {
               </div>
 
               <Link
-                to="/schedule"
+                to="/events"
                 className="text-gray-700 text-sm font-medium hover:text-black transition-colors"
               >
-                {getNavigationLabel('navigation.schedule', 'Расписание')}
+                {getNavigationLabel('navigation.events', 'События')}
               </Link>
               <Link
                 to="/programs/executive-education"
@@ -659,11 +659,11 @@ const Header = () => {
               {/* Other Links */}
               <div className="space-y-2 pt-2 border-t border-gray-100">
                 <Link
-                  to="/schedule"
+                  to="/events"
                   onClick={closeMobileMenu}
                   className="block py-3 text-gray-900 font-medium hover:text-red-600 transition-colors"
                 >
-                  {getNavigationLabel('navigation.schedule', 'Расписание')}
+                  {getNavigationLabel('navigation.events', 'События')}
                 </Link>
                 <Link
                   to="/programs/executive-education"

@@ -11,7 +11,7 @@ const ExecutiveSessionsSection = () => {
          {/* Большая картина - занимает 4 колонки */}
          <div className="col-span-3 bg-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full overflow-hidden p-0">
           <img
-            src="/images/stud.png"
+            src="/images/ExecSess.png"
             alt="Classroom"
             className="object-cover w-full h-full"
           />
@@ -33,9 +33,9 @@ const ExecutiveSessionsSection = () => {
               {t('homepage.executiveSessionsSection.description')}
             </span>
             <div className="flex items-center mt-4">
-              <div className="flex items-center border-2 border-[#991E1E] rounded-full px-4 py-1">
-                <span className="text-[#991E1E] font-medium text-sm">Подробнее</span>
-              </div>
+                          <div className="flex items-center border-2 border-[#991E1E] rounded-full px-4 py-1">
+              <span className="text-[#991E1E] font-medium text-sm">{t('homepage.executiveSessionsSection.more')}</span>
+            </div>
               <div className="flex items-center border-2 border-[#991E1E] rounded-full w-7 h-7 ml-0">
                 <svg
                   width="16"

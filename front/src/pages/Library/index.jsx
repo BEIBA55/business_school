@@ -12,86 +12,89 @@ const Library = () => {
     setIsVisible(true);
   }, []);
 
-  // Цитаты для карусели
+  // Цитаты для карусели с переводами
   const quotes = [
     {
-      text: "В любое время уходите и создавайте свое дело — а в Гарвард вернуться никогда не поздно!",
-      author: "БИЛЛ ГЕЙТС",
-      description: "Американский предприниматель и филантроп"
+      text: t('library.quotes.billGates.text'),
+      author: t('library.quotes.billGates.author'),
+      description: t('library.quotes.billGates.description'),
+      image: "/images/billgeit.jpg"
     },
     {
-      text: "Образование — это не подготовка к жизни; образование — это и есть жизнь.",
-      author: "ДЖОН ДЬЮИ",
-      description: "Американский философ и педагог"
+      text: t('library.quotes.johnDewey.text'),
+      author: t('library.quotes.johnDewey.author'),
+      description: t('library.quotes.johnDewey.description'),
+      image: "/images/jondu.jpg"
     },
-          {
-        text: "Инвестиции в знания дают лучшие проценты. Учитесь всю жизнь и развивайтесь постоянно.",
-        author: "БЕНДЖАМИН ФРАНКЛИН",
-        description: "Американский политик и ученый"
-      }
+    {
+      text: t('library.quotes.benjaminFranklin.text'),
+      author: t('library.quotes.benjaminFranklin.author'),
+      description: t('library.quotes.benjaminFranklin.description'),
+      image: "/images/bendzhamin.jpg"
+    }
   ];
 
-  // Рекомендуемые книги с ссылками на бесплатные версии
+  // Рекомендуемые книги с переводами
   const recommendedBooks = [
     {
-      title: "Думай медленно... решай быстро",
-      author: "Даниэль Канеман",
+      title: t('library.books.thinkingFast.title'),
+      author: t('library.books.thinkingFast.author'),
       link: "https://loveread.me/book-comments.php?book=45769",
-      description: "Книга о том, как работает наш мозг и почему мы принимаем нерациональные решения",
+      description: t('library.books.thinkingFast.description'),
       cover: "/images/dumai_medlenno.jpg"
     },
     {
-      title: "Nudge. Архитектура выбора",
-      author: "Ричард Талер и Касс Санстейн",
+      title: t('library.books.nudge.title'),
+      author: t('library.books.nudge.author'),
       link: "https://loveread.me/read_book.php?id=68424&p=1",
-      description: "Как небольшие изменения могут значительно улучшить наши решения",
+      description: t('library.books.nudge.description'),
       cover: "/images/nudge.jpg"
     },
     {
-      title: "Илон Маск. Tesla, SpaceX и дорога в будущее",
-      author: "Эшли Вэнс",
+      title: t('library.books.elonMusk.title'),
+      author: t('library.books.elonMusk.author'),
       link: "https://libcat.ru/knigi/starinnaya-literatura/95744-eshli-vens-ilon-mask-tesla-spacex-i-doroga-v-budushhee.html",
-      description: "Биография одного из самых влиятельных предпринимателей современности",
+      description: t('library.books.elonMusk.description'),
       cover: "/images/ilon_mask.jpg"
     },
     {
-      title: "Продавец обуви. История компании Nike",
-      author: "Фил Найт",
+      title: t('library.books.nike.title'),
+      author: t('library.books.nike.author'),
       link: "https://loveread.me/read_book.php?id=66592&p=1",
-      description: "История создания одной из самых успешных компаний в мире",
+      description: t('library.books.nike.description'),
       cover: "/images/nike.jpg"
     },
     {
-      title: "От нуля до единицы",
-      author: "Питер Тиль",
+      title: t('library.books.zeroToOne.title'),
+      author: t('library.books.zeroToOne.author'),
       link: "https://loveread.me/book-comments.php?book=66165",
-      description: "Как создать стартап, который изменит будущее",
+      description: t('library.books.zeroToOne.description'),
       cover: "/images/ot_nulya.jpg"
     },
     {
-      title: "Бизнес с нуля",
-      author: "Эрик Рис",
+      title: t('library.books.leanStartup.title'),
+      author: t('library.books.leanStartup.author'),
       link: "https://loveread.me/book-comments.php?book=66637",
-      description: "Метод Lean Startup для быстрого запуска проектов",
+      description: t('library.books.leanStartup.description'),
       cover: "/images/biznes.jpg"
     },
     {
-      title: "Хорошие стратегии, плохие стратегии",
-      author: "Ричард Румельт",
+      title: t('library.books.goodStrategy.title'),
+      author: t('library.books.goodStrategy.author'),
       link: "https://loveread.me/book-comments.php?book=66258",
-      description: "Разница между хорошими и плохими стратегиями в бизнесе",
+      description: t('library.books.goodStrategy.description'),
       cover: "/images/horoshya.png"
     },
     {
-      title: "Думай и богатей",
-      author: "Наполеон Хилл",
+      title: t('library.books.thinkAndGrow.title'),
+      author: t('library.books.thinkAndGrow.author'),
       link: "https://loveread.me/read_book.php?id=9064&p=1",
-      description: "Классическая книга о психологии успеха и достижения богатства",
+      description: t('library.books.thinkAndGrow.description'),
       cover: "/images/dumai_i_bog.jpg"
     }
   ];
 
-  // Сервисы библиотеки
+  // Сервисы библиотеки с переводами
   const libraryServices = [
     {
       icon: (
@@ -99,7 +102,7 @@ const Library = () => {
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
         </svg>
       ),
-      title: "Печатные и электронные книги ведущих мировых и региональных издательств",
+      title: t('library.services.digitalResources'),
       image: "/images/block1.png"
     },
     {
@@ -108,7 +111,7 @@ const Library = () => {
           <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
         </svg>
       ),
-      title: "Комфортные зоны для индивидуальной и групповой работы",
+      title: t('library.services.studySpaces'),
       image: "/images/block2.png"
     },
     {
@@ -117,7 +120,7 @@ const Library = () => {
           <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
         </svg>
       ),
-      title: "Научные журналы, аналитические отчёты и кейсы",
+      title: t('library.services.researchSupport'),
       image: "/images/block3.png"
     },
     {
@@ -126,7 +129,7 @@ const Library = () => {
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
         </svg>
       ),
-      title: "Доступ к международным базам и бизнес-исследованиям",
+      title: t('library.services.databases'),
       image: "/images/block2.png"
     }
   ];
@@ -140,7 +143,7 @@ const Library = () => {
         <div className="absolute inset-0">
           <img 
             src="/images/libra.png" 
-            alt="Библиотека Narxoz Business School" 
+            alt={t('library.title')} 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50"></div>
@@ -148,13 +151,13 @@ const Library = () => {
         <div className="relative h-full flex items-end justify-center pb-20">
           <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Библиотека Narxoz Business School
+              {t('library.title')}
             </h1>
             <p className="text-xl md:text-2xl mb-8">
-              Добро пожаловать в интеллектуальный центр Narxoz Business School — нашу библиотеку.
+              {t('library.subtitle')}
             </p>
             <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-              Здесь вы найдете обширную коллекцию литературы по бизнесу, экономике, финансам, управлению, праву и смежным дисциплинам. Мы стремимся обеспечить студентов, преподавателей и исследователей актуальными ресурсами для обучения, развития и научной работы.
+              {t('library.description')}
             </p>
           </div>
         </div>
@@ -171,7 +174,7 @@ const Library = () => {
               <div className="h-80">
                 <img 
                   src="/images/block1.png" 
-                  alt="Библиотека"
+                  alt={t('library.services.digitalResources')}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -186,7 +189,7 @@ const Library = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 leading-tight">
-                  Печатные и электронные книги ведущих мировых и региональных издательств
+                  {t('library.services.digitalResources')}
                 </h3>
               </div>
             </div>
@@ -200,7 +203,7 @@ const Library = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 leading-tight">
-                  Комфортные зоны для индивидуальной и групповой работы
+                  {t('library.services.studySpaces')}
                 </h3>
               </div>
             </div>
@@ -210,13 +213,13 @@ const Library = () => {
               <div className="h-48">
                 <img 
                   src="/images/block3.png" 
-                  alt="Научные журналы"
+                  alt={t('library.services.researchSupport')}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 text-center">
                 <h3 className="text-sm font-semibold text-gray-900 leading-tight">
-                  Научные журналы, аналитические отчёты и кейсы
+                  {t('library.services.researchSupport')}
                 </h3>
               </div>
             </div>
@@ -226,13 +229,13 @@ const Library = () => {
               <div className="h-48">
                 <img 
                   src="/images/block2.png" 
-                  alt="Международные базы"
+                  alt={t('library.services.databases')}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 text-center">
                 <h3 className="text-sm font-semibold text-gray-900 leading-tight">
-                  Доступ к международным базам и бизнес-исследованиям
+                  {t('library.services.databases')}
                 </h3>
               </div>
             </div>
@@ -247,9 +250,7 @@ const Library = () => {
             {/* Left Block - Description */}
             <div>
               <p className="text-2xl text-gray-800 leading-relaxed font-medium">
-                Библиотека также проводит регулярные{' '}
-                <span className="text-[#991E1E] font-bold">обучающие сессии</span>{' '}
-                по поиску информации, академическому письму и использованию цифровых ресурсов
+                {t('library.aboutTitle')} {t('library.trainingSessions')} {t('library.trainingSessionsDesc')}
               </p>
             </div>
 
@@ -277,82 +278,42 @@ const Library = () => {
 
               {/* Quote Text with Animation */}
               <div className="relative h-24 mb-6 overflow-hidden">
-                <blockquote className={`text-lg text-gray-800 leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
-                  currentQuote === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  {quotes[0].text}
-                </blockquote>
-                <blockquote className={`text-lg text-gray-800 leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
-                  currentQuote === 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  {quotes[1].text}
-                </blockquote>
-                <blockquote className={`text-lg text-gray-800 leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
-                  currentQuote === 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  {quotes[2].text}
-                </blockquote>
+                {quotes.map((quote, index) => (
+                  <blockquote 
+                    key={index}
+                    className={`text-lg text-gray-800 leading-relaxed absolute w-full transition-all duration-500 ease-in-out ${
+                      currentQuote === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}>
+                    {quote.text}
+                  </blockquote>
+                ))}
               </div>
 
               {/* Author Info with Animation */}
               <div className="relative h-12 overflow-hidden">
-                <div className={`flex items-center gap-3 absolute w-full transition-all duration-500 ease-in-out ${
-                  currentQuote === 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  <div className="w-10 h-10 rounded-full overflow-hidden">
-                    <img 
-                      src="/images/billgeit.jpg" 
-                      alt="Билл Гейтс"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-[#991E1E] text-base uppercase">
-                      {quotes[0].author}
+                {quotes.map((quote, index) => (
+                  <div 
+                    key={index}
+                    className={`flex items-center gap-3 absolute w-full transition-all duration-500 ease-in-out ${
+                      currentQuote === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}>
+                    <div className="w-10 h-10 rounded-full overflow-hidden">
+                      <img 
+                        src={quote.image} 
+                        alt={quote.author}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <div className="text-gray-600 text-sm">
-                      {quotes[0].description}
-                    </div>
-                  </div>
-                </div>
-                <div className={`flex items-center gap-3 absolute w-full transition-all duration-500 ease-in-out ${
-                  currentQuote === 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  <div className="w-10 h-10 rounded-full overflow-hidden">
-                    <img 
-                      src="/images/jondu.jpg" 
-                      alt="Джон Дьюи"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-[#991E1E] text-base uppercase">
-                      {quotes[1].author}
-                    </div>
-                    <div className="text-gray-600 text-sm">
-                      {quotes[1].description}
+                    <div>
+                      <div className="font-bold text-[#991E1E] text-base uppercase">
+                        {quote.author}
+                      </div>
+                      <div className="text-gray-600 text-sm">
+                        {quote.description}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className={`flex items-center gap-3 absolute w-full transition-all duration-500 ease-in-out ${
-                  currentQuote === 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  <div className="w-10 h-10 rounded-full overflow-hidden">
-                    <img 
-                      src="/images/bendzhamin.jpg" 
-                      alt="Бенджамин Франклин"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-bold text-[#991E1E] text-base uppercase">
-                      {quotes[2].author}
-                    </div>
-                    <div className="text-gray-600 text-sm">
-                      {quotes[2].description}
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -365,10 +326,10 @@ const Library = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="inline-block bg-red-700 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              РЕКОМЕНДАЦИИ
+              {t('library.books.title')}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white">
-              Рекомендации книг от Narxoz Business School
+              {t('library.recommendationsTitle')}
             </h2>
           </div>
 
@@ -403,7 +364,7 @@ const Library = () => {
                   rel="noopener noreferrer"
                   className="inline-block bg-red-700 hover:bg-red-600 text-white px-4 py-2 rounded text-sm font-medium transition-colors"
                 >
-                  Читать онлайн
+                  {t('library.books.readOnline')}
                 </a>
               </div>
             ))}

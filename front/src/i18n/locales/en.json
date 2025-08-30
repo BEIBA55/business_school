@@ -2,7 +2,7 @@
   "navigation": {
     "about": "About",
     "programs": "Programs",
-    "schedule": "Schedule",
+    "events": "Events",
     "executiveEducation": "Executive Education",
     "corporateClients": "Corporate Clients",
     "graduates": "Graduates",
@@ -100,7 +100,35 @@
     "emailPlaceholder": "Enter your email",
     "phonePlaceholder": "Enter your phone number",
     "companyPlaceholder": "Enter company name",
-    "messagePlaceholder": "Enter your message"
+    "messagePlaceholder": "Enter your message",
+    "fieldNames": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "message": "Message"
+    }
+  },
+  "contactModal": {
+    "title": "Contact Us",
+    "subtitle": "Fill out the form to discuss partnership opportunities",
+    "partnershipType": "Partnership Type",
+    "partnershipTypes": {
+      "corporate": "Corporate Partnership",
+      "academic": "Academic Partnership",
+      "strategic": "Strategic Partnership"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Describe your collaboration proposals...",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "privacyText": "By clicking the button, you agree to the personal data processing policy",
+    "success": {
+      "title": "Thank you!",
+      "message": "Your partnership request has been successfully sent",
+      "subtitle": "We will contact you soon"
+    }
   },
   "main": {
     "hero": {
@@ -121,6 +149,23 @@
       "phone": "Phone",
       "email": "Email",
       "address": "Address",
+      "addressValue": "Almaty, Zhandosov St., 55/10",
+      "languages": {
+        "title": "Education in Three Languages",
+        "description": "We offer educational programs in three languages for maximum convenience of our students",
+        "kazakh": {
+          "title": "Қазақ тілі",
+          "description": "Kazakh language"
+        },
+        "russian": {
+          "title": "Русский язык",
+          "description": "Russian language"
+        },
+        "english": {
+          "title": "English",
+          "description": "English language"
+        }
+      },
       "quote": {
         "title": "Our Mission",
         "text": "At Narxoz Business School, we create a space where knowledge meets practice, and learning becomes an investment in tomorrow's career and leadership.",
@@ -156,7 +201,28 @@
     },
     "news": {
       "title": "News",
+      "subtitle": "Stay up to date with the latest events",
       "viewAllNews": "View All News",
+      "readMore": "Read more",
+      "categories": {
+        "all": "All",
+        "events": "Events",
+        "achievements": "Achievements",
+        "programs": "Programs",
+        "partnerships": "Partnerships",
+        "infrastructure": "Infrastructure"
+      },
+      "filters": {
+        "search": "Search news...",
+        "sortBy": "Sort by",
+        "date": "Date",
+        "title": "Title",
+        "category": "Category"
+      },
+      "relatedNews": "Related news",
+      "allNews": "All news",
+      "author": "Article author",
+      "readTime": "Reading time",
       "items": [
         {
           "title": "Narxoz Business School entered the top 50 best business schools in Asia according to QS",
@@ -179,6 +245,37 @@
     "alerts": {
       "consultationSuccess": "Thank you for your application! We will contact you soon.",
       "contactSuccess": "Thank you for your application! We will call you back soon."
+    },
+    "notifications": {
+      "success": {
+        "consultation": "Thank you! We will contact you soon for consultation.",
+        "application": "Thank you for your application! We will contact you soon.",
+        "contact": "Thank you for your inquiry! We will call you back soon.",
+        "download": "Presentation downloaded successfully!",
+        "partnership": "Thank you for your partnership request! We will contact you soon."
+      },
+      "error": {
+        "validation": "Please fill in all required fields",
+        "fieldRequired": "Please fill in the field \"{{field}}\"",
+        "multipleFieldsRequired": "Please fill in the fields: {{fields}}",
+        "emailInvalid": "Please enter a valid email address",
+        "phoneInvalid": "Please enter a valid phone number",
+        "nameInvalid": "Name must contain at least 2 characters",
+        "companyInvalid": "Company name must contain at least 2 characters",
+        "submission": "An error occurred while submitting the request. Please try again."
+      },
+      "warning": {
+        "incompleteForm": "Not all fields are filled correctly"
+      },
+      "info": {
+        "processing": "Processing your application...",
+        "redirecting": "Redirecting to program page..."
+      }
+    },
+    "buttons": {
+      "loading": "Sending...",
+      "processing": "Processing...",
+      "submitting": "Submitting..."
     }
   },
   "homepage": {
@@ -237,7 +334,8 @@
       "brand": {
         "title": "Executive Education",
         "subtitle": "For leaders"
-      }
+      },
+      "more": "More"
     },
     "executiveEducationGrid": {
       "corporate": {
@@ -261,7 +359,8 @@
       "trainings": {
         "title": "Trainings",
         "description": "For developing key management skills"
-      }
+      },
+      "more": "More"
     },
     "mbaProgramsGrid": {
       "mbaFinance": {
@@ -291,7 +390,8 @@
     },
     "executiveSessionsSection": {
       "title": "Executive Sessions for Top Managers",
-      "description": "For top-level executives"
+      "description": "For top-level executives",
+      "more": "More"
     },
     "newAboutSection": {
       "title": "Narxoz Business School — World Class Business Education in Central Asia. We create future leaders — bold, strategic and ready to change the rules of the game.",
@@ -303,7 +403,7 @@
       "subtitle": "Narxoz Business School – new opportunities for you:",
       "stats": [
         {
-          "value": "16",
+          "value": "17",
           "label": "years",
           "description": "Narxoz Business School on the market since 2008",
           "prefix": "More than"
@@ -321,8 +421,8 @@
           "prefix": "More than"
         },
         {
-          "value": "140000",
-          "label": "Narxoz graduates, most hold leadership positions in the largest companies in Kazakhstan and beyond.",
+          "value": "150000",
+          "label": "Narxoz graduates hold leadership positions in the largest companies in Kazakhstan and abroad",
           "description": "",
           "prefix": "More than"
         }
@@ -410,20 +510,76 @@
     },
     "news": [
       {
+        "id": 1,
+        "title": "Top Experts",
+        "description": "Real managers from real companies who have practically implemented contract management tools",
+        "category": "events",
+        "date": "18/07/2025",
+        "readTime": "3 min",
+        "tags": ["Conferences", "Experts"],
+        "image": "/images/NewSt1.png",
+        "fullContent": "<div class=\"highlight\"><p><strong>Real managers from real companies</strong> who have practically implemented contract management tools. Our experts have years of experience working in leading corporations and are ready to share their knowledge with Narxoz Business School students.</p></div><h2>Who are our experts?</h2><p>At <em>Narxoz Business School</em>, we are proud that our programs are led by practicing specialists from leading companies in Kazakhstan and the world. These are not just theorists, but people who daily make important business decisions and manage large projects.</p><h3>Practical experience</h3><p>Our experts have experience working in companies such as:</p><ul class=\"icon-list\"><li><strong>KPMG Kazakhstan</strong> - international consulting company</li><li><strong>Ernst & Young</strong> - one of the \"Big Four\" audit companies</li><li><strong>Deloitte</strong> - leading consulting firm</li><li><strong>PwC</strong> - PricewaterhouseCoopers, world leader in audit</li><li><strong>Largest banks in Kazakhstan</strong> - practical experience in the financial sector</li><li><strong>International corporations</strong> - global business experience</li></ul><h3>Innovative approaches</h3><p>We constantly update our programs to meet modern business requirements. Our experts bring to education:</p><ul class=\"icon-list\"><li><strong>Real cases from practice</strong> - relevant examples from modern business</li><li><strong>Modern management tools</strong> - latest technologies and methodologies</li><li><strong>International experience</strong> - global trends and best practices</li><li><strong>Networking opportunities</strong> - access to professional community</li></ul><blockquote><p>\"The practical experience of our experts allows students to gain knowledge that can be immediately applied in real business.\"</p></blockquote><h2>Learning outcomes</h2><p>Thanks to this approach, our graduates receive not only theoretical knowledge, but also practical skills that can be immediately applied in work. This is confirmed by the high positions of our graduates in leading companies in the region.</p>",
+        "author": "Narxoz Business School Team"
+      },
+      {
+        "id": 2,
         "title": "Narxoz Business School entered the top 50 best business schools in Asia according to QS",
-        "description": "The MBA program of Narxoz University Business School took 42nd place in the QS Global MBA 2025 Asia ranking and became #1 in the Central Asian region."
+        "description": "The MBA program of Narxoz University Business School took 42nd place in the QS Global MBA 2025 Asia ranking and became #1 in the Central Asian region.",
+        "category": "achievements",
+        "date": "18/07/2025",
+        "readTime": "5 min",
+        "tags": ["Rankings", "QS"],
+        "image": "/images/NBS.png",
+        "fullContent": "<div class=\"highlight\"><p><strong>The MBA program of Narxoz University Business School</strong> took <em>42nd place</em> in the QS Global MBA 2025 Asia ranking and became <strong>#1 in the Central Asian region</strong>. This is a historic achievement for Kazakhstani education and recognition of the high quality of our programs.</p></div><h2>About QS Global MBA Rankings</h2><p>QS Global MBA Rankings is one of the most authoritative business school rankings in the world. It evaluates MBA programs according to the following criteria:</p><ul class=\"icon-list\"><li><strong>Quality of teaching and research</strong> - academic reputation and scientific activity</li><li><strong>Graduate career prospects</strong> - employment and career growth</li><li><strong>International reputation</strong> - global recognition</li><li><strong>Graduate earnings</strong> - financial results after training</li><li><strong>Entrepreneurial activity</strong> - creation of own business</li></ul><h3>Key achievements</h3><p>The published QS Global MBA ranking highlights the program's strengths:</p><ul class=\"icon-list\"><li><strong>High scores in entrepreneurship criteria</strong> - support for startups and innovations</li><li><strong>Excellent graduate career prospects</strong> - 95% employment within 3 months</li><li><strong>International recognition of education quality</strong> - compliance with world standards</li><li><strong>Strong research base</strong> - scientific publications and research</li></ul><blockquote><p>\"Entering the top 50 best business schools in Asia confirms that we create world-class education available in Central Asia.\"</p></blockquote><h2>Comparison with world leaders</h2><p>By entrepreneurship and graduate employability indicators, our MBA program also ranks in the top 50 best in the world. By this indicator, Narxoz University Business School scored high points and outperformed other world-renowned schools such as:</p><ul class=\"icon-list\"><li><strong>Carnegie Mellon (USA)</strong> - leading technological university</li><li><strong>Dartmouth (USA)</strong> - one of the oldest business schools in America</li><li><strong>Shanghai University of Finance and Economics (China)</strong> - leader in financial education</li><li><strong>Tsinghua (China)</strong> - prestigious Asian university</li><li><strong>Edinburgh (UK)</strong> - historical university with strong business school</li><li><strong>Manchester (UK)</strong> - well-known management school</li></ul><h3>Regional leadership</h3><p>This achievement confirms that we create education that meets and exceeds world standards. Our MBA program became the first in the Central Asian region to achieve such high results in international rankings.</p><h2>Development prospects</h2><p>This success motivates us to continue developing and improving the quality of education. We plan to:</p><ul class=\"icon-list\"><li><strong>Expand international partnerships</strong> - cooperation with leading universities in the world</li><li><strong>Improve research activities</strong> - increase in scientific publications and projects</li><li><strong>Develop entrepreneurial programs</strong> - support for startups and innovations</li><li><strong>Strengthen career support for students</strong> - employment and mentoring programs</li></ul>",
+        "author": "Narxoz Business School Press Service"
       },
       {
+        "id": 3,
         "title": "A new Executive MBA program focused on digital transformation has been launched",
-        "description": "Narxoz Business School presented an updated Executive MBA program, which includes modules on artificial intelligence and digital technologies."
+        "description": "Narxoz Business School presented an updated Executive MBA program, which includes modules on artificial intelligence and digital technologies.",
+        "category": "programs",
+        "date": "18/07/2025",
+        "readTime": "4 min",
+        "tags": ["Executive MBA", "Digitalization"],
+        "image": "/images/NewSt3.jpg",
+        "fullContent": "<p>Narxoz Business School presented an updated Executive MBA program, which includes modules on artificial intelligence and digital technologies. The program was developed in collaboration with leading technology companies and includes practical projects.</p><h2>New program modules</h2><p>The updated Executive MBA program includes the following innovative modules:</p><h3>Digital business transformation</h3><p>The module is dedicated to digital transformation strategies and includes:</p><ul><li>Analysis of organizational digital maturity</li><li>Development of digital strategy</li><li>Change management in the digital era</li><li>Digital business models</li></ul><h3>Artificial intelligence in business</h3><p>Practical application of AI in various industries:</p><ul><li>Machine learning for business analytics</li><li>Business process automation</li><li>AI in marketing and sales</li><li>Ethical aspects of AI use</li></ul><h3>Digital finance and FinTech</h3><p>Study of modern financial technologies:</p><ul><li>Blockchain and cryptocurrencies</li><li>Digital payment systems</li><li>FinTech regulation</li><li>Investment in digital assets</li></ul><h2>Practical projects</h2><p>The program includes real projects with partner companies:</p><ul><li>Consulting projects for real companies</li><li>Development of digital solutions</li><li>Analysis of cases from leading technology companies</li><li>International internships</li></ul><h3>Partnerships</h3><p>The program was developed in collaboration with:</p><ul><li>Microsoft Kazakhstan</li><li>Google for Startups</li><li>Local technology companies</li><li>International consulting firms</li></ul><h2>Learning format</h2><p>The Executive MBA program maintains a convenient modular format:</p><ul><li>12 months of study</li><li>Modules of 3-4 days each month</li><li>Online support between modules</li><li>Individual consultations</li></ul>",
+        "author": "Academic Director of Narxoz Business School"
       },
       {
+        "id": 4,
         "title": "MBA students participated in an international hackathon in Singapore",
-        "description": "The Narxoz Business School team took second place at an international hackathon on sustainable development, organized by partner universities."
+        "description": "The Narxoz Business School team took second place at an international hackathon on sustainable development, organized by partner universities.",
+        "category": "events",
+        "date": "18/07/2025",
+        "readTime": "6 min",
+        "tags": ["Hackathon", "Singapore"],
+        "image": "/images/stud.png",
+        "fullContent": "<p>The Narxoz Business School team took second place at an international hackathon on sustainable development, organized by partner universities. Our students presented an innovative solution for environmental problems in the region.</p><h2>About the hackathon</h2><p>The International Sustainable Development Hackathon was held in Singapore with teams from 15 countries. The event was organized by leading universities in Asia and Europe to find innovative solutions to global environmental problems.</p><h3>Hackathon theme</h3><p>This year's hackathon was dedicated to the theme \"Sustainable Cities of the Future\" and included the following areas:</p><ul><li>Energy efficiency and renewable energy sources</li><li>Smart transportation systems</li><li>Waste recycling and circular economy</li><li>Green building</li><li>Digital solutions for ecology</li></ul><h2>Our project</h2><p>The Narxoz Business School team presented the \"EcoSmart Central Asia\" project - a comprehensive solution for monitoring and managing environmental indicators in Central Asian cities.</p><h3>Key project features</h3><ul><li>IoT sensors for air quality monitoring</li><li>AI algorithms for predicting environmental risks</li><li>Mobile app for citizens</li><li>Dashboard for city authorities</li><li>Integration with existing city systems</li></ul><h3>Team composition</h3><p>Our team was represented by:</p><ul><li>Alisa Kim - MBA, project manager</li><li>Damir Nurlanov - MBA, technical director</li><li>Maria Petrova - MBA, data analyst</li><li>Artem Sokolov - MBA, marketer</li></ul><h2>Competition</h2><p>Teams from the following participated in the hackathon:</p><ul><li>National University of Singapore</li><li>Hong Kong University of Science and Technology</li><li>Tokyo University</li><li>London School of Economics</li><li>Stanford University</li><li>And other leading universities</li></ul><h3>Results</h3><p>Our team took second place, losing only to the Singapore team. The jury highly appreciated:</p><ul><li>Innovativeness of the solution</li><li>Practical applicability</li><li>Presentation quality</li><li>Technical implementation</li></ul><h2>Development prospects</h2><p>After the hackathon, the project received support from:</p><ul><li>Asian Development Bank</li><li>Local environmental organizations</li><li>City administrations</li></ul><p>The team plans to launch a pilot project in Almaty next year.</p>",
+        "author": "International Department of Narxoz Business School"
       },
       {
+        "id": 5,
         "title": "A new corporate center for Executive Education programs has been opened",
-        "description": "A modern corporate center with innovative auditoriums and spaces for teamwork has opened on the Narxoz campus."
+        "description": "A modern corporate center with innovative auditoriums and spaces for teamwork has opened on the Narxoz campus.",
+        "category": "infrastructure",
+        "date": "18/07/2025",
+        "readTime": "3 min",
+        "tags": ["Center", "Education"],
+        "image": "/images/NewSt5.jpg",
+        "fullContent": "<p>A modern corporate center with innovative auditoriums and spaces for teamwork has opened on the Narxoz campus. The center is equipped with the latest technologies and creates an ideal environment for executive education.</p><h2>New opportunities</h2><p>The 2000 square meter corporate center includes:</p><h3>Innovative auditoriums</h3><ul><li>Transformable auditorium for 100 people</li><li>Seminar rooms for 20-30 people</li><li>Meeting rooms for team work</li><li>Co-working area for informal communication</li></ul><h3>Technological equipment</h3><ul><li>Interactive boards and projectors</li><li>Video conferencing systems</li><li>VR equipment for simulations</li><li>High-speed internet</li><li>Voting and polling systems</li></ul><h2>Design and comfort</h2><p>The center is designed taking into account modern requirements for educational spaces:</p><ul><li>Ergonomic furniture</li><li>Natural lighting</li><li>Ventilation and air conditioning systems</li><li>Green areas and rest areas</li></ul><h3>Cafe and recreation areas</h3><p>For comfortable stay of program participants:</p><ul><li>Modern cafe with healthy food</li><li>Lounge areas for informal communication</li><li>Terrace with city view</li><li>Fitness room for active recreation</li></ul><h2>Center programs</h2><p>The new center will host:</p><ul><li>Executive MBA programs</li><li>Corporate trainings</li><li>International conferences</li><li>Networking events</li><li>Coaching sessions</li></ul><h3>Partnership programs</h3><p>The center will also be used for programs with our international partners:</p><ul><li>ESMT Berlin</li><li>Penn State University</li><li>University of Monaco</li><li>Other leading universities</li></ul><h2>Sustainability</h2><p>The center was built taking into account sustainable development principles:</p><ul><li>Energy efficient systems</li><li>Use of environmental materials</li><li>Waste recycling systems</li><li>Green technologies</li></ul>",
+        "author": "Infrastructure Department of Narxoz Business School"
+      },
+      {
+        "id": 6,
+        "title": "Narxoz Business School received international AACSB accreditation",
+        "description": "Narxoz Business School became the first in Central Asia to receive prestigious AACSB International accreditation.",
+        "category": "achievements",
+        "date": "18/07/2025",
+        "readTime": "4 min",
+        "tags": ["Accreditation", "AACSB"],
+        "image": "/images/AACSB.png",
+        "fullContent": "<p>Narxoz Business School became the first in Central Asia to receive prestigious AACSB International accreditation. This confirms that our programs meet world standards of education quality.</p><h2>About AACSB accreditation</h2><p>AACSB International is one of the most prestigious accreditation organizations in world business education. Obtaining this accreditation means compliance with the highest quality standards.</p><h3>Accreditation criteria</h3><ul><li>Quality of teaching and research</li><li>Relevance of educational programs</li><li>International cooperation</li><li>Graduate career prospects</li></ul><h2>Value for students</h2><p>AACSB accreditation opens new opportunities for our students and graduates.</p>",
+        "author": "Narxoz Business School Press Service"
       }
     ],
     "faculty": [
@@ -458,6 +614,42 @@
       {
         "name": "Marina Novotochina",
         "description": "Executive coach, business trainer, HR consultant, Doctor of Business Administration (DBA). Over 25 years of experience in HR management and organizational development. Specializes in leadership development, change management, and organizational development."
+      },
+      {
+        "name": "Aleksandr Chmel",
+        "description": "Author and lead instructor of courses on finance and corporate governance, as well as professional development programs and leadership potential development for managers of major Russian and international companies. Taught at Moscow School of Management 'Skolkovo', Academy of Association of Independent Directors, GSBA MSU named after M.V. Lomonosov. Expert in corporate finance, strategic management, and leadership development."
+      },
+      {
+        "name": "Marat Atnashev",
+        "description": "Ambassador of the Academic Environment at Narxoz Business School. CEO MSM SKOLKOVO (2016-2019). Associate at Harvard University, Davis Center for Russian and Eurasian Studies. Expert in academic development and international education. Specializes in strategic development of business schools and academic programs."
+      },
+      {
+        "name": "Andrei Levchenko",
+        "description": "Expert, business practitioner, specialist in implementing changes and improving the effectiveness of people and processes. Over 20 years of experience in consulting and change management. Worked with major Russian and international companies. Specializes in organizational development, change management, and operational efficiency improvement."
+      },
+      {
+        "name": "Nikolai Verkhovsky",
+        "description": "Developer and lead of corporate programs, business games, strategic and project sessions. Consultant on strategy, project and innovation management, and corporate transformations. Over 15 years of experience in strategic consulting and corporate training. Specializes in strategic planning, innovation management, and organizational transformations."
+      },
+      {
+        "name": "Maksim Kiselev",
+        "description": "Doctor of Social Psychology from Yale University. Top manager and expert in business and corporate education, business development, corporate relations management, reputation, external and intra-organizational communications, organizational behavior, leadership, and management psychology. Over 25 years of experience in academic and corporate environments."
+      },
+      {
+        "name": "Bulat Mukushev",
+        "description": "Chairman of the Board of Directors of NAO 'Narxoz University'. PhD, MBA HSE 'Higher School of Economics', MBA Yale University, USA (2003). Holds a CFA certificate. Area of academic interests: alternative investments, investment analysis, and business valuation. Expert in corporate governance and strategic development."
+      },
+      {
+        "name": "Farhad Manteev",
+        "description": "Prosci® Certified Advanced Instructor, partner, head of office for Central Asia. Specializes in change management for over 8 years, participated in major transformation programs for transition to target business model, process automation, corporate culture change, ERP system implementation, other IT and digital solutions in Kazakh and international companies: 'Samruk-Kazyna', 'Kazakhstan Temir Zholy', BDO."
+      },
+      {
+        "name": "Gulmira Mukanova",
+        "description": "Trainer-consultant in organizational change and personnel development in the field of change support during business process transformation and corporate culture using lean production methodologies, conducting integration/facilitation sessions for developing team solutions."
+      },
+      {
+        "name": "Akzharkyn Knykova",
+        "description": "Instructor of the MBA 'Actuary' program. Licensed actuary, member of the Society of Actuaries of Kazakhstan. Specialist in actuarial calculations, insurance mathematics, and risk management."
       }
     ],
     "administration": [
@@ -553,6 +745,8 @@
       "students": "Participants",
       "contacts": "Contacts",
       "socialMedia": "Social Media",
+      "country": "Republic of Kazakhstan, 050035",
+      "address": "Almaty, Zhandosov St., 55/10",
       "copyright": "© 2024 Narxoz Business School. All rights reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
@@ -631,25 +825,39 @@
   "library": {
     "title": "Narxoz Business School Library",
     "subtitle": "Welcome to the intellectual center of Narxoz Business School — our library",
+    "description": "Here you will find an extensive collection of literature on business, economics, finance, management, law and related disciplines. We strive to provide students, faculty and researchers with relevant resources for learning, development and research work.",
     "aboutTitle": "About our library",
     "servicesTitle": "The library offers",
-    "recommendationsTitle": "Recommendations from B.Zh. Utemuratov",
-    "recommendationsSubtitle": "A selection of the best works of Kazakhstani and world literature, recommended for studying cultural heritage and personal development",
+    "recommendationsTitle": "Book Recommendations from Narxoz Business School",
+    "recommendationsSubtitle": "Best books for developing business thinking",
+    "trainingSessions": "training sessions",
+    "trainingSessionsDesc": "on information search, academic writing and use of digital resources",
     "services": {
-      "digitalResources": "Digital Resources",
-      "digitalResourcesDesc": "Access to e-books, journals and databases",
-      "studySpaces": "Study Spaces",
-      "studySpacesDesc": "Quiet zones for individual and group work",
-      "researchSupport": "Research Support",
-      "researchSupportDesc": "Consultations on information search and analysis",
-      "events": "Events",
-      "eventsDesc": "Book clubs, lectures and presentations"
+      "digitalResources": "Print and electronic books from leading world and regional publishers",
+      "studySpaces": "Comfortable zones for individual and group work",
+      "researchSupport": "Scientific journals, analytical reports and cases",
+      "databases": "Access to international databases and business research"
     },
     "quotes": {
       "title": "Inspiring Quotes",
       "readMore": "Read Book",
       "author": "Author",
-      "description": "Description"
+      "description": "Description",
+      "billGates": {
+        "text": "Leave anytime and start your own business — and it's never too late to return to Harvard!",
+        "author": "BILL GATES",
+        "description": "American entrepreneur and philanthropist"
+      },
+      "johnDewey": {
+        "text": "Education is not preparation for life; education is life itself.",
+        "author": "JOHN DEWEY",
+        "description": "American philosopher and educator"
+      },
+      "benjaminFranklin": {
+        "text": "Investment in knowledge pays the best interest. Learn throughout your life and develop constantly.",
+        "author": "BENJAMIN FRANKLIN",
+        "description": "American politician and scientist"
+      }
     },
     "books": {
       "title": "Recommended Books",
@@ -657,7 +865,47 @@
       "readOnline": "Read Online",
       "download": "Download",
       "available": "Available",
-      "notAvailable": "Not Available"
+      "notAvailable": "Not Available",
+      "thinkingFast": {
+        "title": "Thinking, Fast and Slow",
+        "author": "Daniel Kahneman",
+        "description": "A book about how our brain works and why we make irrational decisions"
+      },
+      "nudge": {
+        "title": "Nudge. The Architecture of Choice",
+        "author": "Richard Thaler and Cass Sunstein",
+        "description": "How small changes can significantly improve our decisions"
+      },
+      "elonMusk": {
+        "title": "Elon Musk. Tesla, SpaceX and the Road to the Future",
+        "author": "Ashlee Vance",
+        "description": "Biography of one of the most influential entrepreneurs of our time"
+      },
+      "nike": {
+        "title": "Shoe Dog. The Story of Nike Company",
+        "author": "Phil Knight",
+        "description": "The story of creating one of the most successful companies in the world"
+      },
+      "zeroToOne": {
+        "title": "Zero to One",
+        "author": "Peter Thiel",
+        "description": "How to create a startup that will change the future"
+      },
+      "leanStartup": {
+        "title": "The Lean Startup",
+        "author": "Eric Ries",
+        "description": "Lean Startup method for rapid project launch"
+      },
+      "goodStrategy": {
+        "title": "Good Strategy, Bad Strategy",
+        "author": "Richard Rumelt",
+        "description": "The difference between good and bad strategies in business"
+      },
+      "thinkAndGrow": {
+        "title": "Think and Grow Rich",
+        "author": "Napoleon Hill",
+        "description": "Classic book on the psychology of success and wealth achievement"
+      }
     },
     "categories": {
       "business": "Business",
@@ -801,15 +1049,479 @@
     "contact": "Contact",
     "viewProfile": "View Profile",
     "research": "Research",
-    "consulting": "Consulting"
+    "consulting": "Consulting",
+    "hero": {
+      "title": "OUR",
+      "subtitle": "FACULTY",
+      "description": "Experts with international experience",
+      "mainDescription": "Faculty of <strong>Narxoz Business School</strong> — practicing specialists with experience in leading international companies and academic degrees from the best business schools in the world"
+    },
+    "stats": {
+      "instructors": "Instructors",
+      "withInternationalExperience": "With international experience",
+      "yearsOfExperience": "Years of experience",
+      "averagePerInstructor": "Average per instructor",
+      "publications": "Publications",
+      "inLeadingJournals": "In leading journals"
+    },
+    "specializations": {
+      "title": "Specializations",
+      "subtitle": "Select an area to view instructors",
+      "allSpecializations": "All specializations",
+      "financeAndInvestments": "Finance and Investments",
+      "businessDevelopment": "Business Development",
+      "marketingAndAnalytics": "Marketing and Analytics",
+      "mediationAndCorporateGovernance": "Mediation and Corporate Governance",
+      "corporateLaw": "Corporate Law",
+      "financialReporting": "Financial Reporting",
+      "leadershipAndCoaching": "Leadership and Coaching",
+      "hrManagement": "HR Management",
+      "corporateFinance": "Corporate Finance",
+      "academicDevelopment": "Academic Development",
+      "organizationalDevelopment": "Organizational Development",
+      "strategicConsulting": "Strategic Consulting",
+      "managementPsychology": "Management Psychology",
+      "investmentAnalysis": "Investment Analysis",
+      "changeManagement": "Change Management",
+      "organizationalChanges": "Organizational Changes",
+      "actuarialScience": "Actuarial Science"
+    },
+    "memberCard": {
+      "clickForDetails": "Click for details",
+      "readMore": "Read More"
+    },
+    "modal": {
+      "education": "Education",
+      "workExperience": "Work Experience",
+      "researchInterests": "Research Interests",
+      "achievements": "Achievements"
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "subtitle": "Narxoz Business School faculty in numbers",
+      "instructorsWithExperience": "Instructors",
+      "withInternationalExperience": "With international experience",
+      "scientificPublications": "Scientific publications",
+      "inLeadingJournals": "In leading journals",
+      "consultingProjects": "Consulting projects",
+      "annually": "Annually",
+      "satisfiedStudents": "Satisfied students",
+      "basedOnSurveys": "Based on surveys"
+    },
+    "members": {
+      "yelzhasAubakirov": {
+        "name": "Yelzhas Aubakirov",
+        "position": "Professor",
+        "education": "MBA, MSF, CFA, CMA",
+        "experience": "20 years of experience in finance, direct investments, venture capital and consulting",
+        "research": "Strategic investment and corporate finance",
+        "achievements": [
+          "Expert in deals and due diligence",
+          "Specialist in company valuation",
+          "Consultant for startups and large businesses"
+        ]
+      },
+      "olegAlfyorov": {
+        "name": "Oleg Alfyorov",
+        "position": "Professor",
+        "education": "International business schools: NTU, HKUST, SDA Bocconi, Darden School of Business",
+        "experience": "Over 25 years of project management experience in international projects",
+        "research": "International business development and strategic management",
+        "achievements": [
+          "Experience working in Poland, Slovakia, Netherlands, Sweden, Denmark",
+          "Internships in Netherlands and Sweden",
+          "International level business coach"
+        ]
+      },
+      "yuliaDmitrieva": {
+        "name": "Yulia Dmitrieva",
+        "position": "Associate Professor",
+        "education": "Head of JD Expert agency",
+        "experience": "20 years in marketing and sales",
+        "research": "Strategic marketing and business analytics",
+        "achievements": [
+          "120+ industry studies",
+          "40+ implemented projects in existing businesses",
+          "30+ years total partner support period"
+        ]
+      },
+      "irinaVigovskaya": {
+        "name": "Irina Vigovskaya",
+        "position": "Professor",
+        "education": "Internationally accredited business coach",
+        "experience": "Over 20 years of teaching and mediation practice experience",
+        "research": "Mediation and corporate governance",
+        "achievements": [
+          "UN Women partner in Kazakhstan and Central Asia",
+          "TRIZ facilitation expert",
+          "Management position experience"
+        ]
+      },
+      "liliyaBisengali": {
+        "name": "Liliya Bisengali",
+        "position": "Associate Professor",
+        "education": "PhD in Law",
+        "experience": "Over 15 years of experience in legal consulting",
+        "research": "International law and corporate governance",
+        "achievements": [
+          "Compliance Manager",
+          "Senior Legal Consultant (KPMG)",
+          "Risk management expert"
+        ]
+      },
+      "zeviraToleutaeva": {
+        "name": "Zevira Toleutaeva",
+        "position": "Professor",
+        "education": "K.эн, ACCA",
+        "experience": "Over 20 years of experience in auditing and consulting",
+        "research": "International financial reporting standards",
+        "achievements": [
+          "Member of the Advisory Body of the Ministry of Finance of the Republic of Kazakhstan",
+          "Expert in international financial reporting standards",
+          "IFRS and audit specialist"
+        ]
+      },
+      "kaisarMakan": {
+        "name": "Kaisar Makan",
+        "position": "Associate Professor",
+        "education": "MBA, Certified Business Trainer",
+        "experience": "Over 15 years of experience in corporate training",
+        "research": "Strategic planning and leadership development",
+        "achievements": [
+          "Facilitator",
+          "Professional international coach Erickson International Coach ICF",
+          "Expert in developing management competencies"
+        ]
+      },
+      "marinaNovotochina": {
+        "name": "Marina Novotochina",
+        "position": "Professor",
+        "education": "Doctor of Business Administration (DBA)",
+        "experience": "Over 25 years of experience in HR management",
+        "research": "Leadership development, change management and corporate culture",
+        "achievements": [
+          "Executive coach",
+          "Business trainer",
+          "HR consultant"
+        ]
+      },
+      "aleksandrChmel": {
+        "name": "Aleksandr Chmel",
+        "position": "Professor",
+        "education": "Author and lead instructor of courses on finance and corporate governance",
+        "experience": "Over 20 years of experience in corporate finance and strategic management",
+        "research": "Corporate finance, strategic management and leadership development",
+        "achievements": [
+          "Taught at Moscow School of Management 'Skolkovo'",
+          "Academy of Association of Independent Directors",
+          "GSBA MSU named after M.V. Lomonosov"
+        ]
+      },
+      "maratAtnashev": {
+        "name": "Marat Atnashev",
+        "position": "Professor",
+        "education": "Ambassador of the Academic Environment at Narxoz Business School",
+        "experience": "CEO MSM SKOLKOVO (2016-2019), Associate Harvard University",
+        "research": "Strategic development of business schools and academic programs",
+        "achievements": [
+          "CEO MSM SKOLKOVO (2016-2019)",
+          "Associate at Harvard University, Davis Center for Russian and Eurasian Studies",
+          "Expert in academic development and international education"
+        ]
+      },
+      "andreiLevchenko": {
+        "name": "Andrei Levchenko",
+        "position": "Associate Professor",
+        "education": "Expert, business practitioner",
+        "experience": "Over 20 years of experience in consulting and change management",
+        "research": "Organizational development, change management and operational efficiency",
+        "achievements": [
+          "Change implementation specialist",
+          "Improving people and process efficiency",
+          "Worked with major Russian and international companies"
+        ]
+      },
+      "nikolaiVerkhovsky": {
+        "name": "Nikolai Verkhovsky",
+        "position": "Associate Professor",
+        "education": "Developer of corporate programs and business games",
+        "experience": "Over 15 years of experience in strategic consulting",
+        "research": "Strategic planning, innovation management and organizational transformations",
+        "achievements": [
+          "Lead strategic and project sessions",
+          "Consultant in project and innovation management",
+          "Expert in corporate transformations"
+        ]
+      },
+      "maksimKiselev": {
+        "name": "Maksim Kiselev",
+        "position": "Professor",
+        "education": "Doctor of Social Psychology from Yale University",
+        "experience": "Over 25 years of experience in academic and corporate environment",
+        "research": "Management psychology, leadership and organizational behavior",
+        "achievements": [
+          "Top manager and expert in business education",
+          "Specialist in corporate relations and reputation",
+          "Expert in organizational behavior and leadership"
+        ]
+      },
+      "bulatMukushev": {
+        "name": "Bulat Mukushev",
+        "position": "Professor",
+        "education": "PhD, MBA HSE, MBA Yale University, CFA",
+        "experience": "Chairman of the Board of Directors of NAO 'Narxoz University'",
+        "research": "Alternative investments, investment analysis and business valuation",
+        "achievements": [
+          "Chairman of the Board of Directors of NAO 'Narxoz University'",
+          "PhD, MBA HSE 'Higher School of Economics'",
+          "MBA Yale University, USA (2003), CFA certificate"
+        ]
+      },
+      "farhadManteev": {
+        "name": "Farhad Manteev",
+        "position": "Professor",
+        "education": "Prosci® Certified Advanced Instructor",
+        "experience": "Over 8 years of experience in change management",
+        "research": "Process automation, corporate culture change, ERP system implementation",
+        "achievements": [
+          "Partner, head of office for Central Asia",
+          "Participated in major transformation programs",
+          "Specialist in transition to target business model"
+        ]
+      },
+      "gulmiraMukanova": {
+        "name": "Gulmira Mukanova",
+        "position": "Associate Professor",
+        "education": "Trainer-consultant in organizational changes",
+        "experience": "Specialist in personnel development in change support",
+        "research": "Conducting integration/facilitation sessions for developing team solutions",
+        "achievements": [
+          "Expert in business process transformation",
+          "Corporate culture specialist",
+          "Lean production methodologies"
+        ]
+      },
+      "akzharkynKnykova": {
+        "name": "Akzharkyn Knykova",
+        "position": "Associate Professor",
+        "education": "Licensed actuary",
+        "experience": "Instructor of the MBA 'Actuary' program",
+        "research": "Actuarial science, insurance calculations and risk management",
+        "achievements": [
+          "Member of the Society of Actuaries of Kazakhstan",
+          "Specialist in actuarial calculations",
+          "Expert in insurance mathematics"
+        ]
+      }
+    }
   },
   "administration": {
-    "title": "School Administration",
-    "subtitle": "Leadership of Narxoz Business School",
+    "title": "ADMINISTRATION",
+    "subtitle": "Narxoz Business School Leadership",
+    "description": "Professional management team with international experience, ensuring high quality education and business school development",
     "position": "Position",
     "responsibilities": "Responsibilities",
     "contact": "Contact",
-    "schedule": "Office Hours"
+    "schedule": "Office Hours",
+    "stats": {
+      "members": "Leadership Members",
+      "members_description": "Professional team",
+      "experience": "Years of Experience",
+      "experience_description": "Average per leader",
+      "effectiveness": "Efficiency",
+      "effectiveness_description": "Process management"
+    },
+    "leadership": {
+      "title": "Leadership Team",
+      "description": "Experienced managers with international education and years of work experience",
+      "more_details": "Read More →",
+      "click_for_details": "Click for details"
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "description": "Narxoz Business School Administration in numbers",
+      "members": "Leadership Members",
+      "members_description": "Professional team",
+      "experience": "Years of Experience",
+      "experience_description": "Average per leader",
+      "projects": "Management Projects",
+      "projects_description": "Successfully implemented",
+      "effectiveness": "Efficiency",
+      "effectiveness_description": "Process management"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Ready to answer your questions and provide additional information",
+      "email": "Email",
+      "email_description": "Write to us at the general address",
+      "phone": "Phone",
+      "phone_description": "Call the reception",
+      "address": "Address",
+      "address_description": "Come visit us",
+      "address_value": "Almaty, Zhandosova street, 55/10"
+    },
+    "modal": {
+      "education": "Education",
+      "experience": "Work Experience",
+      "responsibilities": "Responsibilities",
+      "achievements": "Achievements"
+    },
+    "members": [
+      {
+        "name": "Marina Obraztsova",
+        "position": "Director",
+        "department": "General Management",
+        "education": "Director of Narxoz Business School",
+        "experience": "Experience in academic management",
+        "image": "/images/img_rectangle_1178.png",
+        "responsibilities": [
+          "Strategic planning of business school development",
+          "Management of academic programs",
+          "International partnerships and accreditations",
+          "Development of research activities"
+        ],
+        "achievements": [
+          "Raised school ranking to top-10 in the region",
+          "Launched 5 new programs",
+          "Received 3 international accreditations",
+          "Increased revenue by 40% over 3 years"
+        ],
+        "email": "marina.obraztsova@narxoz.kz",
+        "phone": "+7 (727) 377-11-11"
+      },
+      {
+        "name": "Ewan Simpson",
+        "position": "Director of International Development",
+        "department": "International Relations",
+        "education": "Doctor, PhD",
+        "experience": "Experience in international development",
+        "image": "/images/img_rectangle_1205.png",
+        "responsibilities": [
+          "Development of international partnerships",
+          "Exchange and internship programs",
+          "International accreditations",
+          "Coordination with foreign universities"
+        ],
+        "achievements": [
+          "Signed 25 international agreements",
+          "Launched 8 exchange programs",
+          "Received 5 international accreditations",
+          "Increased number of international students by 200%"
+        ],
+        "email": "ewan.simpson@narxoz.kz",
+        "phone": "+7 (727) 377-11-12"
+      },
+      {
+        "name": "Aikerim Myrzatayeva",
+        "position": "Deputy Director",
+        "department": "Administrative Management",
+        "education": "Experience in academic management",
+        "experience": "Experience in educational management",
+        "image": "/images/img_rectangle_1206.png",
+        "responsibilities": [
+          "Coordination of administrative processes",
+          "Teaching quality management",
+          "Development of new courses and modules",
+          "Academic student counseling"
+        ],
+        "achievements": [
+          "Implemented teaching quality assessment system",
+          "Developed 12 new courses",
+          "Increased student satisfaction by 25%",
+          "Organized 20+ international conferences"
+        ],
+        "email": "aikerim.myrzatayeva@narxoz.kz",
+        "phone": "+7 (727) 377-11-13"
+      },
+      {
+        "name": "Agipa Monobaeva",
+        "position": "Academic Director",
+        "department": "Academic Programs",
+        "education": "Doctor of Philosophy (PhD)",
+        "experience": "Experience in academic leadership",
+        "image": "/images/img_rectangle_1207.png",
+        "responsibilities": [
+          "DBA program leadership",
+          "Academic program management",
+          "Research activity development",
+          "Coordination with faculty"
+        ],
+        "achievements": [
+          "Successfully launched DBA program",
+          "Increased number of publications by 60%",
+          "Created 3 research centers",
+          "Organized 8 international symposiums"
+        ],
+        "email": "agipa.monobaeva@narxoz.kz",
+        "phone": "+7 (727) 377-11-14"
+      },
+      {
+        "name": "Anna Anissimova",
+        "position": "Operations Director",
+        "department": "Operations Management",
+        "education": "Experience in operations management",
+        "experience": "Experience managing MBA, EMBA programs",
+        "image": "/images/Anna.png",
+        "responsibilities": [
+          "Operational management of MBA, EMBA programs",
+          "Academic process coordination",
+          "Resource management and planning",
+          "Education quality assurance"
+        ],
+        "achievements": [
+          "Optimized operational processes by 30%",
+          "Improved program efficiency by 25%",
+          "Implemented new learning technologies",
+          "Increased student satisfaction"
+        ],
+        "email": "anna.anissimova@narxoz.kz",
+        "phone": "+7 (727) 377-11-15"
+      },
+      {
+        "name": "Gulnar Zhumanova",
+        "position": "Director of CPE",
+        "department": "Additional Education",
+        "education": "Experience in education management",
+        "experience": "Experience in additional education",
+        "image": "/images/Gulnar.png",
+        "responsibilities": [
+          "Leadership of the Center for Additional and Professional Education",
+          "Development of additional education programs",
+          "Coordination with corporate clients",
+          "Program quality management"
+        ],
+        "achievements": [
+          "Launched 15 new additional education programs",
+          "Increased number of students by 50%",
+          "Signed 20+ corporate contracts",
+          "Improved quality of additional education programs"
+        ],
+        "email": "gulnar.zhumanova@narxoz.kz",
+        "phone": "+7 (727) 377-11-16"
+      },
+      {
+        "name": "Saltanat Abdelinova",
+        "position": "Head of CPF",
+        "department": "Applied Finance",
+        "education": "Experience in financial education",
+        "experience": "Experience in managing financial programs",
+        "image": "/images/Saltanat.png",
+        "responsibilities": [
+          "Leadership of the Center for Applied Finance",
+          "Development of financial programs",
+          "Coordination with financial institutions",
+          "Financial education quality management"
+        ],
+        "achievements": [
+          "Launched 8 new financial programs",
+          "Increased number of students by 40%",
+          "Signed 15+ partnerships with financial institutions",
+          "Improved quality of financial education"
+        ],
+        "email": "saltanat.abdelinova@narxoz.kz",
+        "phone": "+7 (727) 377-11-17"
+      }
+    ]
   },
   "graduates": {
     "title": "Graduates",
@@ -896,13 +1608,13 @@
         "text": "7% of universities in Central Asia"
       },
       {
-        "text": "Chartered Institute of Management Accountants"
+        "text": "In the process of accreditation"
       },
       {
         "text": "MBA QS"
       },
       {
-        "text": "In the process of accreditation"
+        "text": "Chartered Institute of Management Accountants"
       },
       {
         "text": "Accreditation & test center"
@@ -953,6 +1665,75 @@
   "supportNBS": {
     "title": "Support NBS",
     "subtitle": "Contribute to the development of business education",
+    "hero": {
+      "title": "ProBono. Become a program partner",
+      "subtitle": "Make a significant contribution to the development of the country and the world",
+      "supportButton": "Support",
+      "downloadPresentation": "Download Presentation"
+    },
+    "aboutProject": {
+      "title": "About the Project",
+      "mainTitle": "The only Executive MBA for leaders in the charity sector — systematic, comprehensive education with an international diploma.",
+      "description1": "Pro Bono Narxoz Business School is a special initiative that provides companies or individuals with the opportunity to act as grantors for leaders of Kazakhstan's charity industry for Executive MBA programs and make a significant contribution to the development of Kazakhstan and the world.",
+      "description2": "Program participants gain access to fundamental knowledge in NGO/NPO management and meet like-minded people to create a better future through systematic solutions to a wide range of socially significant problems.",
+      "description3": "We strive to support those who make the world better and develop cooperation with NGOs/NPOs to help you realize your potential and reach new heights."
+    },
+    "lectureSection": {
+      "title": "Pro Bono Narxoz Business School strives to support leaders who are ready to develop their skills and contribute to the development of Kazakhstan and the world."
+    },
+    "advantages": {
+      "title": "Project Advantages",
+      "community": {
+        "title": "Community",
+        "description": "In essence, fish text is an alternative to traditional lorem ipsum, which causes confusion in some people when"
+      },
+      "internationalStatus": {
+        "title": "International Status",
+        "description": "In essence, fish text is an alternative to traditional krem ipsum, which causes confusion in some people when"
+      },
+      "newLevelKnowledge": {
+        "title": "New Level Knowledge",
+        "description": "In essence, fish text is an alternative to traditional gr which causes confusion in some people when"
+      },
+      "projectSupport": {
+        "title": "Support for Your Projects",
+        "description": "In essence, fish text is an alternative to traditional hero which causes confusion in some people when"
+      }
+    },
+    "programDirections": {
+      "title": "In our program, we have combined two directions",
+      "npo": {
+        "title": "NPO",
+        "description": "UNESCO, World Bank, OECD confirm:",
+        "points": [
+          "NPO development contributes to sustainability and well-being",
+          "countries"
+        ]
+      },
+      "education": {
+        "title": "Education",
+        "description": "World Bank confirms:",
+        "points": [
+          "poverty reduction",
+          "health improvement",
+          "gender equality",
+          "income growth and innovation"
+        ]
+      }
+    },
+    "initiators": {
+      "title": "Program Initiators",
+      "dosCommunity": {
+        "title": "DOS community",
+        "description": "Platform for intellectual volunteering.",
+        "fullDescription": "We help socially oriented NGOs solve their operational tasks by attracting specialists and experts from various fields who provide pro bono services."
+      },
+      "narxozBusinessSchool": {
+        "title": "Narxoz Business School",
+        "description": "International Business School for managers and professionals.",
+        "fullDescription": "Practice-oriented programs for those who want to receive high-quality education in business management."
+      }
+    },
     "donate": "Donate",
     "sponsor": "Sponsor",
     "volunteer": "Volunteer",
@@ -971,5 +1752,38 @@
     "optional": "Optional",
     "submit": "Submit Application",
     "success": "Registration Successful"
+  },
+  "supportModal": {
+    "title": "Support the Project",
+    "subtitle": "Fill out the form to contribute to the project development",
+    "form": {
+      "supportType": "Support Type",
+      "donation": "Donation",
+      "sponsorship": "Sponsorship",
+      "volunteering": "Volunteering",
+      "partnership": "Partnership",
+      "amount": "Amount",
+      "amountPlaceholder": "Enter amount in tenge",
+      "name": "Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter phone number",
+      "company": "Company",
+      "companyPlaceholder": "Company name (optional)",
+      "message": "Message",
+      "messagePlaceholder": "Tell us how you want to support the project",
+      "cancel": "Cancel",
+      "submit": "Submit Application"
+    },
+    "success": {
+      "title": "Application Sent!",
+      "message": "Thank you for your support! We will contact you soon.",
+      "subtitle": "Modal will close automatically"
+    },
+    "error": {
+      "submission": "Error submitting application. Please try again."
+    }
   }
 }

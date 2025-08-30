@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import EditText from './EditText';
+import { useToast } from '../../hooks/useToast';
+import { useFormValidation } from '../../hooks/useFormValidation';
 
 const PresentationModal = ({ isOpen, onClose, onDownload, programName }) => {
+  const { showDownloadSuccess } = useToast();
+  const { validateApplicationForm, showValidationErrors } = useFormValidation();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,9 +31,10 @@ const PresentationModal = ({ isOpen, onClose, onDownload, programName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Проверяем, что все поля заполнены
-    if (!formData.name || !formData.email || !formData.phone) {
-      setError('Пожалуйста, заполните все обязательные поля');
+    const errors = validateApplicationForm(formData);
+    
+    if (errors.length > 0) {
+      showValidationErrors(errors);
       return;
     }
 
@@ -36,6 +42,7 @@ const PresentationModal = ({ isOpen, onClose, onDownload, programName }) => {
     console.log('Данные формы:', formData);
     
     // Показываем уведомление об успехе
+    showDownloadSuccess();
     setShowSuccess(true);
     
     // Через 3 секунды закрываем модальное окно и скачиваем файл

@@ -3,8 +3,13 @@ import Header from '../../../components/common/Header';
 import Footer from '../../../components/common/Footer';
 import Button from '../../../components/ui/Button';
 import EditText from '../../../components/ui/EditText';
+import { useToast } from '../../../hooks/useToast';
+import { useFormValidation } from '../../../hooks/useFormValidation';
 
 const ExecutiveMBACIO = () => {
+  const { showApplicationSuccess } = useToast();
+  const { validateApplicationForm, showValidationErrors } = useFormValidation();
+  
   const [activeModule, setActiveModule] = useState(null);
   const [showDocuments, setShowDocuments] = useState(false);
   const [formData, setFormData] = useState({
@@ -56,8 +61,16 @@ const ExecutiveMBACIO = () => {
   };
 
   const handleSubmit = () => {
+    const errors = validateApplicationForm(formData);
+    
+    if (errors.length > 0) {
+      showValidationErrors(errors);
+      return;
+    }
+    
     console.log('Заявка отправлена:', formData);
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+    showApplicationSuccess();
+    setFormData({ name: '', email: '', phone: '', company: '' });
   };
 
   // Калькулятор ROI ИТ-проектов

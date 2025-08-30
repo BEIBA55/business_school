@@ -4,6 +4,8 @@ import Footer from '../../../components/common/Footer';
 import Button from '../../../components/ui/Button';
 import EditText from '../../../components/ui/EditText';
 import PresentationModal from '../../../components/ui/PresentationModal';
+import { useToast } from '../../../hooks/useToast';
+import { useFormValidation } from '../../../hooks/useFormValidation';
 
 const features = [
   {
@@ -126,6 +128,9 @@ const modules = [
 ];
 
 const ExecutiveMBA = () => {
+  const { showApplicationSuccess } = useToast();
+  const { validateApplicationForm, showValidationErrors } = useFormValidation();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -142,8 +147,16 @@ const ExecutiveMBA = () => {
   };
 
   const handleSubmit = () => {
+    const errors = validateApplicationForm(formData);
+    
+    if (errors.length > 0) {
+      showValidationErrors(errors);
+      return;
+    }
+    
     console.log('Заявка отправлена:', formData);
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+    showApplicationSuccess();
+    setFormData({ name: '', email: '', phone: '', company: '' });
   };
 
   const handleDownloadPresentation = () => {

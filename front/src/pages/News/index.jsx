@@ -5,6 +5,7 @@ import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import NewsCard from './NewsCard';
 import Pagination from './Pagination';
+import { useTranslatedNews } from '../../data/translatedNewsData';
 
 const News = () => {
   const { t } = useTranslation();
@@ -14,226 +15,17 @@ const News = () => {
   const [sortBy, setSortBy] = useState('date');
   const newsPerPage = 8;
 
-  // Расширенные данные новостей о Нархоз с категориями и тегами
-  const allNews = [
-    {
-      id: 1,
-      image: '/images/experty.png',
-      category: 'events',
-      tags: ['Конференции', 'Эксперты'],
-      date: '18/07/2025',
-      readTime: '3 мин',
-      title: 'Топовые эксперты',
-      description:
-        'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента',
-      fullContent:
-        'Реальные руководители из реальных компаний на практике внедрявшие инструменты контрактного менеджмента. Наши эксперты имеют многолетний опыт работы в ведущих корпорациях и готовы поделиться своими знаниями со студентами Narxoz Business School.',
-    },
-    {
-      id: 2,
-      image: '/images/stud.png',
-      category: 'achievements',
-      tags: ['Рейтинги', 'QS'],
-      date: '18/07/2025',
-      readTime: '5 мин',
-      title: 'Narxoz Business School вошла в топ-50 лучших бизнес-школ Азии по версии QS',
-      description:
-        'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе.',
-      fullContent:
-        'Программа MBA Бизнес-школы Университета Нархоз заняла 42-е место в рейтинге QS Global MBA 2025 Asia и стала №1 в Центрально-Азиатском регионе. Это историческое достижение для казахстанского образования и признание высокого качества наших программ.',
-    },
-    {
-      id: 3,
-      image: '/images/Gradu.png',
-      category: 'programs',
-      tags: ['Executive MBA', 'Цифровизация'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Запущена новая программа Executive MBA с фокусом на цифровую трансформацию',
-      description:
-        'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям.',
-      fullContent:
-        'Narxoz Business School представила обновленную программу Executive MBA, которая включает модули по искусственному интеллекту и цифровым технологиям. Программа разработана в сотрудничестве с ведущими технологическими компаниями и включает практические проекты.',
-    },
-    {
-      id: 4,
-      image: '/images/gruppa.png',
-      category: 'events',
-      tags: ['Хакатон', 'Сингапур'],
-      date: '18/07/2025',
-      readTime: '6 мин',
-      title: 'Студенты MBA приняли участие в международном хакатоне в Сингапуре',
-      description:
-        'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами.',
-      fullContent:
-        'Команда Narxoz Business School заняла второе место на международном хакатоне по устойчивому развитию, организованном партнерскими университетами. Наши студенты представили инновационное решение для экологических проблем в регионе.',
-    },
-    {
-      id: 5,
-      image: '/images/detali.png',
-      category: 'infrastructure',
-      tags: ['Центр', 'Образование'],
-      date: '18/07/2025',
-      readTime: '3 мин',
-      title: 'Открыт новый корпоративный центр для Executive Education программ',
-      description:
-        'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы.',
-      fullContent:
-        'В кампусе Нархоз открылся современный корпоративный центр с инновационными аудиториями и пространствами для командной работы. Центр оснащен последними технологиями и создает идеальную среду для обучения руководителей.',
-    },
-    {
-      id: 6,
-      image: '/images/vipus.jpg',
-      category: 'achievements',
-      tags: ['Аккредитация', 'AACSB'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Narxoz Business School получила международную аккредитацию AACSB',
-      description:
-        'Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International.',
-      fullContent:
-        'Бизнес-школа Нархоз стала первой в Центральной Азии, получившей престижную аккредитацию AACSB International. Это подтверждает соответствие наших программ мировым стандартам качества образования.',
-    },
-    {
-      id: 7,
-      image: '/images/EMBA_fon.png',
-      category: 'partnerships',
-      tags: ['Harvard', 'London Business School'],
-      date: '18/07/2025',
-      readTime: '5 мин',
-      title: 'Партнерство с ведущими мировыми университетами',
-      description:
-        'Подписаны соглашения о сотрудничестве с Harvard Business School и London Business School для обмена студентами и преподавателями.',
-      fullContent:
-        'Подписаны соглашения о сотрудничестве с Harvard Business School и London Business School для обмена студентами и преподавателями. Это открывает новые возможности для наших студентов и преподавателей.',
-    },
-    {
-      id: 8,
-      image: '/images/MBA.png',
-      category: 'programs',
-      tags: ['MBA', 'Устойчивое развитие'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Запуск программы MBA в области устойчивого развития',
-      description:
-        'Новая специализация MBA фокусируется на экологических, социальных и управленческих аспектах современного бизнеса.',
-      fullContent:
-        'Новая специализация MBA фокусируется на экологических, социальных и управленческих аспектах современного бизнеса. Программа готовит лидеров, способных создавать устойчивый бизнес будущего.',
-    },
-    {
-      id: 9,
-      image: '/images/ACCA.png',
-      category: 'achievements',
-      tags: ['Конкурс', 'EFMD'],
-      date: '18/07/2025',
-      readTime: '3 мин',
-      title: 'Студенты Narxoz заняли первое место на международном конкурсе бизнес-кейсов',
-      description:
-        'Команда MBA студентов победила в престижном конкурсе, организованном European Foundation for Management Development.',
-      fullContent:
-        'Команда MBA студентов победила в престижном конкурсе, организованном European Foundation for Management Development. Наши студенты показали высокий уровень аналитических и презентационных навыков.',
-    },
-    {
-      id: 10,
-      image: '/images/CEEMAN.png',
-      category: 'infrastructure',
-      tags: ['Инновации', 'Стартапы'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Открытие Центра инноваций и предпринимательства',
-      description:
-        'Новый центр предоставляет студентам возможности для развития стартапов и инновационных проектов.',
-      fullContent:
-        'Новый центр предоставляет студентам возможности для развития стартапов и инновационных проектов. Центр оснащен современным оборудованием и предоставляет менторскую поддержку.',
-    },
-    {
-      id: 11,
-      image: '/images/Ranked.png',
-      category: 'achievements',
-      tags: ['Рейтинги', 'THE'],
-      date: '18/07/2025',
-      readTime: '3 мин',
-      title: 'Narxoz вошел в топ-100 лучших университетов развивающихся стран',
-      description:
-        'Университет Нархоз улучшил свои позиции в рейтинге Times Higher Education Emerging Economies University Rankings.',
-      fullContent:
-        'Университет Нархоз улучшил свои позиции в рейтинге Times Higher Education Emerging Economies University Rankings. Это подтверждает высокое качество образования и исследований.',
-    },
-    {
-      id: 12,
-      image: '/images/ERG.png',
-      category: 'partnerships',
-      tags: ['ERG', 'Kazzinc'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Сотрудничество с крупнейшими корпорациями Казахстана',
-      description:
-        'Подписаны меморандумы о сотрудничестве с ERG, Kazzinc и другими ведущими компаниями для стажировок студентов.',
-      fullContent:
-        'Подписаны меморандумы о сотрудничестве с ERG, Kazzinc и другими ведущими компаниями для стажировок студентов. Это обеспечивает практическую подготовку наших выпускников.',
-    },
-    {
-      id: 13,
-      image: '/images/Beeline.png',
-      category: 'programs',
-      tags: ['Цифровой маркетинг', 'Аналитика'],
-      date: '18/07/2025',
-      readTime: '5 мин',
-      title: 'Запуск программы цифрового маркетинга',
-      description:
-        'Новая программа MBA специализации включает современные инструменты цифрового маркетинга и аналитики данных.',
-      fullContent:
-        'Новая программа MBA специализации включает современные инструменты цифрового маркетинга и аналитики данных. Программа разработана в сотрудничестве с ведущими digital-агентствами.',
-    },
-    {
-      id: 14,
-      image: '/images/Halyk.png',
-      category: 'partnerships',
-      tags: ['Halyk Bank', 'Финансы'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Партнерство с Halyk Bank для финансового образования',
-      description:
-        'Совместная программа подготовки специалистов в области финансов и банковского дела.',
-      fullContent:
-        'Совместная программа подготовки специалистов в области финансов и банковского дела. Программа включает стажировки в банке и практические проекты.',
-    },
-    {
-      id: 15,
-      image: '/images/forte.png',
-      category: 'events',
-      tags: ['Конференция', 'Международная'],
-      date: '18/07/2025',
-      readTime: '6 мин',
-      title: 'Международная конференция по бизнес-образованию',
-      description:
-        'Narxoz Business School провела крупнейшую в регионе конференцию с участием экспертов из 25 стран.',
-      fullContent:
-        'Narxoz Business School провела крупнейшую в регионе конференцию с участием экспертов из 25 стран. Конференция стала платформой для обмена опытом и установления новых партнерств.',
-    },
-    {
-      id: 16,
-      image: '/images/alag.png',
-      category: 'programs',
-      tags: ['Женское лидерство', 'Развитие'],
-      date: '18/07/2025',
-      readTime: '4 мин',
-      title: 'Программа поддержки женского лидерства',
-      description:
-        'Запущена специальная программа для развития лидерских качеств у женщин в бизнесе.',
-      fullContent:
-        'Запущена специальная программа для развития лидерских качеств у женщин в бизнесе. Программа включает менторство, коучинг и сетевые мероприятия.',
-    },
-  ];
+    // Используем переведенные новости
+  const allNews = useTranslatedNews();
 
   // Категории для фильтрации
   const categories = [
-    { key: 'all', label: 'Все' },
-    { key: 'events', label: 'События' },
-    { key: 'achievements', label: 'Достижения' },
-    { key: 'programs', label: 'Программы' },
-    { key: 'partnerships', label: 'Партнерства' },
-    { key: 'infrastructure', label: 'Инфраструктура' }
+    { key: 'all', label: t('news.allCategories') },
+    { key: 'events', label: t('news.events') },
+    { key: 'achievements', label: t('news.achievements') },
+    { key: 'programs', label: t('news.programs') },
+    { key: 'partnerships', label: t('news.partnerships') },
+    { key: 'infrastructure', label: t('news.infrastructure') }
   ];
 
   // Фильтрация и поиск
@@ -241,7 +33,7 @@ const News = () => {
     const matchesSearch =
       news.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       news.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      news.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+      (news.tags && news.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase())));
 
     const matchesCategory = selectedCategory === 'all' || news.category === selectedCategory;
 
@@ -251,7 +43,8 @@ const News = () => {
   // Сортировка
   const sortedNews = [...filteredNews].sort((a, b) => {
     if (sortBy === 'date') {
-      return new Date(b.date) - new Date(a.date);
+      // Используем ID для сортировки, так как дата одинаковая
+      return b.id - a.id;
     }
     if (sortBy === 'title') {
       return a.title.localeCompare(b.title);
@@ -301,16 +94,16 @@ const News = () => {
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             {/* Search */}
             <div className="flex-1 max-w-md">
-              <div className="relative">
+              <div className="relative group">
                 <input
                   type="text"
                   placeholder={t('news.searchPlaceholder', 'Поиск новостей...')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 bg-white hover:bg-gray-50 focus:bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                 />
                 <svg
-                  className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-red-500 transition-colors duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -322,6 +115,16 @@ const News = () => {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 hover:text-red-500 transition-colors duration-200"
+                  >
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
 
@@ -331,10 +134,10 @@ const News = () => {
                 <button
                   key={category.key}
                   onClick={() => setSelectedCategory(category.key)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 ${
                     selectedCategory === category.key
-                      ? 'bg-red-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-200'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-red-200 hover:text-red-600'
                   }`}
                 >
                   {t(`news.${category.key === 'all' ? 'allCategories' : category.key}`)}
@@ -343,17 +146,27 @@ const News = () => {
             </div>
 
             {/* Sort */}
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-600 text-sm">{t('news.sortBy', 'Сортировать:')}</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-              >
-                <option value="date">{t('news.sortByDate', 'По дате')}</option>
-                <option value="title">{t('news.sortByTitle', 'По названию')}</option>
-                <option value="category">{t('news.sortByCategory', 'По категории')}</option>
-              </select>
+            <div className="flex items-center space-x-3">
+              <span className="text-gray-600 text-sm font-medium">{t('news.sortBy', 'Сортировать:')}</span>
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="appearance-none px-4 py-2.5 pr-10 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 bg-white hover:bg-gray-50 focus:bg-white shadow-sm hover:shadow-md focus:shadow-lg cursor-pointer"
+                >
+                  <option value="date">{t('news.sortByDate', 'По дате')}</option>
+                  <option value="title">{t('news.sortByTitle', 'По названию')}</option>
+                  <option value="category">{t('news.sortByCategory', 'По категории')}</option>
+                </select>
+                <svg
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -364,40 +177,66 @@ const News = () => {
         <div className="max-w-7xl mx-auto">
           {/* Results Info */}
           <div className="mb-8 text-center">
-            <p className="text-gray-600">
-              {searchQuery && selectedCategory !== 'all' 
-                ? t('news.foundResultsInCategory', { 
-                    count: sortedNews.length, 
-                    category: t(`news.${selectedCategory}`)
-                  })
-                : searchQuery 
-                ? t('news.foundResultsWithQuery', { 
-                    count: sortedNews.length, 
-                    query: searchQuery 
-                  })
-                : t('news.foundResults', { count: sortedNews.length })
-              }
-            </p>
+            <div className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full border border-gray-200">
+              <svg className="w-5 h-5 text-gray-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+              </svg>
+              <p className="text-gray-700 font-medium">
+                {searchQuery && selectedCategory !== 'all' 
+                  ? t('news.foundResultsInCategory', { 
+                      count: sortedNews.length, 
+                      category: t(`news.${selectedCategory}`)
+                    })
+                  : searchQuery 
+                  ? t('news.foundResultsWithQuery', { 
+                      count: sortedNews.length, 
+                      query: searchQuery 
+                    })
+                  : t('news.foundResults', { count: sortedNews.length })
+                }
+              </p>
+            </div>
           </div>
 
           {/* News Grid */}
           {currentNews.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 auto-rows-fr">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 auto-rows-fr">
               {currentNews.map((news, index) => (
-                <div key={news.id} className="news-card-animate">
+                <div 
+                  key={news.id} 
+                  className="news-card-animate"
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                    animationFillMode: 'both'
+                  }}
+                >
                   <NewsCard news={news} />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <div className="text-gray-400 text-6xl mb-4">📰</div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">
+            <div className="text-center py-20">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-6">
+                <svg className="w-10 h-10 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-700 mb-3">
                 {t('news.noNewsFound', 'Новости не найдены')}
               </h3>
-              <p className="text-gray-500">
+              <p className="text-gray-500 max-w-md mx-auto leading-relaxed">
                 {t('news.noNewsFoundDescription', 'Попробуйте изменить параметры поиска или фильтры')}
               </p>
+              <button
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategory('all');
+                  setSortBy('date');
+                }}
+                className="mt-6 px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors duration-300 font-medium"
+              >
+                Сбросить фильтры
+              </button>
             </div>
           )}
 

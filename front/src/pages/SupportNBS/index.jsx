@@ -1,10 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import Button from '../../components/ui/Button';
+import SupportModal from '../../components/ui/SupportModal';
 
 const SupportNBS = () => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = React.useState(false);
+  const [isSupportModalOpen, setIsSupportModalOpen] = React.useState(false);
   const sectionRef = React.useRef(null);
 
   // CSS анимации
@@ -64,8 +68,8 @@ const SupportNBS = () => {
 
   const advantages = [
     {
-      title: 'Коммьюнити',
-      description: 'По своей сути рыбагенст является альтернативой традиционному lorem ipsum, который вызывает у нактарых людей недоумении при',
+      title: t('supportNBS.advantages.community.title'),
+      description: t('supportNBS.advantages.community.description'),
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9ZM19 9H14V4H5V21H19V9ZM16 13C16 11.9 15.1 11 14 11C12.9 11 12 11.9 12 13C12 14.1 12.9 15 14 15C15.1 15 16 14.1 16 13ZM18 19H10V17C10 15.9 10.9 15 12 15C13.1 15 14 15.9 14 17V19H18Z"/>
@@ -74,8 +78,8 @@ const SupportNBS = () => {
       highlighted: false
     },
     {
-      title: 'Международный статус',
-      description: 'По-своей сути рыбатекст валются альтернативой традиционному krem ipsum, который вызывает у некторых людей недоумение при',
+      title: t('supportNBS.advantages.internationalStatus.title'),
+      description: t('supportNBS.advantages.internationalStatus.description'),
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12Z"/>
@@ -84,8 +88,8 @@ const SupportNBS = () => {
       highlighted: false
     },
     {
-      title: 'Знания нового уровня',
-      description: 'По своей сути рыбатонст палвется альтернативой традиционному гр который вызывает у накторых людей наддуние при',
+      title: t('supportNBS.advantages.newLevelKnowledge.title'),
+      description: t('supportNBS.advantages.newLevelKnowledge.description'),
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2L2 7V10C2 16.08 6.38 21.55 12 23C17.62 21.55 22 16.08 22 10V7L12 2ZM12 20C7.58 18.95 4 15.05 4 10V8.5L12 4L20 8.5V10C20 15.05 16.42 18.95 12 20ZM12 6C9.24 6 7 8.24 7 11C7 13.76 9.24 16 12 16C14.76 16 17 13.76 17 11C17 8.24 14.76 6 12 6ZM12 14C10.34 14 9 12.66 9 11C9 9.34 10.34 8 12 8C13.66 8 15 9.34 15 11C15 12.66 13.66 14 12 14Z"/>
@@ -94,8 +98,8 @@ const SupportNBS = () => {
       highlighted: false
     },
     {
-      title: 'Поддержка ваших проектов',
-      description: 'По своей сути рыбалист является альтернативой традиционному героит который вызывает у некторыя людий надрумение при',
+      title: t('supportNBS.advantages.projectSupport.title'),
+      description: t('supportNBS.advantages.projectSupport.description'),
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 2L2 7V10C2 16.08 6.38 21.55 12 23C17.62 21.55 22 16.08 22 10V7L12 2ZM12 20C7.58 18.95 4 15.05 4 10V8.5L12 4L20 8.5V10C20 15.05 16.42 18.95 12 20ZM12 6C9.24 6 7 8.24 7 11C7 13.76 9.24 16 12 16C14.76 16 17 13.76 17 11C17 8.24 14.76 6 12 6ZM12 14C10.34 14 9 12.66 9 11C9 9.34 10.34 8 12 8C13.66 8 15 9.34 15 11C15 12.66 13.66 14 12 14Z"/>
@@ -107,37 +111,36 @@ const SupportNBS = () => {
 
   const programDirections = [
     {
-      title: 'НПО',
-      description: 'UNESCO, Всемирный банк, OECD подтверждают:',
-      points: ['Развитие НПО способствует устойчивости и благополучию', 'стран']
+      title: t('supportNBS.programDirections.npo.title'),
+      description: t('supportNBS.programDirections.npo.description'),
+      points: t('supportNBS.programDirections.npo.points', { returnObjects: true })
     },
     {
-      title: 'Образование',
-      description: 'Всемирный банк подтверждает:',
-      points: ['сокращение бедности', 'улучшение здоровья', 'гендерное равенство', 'рост доходов и инноваций']
+      title: t('supportNBS.programDirections.education.title'),
+      description: t('supportNBS.programDirections.education.description'),
+      points: t('supportNBS.programDirections.education.points', { returnObjects: true })
     }
   ];
 
   const initiators = [
     {
-      title: 'DOS community',
-      description: 'Платформа для интеллектуального волонтёрства.',
-      fullDescription: 'Мы помогаем социально ориентированным НКО в решении их операционных задач путём привлечения специалистов и экспертов из разных сфер, оказывающих услуги pro bono.',
+      title: t('supportNBS.initiators.dosCommunity.title'),
+      description: t('supportNBS.initiators.dosCommunity.description'),
+      fullDescription: t('supportNBS.initiators.dosCommunity.fullDescription'),
       image: '/images/dos.png',
       bgColor: 'bg-[#A4AADA]'
     },
     {
-      title: 'Narxoz Business School',
-      description: 'Международная Бизнес-Школа для управленцев и профессионалов.',
-      fullDescription: 'Практикоориентированные программы для тех, кто хочет получить высококачественное образование в области управление бизнесом.',
+      title: t('supportNBS.initiators.narxozBusinessSchool.title'),
+      description: t('supportNBS.initiators.narxozBusinessSchool.description'),
+      fullDescription: t('supportNBS.initiators.narxozBusinessSchool.fullDescription'),
       image: '/images/NBS.png',
       bgColor: 'bg-red-800'
     }
   ];
 
   const handleSupport = () => {
-    // Логика для поддержки
-    console.log('Поддержать проект');
+    setIsSupportModalOpen(true);
   };
 
   const handleDownloadPresentation = () => {
@@ -160,23 +163,21 @@ const SupportNBS = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">
-              <span className="text-red-600 font-bold">ProBono.</span>
-              <span className="text-black"> Станьте партнером программы</span>
-              <span className="text-red-600"> Внесите значимый вклад</span>
-              <span className="text-black"> в развитие страны и мира</span>
+              <span className="text-red-600 font-bold">{t('supportNBS.hero.title')}</span>
+              <span className="text-black"> {t('supportNBS.hero.subtitle')}</span>
               </h1>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
                 <Button
                   onClick={handleSupport}
                   className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors"
                 >
-                  Поддержать
+                  {t('supportNBS.hero.supportButton')}
                 </Button>
                          <Button
            onClick={handleDownloadPresentation}
            className="bg-[#991E1E] text-white px-8 py-3 rounded-lg hover:bg-[#7A1818] transition-colors"
          >
-           Скачать презентацию
+           {t('supportNBS.hero.downloadPresentation')}
          </Button>
               </div>
           </div>
@@ -184,7 +185,7 @@ const SupportNBS = () => {
           <div className="w-full h-[600px] rounded-lg overflow-hidden">
             <img
               src="/images/probro.png"
-              alt="Группа людей на природе"
+              alt={t('supportNBS.hero.title')}
               className="w-full h-full object-cover"
             />
           </div>
@@ -197,22 +198,22 @@ const SupportNBS = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="space-y-6">
               <div className="inline-block bg-white border border-gray-300 rounded-full px-4 py-2 text-sm" style={{ color: '#991E1E' }}>
-                О проекте
+                {t('supportNBS.aboutProject.title')}
               </div>
               <h2 className="text-3xl font-bold leading-tight" style={{ color: '#991E1E' }}>
-                Единственная Executive МВА для лидеров в сфере благотворительности — системное, комплексное образование с международным дипломом.
+                {t('supportNBS.aboutProject.mainTitle')}
               </h2>
             </div>
 
             <div className="space-y-6 text-gray-700">
               <p>
-                <strong style={{ color: '#991E1E' }}>Pro Bono Narxoz Business School</strong> это специальная инициатива, предоставляющая возможность компаниям или физическим лицам выступить грантодателями для лидеров благотворительной индустрии Казахстана на программы Executive MBA и внести значительный вклад в развитие Казахстана и мира.
+                <strong style={{ color: '#991E1E' }}>Pro Bono Narxoz Business School</strong> {t('supportNBS.aboutProject.description1')}
               </p>
               <p>
-                Слушатели программы получают доступ к фундаментальным знаниям в сфере управления НПО / НКО и знакомятся с единомышленниками, чтобы творить лучшее будущее через системное решение широкого спектра социально значимых проблем.
+                {t('supportNBS.aboutProject.description2')}
               </p>
               <p>
-                Мы стремимся поддерживать тех, кто делает мир лучше, и развиваем сотрудничество с НПО/НКО, чтобы помочь вам реализовать ваш потенциал и достигнуть новых высот.
+                {t('supportNBS.aboutProject.description3')}
               </p>
             </div>
           </div>
@@ -224,13 +225,13 @@ const SupportNBS = () => {
         <div className="w-full h-screen relative">
           <img
             src="/images/opis.png"
-            alt="Лекция в аудитории"
+            alt={t('supportNBS.lectureSection.title')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
             <div className="text-center text-white max-w-4xl px-8">
               <p className="text-3xl font-bold">
-                <span className="text-red-400">Pro Bono Narxoz Business School</span> стремится поддерживать лидеров, которые готовы развивать свои навыки и вносить вклад в развитие Казахстана и мира.
+                <span className="text-red-400">Pro Bono Narxoz Business School</span> {t('supportNBS.lectureSection.title')}
               </p>
             </div>
           </div>
@@ -242,7 +243,7 @@ const SupportNBS = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-block bg-white border border-red-600 rounded-full px-6 py-2 mb-6">
-              <span className="text-black font-medium">Преимущества проекта</span>
+              <span className="text-black font-medium">{t('supportNBS.advantages.title')}</span>
             </div>
           </div>
           
@@ -296,8 +297,7 @@ const SupportNBS = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#991E1E] leading-tight">
-              В нашей программе<br />
-              мы объединили два направления
+              {t('supportNBS.programDirections.title')}
             </h2>
           </div>
           
@@ -312,13 +312,13 @@ const SupportNBS = () => {
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)'
                 }}
               >
-                <div className="w-full h-56 bg-gradient-to-br from-[#991E1E] to-[#B91C1C] rounded-lg mb-8 relative overflow-hidden">
+                <div className="w-full h-56 rounded-lg mb-8 relative overflow-hidden shadow-lg">
+                  <img
+                    src={direction.title === t('supportNBS.programDirections.npo.title') ? '/images/ProBornNPO.png' : '/images/ProBornObrz.png'}
+                    alt={direction.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-white text-6xl opacity-20">
-                      {direction.title === 'НПО' ? '🌍' : '📚'}
-                    </div>
-                  </div>
                 </div>
                 <h3 className="text-3xl font-bold text-[#991E1E] mb-6 group-hover:text-[#B91C1C] transition-colors duration-300">
                   {direction.title}
@@ -352,7 +352,7 @@ const SupportNBS = () => {
       <div className="bg-gray-50 py-20">
         <div className="w-full">
           <div className="text-center mb-12 px-8">
-            <h2 className="text-3xl font-bold text-gray-800">Инициаторы программы</h2>
+            <h2 className="text-3xl font-bold text-gray-800">{t('supportNBS.initiators.title')}</h2>
           </div>
           
           <div className="space-y-12">
@@ -378,6 +378,12 @@ const SupportNBS = () => {
           </div>
         </div>
       </div>
+
+      {/* Support Modal */}
+      <SupportModal 
+        isOpen={isSupportModalOpen} 
+        onClose={() => setIsSupportModalOpen(false)} 
+      />
 
       <Footer />
     </div>

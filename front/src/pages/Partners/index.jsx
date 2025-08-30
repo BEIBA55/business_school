@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import ContactModal from '../../components/ui/ContactModal';
 
 const Partners = () => {
   const { t } = useTranslation();
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   
   const trustPartners = [
     { src: '/images/RG_gold.png', name: 'RG Gold', url: 'https://rg-gold.com' },
@@ -215,6 +217,7 @@ const Partners = () => {
             {t('partners.cta.subtitle')}
           </p>
           <button
+            onClick={() => setIsContactModalOpen(true)}
             className="bg-white text-[#991E1E] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 slide-in-up"
             style={{ animationDelay: '0.4s' }}
           >
@@ -224,6 +227,11 @@ const Partners = () => {
       </div>
 
       <Footer />
+      
+      <ContactModal 
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </div>
   );
 };

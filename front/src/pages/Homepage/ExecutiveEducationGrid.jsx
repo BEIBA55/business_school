@@ -18,7 +18,7 @@ const ExecutiveEducationGrid = () => {
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
-              <span className="text-white font-medium text-sm">Подробнее</span>
+              <span className="text-white font-medium text-sm">{t('homepage.executiveEducationGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
               <svg
@@ -38,7 +38,7 @@ const ExecutiveEducationGrid = () => {
                  {/* Ряд 1, Колонка 3: Mini-MBA */}
          <Link
            to="/programs/mini-mba"
-           className="bg-[#DC2626] text-white flex flex-col justify-center items-center relative rounded-[40px] border border-gray-200 h-full w-full p-6"
+           className="bg-[#E94848] text-white flex flex-col justify-center items-center relative rounded-[40px] border border-gray-200 h-full w-full p-6"
          >
           <span className="text-4xl md:text-5xl font-medium leading-tight text-center">
             {t('homepage.executiveEducationGrid.miniMba.title')}
@@ -48,7 +48,7 @@ const ExecutiveEducationGrid = () => {
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
-              <span className="text-white font-medium text-sm">Подробнее</span>
+              <span className="text-white font-medium text-sm">{t('homepage.executiveEducationGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
               <svg
@@ -68,7 +68,7 @@ const ExecutiveEducationGrid = () => {
                  {/* Ряд 1, Колонка 4: Фото выпускников */}
          <div className="bg-white flex flex-col justify-center items-center rounded-[40px] border border-gray-200 h-full w-full overflow-hidden p-0">
           <img
-            src="/images/graduat.jpg"
+            src="/images/treningiphoto.png"
             alt="Graduates"
             className="object-cover w-full h-full"
           />
@@ -84,7 +84,7 @@ const ExecutiveEducationGrid = () => {
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-[#991E1E] rounded-full px-4 py-1">
-              <span className="text-[#991E1E] font-medium text-sm">Подробнее</span>
+              <span className="text-[#991E1E] font-medium text-sm">{t('homepage.executiveEducationGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-[#991E1E] rounded-full w-7 h-7 ml-0">
               <svg
@@ -118,7 +118,7 @@ const ExecutiveEducationGrid = () => {
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
-              <span className="text-white font-medium text-sm">Подробнее</span>
+              <span className="text-white font-medium text-sm">{t('homepage.executiveEducationGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
               <svg
@@ -138,7 +138,7 @@ const ExecutiveEducationGrid = () => {
         {/* Ряд 2, Колонка 4: Тренинги */}
         <Link
           to="/programs/trainings"
-          className="bg-[#DC2626] text-white flex flex-col justify-center items-center relative rounded-[40px] border border-gray-200 h-full w-full p-6"
+          className="bg-[#E94848] text-white flex flex-col justify-center items-center relative rounded-[40px] border border-gray-200 h-full w-full p-6"
         >
           <span className="text-4xl md:text-5xl font-medium leading-tight text-center">
             {t('homepage.executiveEducationGrid.trainings.title')}
@@ -148,7 +148,7 @@ const ExecutiveEducationGrid = () => {
           </span>
           <div className="flex items-center mt-4">
             <div className="flex items-center border-2 border-white rounded-full px-4 py-1">
-              <span className="text-white font-medium text-sm">Подробнее</span>
+              <span className="text-white font-medium text-sm">{t('homepage.executiveEducationGrid.more')}</span>
             </div>
             <div className="flex items-center border-2 border-white rounded-full w-7 h-7 ml-0">
               <svg

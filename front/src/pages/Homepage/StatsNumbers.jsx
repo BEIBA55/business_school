@@ -59,33 +59,8 @@ const StatsNumbers = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // Статистика как на скриншоте
-  const stats = [
-    {
-      value: "17",
-      label: "лет",
-      description: "Narxoz Business School с 2008 на рынке",
-      prefix: "Более"
-    },
-    {
-      value: "2 500",
-      label: "корпоративных клиентов",
-      description: "",
-      prefix: "Более"
-    },
-    {
-      value: "3 500",
-      label: "выпускников программ MBA, Executive MBA, DBA",
-      description: "",
-      prefix: "Более"
-    },
-    {
-      value: "150 000",
-      label: "Выпускники Narxoz занимают руководящие позиции в крупнейших компаниях Казахстана и за рубежом",
-      description: "",
-      prefix: "Более"
-    }
-  ];
+  // Статистика из переводов
+  const stats = t('homepage.statsSection.stats', { returnObjects: true });
 
   useEffect(() => {
     const observer = new IntersectionObserver(

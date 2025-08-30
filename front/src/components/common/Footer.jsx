@@ -39,7 +39,6 @@ const Footer = () => {
       id: 'students',
       title: t('homepage.footer.students'),
       links: [
-        { to: '/schedule', text: t('homepage.footer.links.schedule') },
         { to: '/events', text: t('homepage.footer.links.events') },
         { to: '/news', text: t('homepage.footer.links.news') },
         { to: '/library', text: t('homepage.footer.links.library') },
@@ -146,9 +145,9 @@ const Footer = () => {
                       />
                     </svg>
                     <div className="text-gray-600 text-sm leading-relaxed">
-                      г. Алматы, ул. Жандосова, 55
+                      {t('homepage.footer.address')}
                       <br />
-                      Республика Казахстан, 050035
+                      {t('homepage.footer.country')}
                     </div>
                   </div>
                   <a
@@ -290,14 +289,6 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li>
                   <Link
-                    to="/schedule"
-                    className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
-                  >
-                    {t('homepage.footer.links.schedule')}
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/events"
                     className="text-gray-600 hover:text-red-600 transition-colors cursor-pointer"
                   >
@@ -351,9 +342,9 @@ const Footer = () => {
                       />
                     </svg>
                     <span className="text-sm leading-relaxed">
-                      г. Алматы, ул. Жандосова, 55
+                      {t('homepage.footer.address')}
                       <br />
-                      Республика Казахстан, 050035
+                      {t('homepage.footer.country')}
                     </span>
                   </div>
                 </li>
